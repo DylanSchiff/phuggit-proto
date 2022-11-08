@@ -1,4 +1,19 @@
 import styled from "styled-components";
-const AppContents = styled.div``;
-const App = () => <AppContents></AppContents>;
+import IconTray from "./icon-tray.component";
+
+const AppContents = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+`;
+
+const App = () => {
+    return (
+        <AppContents>
+            <IconTray />
+        </AppContents>
+    );
+};
 export default App;
