@@ -1,9 +1,7 @@
+import { useContext } from "react";
 import styled from "styled-components";
 import Icon from "./icon.component";
-const FAKEICONS = [
-    { id: "icon-1", isClicked: false },
-    { id: "icon-2", isClicked: false },
-];
+import { DisplayContext } from "./icon.context";
 
 const IconTrayContainer = styled.div`
     display: flex;
@@ -14,10 +12,22 @@ const IconTrayContainer = styled.div`
 `;
 
 const IconTray = () => {
+    const { currentDisplay } = useContext(DisplayContext);
+
+    const FAKEICONS = [
+        { id: "icon-1", isClicked: false },
+        { id: "icon-2", isClicked: false },
+    ];
     return (
         <IconTrayContainer>
             {FAKEICONS.map((icon) => {
-                return <Icon key={icon.id}></Icon>;
+                return (
+                    <Icon
+                        key={icon.id}
+                        icon={icon}
+                        hoverState={currentDisplay === icon.id ? true : false}
+                    ></Icon>
+                );
             })}
         </IconTrayContainer>
     );

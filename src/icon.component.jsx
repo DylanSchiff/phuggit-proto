@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styled from "styled-components";
+import { DisplayContext } from "./icon.context";
 
 const IconContainer = styled.div`
     /* position: absolute;
@@ -69,39 +70,23 @@ const IconImage = styled.img`
     object-fit: cover;
 `;
 
-const Icon = () => {
-
+const Icon = ({ icon, hoverState }) => {
     const unmovedHolographic = "translate(-90px, -90px)";
     const movedHolographic = "translate(90px, 90px)";
     const unmovedIcon = "translate( 0px , 0px )";
     const movedIcon = "translate( -0px , -20px )";
-
-    const [isIconMoved, setIsIconMoved] = useState(unmovedIcon);
-
-    const toggleIcon = () =>
-        isIconMoved === unmovedIcon
-            ? setIsIconMoved(movedIcon)
-            : setIsIconMoved(unmovedIcon);
-
-    const [motionHolographic, setMotionHolographic] =
-        useState(unmovedHolographic);
-
-    const toggleHolographic = () =>
-        motionHolographic === unmovedHolographic
-            ? setMotionHolographic(movedHolographic)
-            : setMotionHolographic(unmovedHolographic);
-
-    const toggleMovement = () => {
-        toggleHolographic();
-        toggleIcon();
-    };
-
+    const { setCurrentDisplay } = useContext(DisplayContext);
+    const toggleMovement = () => setCurrentDisplay(icon.id);
     return (
         <IconContainer
             onClick={() => toggleMovement()}
-            isIconMoved={isIconMoved}
+            isIconMoved={hoverState ? movedIcon : unmovedIcon}
         >
-            <IconHolographic motionHolographic={motionHolographic} />
+            <IconHolographic
+                motionHolographic={
+                    hoverState ? movedHolographic : unmovedHolographic
+                }
+            />
             <IconPanel>
                 <IconImage />
             </IconPanel>
