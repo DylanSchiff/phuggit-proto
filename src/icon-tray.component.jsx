@@ -2,6 +2,7 @@ import { useContext } from "react";
 import styled from "styled-components";
 import Icon from "./icon.component";
 import { DisplayContext } from "./icon.context";
+import { PAGES } from "./page-categories";
 
 const IconTrayContainer = styled.div`
     position: absolute;
@@ -15,20 +16,14 @@ const IconTrayContainer = styled.div`
 
 const IconTray = () => {
     const { currentDisplay } = useContext(DisplayContext);
-    const FAKEICONS = [
-        { id: "icon-1", isClicked: false },
-        { id: "icon-2", isClicked: false },
-        { id: "icon-3", isClicked: false },
-        // add elements to load, then based on the click load those into a display with context
-    ];
     return (
         <IconTrayContainer>
-            {FAKEICONS.map((icon) => {
+            {PAGES.map((icon) => {
                 return (
                     <Icon
                         key={icon.id}
                         icon={icon}
-                        hoverState={currentDisplay === icon.id ? true : false}
+                        isSelected={currentDisplay === icon.id ? true : false}
                     ></Icon>
                 );
             })}

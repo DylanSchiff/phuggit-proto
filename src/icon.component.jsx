@@ -52,17 +52,22 @@ const IconPanel = styled.div`
     max-height: 50px;
     max-width: 50px;
     pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 const IconImage = styled.img`
-    min-height: 50px;
-    min-width: 50px;
-    max-height: 50px;
-    max-width: 50px;
+    min-height: 40px;
+    min-width: 40px;
+    max-height: 40px;
+    max-width: 40px;
     object-fit: cover;
+    transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
+    opacity: ${({ opac }) => opac};
 `;
 
-const Icon = ({ icon, hoverState }) => {
+const Icon = ({ icon, isSelected }) => {
     const unmovedHolographic = "translate(-90px, -90px)";
     const movedHolographic = "translate(90px, 90px)";
     const unmovedIcon = "translate( 0px , 0px )";
@@ -72,15 +77,18 @@ const Icon = ({ icon, hoverState }) => {
     return (
         <IconContainer
             onClick={() => toggleMovement()}
-            isIconMoved={hoverState ? movedIcon : unmovedIcon}
+            isIconMoved={isSelected ? movedIcon : unmovedIcon}
         >
             <IconHolographic
                 motionHolographic={
-                    hoverState ? movedHolographic : unmovedHolographic
+                    isSelected ? movedHolographic : unmovedHolographic
                 }
             />
             <IconPanel>
-                <IconImage />
+                <IconImage
+                    src={icon.imageUrl}
+                    opac={isSelected ? ".6" : ".2"}
+                />
             </IconPanel>
         </IconContainer>
     );
