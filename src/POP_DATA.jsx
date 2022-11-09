@@ -41,7 +41,7 @@ export const POPS = [
         id: "contact-pop",
         isClicked: false,
         imageUrl:
-            "https://www.svgrepo.com/show/375425/dialogflow-cx.svg",
+            "https://www.svgrepo.com/show/375461/network-connectivity-center.svg",
         tabs: [],
         fallbackTab: {
             id: "contact",
