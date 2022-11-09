@@ -7,6 +7,7 @@ import { POPS } from "./POP_DATA";
 
 const PopTrayContainer = styled.div`
     position: absolute;
+    z-index: 999;
     bottom: 20px;
     display: flex;
     justify-content: center;

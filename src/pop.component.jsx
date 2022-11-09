@@ -95,9 +95,13 @@ const movedOpacity = "0.8";
 
 const Pop = ({ pop, isSelected }) => {
     const { imageUrl } = pop;
-    const { setCurrentPop, setCurrentPopDisplay } = useContext(PopContext);
+    const { currentPop, setCurrentPop, setCurrentPopDisplay } =
+        useContext(PopContext);
     const togglePop = () => {
-        if (pop.tabs.length > 0) {
+        if (currentPop === pop) {
+            setCurrentPop(null);
+            setCurrentPopDisplay(null);
+        } else if (pop.tabs.length > 0) {
             setCurrentPop(pop);
         } else {
             setCurrentPop(pop);
