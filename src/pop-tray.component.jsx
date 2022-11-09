@@ -15,15 +15,16 @@ const PopTrayContainer = styled.div`
 `;
 
 const PopTray = () => {
-    const { currentPop } = useContext(PopContext);
+    const { currentPopId } = useContext(PopContext);
     return (
         <PopTrayContainer>
             {POPS.map((pop) => {
+                const { id } = pop;
                 return (
                     <Pop
-                        key={pop.id}
+                        key={id}
                         pop={pop}
-                        isSelected={currentPop === pop.id ? true : false}
+                        isSelected={currentPopId === id ? true : false}
                     ></Pop>
                 );
             })}

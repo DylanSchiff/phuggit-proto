@@ -7,16 +7,16 @@ import {
 
 
 export const PopContext = createContext({
-    currentPop: null,
-    setCurrentPop: () => null,
+    currentPopId: null,
+    setCurrentPopId: () => null,
 });
 
 export const PopProvider = ({ children }) => {
-    const [currentPop, setCurrentPop] = useState(null);
+    const [currentPopId, setCurrentPopId] = useState(null);
 
     const value = {
-        currentPop,
-        setCurrentPop,
+        currentPopId,
+        setCurrentPopId,
     };
 
     return (

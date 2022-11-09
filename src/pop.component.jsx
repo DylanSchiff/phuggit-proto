@@ -74,8 +74,8 @@ const movedPop = "translate( -0px , -20px )";
 
 const Pop = ({ pop, isSelected }) => {
     const {id, imageUrl} = pop
-    const { setCurrentPop } = useContext(PopContext);
-    const toggleMovement = () => setCurrentPop(id);
+    const { setCurrentPopId } = useContext(PopContext);
+    const toggleMovement = () => setCurrentPopId(id);
     return (
         <PopContainer
             onClick={() => toggleMovement()}
