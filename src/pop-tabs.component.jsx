@@ -12,6 +12,7 @@ const PopTab = styled.span`
     margin-bottom: ${({ tabMovement }) => tabMovement};
     color: ${({ tabColor }) => tabColor};
     cursor: pointer;
+    user-select: none;
 `;
 
 const PopTabs = ({ tabs, isSelected }) => {

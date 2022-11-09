@@ -65,6 +65,7 @@ const PopImage = styled.img`
     object-fit: cover;
     transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
     opacity: ${({ opac }) => opac};
+    user-select: none;
 `;
 
 const unmovedHolographic = "translate(-90px, -90px)";
