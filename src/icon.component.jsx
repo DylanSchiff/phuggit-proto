@@ -8,7 +8,7 @@ const IconContainer = styled.div`
     position: relative;
     transform-style: preserve-3d;
     perspective: 10px;
-    background-color: #e9f1f611;
+    background-color: #e9f1f605;
     border: none;
     outline: none;
     border-radius: 10px;
@@ -25,10 +25,6 @@ const IconContainer = styled.div`
     cursor: pointer;
     transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
     transform: scale(0.99) ${({ isIconMoved }) => isIconMoved};
-    /* @media only screen and (max-width: 950px) {
-        top: 10px;
-        left: 20px;
-    } */
 `;
 
 const IconHolographic = styled.div`
