@@ -15,6 +15,8 @@ const PopTab = styled.span`
     margin-bottom: ${({ tabMovement }) => tabMovement};
     color: ${({ tabColor }) => tabColor};
     opacity: 0.7;
+    font-size: 15px;
+    line-height: 15px;
     cursor: pointer;
     user-select: none;
     &:hover {

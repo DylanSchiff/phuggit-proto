@@ -90,7 +90,7 @@ const unmovedShadow =
 const movedShadow =
     "box-shadow: 0 1px 3px #00000033, 0 2px 5px #00000033, 0 3px 8px #00000022, box-shadow: 0 5px 11px #00000033, 0 8px 15px #00000033";
 
-const unmovedOpacity = "0.3";
+const unmovedOpacity = "0.2";
 const movedOpacity = "0.8";
 
 const Pop = ({ pop, isSelected }) => {

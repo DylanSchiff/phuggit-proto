@@ -16,14 +16,19 @@ export const POPS = [
         imageUrl: "https://www.svgrepo.com/show/190698/whiteboard-board.svg",
         tabs: [
             {
-                id: "project-one",
-                heading: "project one",
-                element: "project-one",
+                id: "Northbound",
+                heading: "Northbound",
+                element: "Northbound",
             },
             {
-                id: "project-two",
-                heading: "project two",
-                element: "project-two",
+                id: "WebSea",
+                heading: "WebSea",
+                element: "WebSea",
+            },
+            {
+                id: "WSA",
+                heading: "WSA",
+                element: "WSA",
             },
         ],
         fallbackTab: {
