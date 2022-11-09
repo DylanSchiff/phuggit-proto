@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import PopBackground from "./pop-background.component";
 import PopDisplay from "./pop-display.component";
 import PopTray from "./pop-tray.component";
 
@@ -6,8 +7,8 @@ const AppContents = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
 `;
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
         <AppContents>
             <PopTray />
             <PopDisplay />
+            <PopBackground />
         </AppContents>
     );
 };
