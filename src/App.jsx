@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import IconTray from "./pop-tray.component";
+import PopTray from "./pop-tray.component";
 
 const AppContents = styled.div`
     display: flex;
@@ -12,7 +12,7 @@ const AppContents = styled.div`
 const App = () => {
     return (
         <AppContents>
-            <IconTray />
+            <PopTray />
         </AppContents>
     );
 };
