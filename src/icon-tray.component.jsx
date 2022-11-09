@@ -7,16 +7,16 @@ const IconTrayContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     padding-top: 20px;
 `;
 
 const IconTray = () => {
     const { currentDisplay } = useContext(DisplayContext);
-
     const FAKEICONS = [
         { id: "icon-1", isClicked: false },
         { id: "icon-2", isClicked: false },
+        { id: "icon-3", isClicked: false },
     ];
     return (
         <IconTrayContainer>
