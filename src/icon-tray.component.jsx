@@ -4,11 +4,14 @@ import Icon from "./icon.component";
 import { DisplayContext } from "./icon.context";
 
 const IconTrayContainer = styled.div`
+    position: absolute;
+    bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     /* border: 1px solid blue; */
-    padding-top: 20px;
+    border-bottom: 0.5px solid #ffffff55;
+    padding: 20px 0 10px 0;
 `;
 
 const IconTray = () => {
@@ -17,6 +20,7 @@ const IconTray = () => {
         { id: "icon-1", isClicked: false },
         { id: "icon-2", isClicked: false },
         { id: "icon-3", isClicked: false },
+        // add elements to load, then based on the click load those into a display with context
     ];
     return (
         <IconTrayContainer>
