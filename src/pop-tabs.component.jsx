@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { useContext } from "react";
+import { PopContext } from "./pop.context";
+
 const PopTabsContainer = styled.div`
     display: flex;
     flex-flow: column nowrap;
@@ -16,13 +19,15 @@ const PopTab = styled.span`
 `;
 
 const PopTabs = ({ tabs, isSelected }) => {
+    const { setCurrentPopDisplay } = useContext(PopContext);
     return (
         <PopTabsContainer tabContainerMovement={isSelected ? "30px" : "5px"}>
             {tabs &&
                 tabs.map((tab) => {
-                    const { id, heading } = tab;
+                    const { id, heading, element } = tab;
                     return (
                         <PopTab
+                            onClick={() => setCurrentPopDisplay(element)}
                             key={id}
                             tabMovement={isSelected ? "5px" : "0px"}
                             tabColor={isSelected ? "#ffffff55" : "transparent"}

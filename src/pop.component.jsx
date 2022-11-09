@@ -90,13 +90,20 @@ const unmovedShadow =
 const movedShadow =
     "box-shadow: 0 1px 3px #00000033, 0 2px 5px #00000033, 0 3px 8px #00000022, box-shadow: 0 5px 11px #00000033, 0 8px 15px #00000033";
 
-const Pop = ({ pop, isSelected }) => {
-    const { id, imageUrl } = pop;
-    const { setCurrentPopId } = useContext(PopContext);
-    const toggleMovement = () => setCurrentPopId(id);
+const Pop = ({ pop, isSelected, fallbackTab }) => {
+    const { imageUrl } = pop;
+    const { setCurrentPop, setCurrentPopDisplay } = useContext(PopContext);
+    const toggleSelection = () => {
+        if (pop.tabs.length > 0) {
+            setCurrentPop(pop);
+        } else {
+            setCurrentPop(pop);
+            setCurrentPopDisplay(fallbackTab.element);
+        }
+    };
     return (
         <PopContainer
-            onClick={() => toggleMovement()}
+            onClick={() => toggleSelection()}
             popMovement={isSelected ? movedPop : unmovedPop}
             popShadow={isSelected ? movedShadow : unmovedShadow}
         >

@@ -4,24 +4,23 @@ import {
     // useEffect
 } from "react";
 
-
-
 export const PopContext = createContext({
-    currentPopId: null,
-    setCurrentPopId: () => null,
+    currentPop: null,
+    setCurrentPop: () => null,
+    currentPopDisplay: null,
+    setCurrentPopDisplay: () => null,
 });
 
 export const PopProvider = ({ children }) => {
-    const [currentPopId, setCurrentPopId] = useState(null);
+    const [currentPop, setCurrentPop] = useState(null);
+    const [currentPopDisplay, setCurrentPopDisplay] = useState(null);
 
     const value = {
-        currentPopId,
-        setCurrentPopId,
+        currentPop,
+        setCurrentPop,
+        currentPopDisplay,
+        setCurrentPopDisplay,
     };
 
-    return (
-        <PopContext.Provider value={value}>
-            {children}
-        </PopContext.Provider>
-    );
+    return <PopContext.Provider value={value}>{children}</PopContext.Provider>;
 };

@@ -21,21 +21,34 @@ const PopAndTabs = styled.div`
     align-items: center;
 `;
 const PopTray = () => {
-    const { currentPopId } = useContext(PopContext);
+    const { currentPop } = useContext(PopContext);
     return (
         <PopTrayContainer>
             {POPS &&
                 POPS.map((pop) => {
-                    const { id, tabs } = pop;
+                    const { id, tabs, fallbackTab } = pop;
                     return (
                         <PopAndTabs key={id}>
                             <PopTabs
                                 tabs={tabs}
-                                isSelected={currentPopId === id ? true : false}
+                                isSelected={
+                                    currentPop
+                                        ? currentPop.id === id
+                                            ? true
+                                            : false
+                                        : false
+                                }
                             />
                             <Pop
                                 pop={pop}
-                                isSelected={currentPopId === id ? true : false}
+                                fallbackTab={fallbackTab}
+                                isSelected={
+                                    currentPop
+                                        ? currentPop.id === id
+                                            ? true
+                                            : false
+                                        : false
+                                }
                             ></Pop>
                         </PopAndTabs>
                     );

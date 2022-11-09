@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import PopDisplay from "./pop-display.component";
 import PopTray from "./pop-tray.component";
 
 const AppContents = styled.div`
@@ -13,6 +14,7 @@ const App = () => {
     return (
         <AppContents>
             <PopTray />
+            <PopDisplay />
         </AppContents>
     );
 };
