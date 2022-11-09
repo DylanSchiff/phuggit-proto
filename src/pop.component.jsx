@@ -16,7 +16,7 @@ const PopContainer = styled.div`
     min-width: 50px;
     max-height: 50px;
     max-width: 50px;
-    box-shadow: 0 1px 3px #00000033, 0 2px 5px #00000033, 0 3px 8px #00000022;
+    box-shadow: ${({ popShadow }) => popShadow};
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -86,9 +86,9 @@ const unmovedPop = "translate( 0px , 0px )";
 const movedPop = "translate( -0px , -20px )";
 
 const unmovedShadow =
-    "box-shadow: 0 1px 3px #00000033, 0 2px 5px #00000033, 0 3px 8px #00000022";
+    "0 1px 3px #00000033, 0 2px 5px #00000033, 0 3px 8px #00000022";
 const movedShadow =
-    "box-shadow: 0 1px 3px #00000033, 0 2px 5px #00000033, 0 3px 8px #00000022, box-shadow: 0 5px 11px #00000033, 0 8px 15px #00000033";
+    "0 1px 3px #b1ccf7, 0 2px 5px #b1ccf7, 0 3px 8px #b1ccf7, 0 5px 11px #b1ccf7, 0 8px 15px #b1ccf7";
 
 const unmovedOpacity = "0.2";
 const movedOpacity = "0.8";
