@@ -26,7 +26,7 @@ const PopTray = () => {
         <PopTrayContainer>
             {POPS &&
                 POPS.map((pop) => {
-                    const { id, tabs, fallbackTab } = pop;
+                    const { id, tabs } = pop;
                     return (
                         <PopAndTabs key={id}>
                             <PopTabs
@@ -41,7 +41,6 @@ const PopTray = () => {
                             />
                             <Pop
                                 pop={pop}
-                                fallbackTab={fallbackTab}
                                 isSelected={
                                     currentPop
                                         ? currentPop.id === id

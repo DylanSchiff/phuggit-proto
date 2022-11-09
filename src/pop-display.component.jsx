@@ -8,6 +8,7 @@ const PopDisplayContainer = styled.div`
 const PopDisplay = () => {
     const { currentPopDisplay } = useContext(PopContext);
     console.log(currentPopDisplay);
+    //based on display, render that into an element container
     return <PopDisplayContainer></PopDisplayContainer>;
 };
 export default PopDisplay;
