@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { DisplayContext } from "./icon.context";
+import { PopContext } from "./pop.context";
 
-const IconContainer = styled.div`
+const PopContainer = styled.div`
     margin: 0 10px;
     user-select: none;
     position: relative;
@@ -24,10 +24,10 @@ const IconContainer = styled.div`
     border: 0.5px solid #ffffff55;
     cursor: pointer;
     transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
-    transform: scale(0.99) ${({ isIconMoved }) => isIconMoved};
+    transform: scale(0.99) ${({ popMovement }) => popMovement};
 `;
 
-const IconHolographic = styled.div`
+const PopHolographic = styled.div`
     position: absolute;
     max-height: 300px;
     max-width: 300px;
@@ -40,12 +40,12 @@ const IconHolographic = styled.div`
         #ffffff33 50%,
         transparent 51%
     );
-    transform: ${({ motionHolographic }) => motionHolographic};
+    transform: ${({ holographicMovement }) => holographicMovement};
     pointer-events: none;
     transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
 `;
 
-const IconPanel = styled.div`
+const PopImageContainer = styled.div`
     position: static;
     min-height: 50px;
     min-width: 50px;
@@ -57,7 +57,7 @@ const IconPanel = styled.div`
     align-items: center;
 `;
 
-const IconImage = styled.img`
+const PopImage = styled.img`
     min-height: 40px;
     min-width: 40px;
     max-height: 40px;
@@ -67,30 +67,29 @@ const IconImage = styled.img`
     opacity: ${({ opac }) => opac};
 `;
 
-const Icon = ({ icon, isSelected }) => {
-    const unmovedHolographic = "translate(-90px, -90px)";
-    const movedHolographic = "translate(90px, 90px)";
-    const unmovedIcon = "translate( 0px , 0px )";
-    const movedIcon = "translate( -0px , -20px )";
-    const { setCurrentDisplay } = useContext(DisplayContext);
-    const toggleMovement = () => setCurrentDisplay(icon.id);
+const unmovedHolographic = "translate(-90px, -90px)";
+const movedHolographic = "translate(90px, 90px)";
+const unmovedPop = "translate( 0px , 0px )";
+const movedPop = "translate( -0px , -20px )";
+
+const Pop = ({ pop, isSelected }) => {
+    const {id, imageUrl} = pop
+    const { setCurrentPop } = useContext(PopContext);
+    const toggleMovement = () => setCurrentPop(id);
     return (
-        <IconContainer
+        <PopContainer
             onClick={() => toggleMovement()}
-            isIconMoved={isSelected ? movedIcon : unmovedIcon}
+            popMovement={isSelected ? movedPop : unmovedPop}
         >
-            <IconHolographic
-                motionHolographic={
+            <PopHolographic
+                holographicMovement={
                     isSelected ? movedHolographic : unmovedHolographic
                 }
             />
-            <IconPanel>
-                <IconImage
-                    src={icon.imageUrl}
-                    opac={isSelected ? ".6" : ".2"}
-                />
-            </IconPanel>
-        </IconContainer>
+            <PopImageContainer>
+                <PopImage src={imageUrl} opac={isSelected ? ".6" : ".2"} />
+            </PopImageContainer>
+        </PopContainer>
     );
 };
-export default Icon;
+export default Pop;

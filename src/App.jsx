@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import IconTray from "./icon-tray.component";
+import IconTray from "./pop-tray.component";
 
 const AppContents = styled.div`
     display: flex;
