@@ -24,21 +24,22 @@ const PopTray = () => {
     const { currentPopId } = useContext(PopContext);
     return (
         <PopTrayContainer>
-            {POPS.map((pop) => {
-                const { id, tabs } = pop;
-                return (
-                    <PopAndTabs key={id}>
-                        <PopTabs
-                            tabs={tabs}
-                            isSelected={currentPopId === id ? true : false}
-                        />
-                        <Pop
-                            pop={pop}
-                            isSelected={currentPopId === id ? true : false}
-                        ></Pop>
-                    </PopAndTabs>
-                );
-            })}
+            {POPS &&
+                POPS.map((pop) => {
+                    const { id, tabs } = pop;
+                    return (
+                        <PopAndTabs key={id}>
+                            <PopTabs
+                                tabs={tabs}
+                                isSelected={currentPopId === id ? true : false}
+                            />
+                            <Pop
+                                pop={pop}
+                                isSelected={currentPopId === id ? true : false}
+                            ></Pop>
+                        </PopAndTabs>
+                    );
+                })}
         </PopTrayContainer>
     );
 };

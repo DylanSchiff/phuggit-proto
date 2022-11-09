@@ -35,10 +35,10 @@ const PopHolographic = styled.div`
     min-width: 300px;
     background: linear-gradient(
         145deg,
-        transparent 39%,
+        transparent 38%,
         #ffffff33 40%,
         #ffffff33 50%,
-        transparent 51%
+        transparent 52%
     );
     transform: ${({ holographicMovement }) => holographicMovement};
     pointer-events: none;
@@ -87,7 +87,10 @@ const Pop = ({ pop, isSelected }) => {
                 }
             />
             <PopImageContainer>
-                <PopImage src={imageUrl} opac={isSelected ? ".6" : ".2"} />
+                <PopImage
+                    src={imageUrl ? imageUrl : null}
+                    opac={isSelected ? ".6" : ".2"}
+                />
             </PopImageContainer>
         </PopContainer>
     );
