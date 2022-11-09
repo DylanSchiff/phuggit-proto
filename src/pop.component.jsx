@@ -86,9 +86,9 @@ const unmovedPop = "translate( 0px , 0px )";
 const movedPop = "translate( -0px , -20px )";
 
 const unmovedShadow =
-    "0 1px 3px #00000033, 0 2px 5px #00000033, 0 3px 8px #00000022";
+    "0 1px 3px #00000044, 0 2px 5px #00000033, 0 3px 8px #00000022";
 const movedShadow =
-    "0 1px 3px #b1ccf7, 0 2px 5px #b1ccf7, 0 3px 8px #b1ccf7, 0 5px 11px #b1ccf7, 0 8px 15px #b1ccf7";
+    "0 1px 3px #b1ccf755, 0 2px 5px #b1ccf799, 0 3px 8px #b1ccf799, 0 5px 11px #b1ccf733, 0 8px 15px #b1ccf733, inset 0 1px 3px #b1ccf711, inset 0 2px 5px #b1ccf711, inset 0 3px 8px #b1ccf711, inset 0 5px 11px #b1ccf711, inset 0 8px 15px #b1ccf711";
 
 const unmovedOpacity = "0.2";
 const movedOpacity = "0.8";
