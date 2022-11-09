@@ -14,8 +14,13 @@ const PopTab = styled.span`
     transition: 400ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
     margin-bottom: ${({ tabMovement }) => tabMovement};
     color: ${({ tabColor }) => tabColor};
+    opacity: 0.7;
     cursor: pointer;
     user-select: none;
+    &:hover {
+        scale: 1.1;
+        opacity: 1;
+    }
 `;
 
 const PopTabs = ({ tabs, isSelected }) => {
@@ -30,7 +35,7 @@ const PopTabs = ({ tabs, isSelected }) => {
                             onClick={() => setCurrentPopDisplay(element)}
                             key={id}
                             tabMovement={isSelected ? "5px" : "0px"}
-                            tabColor={isSelected ? "#ffffff55" : "transparent"}
+                            tabColor={isSelected ? "#ffffff77" : "transparent"}
                         >
                             {heading}
                         </PopTab>
