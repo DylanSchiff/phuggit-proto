@@ -36,8 +36,8 @@ const IconHolographic = styled.div`
     background: linear-gradient(
         145deg,
         transparent 39%,
-        #ffffff55 40%,
-        #ffffff55 50%,
+        #ffffff33 40%,
+        #ffffff33 50%,
         transparent 51%
     );
     transform: ${({ motionHolographic }) => motionHolographic};
