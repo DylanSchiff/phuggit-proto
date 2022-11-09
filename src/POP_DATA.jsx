@@ -2,7 +2,7 @@ export const POPS = [
     {
         id: "home-pop",
         isClicked: false,
-        imageUrl: "https://www.svgrepo.com/show/190757/museum.svg",
+        imageUrl: "https://www.svgrepo.com/show/375538/asset-inventory.svg",
         tabs: [],
         fallbackTab: {
             id: "home",
@@ -13,7 +13,7 @@ export const POPS = [
     {
         id: "projects-pop",
         isClicked: false,
-        imageUrl: "https://www.svgrepo.com/show/190698/whiteboard-board.svg",
+        imageUrl: "https://www.svgrepo.com/show/375403/container-registry.svg",
         tabs: [
             {
                 id: "Northbound",
@@ -40,7 +40,8 @@ export const POPS = [
     {
         id: "contact-pop",
         isClicked: false,
-        imageUrl: "https://www.svgrepo.com/show/190680/exam-result.svg",
+        imageUrl:
+            "https://www.svgrepo.com/show/375425/dialogflow-cx.svg",
         tabs: [],
         fallbackTab: {
             id: "contact",
