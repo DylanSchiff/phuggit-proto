@@ -1,18 +1,14 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import { DisplayContext } from "./icon.context";
 
 const IconContainer = styled.div`
-    /* position: absolute;
-    z-index: 999;
-    top: 25px;
-    left: 25px; */
     margin: 0 10px;
     user-select: none;
     position: relative;
     transform-style: preserve-3d;
     perspective: 10px;
-    background-color: #e9f1f622;
+    background-color: #e9f1f611;
     border: none;
     outline: none;
     border-radius: 10px;

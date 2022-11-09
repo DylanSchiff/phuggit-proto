@@ -9,7 +9,6 @@ const IconTrayContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid blue; */
     border-bottom: 0.5px solid #ffffff55;
     padding: 20px 0 10px 0;
 `;
