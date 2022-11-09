@@ -40,6 +40,7 @@ const PopHolographic = styled.div`
         145deg,
         transparent 38%,
         #ffffff33 40%,
+        #add8e633 45%,
         #ffffff33 50%,
         transparent 52%
     );
