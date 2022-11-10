@@ -5,9 +5,7 @@ import styled from "styled-components";
 import splashimage from "./components/images/light.svg";
 
 const AppContainer = styled.div`
-    /* max-height: 100vh; */
     min-height: 100vh;
-    /* max-width: 100vw; */
     min-width: 100vw;
     background-color: var(--white-004);
     display: flex;
@@ -18,6 +16,52 @@ const AppContainer = styled.div`
     @media only screen and (min-width: 1000px) {
         align-items: center;
     }
+`;
+
+const AppNavbar = styled.div`
+    width: 100vw;
+    position: sticky;
+    top: 0;
+    min-height: 40px;
+    max-height: 40px;
+    background-color: var(--main-002);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    padding: 0 20px;
+`;
+const NavLogoContainer = styled.div`
+    width: fit-content;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+`;
+const NavLogoImageContainer = styled.div`
+    min-height: 40px;
+    max-height: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+const NavLogoImage = styled.img`
+    min-height: 30px;
+    max-height: 30px;
+    min-width: 30px;
+    max-width: 30px;
+    object-fit: cover;
+`;
+const NavLogoHeadingContainer = styled.div`
+    padding: 0 10px;
+`;
+const NavLogoHeading = styled.span`
+    color: var(--white-001);
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 30px;
+    max-height: 30px;
 `;
 
 //////////////////////////////////////////////////////////////////////
@@ -64,7 +108,6 @@ const AppSplash = styled.section`
 const SplashDetails = styled.div`
     flex: 3;
     width: 100%;
-    /* background-color: var(--fade-002); */
     height: fit-content;
     display: flex;
     flex-flow: column nowrap;
@@ -147,7 +190,6 @@ const SplashSummary = styled.p`
 //////////////////////////////////////////////////////////////////////
 
 const SplashButtonsContainer = styled.div`
-    /* background-color: var(--fade-001); */
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
@@ -234,6 +276,16 @@ const App = () => {
         //     <PopBackground />
         // </AppContents>
         <AppContainer>
+            <AppNavbar>
+                <NavLogoContainer>
+                    <NavLogoImageContainer>
+                        <NavLogoImage src="https://www.svgrepo.com/show/233196/smile.svg" />
+                    </NavLogoImageContainer>
+                    <NavLogoHeadingContainer>
+                        <NavLogoHeading>Schiff</NavLogoHeading>
+                    </NavLogoHeadingContainer>
+                </NavLogoContainer>
+            </AppNavbar>
             <AppNotificationBanner>
                 <AppNotification>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
