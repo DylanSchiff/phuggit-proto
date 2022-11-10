@@ -1,13 +1,16 @@
 import styled from "styled-components";
 // import PopBackground from "./components/pop/pop-background.component";
 // import PopDisplay from "./components/pop/pop-display.component";
-// import PopTray from "./components/pop/pop-tray.component";
+import PopTray from "./components/pop/pop-tray.component";
 import splashimage from "./components/images/light.svg";
 import ship from "./components/images/ship.svg";
 import circleone from "./components/images/circleone.svg";
 import circletwo from "./components/images/circletwo.svg";
 import circlethree from "./components/images/circlethree.svg";
-import { useState } from "react";
+import { useContext, useState } from "react";
+// import Pop from "./components/pop/pop.component";
+import { PopContext } from "./components/pop/pop.context";
+// import { POPS } from "./components/pop/POPDATA";
 
 const AppContainer = styled.div`
     min-height: 100vh;
@@ -556,62 +559,148 @@ const AdditionalProjectsButton = styled.div`
 //////////////////////////////////////////////////////////////////////
 
 const ContactBox = styled.div`
-    padding: 30px 0;
+    border-radius: 25px;
+    padding: 50px 0;
     flex: 1;
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
+    background-color: var(--main-002);
 `;
 const ContactHeading = styled.span`
     font-size: 35px;
     font-weight: 500;
     padding: 10px 0;
+    color: var(--accent-001);
 `;
 const ContactSubheading = styled.span`
     font-size: 15px;
     font-weight: 400;
     padding: 10px 0;
     text-align: center;
+    color: var(--white-003);
 `;
-const ContactIcons = styled.div`
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    align-items: center;
-    justify-items: center;
-    grid-gap: 50px;
-    @media only screen and (max-width: 600px) {
-        grid-template-columns: repeat(2, 1fr);
+// const PopTrayContainer = styled.div`
+//     min-height: 100px;
+//     max-height: 100px;
+//     z-index: 999;
+//     bottom: 20px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: flex-end;
+//     border-bottom: 0.5px solid #ffffff55;
+//     padding: 20px 0 10px 0;
+// `;
+// const PopAndTabs = styled.div`
+//     display: flex;
+//     flex-flow: column nowrap;
+//     justify-content: center;
+//     align-items: center;
+// `;
+const ContactButton = styled.div`
+    margin-top: 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 111ms linear;
+    user-select: none;
+    color: var(--white-001);
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid var(--fade-002);
+    background-color: var(--white-001);
+    padding: 10px 20px;
+    color: var(--accent-004);
+    &:hover {
+        color: var(--accent-001);
+        box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
+    }
+    @media only screen and (max-width: 1000px) {
+        font-size: 15px;
+        border: 1px solid var(--fade-002);
+        background-color: var(--white-001);
+        padding: 10px 20px;
+        color: var(--accent-004);
+        margin-bottom: 20px;
     }
 `;
-const ContactIcon = styled.div`
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
-`;
-const ContactIconImageContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 55px;
-    width: 55px;
-`;
-const ContactIconImage = styled.img`
-    height: 55px;
-    width: 55px;
-`;
-const ContactIconHeadingContainer = styled.div`
-    margin-top: 10px;
-`;
-const ContactIconHeading = styled.span`
-    font-size: 15px;
-    font-weight: 500;
-`;
-const ContactButton = styled.div``;
+// const PopContainer = styled.div`
+//     margin: 0 10px;
+//     user-select: none;
+//     position: relative;
+//     transform-style: preserve-3d;
+//     perspective: 10px;
+//     background-color: #e9f1f605;
+//     outline: none;
+//     border-radius: 10px;
+//     min-height: 50px;
+//     min-width: 50px;
+//     max-height: 50px;
+//     max-width: 50px;
+//     box-shadow: ${({ popShadow }) => popShadow};
+//     overflow: hidden;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     border: 0.5px solid #ffffff55;
+//     cursor: pointer;
+//     transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
+//     transform: scale(0.99) ${({ popMovement }) => popMovement};
+//     &:active {
+//         transform: scale(0.9) ${({ popMovement }) => popMovement};
+//     }
+// `;
 
+// const PopHolographic = styled.div`
+//     position: absolute;
+//     max-height: 300px;
+//     max-width: 300px;
+//     min-height: 300px;
+//     min-width: 300px;
+//     background: linear-gradient(
+//         145deg,
+//         transparent 38%,
+//         #ffffff33 40%,
+//         #add8e633 45%,
+//         #ffffff33 50%,
+//         transparent 52%
+//     );
+//     transform: ${({ holographicMovement }) => holographicMovement};
+//     pointer-events: none;
+//     transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
+// `;
+
+// const PopImageContainer = styled.div`
+//     position: static;
+//     min-height: 40px;
+//     min-width: 40px;
+//     max-height: 40px;
+//     max-width: 40px;
+//     pointer-events: none;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     /* border-radius: 50%; */
+//     /* background-color: lightblue; */
+//     opacity: ${({ opac }) => opac};
+//     transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
+// `;
+
+// const PopImage = styled.img`
+//     /* min-height: 30px;
+//     min-width: 30px;
+//     max-height: 30px;
+//     max-width: 30px; */
+//     min-height: 40px;
+//     min-width: 40px;
+//     max-height: 40px;
+//     max-width: 40px;
+//     object-fit: cover;
+//     user-select: none;
+//     transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
+// `;
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
@@ -720,42 +809,38 @@ const cards = [
     },
 ];
 
-const contactIcons = [
-    {
-        id: "1",
-        heading: "linkedin",
-        imageUrl: "https://www.svgrepo.com/show/70809/linkedin.svg",
-    },
-    {
-        id: "2",
-        heading: "github",
-        imageUrl: "https://www.svgrepo.com/show/341847/github.svg",
-    },
-    {
-        id: "3",
-        heading: "pexels",
-        imageUrl:
-            "https://cdn.dribbble.com/users/3027576/avatars/normal/5fa423ee11a1e0d7b32815eb8397512c.png?1594056145",
-    },
-    {
-        id: "4",
-        heading: "instagram",
-        imageUrl: "https://www.svgrepo.com/show/13639/instagram.svg",
-    },
-];
+// const unmovedHolographic = "translate(-90px, -90px)";
+// const movedHolographic = "translate(90px, 90px)";
+
+// const unmovedPop = "translate( 0px , 0px )";
+// const movedPop = "translate( -0px , -20px )";
+
+// const unmovedShadow =
+//     "0 1px 3px #00000044, 0 2px 5px #00000033, 0 3px 8px #00000022, 0 0px 0px #00000011, 0 0px 0px #00000011, inset 0 0px 0px #00000011, inset 0 0px 0px #00000011, inset 0 0px 0px #00000011, inset 0 0px 0px #00000011, inset 0 0px 0px #00000011";
+// const movedShadow =
+//     "0 1px 3px #b1ccf755, 0 2px 5px #b1ccf799, 0 3px 8px #b1ccf799, 0 5px 11px #b1ccf733, 0 8px 15px #b1ccf733, inset 0 1px 3px #b1ccf711, inset 0 2px 5px #b1ccf707, inset 0 3px 8px #b1ccf707, inset 0 5px 11px #b1ccf705, inset 0 8px 15px #b1ccf705";
+
+// const unmovedOpacity = "0.2";
+// const movedOpacity = "0.8";
 
 const App = () => {
     const [additionalProjectsVisible, setAdditionalProjectsVisible] =
         useState("none");
     const toggleAdditionalProjectsVisible = () =>
         setAdditionalProjectsVisible(!additionalProjectsVisible);
+    const { currentPop } = useContext(PopContext);
+    // const togglePop = (pop) => {
+    //     if (currentPop === pop) {
+    //         setCurrentPop(null);
+    //         // setCurrentPopDisplay(null);
+    //         // } else if (pop.tabs.length > 0) {
+    //         //     setCurrentPop(pop);
+    //     } else {
+    //         setCurrentPop(pop);
+    //         // setCurrentPopDisplay(pop.fallbackTab.element);
+    //     }
+    // };
     return (
-        // <AppContents>
-        //     <PopTray />
-        //     <PopDisplay />
-        //     <PopBackground />
-        // </AppContents>
-
         <>
             <AppNavbar backgroundimage={`url(${ship})`}>
                 <NavLogoContainer>
@@ -881,24 +966,10 @@ const App = () => {
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit.
                         </ContactSubheading>
-                        <ContactIcons>
-                            {contactIcons.map((icon) => {
-                                const { id, heading, imageUrl } = icon;
-                                return (
-                                    <ContactIcon key={id}>
-                                        <ContactIconImageContainer>
-                                            <ContactIconImage src={imageUrl} />
-                                        </ContactIconImageContainer>
-                                        <ContactIconHeadingContainer>
-                                            <ContactIconHeading>
-                                                {heading}
-                                            </ContactIconHeading>
-                                        </ContactIconHeadingContainer>
-                                    </ContactIcon>
-                                );
-                            })}
-                        </ContactIcons>
-                        <ContactButton></ContactButton>
+                        <PopTray />
+                        {currentPop && (
+                            <ContactButton>{`Go to : ${currentPop.heading}`}</ContactButton>
+                        )}
                     </ContactBox>
                 </AppCardsContainer>
             </AppContainer>

@@ -94,17 +94,20 @@ const movedOpacity = "0.8";
 
 const Pop = ({ pop, isSelected, isContactPop }) => {
     const { imageUrl } = pop;
-    const { currentPop, setCurrentPop, setCurrentPopDisplay } =
-        useContext(PopContext);
+    const {
+        currentPop,
+        setCurrentPop,
+        // setCurrentPopDisplay
+    } = useContext(PopContext);
     const togglePop = () => {
         if (currentPop === pop) {
             setCurrentPop(null);
-            setCurrentPopDisplay(null);
-        } else if (pop.tabs.length > 0) {
-            setCurrentPop(pop);
+            // setCurrentPopDisplay(null);
+            // } else if (pop.tabs.length > 0) {
+            //     setCurrentPop(pop);
         } else {
             setCurrentPop(pop);
-            setCurrentPopDisplay(pop.fallbackTab.element);
+            // setCurrentPopDisplay(pop.fallbackTab.element);
         }
     };
     return (
