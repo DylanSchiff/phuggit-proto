@@ -9,6 +9,7 @@ const AppContents = styled.div`
     align-items: center;
     max-height: 100vh;
     max-width: 100vw;
+    overflow: hidden;
 `;
 
 const App = () => {
