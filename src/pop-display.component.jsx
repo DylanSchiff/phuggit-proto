@@ -12,7 +12,6 @@ const PopDisplayContainer = styled.div`
     height: 100vh;
     width: 100vw;
     z-index: 1;
-    transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
     color: #fff;
 `;
 const PopDisplay = () => {

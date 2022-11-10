@@ -9,7 +9,6 @@ const PopContainer = styled.div`
     transform-style: preserve-3d;
     perspective: 10px;
     background-color: #e9f1f605;
-    border: none;
     outline: none;
     border-radius: 10px;
     min-height: 50px;
@@ -93,7 +92,7 @@ const movedShadow =
 const unmovedOpacity = "0.2";
 const movedOpacity = "0.8";
 
-const Pop = ({ pop, isSelected }) => {
+const Pop = ({ pop, isSelected, isContactPop }) => {
     const { imageUrl } = pop;
     const { currentPop, setCurrentPop, setCurrentPopDisplay } =
         useContext(PopContext);
@@ -110,7 +109,7 @@ const Pop = ({ pop, isSelected }) => {
     };
     return (
         <PopContainer
-            onClick={() => togglePop()}
+            onClick={() => (!isContactPop ? togglePop() : null)}
             popMovement={isSelected ? movedPop : unmovedPop}
             popShadow={isSelected ? movedShadow : unmovedShadow}
         >
@@ -120,7 +119,13 @@ const Pop = ({ pop, isSelected }) => {
                 }
             />
             <PopImageContainer
-                opac={isSelected ? movedOpacity : unmovedOpacity}
+                opac={
+                    isContactPop
+                        ? movedOpacity
+                        : isSelected
+                        ? movedOpacity
+                        : unmovedOpacity
+                }
             >
                 <PopImage src={imageUrl ? imageUrl : null} />
             </PopImageContainer>

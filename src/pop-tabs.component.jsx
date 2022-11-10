@@ -7,7 +7,8 @@ const PopTabsContainer = styled.div`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
+    /* transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92); */
+    transition: 333ms linear;
     margin-bottom: ${({ tabContainerMovement }) => tabContainerMovement};
 `;
 const PopTab = styled.span`
