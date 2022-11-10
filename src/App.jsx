@@ -56,17 +56,17 @@ const NavLogoImage = styled.img`
 `;
 const NavLogoHeadingContainer = styled.div`
     padding: 0 10px;
-    @media only screen and (max-width: 600px) {
-        display: none;
-    }
 `;
 const NavLogoHeading = styled.span`
     color: var(--white-001);
-    font-size: 30px;
+    font-size: 15px;
     font-weight: 500;
     line-height: 30px;
     max-height: 30px;
     cursor: pointer;
+    @media only screen and (max-width: 600px) {
+        display: none;
+    }
 `;
 
 const NavButton = styled.div`
