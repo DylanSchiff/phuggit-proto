@@ -1,12 +1,36 @@
+:root {
+    --main-001: #111;
+    --main-002: #222;
+    --main-003: #333;
+    --main-004: #444;
+
+    --white-001: #fff;
+    --white-002: #fefefe;
+    --white-003: #efefef;
+    --white-004: #eaeaea;
+
+    --accent-001: #b4d3fb;
+    --accent-002: #aac8ec;
+    --accent-003: #7f97b3;
+    --accent-004: #57697b;
+    --accent-005: #aaf;
+
+    --fade-001: #0001;
+    --fade-002: #0002;
+    --fade-003: #0003;
+    --fade-004: #0004;
+}
+
 body {
     margin: 0;
     overflow: hidden;
+    overflow-y: auto;
     min-height: 100vh;
     min-width: 100vw;
     max-height: 100vh;
     max-width: 100vw;
-    background-color: #111;
-    background: linear-gradient(0deg, #111 0%, #222 30%, #222 70%, #111 100%);
+    /*  background-color: #111;
+    background: linear-gradient(0deg, #111 0%, #222 30%, #222 70%, #111 100%); */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
         "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
         "Helvetica Neue", sans-serif;
