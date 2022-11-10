@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import PopBackground from "./pop-background.component";
-import PopDisplay from "./pop-display.component";
-import PopTray from "./pop-tray.component";
+import PopBackground from "./components/pop/pop-background.component";
+import PopDisplay from "./components/pop/pop-display.component";
+import PopTray from "./components/pop/pop-tray.component";
 
 const AppContents = styled.div`
     display: flex;
