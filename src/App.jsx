@@ -582,23 +582,7 @@ const ContactSubheading = styled.span`
     text-align: center;
     color: var(--white-003);
 `;
-// const PopTrayContainer = styled.div`
-//     min-height: 100px;
-//     max-height: 100px;
-//     z-index: 999;
-//     bottom: 20px;
-//     display: flex;
-//     justify-content: center;
-//     align-items: flex-end;
-//     border-bottom: 0.5px solid #ffffff55;
-//     padding: 20px 0 10px 0;
-// `;
-// const PopAndTabs = styled.div`
-//     display: flex;
-//     flex-flow: column nowrap;
-//     justify-content: center;
-//     align-items: center;
-// `;
+
 const ContactButton = styled.div`
     margin-top: 30px;
     cursor: pointer;
@@ -606,7 +590,7 @@ const ContactButton = styled.div`
     transition: 111ms linear;
     user-select: none;
     color: var(--white-001);
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
     border: 1px solid var(--fade-002);
@@ -618,7 +602,6 @@ const ContactButton = styled.div`
         box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
     }
     @media only screen and (max-width: 1000px) {
-        font-size: 15px;
         border: 1px solid var(--fade-002);
         background-color: var(--white-001);
         padding: 10px 20px;
@@ -626,81 +609,6 @@ const ContactButton = styled.div`
         margin-bottom: 20px;
     }
 `;
-// const PopContainer = styled.div`
-//     margin: 0 10px;
-//     user-select: none;
-//     position: relative;
-//     transform-style: preserve-3d;
-//     perspective: 10px;
-//     background-color: #e9f1f605;
-//     outline: none;
-//     border-radius: 10px;
-//     min-height: 50px;
-//     min-width: 50px;
-//     max-height: 50px;
-//     max-width: 50px;
-//     box-shadow: ${({ popShadow }) => popShadow};
-//     overflow: hidden;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     border: 0.5px solid #ffffff55;
-//     cursor: pointer;
-//     transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
-//     transform: scale(0.99) ${({ popMovement }) => popMovement};
-//     &:active {
-//         transform: scale(0.9) ${({ popMovement }) => popMovement};
-//     }
-// `;
-
-// const PopHolographic = styled.div`
-//     position: absolute;
-//     max-height: 300px;
-//     max-width: 300px;
-//     min-height: 300px;
-//     min-width: 300px;
-//     background: linear-gradient(
-//         145deg,
-//         transparent 38%,
-//         #ffffff33 40%,
-//         #add8e633 45%,
-//         #ffffff33 50%,
-//         transparent 52%
-//     );
-//     transform: ${({ holographicMovement }) => holographicMovement};
-//     pointer-events: none;
-//     transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
-// `;
-
-// const PopImageContainer = styled.div`
-//     position: static;
-//     min-height: 40px;
-//     min-width: 40px;
-//     max-height: 40px;
-//     max-width: 40px;
-//     pointer-events: none;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     /* border-radius: 50%; */
-//     /* background-color: lightblue; */
-//     opacity: ${({ opac }) => opac};
-//     transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
-// `;
-
-// const PopImage = styled.img`
-//     /* min-height: 30px;
-//     min-width: 30px;
-//     max-height: 30px;
-//     max-width: 30px; */
-//     min-height: 40px;
-//     min-width: 40px;
-//     max-height: 40px;
-//     max-width: 40px;
-//     object-fit: cover;
-//     user-select: none;
-//     transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
-// `;
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
