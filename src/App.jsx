@@ -548,9 +548,71 @@ const AdditionalProjectsButton = styled.div`
     }
     &:hover {
         box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
+        color: var(--white-002);
     }
 `;
 
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+const ContactBox = styled.div`
+    padding: 30px 0;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+`;
+const ContactHeading = styled.span`
+    font-size: 35px;
+    font-weight: 500;
+    padding: 10px 0;
+`;
+const ContactSubheading = styled.span`
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px 0;
+    text-align: center;
+`;
+const ContactIcons = styled.div`
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    justify-items: center;
+    grid-gap: 50px;
+    @media only screen and (max-width: 600px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+`;
+const ContactIcon = styled.div`
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+`;
+const ContactIconImageContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    width: 55px;
+`;
+const ContactIconImage = styled.img`
+    height: 55px;
+    width: 55px;
+`;
+const ContactIconHeadingContainer = styled.div`
+    margin-top: 10px;
+`;
+const ContactIconHeading = styled.span`
+    font-size: 15px;
+    font-weight: 500;
+`;
+const ContactButton = styled.div``;
+
+//////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 const cards = [
@@ -655,6 +717,30 @@ const cards = [
                     "https://www.svgrepo.com/show/363981/star-half-duotone.svg",
             },
         ],
+    },
+];
+
+const contactIcons = [
+    {
+        id: "1",
+        heading: "linkedin",
+        imageUrl: "https://www.svgrepo.com/show/70809/linkedin.svg",
+    },
+    {
+        id: "2",
+        heading: "github",
+        imageUrl: "https://www.svgrepo.com/show/341847/github.svg",
+    },
+    {
+        id: "3",
+        heading: "pexels",
+        imageUrl:
+            "https://cdn.dribbble.com/users/3027576/avatars/normal/5fa423ee11a1e0d7b32815eb8397512c.png?1594056145",
+    },
+    {
+        id: "4",
+        heading: "instagram",
+        imageUrl: "https://www.svgrepo.com/show/13639/instagram.svg",
     },
 ];
 
@@ -789,6 +875,31 @@ const App = () => {
                             All Projects
                         </AdditionalProjectsButton>
                     </AdditionalProjectsContainer>
+                    <ContactBox>
+                        <ContactHeading>Capiente</ContactHeading>
+                        <ContactSubheading>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit.
+                        </ContactSubheading>
+                        <ContactIcons>
+                            {contactIcons.map((icon) => {
+                                const { id, heading, imageUrl } = icon;
+                                return (
+                                    <ContactIcon key={id}>
+                                        <ContactIconImageContainer>
+                                            <ContactIconImage src={imageUrl} />
+                                        </ContactIconImageContainer>
+                                        <ContactIconHeadingContainer>
+                                            <ContactIconHeading>
+                                                {heading}
+                                            </ContactIconHeading>
+                                        </ContactIconHeadingContainer>
+                                    </ContactIcon>
+                                );
+                            })}
+                        </ContactIcons>
+                        <ContactButton></ContactButton>
+                    </ContactBox>
                 </AppCardsContainer>
             </AppContainer>
         </>
