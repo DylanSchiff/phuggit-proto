@@ -7,6 +7,7 @@ import ship from "./components/images/ship.svg";
 import circleone from "./components/images/circleone.svg";
 import circletwo from "./components/images/circletwo.svg";
 import circlethree from "./components/images/circlethree.svg";
+import { useState } from "react";
 
 const AppContainer = styled.div`
     min-height: 100vh;
@@ -447,7 +448,6 @@ const CardTagsButtonFlipper = styled.div`
 const CardButtonContainer = styled.div``;
 const CardButton = styled.div`
     cursor: pointer;
-    border: none;
     border-radius: 10px;
     transition: 111ms linear;
     user-select: none;
@@ -455,21 +455,20 @@ const CardButton = styled.div`
     font-size: 25px;
     font-weight: 600;
     text-transform: uppercase;
-    padding: 10px;
+    border: 1px solid var(--fade-002);
+    background-color: var(--white-001);
+    padding: 10px 20px;
+    color: var(--accent-004);
     &:hover {
-        color: var(--accent-004);
+        color: var(--accent-001);
+        box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
     }
     @media only screen and (max-width: 1000px) {
-        border: none;
         font-size: 20px;
         border: 1px solid var(--fade-002);
         background-color: var(--white-001);
         padding: 10px 20px;
         color: var(--accent-004);
-        &:hover {
-            color: var(--accent-001);
-            box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
-        }
     }
 `;
 const CardTagsContainer = styled.div`
@@ -505,6 +504,50 @@ const CardTagHeading = styled.span`
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
+const AdditionalProjectsContainer = styled.div`
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+`;
+const AdditionalProjects = styled.div`
+    border-radius: 25px;
+    display: ${({ display }) => display};
+    flex: 1;
+    width: 100%;
+    min-height: 30vh;
+    background-color: var(--fade-001);
+    margin-bottom: 20px;
+    box-shadow: inset 0 1px 3px #0001, inset 0 2px 5px #0001, inset 0 3px 8px #2221;
+`;
+const AdditionalProjectsButton = styled.div`
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    transition: 111ms linear;
+    user-select: none;
+    padding: 15px 20px;
+    background-color: var(--accent-001);
+    font-size: 25px;
+    font-weight: 500;
+    border: 1px solid #0001;
+    @media only screen and (max-width: 1000px) {
+        font-size: 20px;
+    }
+    @media only screen and (max-width: 600px) {
+        font-size: 15px;
+    }
+    &:hover {
+        box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
+    }
+`;
+
+//////////////////////////////////////////////////////////////////////
+
 const cards = [
     {
         id: "1",
@@ -517,7 +560,8 @@ const cards = [
             {
                 id: "1",
                 heading: "travel",
-                imageUrl: "https://www.svgrepo.com/show/364112/airplane-tilt-duotone.svg",
+                imageUrl:
+                    "https://www.svgrepo.com/show/364112/airplane-tilt-duotone.svg",
             },
             {
                 id: "2",
@@ -610,6 +654,10 @@ const cards = [
 ];
 
 const App = () => {
+    const [additionalProjectsVisible, setAdditionalProjectsVisible] =
+        useState("none");
+    const toggleAdditionalProjectsVisible = () =>
+        setAdditionalProjectsVisible(!additionalProjectsVisible);
     return (
         // <AppContents>
         //     <PopTray />
@@ -724,6 +772,18 @@ const App = () => {
                             );
                         })}
                     </AllCards>
+                    <AdditionalProjectsContainer>
+                        <AdditionalProjects
+                            display={
+                                additionalProjectsVisible ? "none" : "flex"
+                            }
+                        ></AdditionalProjects>
+                        <AdditionalProjectsButton
+                            onClick={() => toggleAdditionalProjectsVisible()}
+                        >
+                            All Projects
+                        </AdditionalProjectsButton>
+                    </AdditionalProjectsContainer>
                 </AppCardsContainer>
             </AppContainer>
         </>
