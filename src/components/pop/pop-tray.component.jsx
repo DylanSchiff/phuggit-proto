@@ -7,8 +7,8 @@ import { POPS } from "./POPDATA";
 
 const PopTrayContainer = styled.div`
     /* position: absolute; */
-    min-height: 150px;
-    min-height: 150px;
+    min-height: 125px;
+    min-height: 125px;
     z-index: 999;
     bottom: 20px;
     display: flex;
