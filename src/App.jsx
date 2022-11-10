@@ -130,6 +130,7 @@ const AppNotificationLink = styled.a`
 
 const AppSplash = styled.section`
     max-width: 1500px;
+    min-height: 100vh;
     flex: 1;
     display: flex;
     flex-flow: row nowrap;
@@ -355,6 +356,7 @@ const AllCards = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 25px;
     justify-items: center;
+    align-items: center;
     @media only screen and (max-width: 1000px) {
         grid-template-columns: repeat(1, 1fr);
         grid-column-gap: 10px;
@@ -372,7 +374,7 @@ const Card = styled.div`
     background-color: var(--white-004);
     border-radius: 25px;
     min-height: 100vh;
-    padding: 10px 20px;
+    padding: 20px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -383,6 +385,12 @@ const Card = styled.div`
         border-radius: 0px;
         border: none;
         box-shadow: none;
+        &:first-of-type {
+            border-bottom: 1px solid var(--fade-002);
+        }
+        &:last-of-type {
+            border-top: 1px solid var(--fade-002);
+        }
     }
     &:hover {
         background-color: var(--accent-001);
@@ -425,10 +433,21 @@ const CardSubheading = styled.span`
         font-size: 15px;
     }
 `;
+
+const CardTagsButtonFlipper = styled.div`
+    /* flex: 1; */
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    @media only screen and (max-width: 1000px) {
+        flex-flow: column-reverse nowrap;
+    }
+`;
 const CardButtonContainer = styled.div``;
 const CardButton = styled.div`
     cursor: pointer;
-    outline: none;
     border: none;
     border-radius: 10px;
     transition: 111ms linear;
@@ -437,10 +456,18 @@ const CardButton = styled.div`
     font-size: 25px;
     font-weight: 500;
     @media only screen and (max-width: 1000px) {
+        border: none;
         font-size: 20px;
+        border: 1px solid var(--fade-002);
+        background-color: var(--white-001);
+        padding: 10px 20px;
+        &:hover {
+            color: var(--white-001);
+            box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
+        }
     }
     &:hover {
-        color: var(--white-001);
+        color: var(--fade-004);
     }
 `;
 const CardTagsContainer = styled.div`
@@ -451,13 +478,20 @@ const CardTagsContainer = styled.div`
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-`;
-const CardTag = styled.div`
-    width: 100%;
     /* background-color: red; */
 `;
-const CardTagImageContainer = styled.div``;
-const CardTagImage = styled.img``;
+const CardTag = styled.div`
+    display: flex;
+    flex-flow: row nowrap;
+`;
+const CardTagImageContainer = styled.div`
+    height: 20px;
+    width: 20px;
+`;
+const CardTagImage = styled.img`
+    height: 20px;
+    width: 20px;
+`;
 const CardTagHeadingContainer = styled.div``;
 const CardTagHeading = styled.span`
     font-size: 17.5px;
@@ -579,29 +613,36 @@ const App = () => {
                                             {subheading}
                                         </CardSubheading>
                                     </CardHeadingContainer>
-                                    <CardButtonContainer>
-                                        <CardButton>{buttontext}</CardButton>
-                                    </CardButtonContainer>
-                                    <CardTagsContainer>
-                                        {tags.map((tag) => {
-                                            const { id, heading, imageUrl } =
-                                                tag;
-                                            return (
-                                                <CardTag key={id}>
-                                                    <CardTagImageContainer>
-                                                        <CardTagImage
-                                                            src={imageUrl}
-                                                        />
-                                                    </CardTagImageContainer>
-                                                    <CardTagHeadingContainer>
-                                                        <CardTagHeading>
-                                                            {heading}
-                                                        </CardTagHeading>
-                                                    </CardTagHeadingContainer>
-                                                </CardTag>
-                                            );
-                                        })}
-                                    </CardTagsContainer>
+                                    <CardTagsButtonFlipper>
+                                        <CardButtonContainer>
+                                            <CardButton>
+                                                {buttontext}
+                                            </CardButton>
+                                        </CardButtonContainer>
+                                        <CardTagsContainer>
+                                            {tags.map((tag) => {
+                                                const {
+                                                    id,
+                                                    heading,
+                                                    imageUrl,
+                                                } = tag;
+                                                return (
+                                                    <CardTag key={id}>
+                                                        <CardTagImageContainer>
+                                                            <CardTagImage
+                                                                src={imageUrl}
+                                                            />
+                                                        </CardTagImageContainer>
+                                                        <CardTagHeadingContainer>
+                                                            <CardTagHeading>
+                                                                {heading}
+                                                            </CardTagHeading>
+                                                        </CardTagHeadingContainer>
+                                                    </CardTag>
+                                                );
+                                            })}
+                                        </CardTagsContainer>
+                                    </CardTagsButtonFlipper>
                                 </Card>
                             );
                         })}
