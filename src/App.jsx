@@ -159,7 +159,7 @@ const SplashButtonsContainer = styled.div`
     }
 `;
 const SplashButton = styled.div`
-    border-radius: 5px;
+    /* border-radius: 5px;
     cursor: pointer;
     white-space: nowrap;
     margin: ${({ margin }) => margin};
@@ -169,10 +169,27 @@ const SplashButton = styled.div`
     background-color: ${({ backgroundcolor }) => backgroundcolor};
     font-size: ${({ fontsize }) => fontsize};
     font-weight: ${({ fontweight }) => fontweight};
+    @media only screen and (max-width: 1000px) {
+        font-size: 20px;
+        margin: 10px;
+    }
     @media only screen and (max-width: 450px) {
         margin: 20px 0;
         font-size: 15px;
-    }
+    } */
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+`;
+
+const FirstSplashButton = styled(SplashButton)`
+    padding: 10px 20px;
+    background-color: var(--accent-001);
+    font-size: 25px;
+`;
+const SecondSplashButton = styled(SplashButton)`
+    margin-left: 20px;
 `;
 
 //////////////////////////////////////////////////////////////////////
@@ -215,7 +232,7 @@ const App = () => {
         backgroundcolor: "var(--accent-001);",
         fontsize: "25px",
         fontweight: "400",
-        padding: "10px 20px",
+        // padding: "10px 20px",
         margin: "0",
     };
     const secondButtonSettings = {
@@ -259,30 +276,12 @@ const App = () => {
                         </SplashSummary>
                     </SplashSummaryContainer>
                     <SplashButtonsContainer>
-                        <SplashButton
-                            outline={mainButtonSettings.outline}
-                            border={mainButtonSettings.border}
-                            fontsize={mainButtonSettings.fontsize}
-                            fontweight={mainButtonSettings.fontweight}
-                            backgroundcolor={mainButtonSettings.backgroundcolor}
-                            margin={mainButtonSettings.margin}
-                            padding={mainButtonSettings.padding}
-                        >
+                        <FirstSplashButton>
                             {mainButtonSettings.buttontext}
-                        </SplashButton>
-                        <SplashButton
-                            outline={secondButtonSettings.outline}
-                            border={secondButtonSettings.border}
-                            fontsize={secondButtonSettings.fontsize}
-                            fontweight={secondButtonSettings.fontweight}
-                            backgroundcolor={
-                                secondButtonSettings.backgroundcolor
-                            }
-                            margin={secondButtonSettings.margin}
-                            padding={secondButtonSettings.padding}
-                        >
+                        </FirstSplashButton>
+                        <SecondSplashButton>
                             {secondButtonSettings.buttontext}
-                        </SplashButton>
+                        </SecondSplashButton>
                     </SplashButtonsContainer>
                 </SplashDetails>
                 <SplashImageContainer>
