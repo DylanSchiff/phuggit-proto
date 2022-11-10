@@ -149,10 +149,12 @@ const SplashButtonsContainer = styled.div`
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
+    margin-top: 10px;
     @media only screen and (max-width: 600px) {
         justify-content: center;
     }
-    @media only screen and (max-width: 300px) {
+    @media only screen and (max-width: 450px) {
+        justify-content: center;
         flex-flow: column nowrap;
     }
 `;
@@ -167,7 +169,7 @@ const SplashButton = styled.div`
     background-color: ${({ backgroundcolor }) => backgroundcolor};
     font-size: ${({ fontsize }) => fontsize};
     font-weight: ${({ fontweight }) => fontweight};
-    @media only screen and (max-width: 300px) {
+    @media only screen and (max-width: 450px) {
         margin: 20px 0;
         font-size: 15px;
     }
@@ -210,7 +212,7 @@ const App = () => {
         buttontext: "welcome",
         outline: "none",
         border: "none",
-        backgroundcolor: "#aaf",
+        backgroundcolor: "var(--accent-001);",
         fontsize: "25px",
         fontweight: "400",
         padding: "10px 20px",

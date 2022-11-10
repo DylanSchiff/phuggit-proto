@@ -37,12 +37,12 @@ body {
 }
 * {
     box-sizing: border-box;
-    color: #222222ee;
+    color: #222222aa;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 ::placeholder {
-    color: #555555;
+    color: var(--main-003);
 }
 ::-webkit-scrollbar {
     max-width: 5px;
