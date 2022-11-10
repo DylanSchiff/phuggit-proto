@@ -583,7 +583,7 @@ const ContactSubheading = styled.span`
     color: var(--white-003);
 `;
 
-const ContactButton = styled.div`
+const ContactButton = styled.a`
     margin-top: 30px;
     cursor: pointer;
     border-radius: 10px;
@@ -593,9 +593,6 @@ const ContactButton = styled.div`
     font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
-    border: 1px solid var(--fade-002);
-    background-color: var(--white-001);
-    padding: 10px 20px;
     color: var(--accent-004);
     &:hover {
         color: var(--accent-001);
@@ -716,7 +713,6 @@ const cards = [
         ],
     },
 ];
-
 
 const App = () => {
     const [additionalProjectsVisible, setAdditionalProjectsVisible] =
@@ -852,7 +848,16 @@ const App = () => {
                             elit.
                         </ContactSubheading>
                         <PopTray />
-                        <ContactButton>{currentPop?`visit ${currentPop.heading}`:"select option"}</ContactButton>
+                        <ContactButton
+                            key="handle"
+                            href={currentPop ? currentPop.path : null}
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            {currentPop
+                                ? `visit ${currentPop.heading}`
+                                : "select option"}
+                        </ContactButton>
                     </ContactBox>
                 </AppCardsContainer>
             </AppContainer>
