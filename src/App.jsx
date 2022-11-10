@@ -382,6 +382,9 @@ const Card = styled.div`
     justify-content: flex-start;
     box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
     transition: 111ms linear;
+    &:hover {
+        background-color: var(--accent-001);
+    }
     @media only screen and (max-width: 1000px) {
         border-radius: 0px;
         border: none;
@@ -392,9 +395,9 @@ const Card = styled.div`
         &:last-of-type {
             border-top: 1px solid var(--fade-002);
         }
-    }
-    &:hover {
-        background-color: var(--accent-001);
+        &:hover {
+            background-color: var(--white-004);
+        }
     }
 `;
 const CardImageContainer = styled.div`
@@ -469,6 +472,7 @@ const CardButton = styled.div`
         background-color: var(--white-001);
         padding: 10px 20px;
         color: var(--accent-004);
+        margin-bottom: 20px;
     }
 `;
 const CardTagsContainer = styled.div`
@@ -521,7 +525,8 @@ const AdditionalProjects = styled.div`
     min-height: 30vh;
     background-color: var(--fade-001);
     margin-bottom: 20px;
-    box-shadow: inset 0 1px 3px #0001, inset 0 2px 5px #0001, inset 0 3px 8px #2221;
+    box-shadow: inset 0 1px 3px #0001, inset 0 2px 5px #0001,
+        inset 0 3px 8px #2221;
 `;
 const AdditionalProjectsButton = styled.div`
     cursor: pointer;
