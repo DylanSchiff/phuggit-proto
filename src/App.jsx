@@ -56,6 +56,9 @@ const NavLogoImage = styled.img`
 `;
 const NavLogoHeadingContainer = styled.div`
     padding: 0 10px;
+    @media only screen and (max-width: 600px) {
+        display: none;
+    }
 `;
 const NavLogoHeading = styled.span`
     color: var(--white-001);
