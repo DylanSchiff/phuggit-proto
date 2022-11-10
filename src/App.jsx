@@ -421,6 +421,9 @@ const CardSubheading = styled.span`
     text-align: center;
     line-height: 25px;
     font-size: 17.5px;
+    @media only screen and (max-width: 600px) {
+        font-size: 15px;
+    }
 `;
 const CardButtonContainer = styled.div``;
 const CardButton = styled.div`
@@ -436,14 +439,11 @@ const CardButton = styled.div`
     @media only screen and (max-width: 1000px) {
         font-size: 20px;
     }
-    @media only screen and (max-width: 600px) {
-        font-size: 15px;
-    }
     &:hover {
         color: var(--white-001);
     }
 `;
-const CardTagContainer = styled.div`
+const CardTagsContainer = styled.div`
     padding: 40px 0;
     flex: 1;
     width: 100%;
@@ -459,7 +459,12 @@ const CardTag = styled.div`
 const CardTagImageContainer = styled.div``;
 const CardTagImage = styled.img``;
 const CardTagHeadingContainer = styled.div``;
-const CardTagHeading = styled.span``;
+const CardTagHeading = styled.span`
+    font-size: 17.5px;
+    @media only screen and (max-width: 600px) {
+        font-size: 15px;
+    }
+`;
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
@@ -471,7 +476,7 @@ const cards = [
             "Numquam labore dolorem, voluptates excepturi doloremque quas.",
         buttontext: "demo",
         imageUrl: circleone,
-        tags: [],
+        tags: [{ id: "1", heading: "testing", imageUrl: "" }],
     },
     {
         id: "2",
@@ -480,7 +485,7 @@ const cards = [
             "Numquam labore dolorem, voluptates excepturi doloremque quas.",
         buttontext: "demo",
         imageUrl: circletwo,
-        tags: [],
+        tags: [{ id: "1", heading: "testing", imageUrl: "" }],
     },
     {
         id: "3",
@@ -489,7 +494,7 @@ const cards = [
             "Numquam labore dolorem, voluptates excepturi doloremque quas.",
         buttontext: "demo",
         imageUrl: circlethree,
-        tags: [],
+        tags: [{ id: "1", heading: "testing", imageUrl: "" }],
     },
 ];
 
@@ -577,18 +582,26 @@ const App = () => {
                                     <CardButtonContainer>
                                         <CardButton>{buttontext}</CardButton>
                                     </CardButtonContainer>
-                                    <CardTagContainer>
-                                        <CardTag>
-                                            <CardTagImageContainer>
-                                                <CardTagImage />
-                                            </CardTagImageContainer>
-                                            <CardHeadingContainer>
-                                                <CardHeading>
-                                                    sdffsd
-                                                </CardHeading>
-                                            </CardHeadingContainer>
-                                        </CardTag>
-                                    </CardTagContainer>
+                                    <CardTagsContainer>
+                                        {tags.map((tag) => {
+                                            const { id, heading, imageUrl } =
+                                                tag;
+                                            return (
+                                                <CardTag key={id}>
+                                                    <CardTagImageContainer>
+                                                        <CardTagImage
+                                                            src={imageUrl}
+                                                        />
+                                                    </CardTagImageContainer>
+                                                    <CardTagHeadingContainer>
+                                                        <CardTagHeading>
+                                                            {heading}
+                                                        </CardTagHeading>
+                                                    </CardTagHeadingContainer>
+                                                </CardTag>
+                                            );
+                                        })}
+                                    </CardTagsContainer>
                                 </Card>
                             );
                         })}
