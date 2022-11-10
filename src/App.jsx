@@ -435,7 +435,6 @@ const CardSubheading = styled.span`
 `;
 
 const CardTagsButtonFlipper = styled.div`
-    /* flex: 1; */
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
@@ -452,22 +451,25 @@ const CardButton = styled.div`
     border-radius: 10px;
     transition: 111ms linear;
     user-select: none;
-    color: var(--accent-003);
+    color: var(--white-001);
     font-size: 25px;
-    font-weight: 500;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px;
+    &:hover {
+        color: var(--accent-004);
+    }
     @media only screen and (max-width: 1000px) {
         border: none;
         font-size: 20px;
         border: 1px solid var(--fade-002);
         background-color: var(--white-001);
         padding: 10px 20px;
+        color: var(--accent-004);
         &:hover {
-            color: var(--white-001);
+            color: var(--accent-001);
             box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
         }
-    }
-    &:hover {
-        color: var(--fade-004);
     }
 `;
 const CardTagsContainer = styled.div`
@@ -478,22 +480,23 @@ const CardTagsContainer = styled.div`
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    /* background-color: red; */
 `;
 const CardTag = styled.div`
     display: flex;
     flex-flow: row nowrap;
+    margin: 10px 0;
 `;
 const CardTagImageContainer = styled.div`
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
 `;
 const CardTagImage = styled.img`
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
 `;
 const CardTagHeadingContainer = styled.div``;
 const CardTagHeading = styled.span`
+    font-weight: 400;
     font-size: 17.5px;
     @media only screen and (max-width: 600px) {
         font-size: 15px;
@@ -510,7 +513,31 @@ const cards = [
             "Numquam labore dolorem, voluptates excepturi doloremque quas.",
         buttontext: "demo",
         imageUrl: circleone,
-        tags: [{ id: "1", heading: "testing", imageUrl: "" }],
+        tags: [
+            {
+                id: "1",
+                heading: "travel",
+                imageUrl: "https://www.svgrepo.com/show/364112/airplane-tilt-duotone.svg",
+            },
+            {
+                id: "2",
+                heading: "geolocation",
+                imageUrl:
+                    "https://www.svgrepo.com/show/363496/compass-duotone.svg",
+            },
+            {
+                id: "3",
+                heading: "multi-media",
+                imageUrl:
+                    "https://www.svgrepo.com/show/363399/camera-duotone.svg",
+            },
+            {
+                id: "4",
+                heading: "timeline",
+                imageUrl:
+                    "https://www.svgrepo.com/show/363396/calendar-check-duotone.svg",
+            },
+        ],
     },
     {
         id: "2",
@@ -519,7 +546,32 @@ const cards = [
             "Numquam labore dolorem, voluptates excepturi doloremque quas.",
         buttontext: "demo",
         imageUrl: circletwo,
-        tags: [{ id: "1", heading: "testing", imageUrl: "" }],
+        tags: [
+            {
+                id: "1",
+                heading: "time keeping",
+                imageUrl:
+                    "https://www.svgrepo.com/show/363221/alarm-duotone.svg",
+            },
+            {
+                id: "2",
+                heading: "data logging",
+                imageUrl:
+                    "https://www.svgrepo.com/show/363826/paperclip-duotone.svg",
+            },
+            {
+                id: "3",
+                heading: "admin portal",
+                imageUrl:
+                    "https://www.svgrepo.com/show/363700/identification-card-duotone.svg",
+            },
+            {
+                id: "4",
+                heading: "team centric",
+                imageUrl:
+                    "https://www.svgrepo.com/show/364073/users-four-duotone.svg",
+            },
+        ],
     },
     {
         id: "3",
@@ -528,7 +580,32 @@ const cards = [
             "Numquam labore dolorem, voluptates excepturi doloremque quas.",
         buttontext: "demo",
         imageUrl: circlethree,
-        tags: [{ id: "1", heading: "testing", imageUrl: "" }],
+        tags: [
+            {
+                id: "1",
+                heading: "time keeping",
+                imageUrl:
+                    "https://www.svgrepo.com/show/363834/pencil-circle-duotone.svg",
+            },
+            {
+                id: "2",
+                heading: "color generation",
+                imageUrl:
+                    "https://www.svgrepo.com/show/363560/drop-duotone.svg",
+            },
+            {
+                id: "3",
+                heading: "pallet editor",
+                imageUrl:
+                    "https://www.svgrepo.com/show/363573/eyedropper-duotone.svg",
+            },
+            {
+                id: "4",
+                heading: "shadow and opacity",
+                imageUrl:
+                    "https://www.svgrepo.com/show/363981/star-half-duotone.svg",
+            },
+        ],
     },
 ];
 
