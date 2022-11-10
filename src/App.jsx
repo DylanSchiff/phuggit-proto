@@ -348,7 +348,8 @@ const App = () => {
                     <SplashDetails>
                         <SplashHeadingContainer>
                             <SplashHeading>
-                                Item here to fill a main heading slot
+                                Commodi sapiente cupiditate vero, officia
+                                tempore.
                             </SplashHeading>
                         </SplashHeadingContainer>
                         <SplashSummaryContainer>
