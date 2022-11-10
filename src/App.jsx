@@ -3,6 +3,7 @@ import styled from "styled-components";
 // import PopDisplay from "./components/pop/pop-display.component";
 // import PopTray from "./components/pop/pop-tray.component";
 import splashimage from "./components/images/light.svg";
+import ship from "./components/images/ship.svg";
 
 const AppContainer = styled.div`
     min-height: 100vh;
@@ -56,16 +57,20 @@ const NavLogoImage = styled.img`
 `;
 const NavLogoHeadingContainer = styled.div`
     padding: 0 10px;
+    @media only screen and (max-width: 300px) {
+        display: none;
+    }
 `;
 const NavLogoHeading = styled.span`
     color: var(--white-001);
-    font-size: 15px;
+    font-size: 25px;
     font-weight: 500;
     line-height: 30px;
     max-height: 30px;
+    user-select: none;
     cursor: pointer;
     @media only screen and (max-width: 600px) {
-        display: none;
+        font-size: 20px;
     }
 `;
 
@@ -84,6 +89,7 @@ const NavButton = styled.div`
     font-weight: 500;
     border: 1px solid transparent;
     margin: 5px;
+    user-select: none;
     &:hover {
         border: 1px solid var(--accent-001);
     }
@@ -103,12 +109,14 @@ const AppNotificationBanner = styled.div`
 const AppNotification = styled.span`
     color: var(--accent-004);
     font-size: 12.5px;
+    user-select: none;
 `;
 const AppNotificationLink = styled.a`
     margin-left: 5px;
     cursor: pointer;
     font-weight: 500;
     color: var(--accent-004);
+    user-select: none;
     &:hover {
         text-decoration: underline;
     }
@@ -123,6 +131,7 @@ const AppSplash = styled.section`
     display: flex;
     flex-flow: row nowrap;
     padding: 50px 60px;
+    align-items: center;
     @media only screen and (max-width: 1000px) {
         flex-flow: column nowrap;
         align-items: center;
@@ -160,6 +169,7 @@ const SplashHeading = styled.h2`
     font-size: 45px;
     line-height: 45px;
     font-weight: 600;
+    user-select: none;
     @media only screen and (max-width: 1000px) {
         max-width: 275px;
         font-size: 30px;
@@ -194,6 +204,7 @@ const SplashSummary = styled.p`
     font-size: 25px;
     line-height: 25px;
     font-weight: 400;
+    user-select: none;
     @media only screen and (max-width: 1000px) {
         font-size: 22.5px;
         line-height: 22.5px;
@@ -236,6 +247,7 @@ const SplashButton = styled.div`
     border: none;
     border-radius: 10px;
     transition: 111ms linear;
+    user-select: none;
 `;
 
 const FirstSplashButton = styled(SplashButton)`
@@ -276,12 +288,10 @@ const SplashImageContainer = styled.div`
     width: 100%;
     height: fit-content;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     padding-top: 30px;
     @media only screen and (max-width: 1000px) {
-        justify-content: center;
-        align-items: center;
         padding-top: 10px;
         width: 80%;
     }
@@ -290,6 +300,7 @@ const SplashImageContainer = styled.div`
     }
 `;
 const SplashImage = styled.img`
+    user-select: none;
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -312,7 +323,7 @@ const App = () => {
         // </AppContents>
 
         <>
-            <AppNavbar>
+            <AppNavbar backgroundimage={`url(${ship})`}>
                 <NavLogoContainer>
                     <NavLogoImageContainer>
                         <NavLogoImage src="https://www.svgrepo.com/show/233196/smile.svg" />
@@ -329,7 +340,7 @@ const App = () => {
                     <AppNotification>
                         Lorem, ipsum dolor sit amet consectetur adipisicing
                         elit. Numquam labore dolorem, voluptates excepturi
-                        doloremque quas?{" "}
+                        doloremque quas?
                         <AppNotificationLink>Learn More</AppNotificationLink>
                     </AppNotification>
                 </AppNotificationBanner>
@@ -349,7 +360,7 @@ const App = () => {
                             </SplashSummary>
                         </SplashSummaryContainer>
                         <SplashButtonsContainer>
-                            <FirstSplashButton>Welcome</FirstSplashButton>
+                            <FirstSplashButton>Projects</FirstSplashButton>
                             <SecondSplashButton>learn more</SecondSplashButton>
                         </SplashButtonsContainer>
                     </SplashDetails>
