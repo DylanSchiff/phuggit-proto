@@ -1,8 +1,10 @@
 body {
     margin: 0;
     overflow: hidden;
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    min-width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
     background-color: #111;
     background: linear-gradient(0deg, #111 0%, #222 30%, #222 70%, #111 100%);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
