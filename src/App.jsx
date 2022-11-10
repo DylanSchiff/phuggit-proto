@@ -22,8 +22,8 @@ const AppNavbar = styled.div`
     width: 100vw;
     position: sticky;
     top: 0;
-    min-height: 40px;
-    max-height: 40px;
+    min-height: 50px;
+    max-height: 50px;
     background-color: var(--main-002);
     display: flex;
     flex-flow: row nowrap;
