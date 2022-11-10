@@ -4,6 +4,9 @@ import styled from "styled-components";
 // import PopTray from "./components/pop/pop-tray.component";
 import splashimage from "./components/images/light.svg";
 import ship from "./components/images/ship.svg";
+import circleone from "./components/images/circleone.svg";
+import circletwo from "./components/images/circletwo.svg";
+import circlethree from "./components/images/circlethree.svg";
 
 const AppContainer = styled.div`
     min-height: 100vh;
@@ -312,7 +315,152 @@ const SplashImage = styled.img`
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-const AppCardsContainer = styled.div``;
+const AppCardsContainer = styled.div`
+    background-color: var(--white-001);
+    flex: 1;
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+`;
+const CardsHeading = styled.span``;
+const AllCards = styled.div`
+    flex: 1;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+    justify-items: center;
+    @media only screen and (max-width: 1000px) {
+        grid-template-columns: repeat(1, 1fr);
+        grid-row-gap: 2px;
+        border-radius: 25px;
+        overflow: hidden;
+    }
+`;
+const Card = styled.div`
+    border: 1px solid var(--fade-002);
+    flex: 1;
+    width: 100%;
+    background-color: var(--white-004);
+    border-radius: 25px;
+    min-height: 100vh;
+    padding: 10px 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
+    @media only screen and (max-width: 1000px) {
+        border-radius: 0px;
+    }
+`;
+const CardImageContainer = styled.div`
+    max-height: 150px;
+    max-width: 150px;
+    min-height: 150px;
+    min-width: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+`;
+const CardImage = styled.img`
+    max-height: 151px;
+    max-width: 151px;
+    min-height: 151px;
+    min-width: 151px;
+`;
+const CardHeadingContainer = styled.div`
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+`;
+const CardHeading = styled.span`
+    font-size: 35px;
+    font-weight: 500;
+`;
+const CardSubheading = styled.span`
+    margin: 20px 0;
+    text-align: center;
+    line-height: 25px;
+    font-size: 20px;
+`;
+const CardButtonContainer = styled.div``;
+const CardButton = styled.div`
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    transition: 111ms linear;
+    user-select: none;
+    color: var(--accent-003);
+    font-size: 25px;
+    font-weight: 500;
+    @media only screen and (max-width: 1000px) {
+        font-size: 20px;
+    }
+    @media only screen and (max-width: 600px) {
+        font-size: 15px;
+    }
+    &:hover {
+        color: var(--accent-001);
+    }
+`;
+const CardTagContainer = styled.div`
+    padding: 40px 0;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+`;
+const CardTag = styled.div`
+    width: 100%;
+    background-color: red;
+`;
+const CardTagImageContainer = styled.div``;
+const CardTagImage = styled.img``;
+const CardTagHeadingContainer = styled.div``;
+const CardTagHeading = styled.span``;
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+const cards = [
+    {
+        id: "1",
+        heading: "Numquam",
+        subheading:
+            "Numquam labore dolorem, voluptates excepturi doloremque quas.",
+        buttontext: "demo",
+        imageUrl: circleone,
+        tags: [],
+    },
+    {
+        id: "2",
+        heading: "Dolorem",
+        subheading:
+            "Numquam labore dolorem, voluptates excepturi doloremque quas.",
+        buttontext: "demo",
+        imageUrl: circletwo,
+        tags: [],
+    },
+    {
+        id: "3",
+        heading: "Voluptates",
+        subheading:
+            "Numquam labore dolorem, voluptates excepturi doloremque quas.",
+        buttontext: "demo",
+        imageUrl: circlethree,
+        tags: [],
+    },
+];
 
 const App = () => {
     return (
@@ -369,7 +517,45 @@ const App = () => {
                         <SplashImage src={splashimage}></SplashImage>
                     </SplashImageContainer>
                 </AppSplash>
-                <AppCardsContainer></AppCardsContainer>
+                <AppCardsContainer>
+                    <CardsHeading></CardsHeading>
+                    <AllCards>
+                        {cards.map((card) => {
+                            const {
+                                id,
+                                heading,
+                                subheading,
+                                buttontext,
+                                imageUrl,
+                                tags,
+                            } = card;
+                            return (
+                                <Card key={id}>
+                                    <CardImageContainer>
+                                        <CardImage src={imageUrl} />
+                                    </CardImageContainer>
+                                    <CardHeadingContainer>
+                                        <CardHeading>{heading}</CardHeading>
+                                        <CardSubheading>
+                                            {subheading}
+                                        </CardSubheading>
+                                    </CardHeadingContainer>
+                                    <CardButtonContainer>
+                                        <CardButton>{buttontext}</CardButton>
+                                    </CardButtonContainer>
+                                    <CardTagContainer>
+                                        <CardTag>
+                                            <CardTagImageContainer>
+                                                <CardTagImage />
+                                            </CardTagImageContainer>
+                                            
+                                        </CardTag>
+                                    </CardTagContainer>
+                                </Card>
+                            );
+                        })}
+                    </AllCards>
+                </AppCardsContainer>
             </AppContainer>
         </>
     );
