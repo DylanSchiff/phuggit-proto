@@ -55,7 +55,10 @@ const AppSplash = styled.section`
     padding: 50px 60px;
     @media only screen and (max-width: 1000px) {
         flex-flow: column nowrap;
-        padding: 50px 60px;
+        align-items: center;
+    }
+    @media only screen and (max-width: 600px) {
+        justify-content: center;
     }
 `;
 const SplashDetails = styled.div`
@@ -158,25 +161,8 @@ const SplashButtonsContainer = styled.div`
         flex-flow: column nowrap;
     }
 `;
+
 const SplashButton = styled.div`
-    /* border-radius: 5px;
-    cursor: pointer;
-    white-space: nowrap;
-    margin: ${({ margin }) => margin};
-    padding: ${({ padding }) => padding};
-    outline: ${({ outline }) => outline};
-    border: ${({ border }) => border};
-    background-color: ${({ backgroundcolor }) => backgroundcolor};
-    font-size: ${({ fontsize }) => fontsize};
-    font-weight: ${({ fontweight }) => fontweight};
-    @media only screen and (max-width: 1000px) {
-        font-size: 20px;
-        margin: 10px;
-    }
-    @media only screen and (max-width: 450px) {
-        margin: 20px 0;
-        font-size: 15px;
-    } */
     cursor: pointer;
     outline: none;
     border: none;
@@ -187,9 +173,22 @@ const FirstSplashButton = styled(SplashButton)`
     padding: 10px 20px;
     background-color: var(--accent-001);
     font-size: 25px;
+    @media only screen and (max-width: 1000px) {
+        font-size: 20px;
+    }
+    @media only screen and (max-width: 600px) {
+        font-size: 15px;
+    }
 `;
 const SecondSplashButton = styled(SplashButton)`
     margin-left: 20px;
+    @media only screen and (max-width: 600px) {
+        font-size: 15px;
+    }
+    @media only screen and (max-width: 450px) {
+        margin-left: 0px;
+        margin-top: 20px;
+    }
 `;
 
 //////////////////////////////////////////////////////////////////////
@@ -202,9 +201,12 @@ const SplashImageContainer = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    padding-top: 30px;
     @media only screen and (max-width: 1000px) {
         justify-content: center;
         align-items: center;
+        padding-top: 10px;
+        width: 80%;
     }
     @media only screen and (max-width: 200px) {
         display: none;
@@ -225,27 +227,6 @@ const SplashImage = styled.img`
 const AppCardsContainer = styled.div``;
 
 const App = () => {
-    const mainButtonSettings = {
-        buttontext: "welcome",
-        outline: "none",
-        border: "none",
-        backgroundcolor: "var(--accent-001);",
-        fontsize: "25px",
-        fontweight: "400",
-        // padding: "10px 20px",
-        margin: "0",
-    };
-    const secondButtonSettings = {
-        buttontext: "learn more",
-        outline: "none",
-        border: "none",
-        backgroundcolor: "transparent",
-        fontsize: "",
-        fontweight: "",
-        padding: "",
-        margin: "0 0 0 30px",
-    };
-
     return (
         // <AppContents>
         //     <PopTray />
@@ -276,12 +257,8 @@ const App = () => {
                         </SplashSummary>
                     </SplashSummaryContainer>
                     <SplashButtonsContainer>
-                        <FirstSplashButton>
-                            {mainButtonSettings.buttontext}
-                        </FirstSplashButton>
-                        <SecondSplashButton>
-                            {secondButtonSettings.buttontext}
-                        </SecondSplashButton>
+                        <FirstSplashButton>Welcome</FirstSplashButton>
+                        <SecondSplashButton>learn more</SecondSplashButton>
                     </SplashButtonsContainer>
                 </SplashDetails>
                 <SplashImageContainer>
