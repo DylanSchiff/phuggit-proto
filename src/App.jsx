@@ -29,7 +29,7 @@ const AppNotificationBanner = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px 20px;
 `;
 const AppNotification = styled.span`
     color: var(--accent-004);
@@ -55,6 +55,7 @@ const AppSplash = styled.section`
     padding: 50px 60px;
     @media only screen and (max-width: 1000px) {
         flex-flow: column nowrap;
+        padding: 50px 60px;
     }
 `;
 const SplashDetails = styled.div`
@@ -143,9 +144,34 @@ const SplashSummary = styled.p`
 //////////////////////////////////////////////////////////////////////
 
 const SplashButtonsContainer = styled.div`
-    background-color: var(--fade-001);
+    /* background-color: var(--fade-001); */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    @media only screen and (max-width: 600px) {
+        justify-content: center;
+    }
+    @media only screen and (max-width: 300px) {
+        flex-flow: column nowrap;
+    }
 `;
-const SplashButton = styled.button``;
+const SplashButton = styled.div`
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    margin: ${({ margin }) => margin};
+    padding: ${({ padding }) => padding};
+    outline: ${({ outline }) => outline};
+    border: ${({ border }) => border};
+    background-color: ${({ backgroundcolor }) => backgroundcolor};
+    font-size: ${({ fontsize }) => fontsize};
+    font-weight: ${({ fontweight }) => fontweight};
+    @media only screen and (max-width: 300px) {
+        margin: 20px 0;
+        font-size: 15px;
+    }
+`;
 
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -161,6 +187,9 @@ const SplashImageContainer = styled.div`
         justify-content: center;
         align-items: center;
     }
+    @media only screen and (max-width: 200px) {
+        display: none;
+    }
 `;
 const SplashImage = styled.img`
     height: 100%;
@@ -168,8 +197,6 @@ const SplashImage = styled.img`
     object-fit: cover;
     @media only screen and (max-width: 1000px) {
         margin-top: 50px;
-    }
-    @media only screen and (max-width: 600px) {
     }
 `;
 
@@ -179,6 +206,27 @@ const SplashImage = styled.img`
 const AppCardsContainer = styled.div``;
 
 const App = () => {
+    const mainButtonSettings = {
+        buttontext: "welcome",
+        outline: "none",
+        border: "none",
+        backgroundcolor: "#aaf",
+        fontsize: "25px",
+        fontweight: "400",
+        padding: "10px 20px",
+        margin: "0",
+    };
+    const secondButtonSettings = {
+        buttontext: "learn more",
+        outline: "none",
+        border: "none",
+        backgroundcolor: "transparent",
+        fontsize: "",
+        fontweight: "",
+        padding: "",
+        margin: "0 0 0 30px",
+    };
+
     return (
         // <AppContents>
         //     <PopTray />
@@ -209,8 +257,30 @@ const App = () => {
                         </SplashSummary>
                     </SplashSummaryContainer>
                     <SplashButtonsContainer>
-                        <SplashButton type="">Butone</SplashButton>
-                        <SplashButton type="">Buttwo</SplashButton>
+                        <SplashButton
+                            outline={mainButtonSettings.outline}
+                            border={mainButtonSettings.border}
+                            fontsize={mainButtonSettings.fontsize}
+                            fontweight={mainButtonSettings.fontweight}
+                            backgroundcolor={mainButtonSettings.backgroundcolor}
+                            margin={mainButtonSettings.margin}
+                            padding={mainButtonSettings.padding}
+                        >
+                            {mainButtonSettings.buttontext}
+                        </SplashButton>
+                        <SplashButton
+                            outline={secondButtonSettings.outline}
+                            border={secondButtonSettings.border}
+                            fontsize={secondButtonSettings.fontsize}
+                            fontweight={secondButtonSettings.fontweight}
+                            backgroundcolor={
+                                secondButtonSettings.backgroundcolor
+                            }
+                            margin={secondButtonSettings.margin}
+                            padding={secondButtonSettings.padding}
+                        >
+                            {secondButtonSettings.buttontext}
+                        </SplashButton>
                     </SplashButtonsContainer>
                 </SplashDetails>
                 <SplashImageContainer>
