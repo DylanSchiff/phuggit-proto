@@ -11,7 +11,7 @@ import circlethree from "./components/images/circlethree.svg";
 const AppContainer = styled.div`
     min-height: 100vh;
     min-width: 100vw;
-    background-color: var(--white-004);
+    background-color: var(--white-001);
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -324,20 +324,45 @@ const AppCardsContainer = styled.div`
     flex-flow: column nowrap;
     align-items: center;
     justify-content: flex-start;
+    transition: 111ms linear;
+    @media only screen and (max-width: 600px) {
+        padding: 25px;
+    }
 `;
-const CardsHeading = styled.span``;
+const CardsHeading = styled.span`
+    font-size: 35px;
+    line-height: 35px;
+    font-weight: 600;
+    user-select: none;
+    padding: 30px 20px;
+
+    @media only screen and (max-width: 1000px) {
+        font-size: 30px;
+        line-height: 30px;
+        font-weight: 600;
+    }
+    @media only screen and (max-width: 600px) {
+        font-size: 25px;
+        line-height: 25px;
+        font-weight: 600;
+        text-align: center;
+    }
+`;
 const AllCards = styled.div`
     flex: 1;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 25px;
+    grid-column-gap: 25px;
     justify-items: center;
     @media only screen and (max-width: 1000px) {
         grid-template-columns: repeat(1, 1fr);
-        grid-row-gap: 2px;
+        grid-column-gap: 10px;
+        grid-row-gap: 0px;
         border-radius: 25px;
         overflow: hidden;
+        border: 1px solid var(--fade-002);
+        box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
     }
 `;
 const Card = styled.div`
@@ -353,8 +378,14 @@ const Card = styled.div`
     align-items: center;
     justify-content: flex-start;
     box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
+    transition: 111ms linear;
     @media only screen and (max-width: 1000px) {
         border-radius: 0px;
+        border: none;
+        box-shadow: none;
+    }
+    &:hover {
+        background-color: var(--accent-001);
     }
 `;
 const CardImageContainer = styled.div`
@@ -389,7 +420,7 @@ const CardSubheading = styled.span`
     margin: 20px 0;
     text-align: center;
     line-height: 25px;
-    font-size: 20px;
+    font-size: 17.5px;
 `;
 const CardButtonContainer = styled.div``;
 const CardButton = styled.div`
@@ -409,7 +440,7 @@ const CardButton = styled.div`
         font-size: 15px;
     }
     &:hover {
-        color: var(--accent-001);
+        color: var(--white-001);
     }
 `;
 const CardTagContainer = styled.div`
@@ -423,7 +454,7 @@ const CardTagContainer = styled.div`
 `;
 const CardTag = styled.div`
     width: 100%;
-    background-color: red;
+    /* background-color: red; */
 `;
 const CardTagImageContainer = styled.div``;
 const CardTagImage = styled.img``;
@@ -514,11 +545,14 @@ const App = () => {
                         </SplashButtonsContainer>
                     </SplashDetails>
                     <SplashImageContainer>
-                        <SplashImage src={splashimage}></SplashImage>
+                        <SplashImage src={splashimage} />
                     </SplashImageContainer>
                 </AppSplash>
                 <AppCardsContainer>
-                    <CardsHeading></CardsHeading>
+                    <CardsHeading>
+                        Officia tempore ratione vel consectetur tempora
+                        blanditiis placeat.
+                    </CardsHeading>
                     <AllCards>
                         {cards.map((card) => {
                             const {
@@ -548,7 +582,11 @@ const App = () => {
                                             <CardTagImageContainer>
                                                 <CardTagImage />
                                             </CardTagImageContainer>
-                                            
+                                            <CardHeadingContainer>
+                                                <CardHeading>
+                                                    sdffsd
+                                                </CardHeading>
+                                            </CardHeadingContainer>
                                         </CardTag>
                                     </CardTagContainer>
                                 </Card>
