@@ -275,7 +275,8 @@ const App = () => {
         //     <PopDisplay />
         //     <PopBackground />
         // </AppContents>
-        <AppContainer>
+
+        <>
             <AppNavbar>
                 <NavLogoContainer>
                     <NavLogoImageContainer>
@@ -286,39 +287,43 @@ const App = () => {
                     </NavLogoHeadingContainer>
                 </NavLogoContainer>
             </AppNavbar>
-            <AppNotificationBanner>
-                <AppNotification>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Numquam labore dolorem, voluptates excepturi doloremque
-                    quas? <AppNotificationLink>Learn More</AppNotificationLink>
-                </AppNotification>
-            </AppNotificationBanner>
-            <AppSplash>
-                <SplashDetails>
-                    <SplashHeadingContainer>
-                        <SplashHeading>
-                            Item here to fill a main heading slot
-                        </SplashHeading>
-                    </SplashHeadingContainer>
-                    <SplashSummaryContainer>
-                        <SplashSummary>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Commodi sapiente cupiditate vero, officia
-                            tempore ratione vel consectetur tempora blanditiis
-                            placeat.
-                        </SplashSummary>
-                    </SplashSummaryContainer>
-                    <SplashButtonsContainer>
-                        <FirstSplashButton>Welcome</FirstSplashButton>
-                        <SecondSplashButton>learn more</SecondSplashButton>
-                    </SplashButtonsContainer>
-                </SplashDetails>
-                <SplashImageContainer>
-                    <SplashImage src={splashimage}></SplashImage>
-                </SplashImageContainer>
-            </AppSplash>
-            <AppCardsContainer></AppCardsContainer>
-        </AppContainer>
+
+            <AppContainer>
+                <AppNotificationBanner>
+                    <AppNotification>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing
+                        elit. Numquam labore dolorem, voluptates excepturi
+                        doloremque quas?{" "}
+                        <AppNotificationLink>Learn More</AppNotificationLink>
+                    </AppNotification>
+                </AppNotificationBanner>
+                <AppSplash>
+                    <SplashDetails>
+                        <SplashHeadingContainer>
+                            <SplashHeading>
+                                Item here to fill a main heading slot
+                            </SplashHeading>
+                        </SplashHeadingContainer>
+                        <SplashSummaryContainer>
+                            <SplashSummary>
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Commodi sapiente cupiditate
+                                vero, officia tempore ratione vel consectetur
+                                tempora blanditiis placeat.
+                            </SplashSummary>
+                        </SplashSummaryContainer>
+                        <SplashButtonsContainer>
+                            <FirstSplashButton>Welcome</FirstSplashButton>
+                            <SecondSplashButton>learn more</SecondSplashButton>
+                        </SplashButtonsContainer>
+                    </SplashDetails>
+                    <SplashImageContainer>
+                        <SplashImage src={splashimage}></SplashImage>
+                    </SplashImageContainer>
+                </AppSplash>
+                <AppCardsContainer></AppCardsContainer>
+            </AppContainer>
+        </>
     );
 };
 export default App;
