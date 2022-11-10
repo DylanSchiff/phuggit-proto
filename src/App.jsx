@@ -27,14 +27,14 @@ const AppNavbar = styled.div`
     background-color: var(--main-002);
     display: flex;
     flex-flow: row nowrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding: 0 20px;
 `;
 const NavLogoContainer = styled.div`
     width: fit-content;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 `;
 const NavLogoImageContainer = styled.div`
@@ -52,6 +52,7 @@ const NavLogoImage = styled.img`
     min-width: 30px;
     max-width: 30px;
     object-fit: cover;
+    cursor: pointer;
 `;
 const NavLogoHeadingContainer = styled.div`
     padding: 0 10px;
@@ -62,6 +63,27 @@ const NavLogoHeading = styled.span`
     font-weight: 500;
     line-height: 30px;
     max-height: 30px;
+    cursor: pointer;
+`;
+
+const NavButton = styled.div`
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    transition: 111ms linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    color: var(--accent-001);
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid transparent;
+    margin: 5px;
+    &:hover {
+        border: 1px solid var(--accent-001);
+    }
 `;
 
 //////////////////////////////////////////////////////////////////////
@@ -80,9 +102,10 @@ const AppNotification = styled.span`
     font-size: 12.5px;
 `;
 const AppNotificationLink = styled.a`
+    margin-left: 5px;
     cursor: pointer;
     font-weight: 500;
-    color: var(--white-004);
+    color: var(--accent-004);
     &:hover {
         text-decoration: underline;
     }
@@ -208,18 +231,24 @@ const SplashButton = styled.div`
     cursor: pointer;
     outline: none;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
+    transition: 111ms linear;
 `;
 
 const FirstSplashButton = styled(SplashButton)`
-    padding: 10px 20px;
+    padding: 15px 20px;
     background-color: var(--accent-001);
     font-size: 25px;
+    font-weight: 500;
+    border: 1px solid #0001;
     @media only screen and (max-width: 1000px) {
         font-size: 20px;
     }
     @media only screen and (max-width: 600px) {
         font-size: 15px;
+    }
+    &:hover {
+        box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
     }
 `;
 const SecondSplashButton = styled(SplashButton)`
@@ -230,6 +259,9 @@ const SecondSplashButton = styled(SplashButton)`
     @media only screen and (max-width: 450px) {
         margin-left: 0px;
         margin-top: 20px;
+    }
+    &:hover {
+        color: var(--accent-003);
     }
 `;
 
@@ -286,6 +318,7 @@ const App = () => {
                         <NavLogoHeading>Schiff</NavLogoHeading>
                     </NavLogoHeadingContainer>
                 </NavLogoContainer>
+                <NavButton>Connect</NavButton>
             </AppNavbar>
 
             <AppContainer>
