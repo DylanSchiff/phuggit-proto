@@ -410,16 +410,15 @@ const CardButton = styled.div`
     font-weight: 600;
     text-transform: uppercase;
     border: 1px solid var(--fade-002);
-    background-color: var(--white-001);
+    background-color: var(--accent-004);
     padding: 10px 20px;
-    color: var(--accent-004);
+    color: var(--white-002);
     &:hover {
-        color: var(--accent-001);
+        background-color: var(--accent-003);
         box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
             0 3px 8px var(--fade-002);
     }
     @media only screen and (max-width: 1000px) {
-        /* font-size: 20px; */
         border: 1px solid var(--fade-002);
         background-color: var(--white-001);
         padding: 10px 20px;
@@ -482,8 +481,9 @@ const AdditionalProjectsButton = styled.div`
     transition: 111ms linear;
     user-select: none;
     padding: 15px 20px;
-    background-color: var(--accent-001);
-    font-size: 25px;
+    background-color: var(--accent-004);
+    color: var(--white-002);
+    font-size: 20px;
     font-weight: 500;
     border: 1px solid var(--fade-001);
     @media only screen and (max-width: 1000px) {
@@ -495,7 +495,8 @@ const AdditionalProjectsButton = styled.div`
     &:hover {
         box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
             0 3px 8px var(--fade-002);
-        color: var(--white-002);
+        color: var(--white-001);
+        background-color: var(--accent-003);
     }
 `;
 
@@ -552,8 +553,6 @@ const ToolkitContainer = styled.div`
     flex: 1;
     width: 100%;
     border-radius: 25px;
-    /* min-height: 100vh; */
-    /* padding: 40px; */
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -564,6 +563,7 @@ const ToolkitContainer = styled.div`
     margin-bottom: 50px;
     padding-top: 50px;
     overflow: hidden;
+    background-color: var(--white-001);
 `;
 
 const ToolsButton = styled.div`
