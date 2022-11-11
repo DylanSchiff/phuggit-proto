@@ -10,15 +10,28 @@ const AllAdditionalProjects = styled.div`
     justify-content: center;
     padding: 50px 0;
 `;
+const AdditionalProjectsContainer = styled.div`
+    border-radius: 25px;
+    display: ${({ display }) => display};
+    flex: 1;
+    width: 100%;
+    min-height: 30vh;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--fade-001);
+    margin: 20px 0;
+    box-shadow: inset 0 1px 3px var(--fade-001), inset 0 2px 5px var(--fade-001),
+        inset 0 3px 8px var(--fade-002);
+`;
 const LabContainer = styled.div`
     border-radius: 25px;
     display: ${({ display }) => display};
     flex: 1;
     width: 100%;
-    min-height: 50vh;
+    min-height: 80vh;
     align-items: center;
     justify-content: center;
-    background-color: var(--fade-001);
+    background-color: var(--fade-004);
     margin: 20px 0;
     box-shadow: inset 0 1px 3px var(--fade-001), inset 0 2px 5px var(--fade-001),
         inset 0 3px 8px var(--fade-002);
@@ -90,13 +103,22 @@ const AdditionalProjects = () => {
             behavior: "smooth",
         });
     };
+    window.scrolltolabsection = () => {
+        setLaboratoryVisible(true);
+        window.scrollTo({
+            top: additionalprojectssection.current.offsetTop - 30,
+            behavior: "smooth",
+        });
+    };
     return (
         <AllAdditionalProjects ref={additionalprojectssection}>
-            <LabContainer display={additionalProjectsVisible ? "flex" : "none"}>
+            <AdditionalProjectsContainer
+                display={additionalProjectsVisible ? "flex" : "none"}
+            >
                 <NoProjectsImageContainer>
                     <NoProjectsImage src={four} />
                 </NoProjectsImageContainer>
-            </LabContainer>
+            </AdditionalProjectsContainer>
             <LabButtons>
                 <LabButton onClick={() => toggleAdditionalProjectsVisible()}>
                     Lab Projects
@@ -106,9 +128,9 @@ const AdditionalProjects = () => {
                 </LabButton>
             </LabButtons>
 
-            <LabContainer display={laboratoryProjectsVisible ? "flex" : "none"}>
-        
-            </LabContainer>
+            <LabContainer
+                display={laboratoryProjectsVisible ? "flex" : "none"}
+            ></LabContainer>
         </AllAdditionalProjects>
     );
 };

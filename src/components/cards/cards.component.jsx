@@ -195,7 +195,7 @@ const Cards = ({ cards }) => {
                         </CardHeadingContainer>
                         <CardTagsButtonFlipper>
                             <CardButtonContainer>
-                                <CardButton>{buttontext}</CardButton>
+                                <CardButton onClick={()=>window.scrolltolabsection()}>{buttontext}</CardButton>
                             </CardButtonContainer>
                             <CardTagsContainer>
                                 {tags.map((tag) => {
