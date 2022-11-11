@@ -46,11 +46,12 @@ const ToolsButton = styled.div`
 
 const ToolsContainer = styled.div`
     flex: 1;
-    width: 100%;
+    width: 80%;
     padding: 20px 0;
     display: ${({ display }) => display};
     grid-template-columns: repeat(5, 1fr);
     @media only screen and (max-width: 1000px) {
+        width: 100%;
         grid-template-columns: repeat(4, 1fr);
     }
     @media only screen and (max-width: 600px) {
