@@ -575,12 +575,12 @@ const ToolsFooter = styled.div`
     width: 100%;
     margin-top: 50px;
     display: flex;
-    flex-flow: row nowrap;
+    /* flex-flow: row nowrap; */
     align-items: center;
     justify-content: space-around;
-    @media only screen and (max-width: 600px) {
+    /* @media only screen and (max-width: 600px) { */
         flex-flow: column nowrap;
-    }
+    /* } */
 `;
 const ToolsContainer = styled.div`
     flex: 1;
@@ -713,7 +713,7 @@ const App = () => {
                             maxheight="30px"
                             cursor="pointer"
                             fontsizesix="20px"
-                            spantext="99E"
+                            spantext="99E.io"
                         />
                     </NavLogoHeadingContainer>
                 </NavLogoContainer>
@@ -964,7 +964,7 @@ const App = () => {
                                     fontweight="500"
                                     fontsizeone="25px"
                                     fontsizesix="20px"
-                                    spantext="trio"
+                                    spantext="TRIO"
                                 />
                                 <PageSpan
                                     textalign="center"
