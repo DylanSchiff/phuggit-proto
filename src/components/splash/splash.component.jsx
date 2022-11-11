@@ -29,6 +29,7 @@ const AppSplash = styled.section`
     @media only screen and (max-width: 600px) {
         justify-content: center;
         margin: 0 20px;
+        padding: 50px 40px;
     }
 `;
 const SplashDetails = styled.div`
@@ -183,8 +184,8 @@ const Splash = () => {
                         fontsize="25px"
                         lineheight="25px"
                         fontweight="400"
-                        fontsizeone="22.5px"
-                        lineheightone="22.5px"
+                        fontsizeone="22px"
+                        lineheightone="22px"
                         fontweightone="400"
                         maxwidthone="80%"
                         maxwidthsix="100%"

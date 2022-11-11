@@ -29,6 +29,7 @@ const ANotification = () => {
                     color="var(--accent-004)"
                     fontsize="12.5px"
                     spantext="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam labore dolorem, voluptates excepturi doloremque quas?"
+                    fontsizesix="10px"
                 />
                 <AppNotificationLink
                     onClick={() => window.scrolltotoolkitsection()}
@@ -37,6 +38,7 @@ const ANotification = () => {
                         color="var(--accent-004)"
                         fontsize="12.5px"
                         spantext="Learn More"
+                        fontsizesix="10px"
                     />
                 </AppNotificationLink>
             </AppNotification>
