@@ -66,7 +66,7 @@ const ContactBox = () => {
             <PageSpan
                 fontsize="15px"
                 fontweight="400"
-                padding="10px 0"
+                padding="10px"
                 textalign="center"
                 color="var(--white-003)"
                 spantext="Lorem ipsum dolor sit amet consectetur adipisicing elit."

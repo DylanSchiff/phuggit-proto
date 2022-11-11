@@ -44,7 +44,7 @@ const App = () => {
     const headsection = useRef(null);
     window.scrolltoheadsection = () =>
         window.scrollTo({
-            top: headsection.current.offsetTop,
+            top: headsection.current.offsetTop -50,
             behavior: "smooth",
         });
 

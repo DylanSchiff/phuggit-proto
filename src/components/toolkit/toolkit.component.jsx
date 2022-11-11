@@ -169,7 +169,7 @@ const Toolkit = ({ tools }) => {
             />
             <PageSpan
                 textalign="center"
-                margin="20px 0"
+                margin="20px 10px"
                 fontsize="15px"
                 fontweight="400"
                 spantext="Officia tempore ratione vel consectetur tempora blanditiis placeat."

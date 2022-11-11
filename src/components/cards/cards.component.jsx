@@ -25,7 +25,6 @@ const Card = styled.div`
     width: 100%;
     background-color: var(--white-004);
     border-radius: 25px;
-    min-height: 100vh;
     padding: 20px;
     display: flex;
     flex-flow: column nowrap;
