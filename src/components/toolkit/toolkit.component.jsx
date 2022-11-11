@@ -158,7 +158,7 @@ const Toolkit = ({ tools }) => {
         });
     return (
         <ToolkitContainer ref={toolkit}>
-            <PageSpan
+            {/* <PageSpan
                 fontsize="35px"
                 fontweight="500"
                 fontsizeone="30px"
@@ -172,6 +172,20 @@ const Toolkit = ({ tools }) => {
                 fontsize="15px"
                 fontweight="400"
                 spantext="Officia tempore ratione vel consectetur tempora blanditiis placeat."
+            /> */}
+            <PageSpan
+                fontsize="35px"
+                lineheight="35px"
+                fontweight="600"
+                padding="30px 20px"
+                fontsizeone="30px"
+                lineheightone="30px"
+                fontweightone="600"
+                fontsizesix="25px"
+                lineheightsix="25px"
+                fontweightsix="600"
+                textalignsix="center"
+                spantext="Officia tempore ratione vel blanditiis placeat."
             />
             <ToolsContainer display={toolsVisible ? "grid" : "none"}>
                 {tools.map((tool, index) => {

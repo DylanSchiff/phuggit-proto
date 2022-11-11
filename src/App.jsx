@@ -13,7 +13,7 @@ import ContactBox from "./components/contact-box/contact-box.component";
 
 import past from "./components/images/past.svg";
 import present from "./components/images/present.svg";
-import future from './components/images/future.svg'
+import future from "./components/images/future.svg";
 
 const PageContainer = styled.div`
     min-height: 100vh;
@@ -74,14 +74,14 @@ const BackToTopButton = styled.div`
 
 const GistsContainer = styled.div`
     max-width: 1500px;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     flex: 1;
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    padding: 50px 60px;
+    padding: 20px 60px;
     align-items: center;
     border-radius: 35px;
     margin: 0 50px 50px 50px;
@@ -102,6 +102,7 @@ const Gists = styled.div`
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     justify-items: center;
+    margin-bottom: 20px;
     @media only screen and (max-width: 1000px) {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -140,6 +141,18 @@ const GistImage = styled.img`
         max-width: 100px;
         min-height: 100px;
         min-width: 100px;
+    }
+`;
+const GistButton = styled.div`
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    transition: 111ms linear;
+    user-select: none;
+    color: var(--accent-003);
+    &:hover {
+        color: var(--accent-002);
     }
 `;
 
@@ -219,7 +232,7 @@ const App = () => {
                             lineheightsix="25px"
                             fontweightsix="600"
                             textalignsix="center"
-                            spantext="Here's the scoop"
+                            spantext="Snapshot"
                         />
                         <Gists>
                             {GISTS.map((gist) => {
@@ -246,6 +259,7 @@ const App = () => {
                                             fontsizestwo="10px"
                                             spantext={gisttext}
                                         />
+                                        <GistButton>learn more</GistButton>
                                     </Gist>
                                 );
                             })}
