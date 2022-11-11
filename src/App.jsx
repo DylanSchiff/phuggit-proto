@@ -16,7 +16,7 @@ const AppContainer = styled.div`
     min-height: 100vh;
     min-width: 100vw;
     max-width: 100vw;
-    background-color: var(--white-001);
+    background-color: var(--white-002);
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -267,7 +267,7 @@ const SplashImage = styled.img`
 //////////////////////////////////////////////////////////////////////
 
 const AppCardsContainer = styled.div`
-    background-color: var(--white-001);
+    /* background-color: var(--white-001); */
     flex: 1;
     width: 100%;
     padding: 50px;
@@ -496,8 +496,8 @@ const ContactBox = styled.div`
         0deg,
         var(--main-002) 0%,
         var(--main-001) 30%,
-        var(--main-001) 70%,
-        var(--main-002) 100%
+        var(--main-001) 80%,
+        var(--main-003) 100%
     );
 `;
 const ContactButton = styled.a`
@@ -531,7 +531,7 @@ const ToolkitContainer = styled.div`
     flex: 1;
     width: 100%;
     border-radius: 25px;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     /* padding: 40px; */
     display: flex;
     flex-flow: column nowrap;
@@ -545,14 +545,6 @@ const ToolkitContainer = styled.div`
     overflow: hidden;
 `;
 
-const ToolsContainer = styled.div`
-    flex: 1;
-    width: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-`;
 const ToolsButton = styled.div`
     cursor: pointer;
     outline: none;
@@ -583,48 +575,157 @@ const ToolsFooter = styled.div`
     width: 100%;
     margin-top: 50px;
 `;
+const ToolsContainer = styled.div`
+    flex: 1;
+    width: 100%;
+    padding: 20px 0;
+    display: ${({ display }) => display};
+    grid-template-columns: repeat(5, 1fr);
+    @media only screen and (max-width: 1000px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    @media only screen and (max-width: 600px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media only screen and (max-width: 400px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+`;
 const ToolContainer = styled.div`
+    flex: 1;
+    width: 100%;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
 `;
 const ToolImageContainer = styled.div`
-    border-radius: 50%;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 40px 0;
-    max-height: 150px;
-    max-width: 150px;
-    min-height: 150px;
-    min-width: 150px;
+    max-height: 50px;
+    max-width: 50px;
+    min-height: 50px;
+    min-width: 50px;
+    border-radius: ${({ borderradius }) => borderradius};
+    overflow: ${({ overflow }) => overflow};
     @media only screen and (max-width: 600px) {
-        max-height: 100px;
-        max-width: 100px;
-        min-height: 100px;
-        min-width: 100px;
+        max-height: 50px;
+        max-width: 50px;
+        min-height: 50px;
+        min-width: 50px;
     }
 `;
 const ToolImage = styled.img`
-    max-height: 151px;
-    max-width: 151px;
-    min-height: 151px;
-    min-width: 151px;
+    max-height: 51px;
+    max-width: 51px;
+    min-height: 51px;
+    min-width: 51px;
+    object-fit: cover;
     @media only screen and (max-width: 600px) {
-        max-height: 101px;
-        max-width: 101px;
-        min-height: 101px;
-        min-width: 101px;
+        max-height: 51px;
+        max-width: 51px;
+        min-height: 51px;
+        min-width: 51px;
     }
 `;
 
 const TOOLS = [
-    { id: "1", heading: "Consectetur", imageUrl: "" },
-    { id: "2", heading: "Adipisicing", imageUrl: "" },
-    { id: "3", heading: "Numquam", imageUrl: "" },
-    { id: "4", heading: "Labore", imageUrl: "" },
+    {
+        id: "react",
+        heading: "react",
+        isBordered: false,
+        imageUrl: "https://www.svgrepo.com/show/354259/react.svg",
+    },
+    {
+        id: "firebase",
+        heading: "firebase",
+        isBordered: false,
+        imageUrl: "https://www.svgrepo.com/show/353735/firebase.svg",
+    },
+    {
+        id: "netlify",
+        heading: "netlify",
+        isBordered: false,
+        imageUrl: "https://www.svgrepo.com/show/354110/netlify.svg",
+    },
+    {
+        id: "html",
+        heading: "html",
+        isBordered: false,
+        imageUrl: "https://www.svgrepo.com/show/55451/html.svg",
+    },
+    {
+        id: "es6",
+        heading: "es6",
+        isBordered: false,
+        imageUrl: "https://www.svgrepo.com/show/353707/es6.svg",
+    },
+    {
+        id: "css",
+        heading: "css",
+        isBordered: false,
+        imageUrl: "https://www.svgrepo.com/show/373535/css.svg",
+    },
+    {
+        id: "scss",
+        heading: "scss",
+        isBordered: false,
+        imageUrl: "https://www.svgrepo.com/show/374067/scss2.svg",
+    },
+    {
+        id: "styled",
+        heading: "styled",
+        isBordered: false,
+        imageUrl: "https://www.svgrepo.com/show/374104/styled.svg",
+    },
+    {
+        id: "emmet",
+        heading: "emmet",
+        isBordered: false,
+        imageUrl: "https://emmet.io/-/4076541266/i/logo.svg",
+    },
+    {
+        id: "googlefonts",
+        heading: "google fonts",
+        isBordered: false,
+        imageUrl:
+            "https://pbs.twimg.com/profile_images/1366808543773384704/8qFXRmFc_400x400.png",
+    },
+    {
+        id: "undraw",
+        heading: "undraw",
+        isBordered: true,
+        imageUrl:
+            "https://pbs.twimg.com/profile_images/1266792130711879683/i0ElWni3_400x400.jpg",
+    },
+
+    {
+        id: "svgrepo",
+        heading: "svgrepo",
+        isBordered: false,
+        imageUrl:
+            "https://cdn.icon-icons.com/icons2/2699/PNG/512/svgrepo_logo_icon_170689.png",
+    },
+    {
+        id: "icon8",
+        heading: "icon8",
+        isBordered: false,
+        imageUrl: "https://avatars.githubusercontent.com/u/6615749?s=200&v=4",
+    },
+    {
+        id: "vscode",
+        heading: "vscode",
+        isBordered: false,
+        imageUrl: "https://www.svgrepo.com/show/354522/visual-studio-code.svg",
+    },
+    {
+        id: "procreate",
+        heading: "procreate",
+        isBordered: false,
+        imageUrl:
+            "https://static.wixstatic.com/media/f57031_3ed69a32eb6e4b8a84d233d837485b0d~mv2.png/v1/fill/w_232,h_228,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Procreate%20icon.png",
+    },
 ];
 //////////////////////////////////////////////////////////////////////
 
@@ -649,11 +750,16 @@ const App = () => {
             top: footsection.current.offsetTop - 20,
             behavior: "smooth",
         });
+
     const [additionalProjectsVisible, setAdditionalProjectsVisible] =
-        useState("none");
+        useState(false);
     const toggleAdditionalProjectsVisible = () =>
         setAdditionalProjectsVisible(!additionalProjectsVisible);
+
     const { currentPop } = useContext(PopContext);
+
+    const [toolsVisible, setToolsVisible] = useState(false);
+    const toggleToolsVisible = () => setToolsVisible(!toolsVisible);
 
     return (
         <>
@@ -847,7 +953,7 @@ const App = () => {
                     <AdditionalProjectsContainer>
                         <AdditionalProjects
                             display={
-                                additionalProjectsVisible ? "none" : "flex"
+                                additionalProjectsVisible ? "flex" : "none"
                             }
                         ></AdditionalProjects>
                         <AdditionalProjectsButton
@@ -857,7 +963,6 @@ const App = () => {
                         </AdditionalProjectsButton>
                     </AdditionalProjectsContainer>
 
-                    {/* used libs/tools */}
                     <ToolkitContainer>
                         <PageSpan
                             fontsize="35px"
@@ -874,12 +979,22 @@ const App = () => {
                             fontweight="400"
                             spantext="Officia tempore ratione vel consectetur tempora blanditiis placeat."
                         />
-                        <ToolsContainer>
+                        <ToolsContainer
+                            display={toolsVisible ? "grid" : "none"}
+                        >
                             {TOOLS.map((tool) => {
-                                const { id, heading, imageUrl } = tool;
+                                const { id, heading, imageUrl, isBordered } =
+                                    tool;
                                 return (
                                     <ToolContainer key={id}>
-                                        <ToolImageContainer>
+                                        <ToolImageContainer
+                                            borderradius={
+                                                isBordered ? "50%" : "0"
+                                            }
+                                            overflow={
+                                                isBordered ? "hidden" : ""
+                                            }
+                                        >
                                             <ToolImage src={imageUrl} />
                                         </ToolImageContainer>
                                         <PageSpan
@@ -893,7 +1008,9 @@ const App = () => {
                                 );
                             })}
                         </ToolsContainer>
-                        <ToolsButton>See All</ToolsButton>
+                        <ToolsButton onClick={() => toggleToolsVisible()}>
+                            See All
+                        </ToolsButton>
                         <ToolsFooter></ToolsFooter>
                     </ToolkitContainer>
 
