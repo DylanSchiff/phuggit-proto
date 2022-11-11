@@ -618,7 +618,7 @@ const App = () => {
                                 fontweightone="400"
                                 maxwidthone="80%"
                                 maxwidthsix="100%"
-                                paddingsix="0 40px"
+                                paddingsix="0"
                                 fontsizesix="20px"
                                 lineheightsix="20px"
                                 textalignone="center"
