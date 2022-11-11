@@ -208,7 +208,7 @@ const FirstSplashButton = styled(SplashButton)`
     background-color: var(--accent-001);
     font-size: 25px;
     font-weight: 500;
-    border: 1px solid #0001;
+    border: 1px solid var(--fade-001);
     @media only screen and (max-width: 1000px) {
         font-size: 20px;
     }
@@ -216,7 +216,8 @@ const FirstSplashButton = styled(SplashButton)`
         font-size: 15px;
     }
     &:hover {
-        box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
+        box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+            0 3px 8px var(--fade-002);
     }
 `;
 const SecondSplashButton = styled(SplashButton)`
@@ -294,7 +295,8 @@ const AllCards = styled.div`
         border-radius: 25px;
         overflow: hidden;
         border: 1px solid var(--fade-002);
-        box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
+        box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+            0 3px 8px var(--fade-002);
     }
 `;
 const Card = styled.div`
@@ -309,7 +311,8 @@ const Card = styled.div`
     flex-flow: column nowrap;
     align-items: center;
     justify-content: flex-start;
-    box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
+    box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+        0 3px 8px var(--fade-002);
     transition: 111ms linear;
     &:hover {
         background-color: var(--accent-001);
@@ -391,7 +394,8 @@ const CardButton = styled.div`
     color: var(--accent-004);
     &:hover {
         color: var(--accent-001);
-        box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
+        box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+            0 3px 8px var(--fade-002);
     }
     @media only screen and (max-width: 1000px) {
         font-size: 20px;
@@ -446,8 +450,8 @@ const AdditionalProjects = styled.div`
     min-height: 30vh;
     background-color: var(--fade-001);
     margin-bottom: 20px;
-    box-shadow: inset 0 1px 3px #0001, inset 0 2px 5px #0001,
-        inset 0 3px 8px #2221;
+    box-shadow: inset 0 1px 3px var(--fade-001), inset 0 2px 5px var(--fade-001),
+        inset 0 3px 8px var(--fade-002);
 `;
 const AdditionalProjectsButton = styled.div`
     cursor: pointer;
@@ -460,7 +464,7 @@ const AdditionalProjectsButton = styled.div`
     background-color: var(--accent-001);
     font-size: 25px;
     font-weight: 500;
-    border: 1px solid #0001;
+    border: 1px solid var(--fade-001);
     @media only screen and (max-width: 1000px) {
         font-size: 20px;
     }
@@ -468,7 +472,8 @@ const AdditionalProjectsButton = styled.div`
         font-size: 15px;
     }
     &:hover {
-        box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
+        box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+            0 3px 8px var(--fade-002);
         color: var(--white-002);
     }
 `;
@@ -508,7 +513,8 @@ const ContactButton = styled.a`
     color: var(--accent-004);
     &:hover {
         color: var(--accent-001);
-        box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
+        box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+            0 3px 8px var(--fade-002);
     }
     @media only screen and (max-width: 1000px) {
         border: 1px solid var(--fade-002);
@@ -526,19 +532,54 @@ const ToolkitContainer = styled.div`
     width: 100%;
     border-radius: 25px;
     min-height: 100vh;
-    padding: 40px;
+    /* padding: 40px; */
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: flex-start;
-    box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
+    box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+        0 3px 8px var(--fade-002);
     transition: 111ms linear;
     margin-bottom: 50px;
+    padding-top: 50px;
+    overflow: hidden;
 `;
 
-const ToolsContainer = styled.div``;
-const ToolsButton = styled.div``;
-const ToolsFooter = styled.div``;
+const ToolsContainer = styled.div`
+    flex: 1;
+    width: 100%;
+    /* background-color: ; */
+`;
+const ToolsButton = styled.div`
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    transition: 111ms linear;
+    user-select: none;
+    padding: 15px 20px;
+    background-color: var(--accent-001);
+    font-size: 25px;
+    font-weight: 500;
+    border: 1px solid var(--fade-001);
+    @media only screen and (max-width: 1000px) {
+        font-size: 20px;
+    }
+    @media only screen and (max-width: 600px) {
+        font-size: 15px;
+    }
+    &:hover {
+        box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+            0 3px 8px var(--fade-002);
+        color: var(--white-002);
+    }
+`;
+const ToolsFooter = styled.div`
+    background-color: var(--fade-001);
+    flex: 1;
+    width: 100%;
+    margin-top: 50px;
+`;
 
 //////////////////////////////////////////////////////////////////////
 
@@ -789,7 +830,7 @@ const App = () => {
                             spantext="Officia tempore ratione vel consectetur tempora blanditiis placeat."
                         />
                         <ToolsContainer></ToolsContainer>
-                        <ToolsButton></ToolsButton>
+                        <ToolsButton>See All</ToolsButton>
                         <ToolsFooter></ToolsFooter>
                     </ToolkitContainer>
 
@@ -811,15 +852,18 @@ const App = () => {
                         />
                         <PopTray />
                         <ContactButton
-                            // onClick={() => window.scrolltoheadsection()}
-                            onClick={() => !currentPop? window.scrolltoheadsection():null}
+                            onClick={() =>
+                                !currentPop
+                                    ? window.scrolltoheadsection()
+                                    : null
+                            }
                             href={currentPop ? currentPop.path : null}
                             target="_blank"
                             rel="noreferrer"
                         >
                             {currentPop
                                 ? `visit ${currentPop.heading}`
-                                : "select option"}
+                                : "back to top"}
                         </ContactButton>
                     </ContactBox>
                 </AppCardsContainer>
