@@ -1,6 +1,6 @@
 import styled from "styled-components";
 const NugNoteContainer = styled.div`
-    /* flex: 1; */
+    flex: 1;
     display: flex;
     flex-flow: row nowrap;
     padding: 10px;
@@ -14,7 +14,6 @@ const NugNoteContainer = styled.div`
             0 11px 20px #00000005;
         background-color: #00000011;
     }
-    
     @media only screen and (max-width: 400px) {
         flex-flow: column nowrap;
         align-items: center;
@@ -74,6 +73,7 @@ const NugNoteHeading = styled.span`
     }
 `;
 const NugNoteIssue = styled.span`
+    flex: 1;
     width: 100%;
     font-size: 0.8rem;
     user-select: none;
@@ -87,6 +87,7 @@ const NugNoteIssue = styled.span`
 `;
 const NugNoteresult = styled.span`
     padding-top: 10px;
+    flex: 1;
     width: 100%;
     font-size: 0.8rem;
     padding-bottom: 10px;

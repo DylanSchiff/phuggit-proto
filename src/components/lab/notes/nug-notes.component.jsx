@@ -3,7 +3,7 @@ import NugNote from "./nug-note.component";
 import { NUGNOTES } from "./NOTES";
 
 const NugNotesContainer = styled.div`
-    flex: 2;
+    flex: 1;
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
@@ -11,9 +11,9 @@ const NugNotesContainer = styled.div`
     padding: 20px;
     margin: 20px;
     overflow-y: scroll;
-    max-height: 520px;
+    max-height: 320px;
     transition: 100ms linear;
-    border: 1px solid #00000022;
+    border: 1px solid var(--fade-002);
     border-radius: 20px;
     &:hover {
         box-shadow: inset 0 1px 1px #00000030, inset 0 2px 3px #00000025,
