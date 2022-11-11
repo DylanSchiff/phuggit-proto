@@ -552,9 +552,9 @@ const ToolsButton = styled.div`
     border-radius: 10px;
     transition: 111ms linear;
     user-select: none;
-    padding: 15px 20px;
+    padding: 10px 15px;
     background-color: var(--accent-001);
-    font-size: 25px;
+    font-size: 15px;
     font-weight: 500;
     border: 1px solid var(--fade-001);
     @media only screen and (max-width: 1000px) {
@@ -785,7 +785,7 @@ const App = () => {
                             maxheight="30px"
                             cursor="pointer"
                             fontsizesix="20px"
-                            spantext="Schiff"
+                            spantext="99E"
                         />
                     </NavLogoHeadingContainer>
                 </NavLogoContainer>
@@ -1015,7 +1015,7 @@ const App = () => {
                             })}
                         </ToolsContainer>
                         <ToolsButton onClick={() => toggleToolsVisible()}>
-                            See All
+                            {toolsVisible ? "See Less" : "See All"}
                         </ToolsButton>
                         <ToolsFooter></ToolsFooter>
                     </ToolkitContainer>
