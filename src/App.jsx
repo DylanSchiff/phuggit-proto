@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import TOOLS from "./components/TOOLDATA";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import PageSpan from "./components/page-span.component";
 import CARDS from "./components/CARDS";
 import Splash from "./components/splash/splash.component";
@@ -14,6 +14,7 @@ import ContactBox from "./components/contact-box/contact-box.component";
 import past from "./components/images/past.svg";
 import present from "./components/images/present.svg";
 import future from "./components/images/future.svg";
+import Lab from "./components/lab/lab.component";
 
 const PageContainer = styled.div`
     min-height: 100vh;
@@ -156,6 +157,47 @@ const GistButton = styled.div`
     }
 `;
 
+const LabButtons = styled.div`
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 20px;
+`;
+const LabButton = styled.div`
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    transition: 111ms linear;
+    user-select: none;
+    padding: 15px 20px;
+    margin: 0 10px;
+    font-size: 20px;
+    font-weight: 500;
+    border: 1px solid var(--fade-001);
+    &:first-of-type {
+        color: var(--main-002);
+        background-color: var(--white-002);
+    }
+    &:last-of-type {
+        color: var(--white-002);
+        background-color: var(--main-003);
+    }
+    @media only screen and (max-width: 1000px) {
+        font-size: 20px;
+    }
+    @media only screen and (max-width: 600px) {
+        font-size: 15px;
+    }
+    &:hover {
+        box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+            0 3px 8px var(--fade-002);
+        color: var(--white-001);
+        background-color: var(--accent-003);
+    }
+`;
+
 const GISTS = [
     {
         id: "future-gist",
@@ -198,6 +240,32 @@ const App = () => {
             behavior: "smooth",
         });
 
+    const additionalprojectssection = useRef(null);
+    window.scrolltoadditionalprojectssection = () => {
+        setAdditionalProjectsVisible(true);
+        window.scrollTo({
+            top: additionalprojectssection.current.offsetTop - 30,
+            behavior: "smooth",
+        });
+    };
+
+    window.scrolltolabsection = () => {
+        setLaboratoryVisible(true);
+        window.scrollTo({
+            top: additionalprojectssection.current.offsetTop - 30,
+            behavior: "smooth",
+        });
+    };
+
+    const [additionalProjectsVisible, setAdditionalProjectsVisible] =
+        useState(false);
+    const toggleAdditionalProjectsVisible = () =>
+        setAdditionalProjectsVisible(!additionalProjectsVisible);
+
+    const [laboratoryVisible, setLaboratoryVisible] = useState(false);
+    const toggleLaboratoryVisible = () =>
+        setLaboratoryVisible(!laboratoryVisible);
+
     return (
         <>
             <Navibar />
@@ -220,7 +288,24 @@ const App = () => {
                         spantext="Officia tempore ratione vel consectetur tempora blanditiis placeat."
                     />
                     <Cards cards={CARDS} />
-                    <AdditionalProjects />
+                    <AdditionalProjects
+                        additionalProjectsVisible={additionalProjectsVisible}
+                    />
+                    <LabButtons ref={additionalprojectssection}>
+                        <LabButton
+                            onClick={() => toggleAdditionalProjectsVisible()}
+                        >
+                            {additionalProjectsVisible
+                                ? "Close Projects"
+                                : "All Projects"}
+                        </LabButton>
+                        <LabButton onClick={() => toggleLaboratoryVisible()}>
+                            {laboratoryVisible
+                                ? "Close Laboratory"
+                                : "Laboratory"}
+                        </LabButton>
+                    </LabButtons>
+                    <Lab laboratoryVisible={laboratoryVisible} />
                     <Toolkit tools={TOOLS} />
                     <GistsContainer>
                         <PageSpan
