@@ -11,6 +11,10 @@ import Navibar from "./components/navibar/navibar.component";
 import Toolkit from "./components/toolkit/toolkit.component";
 import ContactBox from "./components/contact-box/contact-box.component";
 
+import past from "./components/images/past.svg";
+import present from "./components/images/present.svg";
+import future from './components/images/future.svg'
+
 const PageContainer = styled.div`
     min-height: 100vh;
     min-width: 100vw;
@@ -64,6 +68,108 @@ const BackToTopButton = styled.div`
         transform: scale(0.95);
     }
 `;
+
+// /////////////////////////////////////
+// /////////////////////////////////////
+
+const GistsContainer = styled.div`
+    max-width: 1500px;
+    min-height: 100vh;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 60px;
+    align-items: center;
+    border-radius: 35px;
+    margin: 0 50px 50px 50px;
+    transition: 111ms linear;
+    background-color: var(--white-002);
+    border: 1px solid var(--fade-002);
+    box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+        0 3px 8px var(--fade-002);
+    background: linear-gradient(
+        0deg,
+        var(--white-001) 0%,
+        var(--white-002) 100%
+    );
+    @media only screen and (max-width: 600px) {
+        margin: 0 20px;
+    }
+`;
+
+const Gists = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+    @media only screen and (max-width: 1000px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+`;
+const Gist = styled.div`
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+`;
+const GistImageContainer = styled.div`
+    max-height: 150px;
+    max-width: 150px;
+    min-height: 150px;
+    min-width: 150px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+    transition: 111ms linear;
+    @media only screen and (max-width: 600px) {
+        max-height: 100px;
+        max-width: 100px;
+        min-height: 100px;
+        min-width: 100px;
+    }
+`;
+const GistImage = styled.img`
+    max-height: 150px;
+    max-width: 150px;
+    min-height: 150px;
+    min-width: 150px;
+    @media only screen and (max-width: 600px) {
+        max-height: 100px;
+        max-width: 100px;
+        min-height: 100px;
+        min-width: 100px;
+    }
+`;
+
+const GISTS = [
+    {
+        id: "future-gist",
+        heading: "coming up",
+        gisttext:
+            "Numquam labore dolorem, voluptates excepturi doloremque quas.",
+        imageUrl: future,
+    },
+    {
+        id: "present-gist",
+        heading: "happening now",
+        gisttext:
+            "Officia tempore ratione vel consectetur tempora blanditiis placeat.",
+        imageUrl: present,
+    },
+    {
+        id: "past-gist",
+        heading: "catch up",
+        gisttext:
+            "Numquam labore dolorem, voluptates excepturi doloremque quas.",
+        imageUrl: past,
+    },
+];
+
 const App = () => {
     const headsection = useRef(null);
     window.scrolltoheadsection = () =>
@@ -103,6 +209,51 @@ const App = () => {
                     <Cards cards={CARDS} />
                     <AdditionalProjects />
                     <Toolkit tools={TOOLS} />
+                    <GistsContainer>
+                        <PageSpan
+                            fontsize="35px"
+                            lineheight="35px"
+                            fontweight="600"
+                            padding="30px 20px"
+                            fontsizeone="30px"
+                            lineheightone="30px"
+                            fontweightone="600"
+                            fontsizesix="25px"
+                            lineheightsix="25px"
+                            fontweightsix="600"
+                            textalignsix="center"
+                            spantext="Here's the scoop"
+                        />
+                        <Gists>
+                            {GISTS.map((gist) => {
+                                const { id, heading, gisttext, imageUrl } =
+                                    gist;
+                                return (
+                                    <Gist key={id}>
+                                        <GistImageContainer>
+                                            <GistImage src={imageUrl} />
+                                        </GistImageContainer>
+                                        <PageSpan
+                                            fontsize="25px"
+                                            fontweight="500"
+                                            fontsizesix="20px"
+                                            fontsizestwo="15px"
+                                            spantext={heading}
+                                        />
+                                        <PageSpan
+                                            margin="20px"
+                                            textalign="center"
+                                            lineheight="25px"
+                                            fontsize="17.5px"
+                                            fontsizesix="15px"
+                                            fontsizestwo="10px"
+                                            spantext={gisttext}
+                                        />
+                                    </Gist>
+                                );
+                            })}
+                        </Gists>
+                    </GistsContainer>
                     <ContactBox />
                 </AppBodySection>
                 <BackToTopButton onClick={() => window.scrolltoheadsection()}>
