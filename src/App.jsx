@@ -512,6 +512,27 @@ const ContactButton = styled.a`
     }
 `;
 //////////////////////////////////////////////////////////////////////
+
+const ToolkitContainer = styled.div`
+    border: 1px solid var(--fade-002);
+    flex: 1;
+    width: 100%;
+    border-radius: 25px;
+    min-height: 100vh;
+    padding: 40px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
+    transition: 111ms linear;
+    margin-bottom: 30px;
+`;
+
+const ToolsContainer = styled.div``;
+const ToolsButton = styled.div``;
+const ToolsFooter = styled.div``;
+
 //////////////////////////////////////////////////////////////////////
 
 const App = () => {
@@ -744,6 +765,26 @@ const App = () => {
                     </AdditionalProjectsContainer>
 
                     {/* used libs/tools */}
+                    <ToolkitContainer>
+                        <PageSpan
+                            fontsize="35px"
+                            fontweight="500"
+                            fontsizeone="30px"
+                            fontsizesix="25px"
+                            fontsizestwo="15px"
+                            spantext="Toolkit"
+                        />
+                        <PageSpan
+                            textalign="center"
+                            margin="20px 0"
+                            fontsize="15px"
+                            fontweight="400"
+                            spantext="Officia tempore ratione vel consectetur tempora blanditiis placeat."
+                        />
+                        <ToolsContainer></ToolsContainer>
+                        <ToolsButton></ToolsButton>
+                        <ToolsFooter></ToolsFooter>
+                    </ToolkitContainer>
 
                     <ContactBox ref={footsection}>
                         <PageSpan
