@@ -4,14 +4,13 @@ import styled from "styled-components";
 import PopTray from "./components/pop/pop-tray.component";
 import splashimage from "./components/images/light.svg";
 import ship from "./components/images/ship.svg";
-import circleone from "./components/images/circleone.svg";
-import circletwo from "./components/images/circletwo.svg";
-import circlethree from "./components/images/circlethree.svg";
-import { useContext, useState } from "react";
+
+import { useContext, useRef, useState } from "react";
 // import Pop from "./components/pop/pop.component";
 import { PopContext } from "./components/pop/pop.context";
 // import { POPS } from "./components/pop/POPDATA";
 import PageSpan from "./components/page-span.component";
+import CARDS from "./CARDS";
 
 const AppContainer = styled.div`
     min-height: 100vh;
@@ -515,112 +514,13 @@ const ContactButton = styled.a`
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-const cards = [
-    {
-        id: "1",
-        heading: "Numquam",
-        subheading:
-            "Numquam labore dolorem, voluptates excepturi doloremque quas.",
-        buttontext: "demo",
-        imageUrl: circleone,
-        tags: [
-            {
-                id: "1",
-                heading: "travel",
-                imageUrl:
-                    "https://www.svgrepo.com/show/364112/airplane-tilt-duotone.svg",
-            },
-            {
-                id: "2",
-                heading: "geolocation",
-                imageUrl:
-                    "https://www.svgrepo.com/show/363496/compass-duotone.svg",
-            },
-            {
-                id: "3",
-                heading: "multi-media",
-                imageUrl:
-                    "https://www.svgrepo.com/show/363399/camera-duotone.svg",
-            },
-            {
-                id: "4",
-                heading: "timeline",
-                imageUrl:
-                    "https://www.svgrepo.com/show/363396/calendar-check-duotone.svg",
-            },
-        ],
-    },
-    {
-        id: "2",
-        heading: "Dolorem",
-        subheading:
-            "Numquam labore dolorem, voluptates excepturi doloremque quas.",
-        buttontext: "demo",
-        imageUrl: circletwo,
-        tags: [
-            {
-                id: "1",
-                heading: "time keeping",
-                imageUrl:
-                    "https://www.svgrepo.com/show/363221/alarm-duotone.svg",
-            },
-            {
-                id: "2",
-                heading: "data logging",
-                imageUrl:
-                    "https://www.svgrepo.com/show/363826/paperclip-duotone.svg",
-            },
-            {
-                id: "3",
-                heading: "admin portal",
-                imageUrl:
-                    "https://www.svgrepo.com/show/363700/identification-card-duotone.svg",
-            },
-            {
-                id: "4",
-                heading: "team centric",
-                imageUrl:
-                    "https://www.svgrepo.com/show/364073/users-four-duotone.svg",
-            },
-        ],
-    },
-    {
-        id: "3",
-        heading: "Voluptates",
-        subheading:
-            "Numquam labore dolorem, voluptates excepturi doloremque quas.",
-        buttontext: "demo",
-        imageUrl: circlethree,
-        tags: [
-            {
-                id: "1",
-                heading: "time keeping",
-                imageUrl:
-                    "https://www.svgrepo.com/show/363834/pencil-circle-duotone.svg",
-            },
-            {
-                id: "2",
-                heading: "color generation",
-                imageUrl:
-                    "https://www.svgrepo.com/show/363560/drop-duotone.svg",
-            },
-            {
-                id: "3",
-                heading: "pallet editor",
-                imageUrl:
-                    "https://www.svgrepo.com/show/363573/eyedropper-duotone.svg",
-            },
-            {
-                id: "4",
-                heading: "shadow and opacity",
-                imageUrl:
-                    "https://www.svgrepo.com/show/363981/star-half-duotone.svg",
-            },
-        ],
-    },
-];
-
 const App = () => {
+    const cardssection = useRef(null);
+    window.scrolltodisplaycards = () =>
+        window.scrollTo({
+            top: cardssection.current.offsetTop,
+            behavior: "smooth",
+        });
     const [additionalProjectsVisible, setAdditionalProjectsVisible] =
         useState("none");
     const toggleAdditionalProjectsVisible = () =>
@@ -711,7 +611,11 @@ const App = () => {
                             />
                         </SplashSummaryContainer>
                         <SplashButtonsContainer>
-                            <FirstSplashButton>Projects</FirstSplashButton>
+                            <FirstSplashButton
+                                onClick={() => window.scrolltodisplaycards()}
+                            >
+                                Projects
+                            </FirstSplashButton>
                             <SecondSplashButton>learn more</SecondSplashButton>
                         </SplashButtonsContainer>
                     </SplashDetails>
@@ -719,7 +623,7 @@ const App = () => {
                         <SplashImage src={splashimage} />
                     </SplashImageContainer>
                 </AppSplash>
-                <AppCardsContainer>
+                <AppCardsContainer ref={cardssection}>
                     <PageSpan
                         fontsize="35px"
                         lineheight="35px"
@@ -734,9 +638,8 @@ const App = () => {
                         textalignsix="center"
                         spantext="Officia tempore ratione vel consectetur tempora blanditiis placeat."
                     />
-
                     <AllCards>
-                        {cards.map((card) => {
+                        {CARDS.map((card) => {
                             const {
                                 id,
                                 heading,
@@ -766,7 +669,7 @@ const App = () => {
                                             fontsize="17.5px"
                                             fontsizesix="15px"
                                             fontsizestwo="10px"
-                                            marginsix="0"
+                                            marginsix="10px 0"
                                             spantext={subheading}
                                         />
                                     </CardHeadingContainer>
