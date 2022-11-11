@@ -11,6 +11,7 @@ import { useContext, useState } from "react";
 // import Pop from "./components/pop/pop.component";
 import { PopContext } from "./components/pop/pop.context";
 // import { POPS } from "./components/pop/POPDATA";
+import PageSpan from "./components/page-span.component";
 
 const AppContainer = styled.div`
     min-height: 100vh;
@@ -68,19 +69,6 @@ const NavLogoHeadingContainer = styled.div`
         display: none;
     }
 `;
-const NavLogoHeading = styled.span`
-    color: var(--white-001);
-    font-size: 25px;
-    font-weight: 500;
-    line-height: 30px;
-    max-height: 30px;
-    user-select: none;
-    cursor: pointer;
-    @media only screen and (max-width: 600px) {
-        font-size: 20px;
-    }
-`;
-
 const NavButton = styled.div`
     cursor: pointer;
     outline: none;
@@ -115,8 +103,6 @@ const AppNotificationBanner = styled.div`
 `;
 const AppNotification = styled.span`
     color: var(--accent-004);
-    font-size: 12.5px;
-    user-select: none;
 `;
 const AppNotificationLink = styled.a`
     margin-left: 5px;
@@ -172,62 +158,15 @@ const SplashHeadingContainer = styled.div`
         justify-content: center;
     }
 `;
-const SplashHeading = styled.h2`
-    height: fit-content;
-    font-size: 45px;
-    line-height: 45px;
-    font-weight: 600;
-    user-select: none;
-    @media only screen and (max-width: 1000px) {
-        max-width: 275px;
-        font-size: 30px;
-        line-height: 30px;
-        font-weight: 600;
-    }
-    @media only screen and (max-width: 600px) {
-        max-width: 100%;
-        max-width: 275px;
-        font-size: 35px;
-        line-height: 35px;
-        font-weight: 600;
-        text-align: center;
-    }
-    @media only screen and (max-width: 200px) {
-        font-size: 30px;
-        line-height: 30px;
-        font-weight: 600;
-        text-align: center;
-    }
-`;
 const SplashSummaryContainer = styled.div`
+    flex: 1;
+    padding: 20px 0;
     @media only screen and (max-width: 600px) {
         flex: 1;
         width: 100%;
         display: flex;
         justify-content: center;
-    }
-`;
-const SplashSummary = styled.p`
-    flex: 1;
-    font-size: 25px;
-    line-height: 25px;
-    font-weight: 400;
-    user-select: none;
-    @media only screen and (max-width: 1000px) {
-        font-size: 22.5px;
-        line-height: 22.5px;
-        font-weight: 400;
-        max-width: 80%;
-    }
-    @media only screen and (max-width: 600px) {
-        max-width: 100%;
-        padding: 0 40px;
-        font-size: 20px;
-        line-height: 20px;
-        text-align: center;
-    }
-    @media only screen and (max-width: 300px) {
-        padding: 0;
+        align-items: center;
     }
 `;
 
@@ -334,25 +273,6 @@ const AppCardsContainer = styled.div`
         padding: 25px;
     }
 `;
-const CardsHeading = styled.span`
-    font-size: 35px;
-    line-height: 35px;
-    font-weight: 600;
-    user-select: none;
-    padding: 30px 20px;
-
-    @media only screen and (max-width: 1000px) {
-        font-size: 30px;
-        line-height: 30px;
-        font-weight: 600;
-    }
-    @media only screen and (max-width: 600px) {
-        font-size: 25px;
-        line-height: 25px;
-        font-weight: 600;
-        text-align: center;
-    }
-`;
 const AllCards = styled.div`
     flex: 1;
     width: 100%;
@@ -427,20 +347,6 @@ const CardHeadingContainer = styled.div`
     align-items: center;
     justify-content: center;
 `;
-const CardHeading = styled.span`
-    font-size: 35px;
-    font-weight: 500;
-`;
-const CardSubheading = styled.span`
-    margin: 20px 0;
-    text-align: center;
-    line-height: 25px;
-    font-size: 17.5px;
-    @media only screen and (max-width: 600px) {
-        font-size: 15px;
-    }
-`;
-
 const CardTagsButtonFlipper = styled.div`
     width: 100%;
     display: flex;
@@ -501,13 +407,6 @@ const CardTagImage = styled.img`
     width: 25px;
 `;
 const CardTagHeadingContainer = styled.div``;
-const CardTagHeading = styled.span`
-    font-weight: 400;
-    font-size: 17.5px;
-    @media only screen and (max-width: 600px) {
-        font-size: 15px;
-    }
-`;
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
@@ -569,19 +468,19 @@ const ContactBox = styled.div`
     justify-content: center;
     background-color: var(--main-002);
 `;
-const ContactHeading = styled.span`
-    font-size: 35px;
-    font-weight: 500;
-    padding: 10px 0;
-    color: var(--accent-001);
-`;
-const ContactSubheading = styled.span`
-    font-size: 15px;
-    font-weight: 400;
-    padding: 10px 0;
-    text-align: center;
-    color: var(--white-003);
-`;
+// const ContactHeading = styled.span`
+//     font-size: 35px;
+//     font-weight: 500;
+//     padding: 10px 0;
+//     color: var(--accent-001);
+// `;
+// const ContactSubheading = styled.span`
+//     font-size: 15px;
+//     font-weight: 400;
+//     padding: 10px 0;
+//     text-align: center;
+//     color: var(--white-003);
+// `;
 
 const ContactButton = styled.a`
     margin-top: 30px;
@@ -729,7 +628,16 @@ const App = () => {
                         <NavLogoImage src="https://www.svgrepo.com/show/233196/smile.svg" />
                     </NavLogoImageContainer>
                     <NavLogoHeadingContainer>
-                        <NavLogoHeading>Schiff</NavLogoHeading>
+                        <PageSpan
+                            color="var(--white-001)"
+                            fontsize="25px"
+                            fontweight="500"
+                            lineheight="30px"
+                            maxheight="30px"
+                            cursor="pointer"
+                            fontsizesix="20px"
+                            spantext="Schiff"
+                        />
                     </NavLogoHeadingContainer>
                 </NavLogoContainer>
                 <NavButton>Connect</NavButton>
@@ -738,27 +646,62 @@ const App = () => {
             <AppContainer>
                 <AppNotificationBanner>
                     <AppNotification>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Numquam labore dolorem, voluptates excepturi
-                        doloremque quas?
-                        <AppNotificationLink>Learn More</AppNotificationLink>
+                        <PageSpan
+                            color="var(--accent-004)"
+                            fontsize="12.5px"
+                            spantext="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam labore dolorem, voluptates excepturi doloremque quas?"
+                        />
+                        <AppNotificationLink>
+                            <PageSpan
+                                color="var(--accent-004)"
+                                fontsize="12.5px"
+                                spantext="Learn More"
+                            />
+                        </AppNotificationLink>
                     </AppNotification>
                 </AppNotificationBanner>
                 <AppSplash>
                     <SplashDetails>
                         <SplashHeadingContainer>
-                            <SplashHeading>
-                                Commodi sapiente cupiditate vero, officia
-                                tempore.
-                            </SplashHeading>
+                            <PageSpan
+                                color="var(--main-003)"
+                                maxheight="fit-content"
+                                fontsize="45px"
+                                lineheight="45px"
+                                fontweight="600"
+                                maxwidthone="275px"
+                                fontsizeone="30px"
+                                lineheightone="30px"
+                                fontweightone="600"
+                                maxwidthsix="275px"
+                                fontsizesix="35px"
+                                lineheightsix="35px"
+                                fontweightsix="600"
+                                textalignsix="center"
+                                fontsizetwo="30px"
+                                lineheighttwo="30px"
+                                fontweighttwo="600"
+                                textaligntwo="center"
+                                spantext="Commodi sapiente cupiditate vero, officia tempore."
+                            />
                         </SplashHeadingContainer>
                         <SplashSummaryContainer>
-                            <SplashSummary>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Commodi sapiente cupiditate
-                                vero, officia tempore ratione vel consectetur
-                                tempora blanditiis placeat.
-                            </SplashSummary>
+                            <PageSpan
+                                fontsize="25px"
+                                lineheight="25px"
+                                fontweight="400"
+                                fontsizeone="22.5px"
+                                lineheightone="22.5px"
+                                fontweightone="400"
+                                maxwidthone="80%"
+                                maxwidthsix="100%"
+                                paddingsix="0 40px"
+                                fontsizesix="20px"
+                                lineheightsix="20px"
+                                textalignsix="center"
+                                paddingtwo="0"
+                                spantext=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi sapiente cupiditate vero, officia tempore ratione vel consectetur tempora blanditiis placeat."
+                            />
                         </SplashSummaryContainer>
                         <SplashButtonsContainer>
                             <FirstSplashButton>Projects</FirstSplashButton>
@@ -770,10 +713,20 @@ const App = () => {
                     </SplashImageContainer>
                 </AppSplash>
                 <AppCardsContainer>
-                    <CardsHeading>
-                        Officia tempore ratione vel consectetur tempora
-                        blanditiis placeat.
-                    </CardsHeading>
+                    <PageSpan
+                        fontsize="35px"
+                        lineheight="35px"
+                        fontweight="600"
+                        padding="30px 20px"
+                        fontsizeone="30px"
+                        lineheightone="30px"
+                        fontweightone="600"
+                        fontsizesix="25px"
+                        lineheightsix="25px"
+                        fontweightsix="600"
+                        textalignsix="center"
+                        spantext="Officia tempore ratione vel consectetur tempora blanditiis placeat."
+                    />
                     <AllCards>
                         {cards.map((card) => {
                             const {
@@ -790,10 +743,19 @@ const App = () => {
                                         <CardImage src={imageUrl} />
                                     </CardImageContainer>
                                     <CardHeadingContainer>
-                                        <CardHeading>{heading}</CardHeading>
-                                        <CardSubheading>
-                                            {subheading}
-                                        </CardSubheading>
+                                        <PageSpan
+                                            fontsize="35px"
+                                            fontweight="500"
+                                            spantext={heading}
+                                        />
+                                        <PageSpan
+                                            margin="20px 0"
+                                            textalign="center"
+                                            lineheight="25px"
+                                            fontsize="17.5px"
+                                            fontsizesix="15px"
+                                            spantext={subheading}
+                                        />
                                     </CardHeadingContainer>
                                     <CardTagsButtonFlipper>
                                         <CardButtonContainer>
@@ -816,9 +778,14 @@ const App = () => {
                                                             />
                                                         </CardTagImageContainer>
                                                         <CardTagHeadingContainer>
-                                                            <CardTagHeading>
-                                                                {heading}
-                                                            </CardTagHeading>
+                                                            <PageSpan
+                                                                fontweight="400"
+                                                                fontsize="17.5px"
+                                                                fontsizesix="15px"
+                                                                spantext={
+                                                                    heading
+                                                                }
+                                                            />
                                                         </CardTagHeadingContainer>
                                                     </CardTag>
                                                 );
@@ -841,12 +808,24 @@ const App = () => {
                             All Projects
                         </AdditionalProjectsButton>
                     </AdditionalProjectsContainer>
+                    {/* used libs/tools */}
                     <ContactBox>
-                        <ContactHeading>Capiente</ContactHeading>
-                        <ContactSubheading>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit.
-                        </ContactSubheading>
+                        <PageSpan
+                            fontsize="35px"
+                            fontweight="500"
+                            padding="10px 0"
+                            color="var(--accent-001)"
+                            spantext="Capiente"
+                        />
+                        <PageSpan
+                            fontsize="15px"
+                            fontweight="400"
+                            padding="10px 0"
+                            textalign="center"
+                            color="var(--white-003)"
+                            spantext="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+                        />
+
                         <PopTray />
                         <ContactButton
                             key="handle"
