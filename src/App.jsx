@@ -577,7 +577,10 @@ const ToolsFooter = styled.div`
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    @media only screen and (max-width: 600px) {
+        flex-flow: column nowrap;
+    }
 `;
 const ToolsContainer = styled.div`
     flex: 1;
@@ -598,6 +601,7 @@ const ToolsContainer = styled.div`
 const ToolContainer = styled.div`
     flex: 1;
     width: 100%;
+    padding: 20px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -634,6 +638,22 @@ const ToolImage = styled.img`
         min-height: 51px;
         min-width: 51px;
     }
+`;
+const ToolFooterTools = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row nowrap;
+    @media only screen and (max-width: 400px) {
+        flex-flow: column nowrap;
+    }
+`;
+const ToolFooterDetails = styled.div`
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
 `;
 
 //////////////////////////////////////////////////////////////////////
@@ -926,16 +946,34 @@ const App = () => {
                             {toolsVisible ? "See Less" : "See All"}
                         </ToolsButton>
                         <ToolsFooter>
-                            {TOOLS.map((tool, index) => {
-                                const { id, imageUrl } = tool;
-                                return index < 3 ? (
-                                    <ToolContainer key={id}>
-                                        <ToolImageContainer>
-                                            <ToolImage src={imageUrl} />
-                                        </ToolImageContainer>
-                                    </ToolContainer>
-                                ) : null;
-                            })}
+                            <ToolFooterTools>
+                                {TOOLS.map((tool, index) => {
+                                    const { id, imageUrl } = tool;
+                                    return index < 3 ? (
+                                        <ToolContainer key={id}>
+                                            <ToolImageContainer>
+                                                <ToolImage src={imageUrl} />
+                                            </ToolImageContainer>
+                                        </ToolContainer>
+                                    ) : null;
+                                })}
+                            </ToolFooterTools>
+                            <ToolFooterDetails>
+                                <PageSpan
+                                    fontsize="35px"
+                                    fontweight="500"
+                                    fontsizeone="25px"
+                                    fontsizesix="20px"
+                                    spantext="trio"
+                                />
+                                <PageSpan
+                                    textalign="center"
+                                    margin="20px 0"
+                                    fontsize="10px"
+                                    fontweight="400"
+                                    spantext="tempore + ratione + placeat"
+                                />
+                            </ToolFooterDetails>
                         </ToolsFooter>
                     </ToolkitContainer>
 
