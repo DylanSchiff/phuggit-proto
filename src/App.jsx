@@ -95,9 +95,6 @@ const GistsContainer = styled.div`
         var(--white-001) 0%,
         var(--white-002) 100%
     );
-    @media only screen and (max-width: 600px) {
-        margin: 0 20px;
-    }
 `;
 
 const Gists = styled.div`
