@@ -811,7 +811,8 @@ const App = () => {
                         />
                         <PopTray />
                         <ContactButton
-                            key="handle"
+                            // onClick={() => window.scrolltoheadsection()}
+                            onClick={() => !currentPop? window.scrolltoheadsection():null}
                             href={currentPop ? currentPop.path : null}
                             target="_blank"
                             rel="noreferrer"
