@@ -515,10 +515,24 @@ const ContactButton = styled.a`
 //////////////////////////////////////////////////////////////////////
 
 const App = () => {
-    const cardssection = useRef(null);
-    window.scrolltodisplaycards = () =>
+    const headsection = useRef(null);
+    window.scrolltoheadsection = () =>
         window.scrollTo({
-            top: cardssection.current.offsetTop,
+            top: headsection.current.offsetTop,
+            behavior: "smooth",
+        });
+
+    const cardssection = useRef(null);
+    window.scrolltocardssection = () =>
+        window.scrollTo({
+            top: cardssection.current.offsetTop - 20,
+            behavior: "smooth",
+        });
+
+    const footsection = useRef(null);
+    window.scrolltofootsection = () =>
+        window.scrollTo({
+            top: footsection.current.offsetTop - 20,
             behavior: "smooth",
         });
     const [additionalProjectsVisible, setAdditionalProjectsVisible] =
@@ -530,7 +544,7 @@ const App = () => {
     return (
         <>
             <AppNavbar backgroundimage={`url(${ship})`}>
-                <NavLogoContainer>
+                <NavLogoContainer onClick={() => window.scrolltoheadsection()}>
                     <NavLogoImageContainer>
                         <NavLogoImage src="https://www.svgrepo.com/show/233196/smile.svg" />
                     </NavLogoImageContainer>
@@ -547,10 +561,12 @@ const App = () => {
                         />
                     </NavLogoHeadingContainer>
                 </NavLogoContainer>
-                <NavButton>Connect</NavButton>
+                <NavButton onClick={() => window.scrolltofootsection()}>
+                    Connect
+                </NavButton>
             </AppNavbar>
 
-            <AppContainer>
+            <AppContainer ref={headsection}>
                 <AppNotificationBanner>
                     <AppNotification>
                         <PageSpan
@@ -612,7 +628,7 @@ const App = () => {
                         </SplashSummaryContainer>
                         <SplashButtonsContainer>
                             <FirstSplashButton
-                                onClick={() => window.scrolltodisplaycards()}
+                                onClick={() => window.scrolltocardssection()}
                             >
                                 Projects
                             </FirstSplashButton>
@@ -729,7 +745,7 @@ const App = () => {
 
                     {/* used libs/tools */}
 
-                    <ContactBox>
+                    <ContactBox ref={footsection}>
                         <PageSpan
                             fontsize="35px"
                             fontweight="500"
