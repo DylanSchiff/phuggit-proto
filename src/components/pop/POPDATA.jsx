@@ -11,7 +11,7 @@ export const POPS = [
         heading: "github",
         isClicked: false,
         path: "https://github.com/DylanSchiff",
-        imageUrl: "https://www.svgrepo.com/show/341847/github.svg",
+        imageUrl: "https://www.svgrepo.com/show/217753/github.svg",
     },
     {
         id: "pexels-pop",

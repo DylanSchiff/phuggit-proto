@@ -548,7 +548,10 @@ const ToolkitContainer = styled.div`
 const ToolsContainer = styled.div`
     flex: 1;
     width: 100%;
-    /* background-color: ; */
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
 `;
 const ToolsButton = styled.div`
     cursor: pointer;
@@ -580,7 +583,49 @@ const ToolsFooter = styled.div`
     width: 100%;
     margin-top: 50px;
 `;
+const ToolContainer = styled.div`
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+`;
+const ToolImageContainer = styled.div`
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+    max-height: 150px;
+    max-width: 150px;
+    min-height: 150px;
+    min-width: 150px;
+    @media only screen and (max-width: 600px) {
+        max-height: 100px;
+        max-width: 100px;
+        min-height: 100px;
+        min-width: 100px;
+    }
+`;
+const ToolImage = styled.img`
+    max-height: 151px;
+    max-width: 151px;
+    min-height: 151px;
+    min-width: 151px;
+    @media only screen and (max-width: 600px) {
+        max-height: 101px;
+        max-width: 101px;
+        min-height: 101px;
+        min-width: 101px;
+    }
+`;
 
+const TOOLS = [
+    { id: "1", heading: "Consectetur", imageUrl: "" },
+    { id: "2", heading: "Adipisicing", imageUrl: "" },
+    { id: "3", heading: "Numquam", imageUrl: "" },
+    { id: "4", heading: "Labore", imageUrl: "" },
+];
 //////////////////////////////////////////////////////////////////////
 
 const App = () => {
@@ -829,7 +874,25 @@ const App = () => {
                             fontweight="400"
                             spantext="Officia tempore ratione vel consectetur tempora blanditiis placeat."
                         />
-                        <ToolsContainer></ToolsContainer>
+                        <ToolsContainer>
+                            {TOOLS.map((tool) => {
+                                const { id, heading, imageUrl } = tool;
+                                return (
+                                    <ToolContainer key={id}>
+                                        <ToolImageContainer>
+                                            <ToolImage src={imageUrl} />
+                                        </ToolImageContainer>
+                                        <PageSpan
+                                            textalign="center"
+                                            margin="20px 0"
+                                            fontsize="15px"
+                                            fontweight="400"
+                                            spantext={heading}
+                                        />
+                                    </ToolContainer>
+                                );
+                            })}
+                        </ToolsContainer>
                         <ToolsButton>See All</ToolsButton>
                         <ToolsFooter></ToolsFooter>
                     </ToolkitContainer>
