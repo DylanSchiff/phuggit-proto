@@ -3,7 +3,7 @@ import styled from "styled-components";
 // import PopDisplay from "./components/pop/pop-display.component";
 import PopTray from "./components/pop/pop-tray.component";
 import splashimage from "./components/images/light.svg";
-import ship from "./components/images/ship.svg";
+// import ship from "./components/images/ship.svg";
 import TOOLS from "./components/TOOLDATA";
 import { useContext, useRef, useState } from "react";
 // import Pop from "./components/pop/pop.component";
@@ -11,12 +11,15 @@ import { PopContext } from "./components/pop/pop.context";
 // import { POPS } from "./components/pop/POPDATA";
 import PageSpan from "./components/page-span.component";
 import CARDS from "./CARDS";
+import star from "./components/images/star.svg";
 
 const AppContainer = styled.div`
     min-height: 100vh;
     min-width: 100vw;
     max-width: 100vw;
-    background-color: var(--white-002);
+    background-color: var(--accent-002);
+    background-position: center;
+    background-size: contain;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -132,12 +135,25 @@ const AppSplash = styled.section`
     flex-flow: row nowrap;
     padding: 50px 60px;
     align-items: center;
+    border-radius: 35px;
+    margin: 0 40px;
+    transition: 111ms linear;
+    background-color: var(--white-002);
+    border: 1px solid var(--fade-002);
+    box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+        0 3px 8px var(--fade-002);
+    background: linear-gradient(
+        0deg,
+        var(--white-001) 0%,
+        var(--white-002) 100%
+    );
     @media only screen and (max-width: 1000px) {
         flex-flow: column nowrap;
         align-items: center;
     }
     @media only screen and (max-width: 600px) {
         justify-content: center;
+        margin: 0 20px;
     }
 `;
 const SplashDetails = styled.div`
@@ -311,9 +327,14 @@ const Card = styled.div`
     flex-flow: column nowrap;
     align-items: center;
     justify-content: flex-start;
+    transition: 111ms linear;
     box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
         0 3px 8px var(--fade-002);
-    transition: 111ms linear;
+    background: linear-gradient(
+        0deg,
+        var(--white-001) 0%,
+        var(--white-002) 100%
+    );
     &:hover {
         background-color: var(--accent-001);
     }
@@ -385,7 +406,7 @@ const CardButton = styled.div`
     transition: 111ms linear;
     user-select: none;
     color: var(--white-001);
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 600;
     text-transform: uppercase;
     border: 1px solid var(--fade-002);
@@ -398,7 +419,7 @@ const CardButton = styled.div`
             0 3px 8px var(--fade-002);
     }
     @media only screen and (max-width: 1000px) {
-        font-size: 20px;
+        /* font-size: 20px; */
         border: 1px solid var(--fade-002);
         background-color: var(--white-001);
         padding: 10px 20px;
@@ -641,6 +662,11 @@ const ToolsFooter = styled.div`
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-around;
+    background: linear-gradient(
+        90deg,
+        var(--fade-001) 0%,
+        var(--fade-002) 100%
+    );
     @media only screen and (max-width: 600px) {
         flex-flow: column nowrap;
     }
@@ -662,7 +688,7 @@ const ToolFooterDetails = styled.div`
     flex-flow: column nowrap;
 `;
 const FooterDetailsHeadings = styled.div`
-margin: 0 20px;
+    margin: 0 20px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -711,7 +737,7 @@ const App = () => {
 
     return (
         <>
-            <AppNavbar backgroundimage={`url(${ship})`}>
+            <AppNavbar backgroundimage={star}>
                 <NavLogoContainer onClick={() => window.scrolltoheadsection()}>
                     <NavLogoImageContainer>
                         <NavLogoImage src="https://www.svgrepo.com/show/233196/smile.svg" />
@@ -974,7 +1000,7 @@ const App = () => {
                                 <FooterDetailsHeadings>
                                     <PageSpan
                                         fontsize="30px"
-                                        fontweight="500"
+                                        fontweight="400"
                                         fontsizeone="25px"
                                         fontsizesix="20px"
                                         fontsizetwo="15px"
@@ -983,7 +1009,7 @@ const App = () => {
                                     />
                                     <PageSpan
                                         fontsize="30px"
-                                        fontweight="500"
+                                        fontweight="400"
                                         fontsizeone="25px"
                                         fontsizesix="20px"
                                         fontsizetwo="15px"
@@ -992,7 +1018,7 @@ const App = () => {
                                     />
                                     <PageSpan
                                         fontsize="30px"
-                                        fontweight="500"
+                                        fontweight="400"
                                         fontsizeone="25px"
                                         fontsizesix="20px"
                                         fontsizetwo="15px"
