@@ -11,6 +11,8 @@ const PageButtonContainer = styled.span`
     max-height: ${({ maxheight }) => maxheight};
     cursor: ${({ cursor }) => cursor};
     color: ${({ color }) => color};
+    background-color: ${({ backgroundcolor }) => backgroundcolor};
+    border: ${({ border }) => border};
 
     @media only screen and (max-width: 1000px) {
         max-width: ${({ maxwidthone }) => maxwidthone};
@@ -24,6 +26,8 @@ const PageButtonContainer = styled.span`
         max-height: ${({ maxheightone }) => maxheightone};
         cursor: ${({ cursorone }) => cursorone};
         color: ${({ colorone }) => colorone};
+        background-color: ${({ backgroundcolorone }) => backgroundcolorone};
+        border: ${({ borderone }) => borderone};
     }
     @media only screen and (max-width: 600px) {
         font-size: ${({ fontsizesix }) => fontsizesix};
@@ -36,6 +40,8 @@ const PageButtonContainer = styled.span`
         max-height: ${({ maxheightsix }) => maxheightsix};
         cursor: ${({ cursorsix }) => cursorsix};
         color: ${({ colorsix }) => colorsix};
+        background-color: ${({ backgroundcolorsix }) => backgroundcolorsix};
+        border: ${({ bordersix }) => bordersix};
     }
     @media only screen and (max-width: 200px) {
         padding: ${({ paddingtwo }) => paddingtwo};
@@ -43,6 +49,7 @@ const PageButtonContainer = styled.span`
         line-height: ${({ lineheighttwo }) => lineheighttwo};
         font-weight: ${({ fontweighttwo }) => fontweighttwo};
         text-align: ${({ textaligntwo }) => textaligntwo};
+        border: ${({ bordertwo }) => bordertwo};
     }
 `;
 const PageButton = ({
@@ -56,6 +63,8 @@ const PageButton = ({
     minheight,
     maxheight,
     color,
+    backgroundcolor,
+    border,
     cursor,
     fontsizeone,
     lineheightone,
@@ -67,6 +76,8 @@ const PageButton = ({
     maxheightone,
     maxwidthone,
     colorone,
+    backgroundcolorone,
+    borderone,
     cursorone,
     fontsizesix,
     lineheightsix,
@@ -77,12 +88,15 @@ const PageButton = ({
     minheightsix,
     maxheightsix,
     colorsix,
+    backgroundcolorsix,
+    bordersix,
     cursorsix,
     fontsizetwo,
     lineheighttwo,
     fontweighttwo,
     textaligntwo,
     paddingtwo,
+    bordertwo,
 }) => {
     return (
         <PageButtonContainer
@@ -96,6 +110,8 @@ const PageButton = ({
             minheight={minheight}
             maxheight={maxheight}
             color={color}
+            backgroundcolor={backgroundcolor}
+            border={border}
             fontsizeone={fontsizeone}
             lineheightone={lineheightone}
             fontweightone={fontweightone}
@@ -106,6 +122,8 @@ const PageButton = ({
             maxheightone={maxheightone}
             maxwidthone={maxwidthone}
             colorone={colorone}
+            backgroundcolorone={backgroundcolorone}
+            borderone={borderone}
             cursorone={cursorone}
             fontsizesix={fontsizesix}
             lineheightsix={lineheightsix}
@@ -116,12 +134,15 @@ const PageButton = ({
             minheightsix={minheightsix}
             maxheightsix={maxheightsix}
             colorsix={colorsix}
+            backgroundcolorsix={backgroundcolorsix}
+            bordersix={bordersix}
             cursorsix={cursorsix}
             fontsizetwo={fontsizetwo}
             lineheighttwo={lineheighttwo}
             fontweighttwo={fontweighttwo}
             textaligntwo={textaligntwo}
             paddingtwo={paddingtwo}
+            bordertwo={bordertwo}
         >
             {spantext}
         </PageButtonContainer>
