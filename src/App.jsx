@@ -57,7 +57,7 @@ const BackToTopButton = styled.div`
     z-index: 900;
     border-radius: 50%;
     user-select: none;
-    background-color: var(--main-002);
+    background-color: var(--main-003);
     box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
         0 3px 8px var(--fade-002);
     &:active {
@@ -105,7 +105,9 @@ const App = () => {
                     <Toolkit tools={TOOLS} />
                     <ContactBox />
                 </AppBodySection>
-                <BackToTopButton>TOP</BackToTopButton>
+                <BackToTopButton onClick={() => window.scrolltoheadsection()}>
+                    TOP
+                </BackToTopButton>
             </PageContainer>
         </>
     );
