@@ -607,8 +607,10 @@ const ToolImageContainer = styled.div`
     max-width: 50px;
     min-height: 50px;
     min-width: 50px;
+    padding: 40px 0;
     border-radius: ${({ borderradius }) => borderradius};
     overflow: ${({ overflow }) => overflow};
+    cursor: pointer;
     @media only screen and (max-width: 600px) {
         max-height: 50px;
         max-width: 50px;
@@ -699,7 +701,6 @@ const TOOLS = [
         imageUrl:
             "https://pbs.twimg.com/profile_images/1266792130711879683/i0ElWni3_400x400.jpg",
     },
-
     {
         id: "svgrepo",
         heading: "svgrepo",
@@ -983,8 +984,7 @@ const App = () => {
                             display={toolsVisible ? "grid" : "none"}
                         >
                             {TOOLS.map((tool) => {
-                                const { id, heading, imageUrl, isBordered } =
-                                    tool;
+                                const { id, imageUrl, isBordered } = tool;
                                 return (
                                     <ToolContainer key={id}>
                                         <ToolImageContainer
@@ -997,13 +997,6 @@ const App = () => {
                                         >
                                             <ToolImage src={imageUrl} />
                                         </ToolImageContainer>
-                                        <PageSpan
-                                            textalign="center"
-                                            margin="20px 0"
-                                            fontsize="15px"
-                                            fontweight="400"
-                                            spantext={heading}
-                                        />
                                     </ToolContainer>
                                 );
                             })}
