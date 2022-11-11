@@ -4,7 +4,7 @@ import styled from "styled-components";
 import PopTray from "./components/pop/pop-tray.component";
 import splashimage from "./components/images/light.svg";
 import ship from "./components/images/ship.svg";
-
+import TOOLS from "./components/TOOLDATA";
 import { useContext, useRef, useState } from "react";
 // import Pop from "./components/pop/pop.component";
 import { PopContext } from "./components/pop/pop.context";
@@ -574,6 +574,10 @@ const ToolsFooter = styled.div`
     flex: 1;
     width: 100%;
     margin-top: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
 `;
 const ToolsContainer = styled.div`
     flex: 1;
@@ -632,102 +636,6 @@ const ToolImage = styled.img`
     }
 `;
 
-const TOOLS = [
-    {
-        id: "react",
-        heading: "react",
-        isBordered: false,
-        imageUrl: "https://www.svgrepo.com/show/354259/react.svg",
-    },
-    {
-        id: "firebase",
-        heading: "firebase",
-        isBordered: false,
-        imageUrl: "https://www.svgrepo.com/show/353735/firebase.svg",
-    },
-    {
-        id: "netlify",
-        heading: "netlify",
-        isBordered: false,
-        imageUrl: "https://www.svgrepo.com/show/354110/netlify.svg",
-    },
-    {
-        id: "html",
-        heading: "html",
-        isBordered: false,
-        imageUrl: "https://www.svgrepo.com/show/55451/html.svg",
-    },
-    {
-        id: "es6",
-        heading: "es6",
-        isBordered: false,
-        imageUrl: "https://www.svgrepo.com/show/353707/es6.svg",
-    },
-    {
-        id: "css",
-        heading: "css",
-        isBordered: false,
-        imageUrl: "https://www.svgrepo.com/show/373535/css.svg",
-    },
-    {
-        id: "scss",
-        heading: "scss",
-        isBordered: false,
-        imageUrl: "https://www.svgrepo.com/show/374067/scss2.svg",
-    },
-    {
-        id: "styled",
-        heading: "styled",
-        isBordered: false,
-        imageUrl: "https://www.svgrepo.com/show/374104/styled.svg",
-    },
-    {
-        id: "emmet",
-        heading: "emmet",
-        isBordered: false,
-        imageUrl: "https://emmet.io/-/4076541266/i/logo.svg",
-    },
-    {
-        id: "googlefonts",
-        heading: "google fonts",
-        isBordered: false,
-        imageUrl:
-            "https://pbs.twimg.com/profile_images/1366808543773384704/8qFXRmFc_400x400.png",
-    },
-    {
-        id: "undraw",
-        heading: "undraw",
-        isBordered: true,
-        imageUrl:
-            "https://pbs.twimg.com/profile_images/1266792130711879683/i0ElWni3_400x400.jpg",
-    },
-    {
-        id: "svgrepo",
-        heading: "svgrepo",
-        isBordered: false,
-        imageUrl:
-            "https://cdn.icon-icons.com/icons2/2699/PNG/512/svgrepo_logo_icon_170689.png",
-    },
-    {
-        id: "icon8",
-        heading: "icon8",
-        isBordered: false,
-        imageUrl: "https://avatars.githubusercontent.com/u/6615749?s=200&v=4",
-    },
-    {
-        id: "vscode",
-        heading: "vscode",
-        isBordered: false,
-        imageUrl: "https://www.svgrepo.com/show/354522/visual-studio-code.svg",
-    },
-    {
-        id: "procreate",
-        heading: "procreate",
-        isBordered: false,
-        imageUrl:
-            "https://static.wixstatic.com/media/f57031_3ed69a32eb6e4b8a84d233d837485b0d~mv2.png/v1/fill/w_232,h_228,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Procreate%20icon.png",
-    },
-];
 //////////////////////////////////////////////////////////////////////
 
 const App = () => {
@@ -996,9 +904,9 @@ const App = () => {
                         <ToolsContainer
                             display={toolsVisible ? "grid" : "none"}
                         >
-                            {TOOLS.map((tool) => {
+                            {TOOLS.map((tool, index) => {
                                 const { id, imageUrl, isBordered } = tool;
-                                return (
+                                return index > 2 ? (
                                     <ToolContainer key={id}>
                                         <ToolImageContainer
                                             borderradius={
@@ -1011,13 +919,24 @@ const App = () => {
                                             <ToolImage src={imageUrl} />
                                         </ToolImageContainer>
                                     </ToolContainer>
-                                );
+                                ) : null;
                             })}
                         </ToolsContainer>
                         <ToolsButton onClick={() => toggleToolsVisible()}>
                             {toolsVisible ? "See Less" : "See All"}
                         </ToolsButton>
-                        <ToolsFooter></ToolsFooter>
+                        <ToolsFooter>
+                            {TOOLS.map((tool, index) => {
+                                const { id, imageUrl } = tool;
+                                return index < 3 ? (
+                                    <ToolContainer key={id}>
+                                        <ToolImageContainer>
+                                            <ToolImage src={imageUrl} />
+                                        </ToolImageContainer>
+                                    </ToolContainer>
+                                ) : null;
+                            })}
+                        </ToolsFooter>
                     </ToolkitContainer>
 
                     <ContactBox ref={footsection}>
