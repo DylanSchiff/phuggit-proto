@@ -745,6 +745,13 @@ const App = () => {
             behavior: "smooth",
         });
 
+    const toolkit = useRef(null);
+    window.scrolltotoolkitsection = () =>
+        window.scrollTo({
+            top: toolkit.current.offsetTop - 100,
+            behavior: "smooth",
+        });
+
     const footsection = useRef(null);
     window.scrolltofootsection = () =>
         window.scrollTo({
@@ -795,7 +802,9 @@ const App = () => {
                             fontsize="12.5px"
                             spantext="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam labore dolorem, voluptates excepturi doloremque quas?"
                         />
-                        <AppNotificationLink>
+                        <AppNotificationLink
+                            onClick={() => window.scrolltotoolkitsection()}
+                        >
                             <PageSpan
                                 color="var(--accent-004)"
                                 fontsize="12.5px"
@@ -853,7 +862,11 @@ const App = () => {
                             >
                                 Projects
                             </FirstSplashButton>
-                            <SecondSplashButton>learn more</SecondSplashButton>
+                            <SecondSplashButton
+                                onClick={() => window.scrolltotoolkitsection()}
+                            >
+                                learn more
+                            </SecondSplashButton>
                         </SplashButtonsContainer>
                     </SplashDetails>
                     <SplashImageContainer>
@@ -964,7 +977,7 @@ const App = () => {
                         </AdditionalProjectsButton>
                     </AdditionalProjectsContainer>
 
-                    <ToolkitContainer>
+                    <ToolkitContainer ref={toolkit}>
                         <PageSpan
                             fontsize="35px"
                             fontweight="500"
