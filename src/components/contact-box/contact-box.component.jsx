@@ -27,11 +27,10 @@ const ContactButton = styled.a`
     border-radius: 10px;
     transition: 111ms linear;
     user-select: none;
-    color: var(--white-001);
-    font-size: 15px;
-    font-weight: 600;
+    color: ${({ color }) => color};
+    font-size: 25px;
+    font-weight: 500;
     text-transform: uppercase;
-    color: var(--accent-004);
     &:hover {
         color: var(--accent-001);
         box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
@@ -51,6 +50,7 @@ const ContactBox = () => {
             <PopTray />
             <ContactButton
                 href={currentPop ? currentPop.path : null}
+                color={currentPop ? "var(--white-001)" : "var(--accent-002)"}
                 target="_blank"
                 rel="noreferrer"
             >

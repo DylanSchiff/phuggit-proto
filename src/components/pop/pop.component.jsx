@@ -87,9 +87,9 @@ const movedPop = "translate( -0px , -20px )";
 const unmovedShadow =
     "0 1px 3px #00000044, 0 2px 5px #00000033, 0 3px 8px #00000022, 0 0px 0px #00000011, 0 0px 0px #00000011, inset 0 0px 0px #00000011, inset 0 0px 0px #00000011, inset 0 0px 0px #00000011, inset 0 0px 0px #00000011, inset 0 0px 0px #00000011";
 const movedShadow =
-    "0 1px 3px #b1ccf755, 0 2px 5px #b1ccf799, 0 3px 8px #b1ccf799, 0 5px 11px #b1ccf733, 0 8px 15px #b1ccf733, inset 0 1px 3px #b1ccf711, inset 0 2px 5px #b1ccf707, inset 0 3px 8px #b1ccf707, inset 0 5px 11px #b1ccf705, inset 0 8px 15px #b1ccf705";
+    "0 1px 3px #0002, 0 2px 5px #0002, 0 3px 8px #0002, 0 5px 11px #0002, 0 8px 15px #0002, inset 0 1px 3px #0002, inset 0 2px 5px #0002, inset 0 3px 8px #0002, inset 0 5px 11px #0002, inset 0 8px 15px #0002";
 
-const unmovedOpacity = "0.5";
+const unmovedOpacity = "0.8";
 const movedOpacity = "1";
 
 const Pop = ({ pop, isSelected, isContactPop }) => {
