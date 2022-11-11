@@ -10,7 +10,7 @@ const AllAdditionalProjects = styled.div`
     justify-content: center;
     padding: 50px 0;
 `;
-const AdditionalProjectsContainer = styled.div`
+const LabContainer = styled.div`
     border-radius: 25px;
     display: ${({ display }) => display};
     flex: 1;
@@ -19,7 +19,7 @@ const AdditionalProjectsContainer = styled.div`
     align-items: center;
     justify-content: center;
     background-color: var(--fade-001);
-    margin-bottom: 20px;
+    margin: 20px 0;
     box-shadow: inset 0 1px 3px var(--fade-001), inset 0 2px 5px var(--fade-001),
         inset 0 3px 8px var(--fade-002);
 `;
@@ -32,7 +32,13 @@ const NoProjectsImage = styled.img`
     width: 200px;
     user-select: none;
 `;
-const AdditionalProjectsButton = styled.div`
+const LabButtons = styled.div`
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+`;
+const LabButton = styled.div`
     cursor: pointer;
     outline: none;
     border: none;
@@ -40,11 +46,18 @@ const AdditionalProjectsButton = styled.div`
     transition: 111ms linear;
     user-select: none;
     padding: 15px 20px;
-    background-color: var(--accent-004);
-    color: var(--white-002);
+    margin: 0 10px;
     font-size: 20px;
     font-weight: 500;
     border: 1px solid var(--fade-001);
+    &:first-of-type {
+        color: var(--main-002);
+        background-color: var(--white-002);
+    }
+    &:last-of-type {
+        color: var(--white-002);
+        background-color: var(--main-002);
+    }
     @media only screen and (max-width: 1000px) {
         font-size: 20px;
     }
@@ -60,9 +73,14 @@ const AdditionalProjectsButton = styled.div`
 `;
 
 const AdditionalProjects = () => {
-    const [additionalProjectsVisible, setAdditionalProjectsVisible] = useState(false);
-    const toggleAdditionalProjectsVisible = () => setAdditionalProjectsVisible(!additionalProjectsVisible);
+    const [additionalProjectsVisible, setAdditionalProjectsVisible] =
+        useState(false);
+    const toggleAdditionalProjectsVisible = () =>
+        setAdditionalProjectsVisible(!additionalProjectsVisible);
 
+    const [laboratoryProjectsVisible, setLaboratoryVisible] = useState(false);
+    const toggleLaboratoryVisible = () =>
+        setLaboratoryVisible(!laboratoryProjectsVisible);
 
     const additionalprojectssection = useRef(null);
     window.scrolltoadditionalprojectssection = () => {
@@ -74,18 +92,23 @@ const AdditionalProjects = () => {
     };
     return (
         <AllAdditionalProjects ref={additionalprojectssection}>
-            <AdditionalProjectsContainer
-                display={additionalProjectsVisible ? "flex" : "none"}
-            >
+            <LabContainer display={additionalProjectsVisible ? "flex" : "none"}>
                 <NoProjectsImageContainer>
                     <NoProjectsImage src={four} />
                 </NoProjectsImageContainer>
-            </AdditionalProjectsContainer>
-            <AdditionalProjectsButton
-                onClick={() => toggleAdditionalProjectsVisible()}
-            >
-                Lab Projects
-            </AdditionalProjectsButton>
+            </LabContainer>
+            <LabButtons>
+                <LabButton onClick={() => toggleAdditionalProjectsVisible()}>
+                    Lab Projects
+                </LabButton>
+                <LabButton onClick={() => toggleLaboratoryVisible()}>
+                    Laboratory
+                </LabButton>
+            </LabButtons>
+
+            <LabContainer display={laboratoryProjectsVisible ? "flex" : "none"}>
+        
+            </LabContainer>
         </AllAdditionalProjects>
     );
 };
