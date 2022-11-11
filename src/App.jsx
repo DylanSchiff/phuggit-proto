@@ -16,6 +16,7 @@ import PageSpan from "./components/page-span.component";
 const AppContainer = styled.div`
     min-height: 100vh;
     min-width: 100vw;
+    max-width: 100vw;
     background-color: var(--white-001);
     display: flex;
     flex-flow: column nowrap;
@@ -38,6 +39,9 @@ const AppNavbar = styled.div`
     flex-flow: row nowrap;
     justify-content: space-between;
     padding: 0 20px;
+    @media only screen and (max-width: 100px) {
+        padding: 0;
+    }
 `;
 const NavLogoContainer = styled.div`
     width: fit-content;
@@ -87,6 +91,9 @@ const NavButton = styled.div`
     user-select: none;
     &:hover {
         border: 1px solid var(--accent-001);
+    }
+    @media only screen and (max-width: 200px) {
+        display: none;
     }
 `;
 
@@ -334,12 +341,24 @@ const CardImageContainer = styled.div`
     align-items: center;
     justify-content: center;
     margin: 40px 0;
+    @media only screen and (max-width: 600px) {
+        max-height: 100px;
+        max-width: 100px;
+        min-height: 100px;
+        min-width: 100px;
+    }
 `;
 const CardImage = styled.img`
     max-height: 151px;
     max-width: 151px;
     min-height: 151px;
     min-width: 151px;
+    @media only screen and (max-width: 600px) {
+        max-height: 101px;
+        max-width: 101px;
+        min-height: 101px;
+        min-width: 101px;
+    }
 `;
 const CardHeadingContainer = styled.div`
     display: flex;
@@ -407,6 +426,7 @@ const CardTagImage = styled.img`
     width: 25px;
 `;
 const CardTagHeadingContainer = styled.div``;
+
 //////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
@@ -458,6 +478,7 @@ const AdditionalProjectsButton = styled.div`
 //////////////////////////////////////////////////////////////////////
 
 const ContactBox = styled.div`
+    overflow: hidden;
     border-radius: 25px;
     padding: 50px 0;
     flex: 1;
@@ -468,20 +489,6 @@ const ContactBox = styled.div`
     justify-content: center;
     background-color: var(--main-002);
 `;
-// const ContactHeading = styled.span`
-//     font-size: 35px;
-//     font-weight: 500;
-//     padding: 10px 0;
-//     color: var(--accent-001);
-// `;
-// const ContactSubheading = styled.span`
-//     font-size: 15px;
-//     font-weight: 400;
-//     padding: 10px 0;
-//     text-align: center;
-//     color: var(--white-003);
-// `;
-
 const ContactButton = styled.a`
     margin-top: 30px;
     cursor: pointer;
@@ -698,7 +705,7 @@ const App = () => {
                                 paddingsix="0 40px"
                                 fontsizesix="20px"
                                 lineheightsix="20px"
-                                textalignsix="center"
+                                textalignone="center"
                                 paddingtwo="0"
                                 spantext=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi sapiente cupiditate vero, officia tempore ratione vel consectetur tempora blanditiis placeat."
                             />
@@ -727,6 +734,7 @@ const App = () => {
                         textalignsix="center"
                         spantext="Officia tempore ratione vel consectetur tempora blanditiis placeat."
                     />
+
                     <AllCards>
                         {cards.map((card) => {
                             const {
@@ -746,6 +754,9 @@ const App = () => {
                                         <PageSpan
                                             fontsize="35px"
                                             fontweight="500"
+                                            fontsizeone="30px"
+                                            fontsizesix="25px"
+                                            fontsizestwo="15px"
                                             spantext={heading}
                                         />
                                         <PageSpan
@@ -754,6 +765,8 @@ const App = () => {
                                             lineheight="25px"
                                             fontsize="17.5px"
                                             fontsizesix="15px"
+                                            fontsizestwo="10px"
+                                            marginsix="0"
                                             spantext={subheading}
                                         />
                                     </CardHeadingContainer>
@@ -782,6 +795,7 @@ const App = () => {
                                                                 fontweight="400"
                                                                 fontsize="17.5px"
                                                                 fontsizesix="15px"
+                                                                fontsizestwo="10px"
                                                                 spantext={
                                                                     heading
                                                                 }
@@ -796,6 +810,7 @@ const App = () => {
                             );
                         })}
                     </AllCards>
+
                     <AdditionalProjectsContainer>
                         <AdditionalProjects
                             display={
@@ -808,7 +823,9 @@ const App = () => {
                             All Projects
                         </AdditionalProjectsButton>
                     </AdditionalProjectsContainer>
+
                     {/* used libs/tools */}
+
                     <ContactBox>
                         <PageSpan
                             fontsize="35px"
@@ -825,7 +842,6 @@ const App = () => {
                             color="var(--white-003)"
                             spantext="Lorem ipsum dolor sit amet consectetur adipisicing elit."
                         />
-
                         <PopTray />
                         <ContactButton
                             key="handle"
