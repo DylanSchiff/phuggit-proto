@@ -200,7 +200,7 @@ const Splash = () => {
                     <FirstSplashButton
                         onClick={() => window.scrolltoappbodysection()}
                     >
-                        Projects
+                        projects
                     </FirstSplashButton>
                     <SecondSplashButton
                         onClick={() => window.scrolltotoolkitsection()}

@@ -159,21 +159,21 @@ const GistButton = styled.div`
 const GISTS = [
     {
         id: "future-gist",
-        heading: "coming up",
+        heading: "Upcoming",
         gisttext:
             "Numquam labore dolorem, voluptates excepturi doloremque quas.",
         imageUrl: future,
     },
     {
         id: "present-gist",
-        heading: "happening now",
+        heading: "Latest",
         gisttext:
             "Officia tempore ratione vel consectetur tempora blanditiis placeat.",
         imageUrl: present,
     },
     {
         id: "past-gist",
-        heading: "catch up",
+        heading: "Recent",
         gisttext:
             "Numquam labore dolorem, voluptates excepturi doloremque quas.",
         imageUrl: past,

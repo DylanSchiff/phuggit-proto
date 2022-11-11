@@ -90,7 +90,7 @@ const Navibar = () => {
                 </NavLogoHeadingContainer>
             </NavLogoContainer>
             <NavButton onClick={() => window.scrolltocontactsection()}>
-                Connect
+                CONNECT
             </NavButton>
         </AppNavbar>
     );

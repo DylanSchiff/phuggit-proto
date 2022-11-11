@@ -12,25 +12,25 @@ const CARDS = [
         tags: [
             {
                 id: "1",
-                heading: "travel",
+                heading: "Travel",
                 imageUrl:
                     "https://www.svgrepo.com/show/364112/airplane-tilt-duotone.svg",
             },
             {
                 id: "2",
-                heading: "geolocation",
+                heading: "Geolocation",
                 imageUrl:
                     "https://www.svgrepo.com/show/363496/compass-duotone.svg",
             },
             {
                 id: "3",
-                heading: "multi-media",
+                heading: "Multimedia",
                 imageUrl:
                     "https://www.svgrepo.com/show/363399/camera-duotone.svg",
             },
             {
                 id: "4",
-                heading: "planning",
+                heading: "Planning",
                 imageUrl:
                     "https://www.svgrepo.com/show/363396/calendar-check-duotone.svg",
             },
@@ -47,25 +47,25 @@ const CARDS = [
 
             {
                 id: "admin",
-                heading: "admin portal",
+                heading: "Admin Portal",
                 imageUrl:
                     "https://www.svgrepo.com/show/363700/identification-card-duotone.svg",
             },
             {
                 id: "team",
-                heading: "team centric",
+                heading: "Team Centric",
                 imageUrl:
                     "https://www.svgrepo.com/show/364073/users-four-duotone.svg",
             },
             {
                 id: "records",
-                heading: "priority records",
+                heading: "Prioritized Records",
                 imageUrl:
                     "https://www.svgrepo.com/show/363221/alarm-duotone.svg",
             },
             {
                 id: "data",
-                heading: "visualized data",
+                heading: "Visual Analytics",
                 imageUrl:
                     "https://www.svgrepo.com/show/363826/paperclip-duotone.svg",
             },
@@ -81,25 +81,25 @@ const CARDS = [
         tags: [
             {
                 id: "1",
-                heading: "tone editor",
-                imageUrl:
-                    "https://www.svgrepo.com/show/363834/pencil-circle-duotone.svg",
-            },
-            {
-                id: "2",
-                heading: "pallete generator",
+                heading: "Pallete Generator",
                 imageUrl:
                     "https://www.svgrepo.com/show/363560/drop-duotone.svg",
             },
             {
+                id: "2",
+                heading: "Tone Editor",
+                imageUrl:
+                    "https://www.svgrepo.com/show/363834/pencil-circle-duotone.svg",
+            },
+            {
                 id: "3",
-                heading: "HEX, RGB, HSL, etc",
+                heading: "HEX, RGB, HSL",
                 imageUrl:
                     "https://www.svgrepo.com/show/363573/eyedropper-duotone.svg",
             },
             {
                 id: "4",
-                heading: "shadows and opacity",
+                heading: "Shadows and Opacity",
                 imageUrl:
                     "https://www.svgrepo.com/show/363981/star-half-duotone.svg",
             },

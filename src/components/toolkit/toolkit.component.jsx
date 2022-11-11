@@ -120,6 +120,7 @@ const ToolsFooter = styled.div`
         var(--fade-001) 0%,
         var(--fade-002) 100%
     );
+    border-top: 1px solid var(--fade-001);
     @media only screen and (max-width: 600px) {
         flex-flow: column nowrap;
     }
@@ -226,7 +227,7 @@ const Toolkit = ({ tools }) => {
                             fontsizeone="25px"
                             fontsizesix="20px"
                             fontsizetwo="15px"
-                            spantext="Tempore"
+                            spantext="tempore"
                             margin="0 5px 0 0"
                         />
                         <PageSpan
@@ -235,7 +236,7 @@ const Toolkit = ({ tools }) => {
                             fontsizeone="25px"
                             fontsizesix="20px"
                             fontsizetwo="15px"
-                            spantext="+ Ratione"
+                            spantext="+ patione"
                             margin="0 5px 0 0"
                         />
                         <PageSpan
@@ -244,7 +245,7 @@ const Toolkit = ({ tools }) => {
                             fontsizeone="25px"
                             fontsizesix="20px"
                             fontsizetwo="15px"
-                            spantext="+ Placeat"
+                            spantext="+ placeat"
                         />
                     </FooterDetailsHeadings>
                     <PageSpan
