@@ -1,6 +1,10 @@
 import styled from "styled-components";
-import four from "../images/four.svg";
 import PageSpan from "../page-span.component";
+import hiring from "../images/hiring.svg";
+import lockedp from "../images/lockedp.svg";
+import twofactor from "../images/twofactor.svg";
+import lighthouse from "../images/lighthouse.svg";
+
 const AdditionalProjectsContainer = styled.div`
     flex: 1;
     width: 100%;
@@ -48,22 +52,22 @@ const AddProjectImageContainer = styled.div`
     }
 `;
 const AddProjectImage = styled.img`
-    max-height: 150px;
-    max-width: 150px;
-    min-height: 150px;
-    min-width: 150px;
+    max-height: 125px;
+    max-width: 125px;
+    min-height: 125px;
+    min-width: 125px;
     @media only screen and (max-width: 600px) {
-        max-height: 100px;
-        max-width: 100px;
-        min-height: 100px;
-        min-width: 100px;
+        max-height: 80px;
+        max-width: 80px;
+        min-height: 80px;
+        min-width: 80px;
     }
 `;
 const PROJECTS = [
-    { id: "1", heading: "rescume", imageUrl: four },
-    { id: "2", heading: "core", imageUrl: four },
-    { id: "3", heading: "mur²", imageUrl: four },
-    { id: "4", heading: "beacon", imageUrl: four },
+    { id: "1", heading: "rescume", imageUrl: hiring },
+    { id: "2", heading: "core", imageUrl: lockedp },
+    { id: "3", heading: "mur²", imageUrl: twofactor },
+    { id: "4", heading: "beacon", imageUrl: lighthouse },
 ];
 
 const AdditionalProjects = ({ additionalProjectsVisible }) => {
