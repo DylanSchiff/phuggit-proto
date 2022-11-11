@@ -168,7 +168,7 @@ const GISTS = [
     {
         id: "present-gist",
         heading: "Latest",
-        scrollto: () => window.scrolltoadditionalprojectssection(),
+        scrollto: () => window.scrolltoappbodysection(),
         gisttext:
             "Officia tempore ratione vel consectetur tempora blanditiis placeat.",
         imageUrl: present,
@@ -176,7 +176,7 @@ const GISTS = [
     {
         id: "past-gist",
         heading: "Recent",
-        scrollto: () => window.scrolltoappbodysection(),
+        scrollto: () => window.scrolltoadditionalprojectssection(),
         gisttext:
             "Numquam labore dolorem, voluptates excepturi doloremque quas.",
         imageUrl: past,
