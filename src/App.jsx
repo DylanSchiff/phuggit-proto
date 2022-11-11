@@ -526,7 +526,7 @@ const ToolkitContainer = styled.div`
     justify-content: flex-start;
     box-shadow: 0 1px 3px #0001, 0 2px 5px #0001, 0 3px 8px #2221;
     transition: 111ms linear;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 `;
 
 const ToolsContainer = styled.div``;
