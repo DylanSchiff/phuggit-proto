@@ -40,11 +40,35 @@ const AppBodySection = styled.div`
     }
 `;
 
+const BackToTopButton = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 30px;
+    min-width: 30px;
+    max-height: 30px;
+    max-width: 30px;
+    position: fixed;
+    font-size: 10px;
+    color: var(--white-001);
+    font-weight: 600;
+    bottom: 10px;
+    right: 10px;
+    z-index: 900;
+    border-radius: 50%;
+    user-select: none;
+    background-color: var(--main-002);
+    box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+        0 3px 8px var(--fade-002);
+    &:active {
+        transform: scale(0.95);
+    }
+`;
 const App = () => {
     const headsection = useRef(null);
     window.scrolltoheadsection = () =>
         window.scrollTo({
-            top: headsection.current.offsetTop -50,
+            top: headsection.current.offsetTop - 50,
             behavior: "smooth",
         });
 
@@ -81,6 +105,7 @@ const App = () => {
                     <Toolkit tools={TOOLS} />
                     <ContactBox />
                 </AppBodySection>
+                <BackToTopButton>TOP</BackToTopButton>
             </PageContainer>
         </>
     );

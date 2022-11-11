@@ -73,14 +73,14 @@ const ContactBox = () => {
             />
             <PopTray />
             <ContactButton
-                onClick={() =>
-                    !currentPop ? window.scrolltoheadsection() : null
-                }
+                // onClick={() =>
+                //     !currentPop ? window.scrolltoheadsection() : null
+                // }
                 href={currentPop ? currentPop.path : null}
                 target="_blank"
                 rel="noreferrer"
             >
-                {currentPop ? `visit ${currentPop.heading}` : "back to top"}
+                {currentPop ? `visit ${currentPop.heading}` : "where to?"}
             </ContactButton>
         </ContactBoxContainer>
     );

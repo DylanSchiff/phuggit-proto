@@ -147,11 +147,6 @@ const FooterDetailsHeadings = styled.div`
     justify-content: center;
     flex-flow: row wrap;
 `;
-const TinyTextSpanLink = styled.div`
-    &:hover {
-        text-decoration: underline;
-    }
-`;
 const Toolkit = ({ tools }) => {
     const [toolsVisible, setToolsVisible] = useState(false);
     const toggleToolsVisible = () => setToolsVisible(!toolsVisible);
@@ -241,21 +236,10 @@ const Toolkit = ({ tools }) => {
                     <PageSpan
                         textalign="center"
                         margin="10px 20px"
-                        fontsize="12.5px"
+                        fontsize="10px"
                         fontweight="400"
                         spantext="Lorem, ipsum dolor sit amet consectetur adipisicing elit."
                     />
-                    <TinyTextSpanLink
-                        onClick={() => window.scrolltoheadsection()}
-                    >
-                        <PageSpan
-                            textalign="center"
-                            margin="0px 20px"
-                            fontsize="10px"
-                            fontweight="400"
-                            spantext="Back to top"
-                        />
-                    </TinyTextSpanLink>
                 </ToolFooterDetails>
             </ToolsFooter>
         </ToolkitContainer>
