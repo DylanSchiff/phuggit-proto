@@ -56,7 +56,7 @@ const TOOLS = [
     {
         id: "googlefonts",
         heading: "google fonts",
-        isBordered: false,
+        isBordered: true,
         imageUrl:
             "https://pbs.twimg.com/profile_images/1366808543773384704/8qFXRmFc_400x400.png",
     },
@@ -102,14 +102,14 @@ const TOOLS = [
     {
         id: "pexels",
         heading: "pexels",
-        isBordered: false,
+        isBordered: true,
         imageUrl:
             "https://cdn.dribbble.com/users/3027576/avatars/normal/5fa423ee11a1e0d7b32815eb8397512c.png?1594056145",
     },
     {
         id: "grid",
         heading: "grid",
-        isBordered: false,
+        isBordered: true,
         imageUrl:
             "https://static.vaadin.com/directory/user70309/icon/file3460235915593609009_1554052408926logo.png",
     },

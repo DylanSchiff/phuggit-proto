@@ -569,19 +569,7 @@ const ToolsButton = styled.div`
         color: var(--white-002);
     }
 `;
-const ToolsFooter = styled.div`
-    background-color: var(--fade-001);
-    flex: 1;
-    width: 100%;
-    margin-top: 50px;
-    display: flex;
-    /* flex-flow: row nowrap; */
-    align-items: center;
-    justify-content: space-around;
-    /* @media only screen and (max-width: 600px) { */
-        flex-flow: column nowrap;
-    /* } */
-`;
+
 const ToolsContainer = styled.div`
     flex: 1;
     width: 100%;
@@ -625,8 +613,13 @@ const ToolImageContainer = styled.div`
         min-height: 50px;
         min-width: 50px;
     }
+    &:hover > :first-child {
+        transform: scale(0.95);
+        opacity: 0.9;
+    }
 `;
 const ToolImage = styled.img`
+    transition: 111ms linear;
     max-height: 51px;
     max-width: 51px;
     min-height: 51px;
@@ -637,6 +630,19 @@ const ToolImage = styled.img`
         max-width: 51px;
         min-height: 51px;
         min-width: 51px;
+    }
+`;
+const ToolsFooter = styled.div`
+    background-color: var(--fade-001);
+    flex: 1;
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    @media only screen and (max-width: 600px) {
+        flex-flow: column nowrap;
     }
 `;
 const ToolFooterTools = styled.div`
@@ -651,11 +657,17 @@ const ToolFooterTools = styled.div`
 const ToolFooterDetails = styled.div`
     padding: 20px 0;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-flow: column nowrap;
 `;
-
+const FooterDetailsHeadings = styled.div`
+margin: 0 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-flow: row wrap;
+`;
 //////////////////////////////////////////////////////////////////////
 
 const App = () => {
@@ -680,10 +692,10 @@ const App = () => {
             behavior: "smooth",
         });
 
-    const footsection = useRef(null);
-    window.scrolltofootsection = () =>
+    const contactsection = useRef(null);
+    window.scrolltocontactsection = () =>
         window.scrollTo({
-            top: footsection.current.offsetTop - 20,
+            top: contactsection.current.offsetTop - 20,
             behavior: "smooth",
         });
 
@@ -717,7 +729,7 @@ const App = () => {
                         />
                     </NavLogoHeadingContainer>
                 </NavLogoContainer>
-                <NavButton onClick={() => window.scrolltofootsection()}>
+                <NavButton onClick={() => window.scrolltocontactsection()}>
                     Connect
                 </NavButton>
             </AppNavbar>
@@ -959,25 +971,46 @@ const App = () => {
                                 })}
                             </ToolFooterTools>
                             <ToolFooterDetails>
-                                <PageSpan
-                                    fontsize="35px"
-                                    fontweight="500"
-                                    fontsizeone="25px"
-                                    fontsizesix="20px"
-                                    spantext="TRIO"
-                                />
+                                <FooterDetailsHeadings>
+                                    <PageSpan
+                                        fontsize="30px"
+                                        fontweight="500"
+                                        fontsizeone="25px"
+                                        fontsizesix="20px"
+                                        fontsizetwo="15px"
+                                        spantext="Tempore"
+                                        margin="0 5px 0 0"
+                                    />
+                                    <PageSpan
+                                        fontsize="30px"
+                                        fontweight="500"
+                                        fontsizeone="25px"
+                                        fontsizesix="20px"
+                                        fontsizetwo="15px"
+                                        spantext="+ Ratione"
+                                        margin="0 5px 0 0"
+                                    />
+                                    <PageSpan
+                                        fontsize="30px"
+                                        fontweight="500"
+                                        fontsizeone="25px"
+                                        fontsizesix="20px"
+                                        fontsizetwo="15px"
+                                        spantext="+ Placeat"
+                                    />
+                                </FooterDetailsHeadings>
                                 <PageSpan
                                     textalign="center"
-                                    margin="20px 0"
+                                    margin="10px 20px"
                                     fontsize="10px"
                                     fontweight="400"
-                                    spantext="tempore + ratione + placeat"
+                                    spantext="Lorem, ipsum dolor sit amet consectetur adipisicing elit."
                                 />
                             </ToolFooterDetails>
                         </ToolsFooter>
                     </ToolkitContainer>
 
-                    <ContactBox ref={footsection}>
+                    <ContactBox ref={contactsection}>
                         <PageSpan
                             fontsize="35px"
                             fontweight="500"
