@@ -102,7 +102,7 @@ const TOOLS = [
     {
         id: "pexels",
         heading: "pexels",
-        isBordered: true,
+        isBordered: false,
         imageUrl:
             "https://cdn.dribbble.com/users/3027576/avatars/normal/5fa423ee11a1e0d7b32815eb8397512c.png?1594056145",
     },
