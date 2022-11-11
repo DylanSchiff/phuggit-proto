@@ -1,10 +1,10 @@
-import circleone from "./images/circleone.svg";
-import circletwo from "./images/circletwo.svg";
-import circlethree from "./images/circlethree.svg";
+import circleone from "./images/world.svg";
+import circletwo from "./images/server.svg";
+import circlethree from "./images/tree.svg";
 const CARDS = [
     {
         id: "1",
-        heading: "Numquam",
+        heading: "Northbound",
         subheading:
             "Numquam labore dolorem, voluptates excepturi doloremque quas.",
         buttontext: "demo",
@@ -38,7 +38,7 @@ const CARDS = [
     },
     {
         id: "2",
-        heading: "Dolorem",
+        heading: "WebSea",
         subheading:
             "Numquam labore dolorem, voluptates excepturi doloremque quas.",
         buttontext: "demo",
@@ -73,9 +73,9 @@ const CARDS = [
     },
     {
         id: "3",
-        heading: "Voluptates",
+        heading: "Hexa",
         subheading:
-            "Numquam labore dolorem, voluptates excepturi doloremque quas.",
+            "Your favorite web style assistant, built into the browser.",
         buttontext: "demo",
         imageUrl: circlethree,
         tags: [
@@ -99,7 +99,7 @@ const CARDS = [
             },
             {
                 id: "4",
-                heading: "shadow and opacity",
+                heading: "shadows and opacity",
                 imageUrl:
                     "https://www.svgrepo.com/show/363981/star-half-duotone.svg",
             },

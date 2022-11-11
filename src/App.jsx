@@ -55,7 +55,7 @@ const BackToTopButton = styled.div`
     bottom: 10px;
     right: 10px;
     z-index: 900;
-    border-radius: 50%;
+    border-radius: 7.5px;
     user-select: none;
     background-color: var(--main-003);
     box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),

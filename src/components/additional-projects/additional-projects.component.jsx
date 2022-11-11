@@ -59,7 +59,7 @@ const AdditionalProjects = () => {
             <AdditionalProjectsButton
                 onClick={() => toggleAdditionalProjectsVisible()}
             >
-                All Projects
+                Lab Projects
             </AdditionalProjectsButton>
         </AllAdditionalProjects>
     );
