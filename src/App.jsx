@@ -160,6 +160,7 @@ const GISTS = [
     {
         id: "future-gist",
         heading: "Upcoming",
+        scrollto: () => window.scrolltocontactsection(),
         gisttext:
             "Numquam labore dolorem, voluptates excepturi doloremque quas.",
         imageUrl: future,
@@ -167,6 +168,7 @@ const GISTS = [
     {
         id: "present-gist",
         heading: "Latest",
+        scrollto: () => window.scrolltoadditionalprojectssection(),
         gisttext:
             "Officia tempore ratione vel consectetur tempora blanditiis placeat.",
         imageUrl: present,
@@ -174,6 +176,7 @@ const GISTS = [
     {
         id: "past-gist",
         heading: "Recent",
+        scrollto: () => window.scrolltoappbodysection(),
         gisttext:
             "Numquam labore dolorem, voluptates excepturi doloremque quas.",
         imageUrl: past,
@@ -236,8 +239,13 @@ const App = () => {
                         />
                         <Gists>
                             {GISTS.map((gist) => {
-                                const { id, heading, gisttext, imageUrl } =
-                                    gist;
+                                const {
+                                    id,
+                                    heading,
+                                    gisttext,
+                                    imageUrl,
+                                    scrollto,
+                                } = gist;
                                 return (
                                     <Gist key={id}>
                                         <GistImageContainer>
@@ -259,7 +267,9 @@ const App = () => {
                                             fontsizestwo="10px"
                                             spantext={gisttext}
                                         />
-                                        <GistButton>learn more</GistButton>
+                                        <GistButton onClick={scrollto}>
+                                            learn more
+                                        </GistButton>
                                     </Gist>
                                 );
                             })}

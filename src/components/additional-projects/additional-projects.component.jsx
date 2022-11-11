@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styled from "styled-components";
+import four from "../images/four.svg";
 const AllAdditionalProjects = styled.div`
     flex: 1;
     width: 100%;
@@ -14,11 +15,22 @@ const AdditionalProjectsContainer = styled.div`
     display: ${({ display }) => display};
     flex: 1;
     width: 100%;
-    min-height: 30vh;
+    min-height: 50vh;
+    align-items: center;
+    justify-content: center;
     background-color: var(--fade-001);
     margin-bottom: 20px;
     box-shadow: inset 0 1px 3px var(--fade-001), inset 0 2px 5px var(--fade-001),
         inset 0 3px 8px var(--fade-002);
+`;
+const NoProjectsImageContainer = styled.div`
+    height: 200px;
+    width: 200px;
+`;
+const NoProjectsImage = styled.img`
+    height: 200px;
+    width: 200px;
+    user-select: none;
 `;
 const AdditionalProjectsButton = styled.div`
     cursor: pointer;
@@ -46,16 +58,29 @@ const AdditionalProjectsButton = styled.div`
         background-color: var(--accent-003);
     }
 `;
+
 const AdditionalProjects = () => {
-    const [additionalProjectsVisible, setAdditionalProjectsVisible] =
-        useState(false);
-    const toggleAdditionalProjectsVisible = () =>
-        setAdditionalProjectsVisible(!additionalProjectsVisible);
+    const [additionalProjectsVisible, setAdditionalProjectsVisible] = useState(false);
+    const toggleAdditionalProjectsVisible = () => setAdditionalProjectsVisible(!additionalProjectsVisible);
+
+
+    const additionalprojectssection = useRef(null);
+    window.scrolltoadditionalprojectssection = () => {
+        setAdditionalProjectsVisible(true);
+        window.scrollTo({
+            top: additionalprojectssection.current.offsetTop - 30,
+            behavior: "smooth",
+        });
+    };
     return (
-        <AllAdditionalProjects>
+        <AllAdditionalProjects ref={additionalprojectssection}>
             <AdditionalProjectsContainer
                 display={additionalProjectsVisible ? "flex" : "none"}
-            ></AdditionalProjectsContainer>
+            >
+                <NoProjectsImageContainer>
+                    <NoProjectsImage src={four} />
+                </NoProjectsImageContainer>
+            </AdditionalProjectsContainer>
             <AdditionalProjectsButton
                 onClick={() => toggleAdditionalProjectsVisible()}
             >
