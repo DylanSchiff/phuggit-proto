@@ -38,13 +38,13 @@ const ContactButton = styled.a`
         box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
             0 3px 8px var(--fade-002);
     }
-    @media only screen and (max-width: 1000px) {
+    /* @media only screen and (max-width: 1000px) {
         border: 1px solid var(--fade-002);
         background-color: var(--white-001);
         padding: 10px 20px;
         color: var(--accent-004);
         margin-bottom: 20px;
-    }
+    } */
 `;
 const ContactBox = () => {
     const { currentPop } = useContext(PopContext);
