@@ -136,7 +136,7 @@ const AppSplash = styled.section`
     padding: 50px 60px;
     align-items: center;
     border-radius: 35px;
-    margin: 0 40px;
+    margin: 0 50px;
     transition: 111ms linear;
     background-color: var(--white-002);
     border: 1px solid var(--fade-002);
