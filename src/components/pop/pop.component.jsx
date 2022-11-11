@@ -89,8 +89,8 @@ const unmovedShadow =
 const movedShadow =
     "0 1px 3px #b1ccf755, 0 2px 5px #b1ccf799, 0 3px 8px #b1ccf799, 0 5px 11px #b1ccf733, 0 8px 15px #b1ccf733, inset 0 1px 3px #b1ccf711, inset 0 2px 5px #b1ccf707, inset 0 3px 8px #b1ccf707, inset 0 5px 11px #b1ccf705, inset 0 8px 15px #b1ccf705";
 
-const unmovedOpacity = "0.2";
-const movedOpacity = "0.8";
+const unmovedOpacity = "0.5";
+const movedOpacity = "1";
 
 const Pop = ({ pop, isSelected, isContactPop }) => {
     const { imageUrl } = pop;

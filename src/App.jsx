@@ -487,6 +487,13 @@ const ContactBox = styled.div`
     align-items: center;
     justify-content: center;
     background-color: var(--main-002);
+    background: linear-gradient(
+        0deg,
+        var(--main-002) 0%,
+        var(--main-001) 30%,
+        var(--main-001) 70%,
+        var(--main-002) 100%
+    );
 `;
 const ContactButton = styled.a`
     margin-top: 30px;
