@@ -1,6 +1,6 @@
-import circleone from "./components/images/circleone.svg";
-import circletwo from "./components/images/circletwo.svg";
-import circlethree from "./components/images/circlethree.svg";
+import circleone from "./images/circleone.svg";
+import circletwo from "./images/circletwo.svg";
+import circlethree from "./images/circlethree.svg";
 const CARDS = [
     {
         id: "1",
@@ -30,7 +30,7 @@ const CARDS = [
             },
             {
                 id: "4",
-                heading: "timeline",
+                heading: "planning",
                 imageUrl:
                     "https://www.svgrepo.com/show/363396/calendar-check-duotone.svg",
             },
@@ -44,29 +44,30 @@ const CARDS = [
         buttontext: "demo",
         imageUrl: circletwo,
         tags: [
+
             {
-                id: "1",
-                heading: "time keeping",
-                imageUrl:
-                    "https://www.svgrepo.com/show/363221/alarm-duotone.svg",
-            },
-            {
-                id: "2",
-                heading: "data logging",
-                imageUrl:
-                    "https://www.svgrepo.com/show/363826/paperclip-duotone.svg",
-            },
-            {
-                id: "3",
+                id: "admin",
                 heading: "admin portal",
                 imageUrl:
                     "https://www.svgrepo.com/show/363700/identification-card-duotone.svg",
             },
             {
-                id: "4",
+                id: "team",
                 heading: "team centric",
                 imageUrl:
                     "https://www.svgrepo.com/show/364073/users-four-duotone.svg",
+            },
+            {
+                id: "records",
+                heading: "priority records",
+                imageUrl:
+                    "https://www.svgrepo.com/show/363221/alarm-duotone.svg",
+            },
+            {
+                id: "data",
+                heading: "visualized data",
+                imageUrl:
+                    "https://www.svgrepo.com/show/363826/paperclip-duotone.svg",
             },
         ],
     },
@@ -80,19 +81,19 @@ const CARDS = [
         tags: [
             {
                 id: "1",
-                heading: "time keeping",
+                heading: "tone editor",
                 imageUrl:
                     "https://www.svgrepo.com/show/363834/pencil-circle-duotone.svg",
             },
             {
                 id: "2",
-                heading: "color generation",
+                heading: "pallete generator",
                 imageUrl:
                     "https://www.svgrepo.com/show/363560/drop-duotone.svg",
             },
             {
                 id: "3",
-                heading: "pallet editor",
+                heading: "HEX, RGB, HSL, etc",
                 imageUrl:
                     "https://www.svgrepo.com/show/363573/eyedropper-duotone.svg",
             },

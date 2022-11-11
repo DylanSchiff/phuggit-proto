@@ -2,7 +2,7 @@ import styled from "styled-components";
 import TOOLS from "./components/TOOLDATA";
 import { useRef } from "react";
 import PageSpan from "./components/page-span.component";
-import CARDS from "./CARDS";
+import CARDS from "./components/CARDS";
 import Splash from "./components/splash/splash.component";
 import Cards from "./components/cards/cards.component";
 import AdditionalProjects from "./components/additional-projects/additional-projects.component";
