@@ -1,14 +1,14 @@
-import circleone from "./images/world.svg";
-import circletwo from "./images/server.svg";
-import circlethree from "./images/tree.svg";
+import northbound from "./images/northbound.svg";
+import websea from "./images/websea.svg";
+import hexa from "./images/hexa.svg";
 const CARDS = [
     {
         id: "1",
         heading: "Northbound",
         subheading:
-            "Numquam labore dolorem, voluptates excepturi doloremque quas.",
+            "Multimedia timeline, used for creating and recalling important memories.",
         buttontext: "demo",
-        imageUrl: circleone,
+        imageUrl: northbound,
         tags: [
             {
                 id: "1",
@@ -40,9 +40,9 @@ const CARDS = [
         id: "2",
         heading: "WebSea",
         subheading:
-            "Numquam labore dolorem, voluptates excepturi doloremque quas.",
+            "A simplified operations management tool, allowing you to focus on what matters.",
         buttontext: "demo",
-        imageUrl: circletwo,
+        imageUrl: websea,
         tags: [
 
             {
@@ -75,13 +75,13 @@ const CARDS = [
         id: "3",
         heading: "Hexa",
         subheading:
-            "Your favorite web style assistant, built into the browser.",
+            "Your favorite web style assistant, redesigned and ready to access from your browser.",
         buttontext: "demo",
-        imageUrl: circlethree,
+        imageUrl: hexa,
         tags: [
             {
                 id: "1",
-                heading: "Pallete Generator",
+                heading: "Palette Generator",
                 imageUrl:
                     "https://www.svgrepo.com/show/363560/drop-duotone.svg",
             },

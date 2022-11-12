@@ -176,7 +176,9 @@ const Splash = () => {
                         lineheighttwo="30px"
                         fontweighttwo="600"
                         textaligntwo="center"
-                        spantext="Commodi sapiente cupiditate vero, officia tempore."
+                        // spantext="Commodi sapiente cupiditate vero, officia tempore."
+                        spantext="Media collective and web showcase, all in one space."
+
                     />
                 </SplashHeadingContainer>
                 <SplashSummaryContainer>
@@ -194,14 +196,15 @@ const Splash = () => {
                         lineheightsix="20px"
                         textalignone="center"
                         paddingtwo="0"
-                        spantext=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi sapiente cupiditate vero, officia tempore ratione vel consectetur tempora blanditiis placeat."
+                        spantext="Anything related to time management or media creation can get complicated. This all-in-one portfolio application makes it simple for you."
+                        // spantext="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi sapiente cupiditate vero, officia tempore ratione vel consectetur tempora blanditiis placeat."
                     />
                 </SplashSummaryContainer>
                 <SplashButtonsContainer>
                     <FirstSplashButton
                         onClick={() => window.scrolltoappbodysection()}
                     >
-                        projects
+                        explore
                     </FirstSplashButton>
                     <SecondSplashButton
                         onClick={() => window.scrolltotoolkitsection()}

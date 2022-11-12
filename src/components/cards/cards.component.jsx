@@ -73,7 +73,7 @@ const CardImageContainer = styled.div`
     margin: 40px 0;
     transition: 111ms linear;
     /* background-color: var(--accent-004); */
-    background-color: var(--accent-002);
+    background-color: var(--accent-001);
     box-shadow: inset 0 1px 3px var(--fade-001), inset 0 2px 5px var(--fade-001),
         inset 0 3px 8px var(--fade-002);
 
@@ -89,6 +89,7 @@ const CardImage = styled.img`
     max-width: 125px;
     min-height: 125px;
     min-width: 125px;
+    user-select: none;
     @media only screen and (max-width: 600px) {
         max-height: 80px;
         max-width: 80px;
@@ -160,6 +161,7 @@ const CardTagImageContainer = styled.div`
 const CardTagImage = styled.img`
     height: 25px;
     width: 25px;
+    user-select: none;
 `;
 const CardTagHeadingContainer = styled.div``;
 const Cards = ({ cards }) => {

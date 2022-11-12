@@ -21,6 +21,7 @@ const ToolkitContainer = styled.div`
 
 const ToolsButton = styled.div`
     cursor: pointer;
+    margin-top: 20px;
     outline: none;
     border: none;
     border-radius: 10px;
@@ -160,21 +161,6 @@ const Toolkit = ({ tools }) => {
         });
     return (
         <ToolkitContainer ref={toolkit}>
-            {/* <PageSpan
-                fontsize="35px"
-                fontweight="500"
-                fontsizeone="30px"
-                fontsizesix="25px"
-                fontsizestwo="15px"
-                spantext="Toolkit"
-            />
-            <PageSpan
-                textalign="center"
-                margin="20px 10px"
-                fontsize="15px"
-                fontweight="400"
-                spantext="Officia tempore ratione vel consectetur tempora blanditiis placeat."
-            /> */}
             <PageSpan
                 fontsize="35px"
                 lineheight="35px"
@@ -187,7 +173,10 @@ const Toolkit = ({ tools }) => {
                 lineheightsix="25px"
                 fontweightsix="600"
                 textalignsix="center"
-                spantext="Officia tempore ratione vel blanditiis placeat."
+                // spantext="Officia tempore ratione vel blanditiis placeat."
+                spantext="Made possible using the following web tools"
+                // spantext=""
+
             />
             <ToolsContainer display={toolsVisible ? "grid" : "none"}>
                 {tools.map((tool, index) => {
@@ -228,7 +217,7 @@ const Toolkit = ({ tools }) => {
                             fontsizeone="25px"
                             fontsizesix="20px"
                             fontsizetwo="15px"
-                            spantext="tempore"
+                            spantext="react"
                             margin="0 5px 0 0"
                         />
                         <PageSpan
@@ -237,7 +226,7 @@ const Toolkit = ({ tools }) => {
                             fontsizeone="25px"
                             fontsizesix="20px"
                             fontsizetwo="15px"
-                            spantext="+ patione"
+                            spantext="+ firebase"
                             margin="0 5px 0 0"
                         />
                         <PageSpan
@@ -246,7 +235,7 @@ const Toolkit = ({ tools }) => {
                             fontsizeone="25px"
                             fontsizesix="20px"
                             fontsizetwo="15px"
-                            spantext="+ placeat"
+                            spantext="+ netlify"
                         />
                     </FooterDetailsHeadings>
                     <PageSpan
@@ -254,7 +243,7 @@ const Toolkit = ({ tools }) => {
                         margin="10px 20px"
                         fontsize="10px"
                         fontweight="400"
-                        spantext="Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+                        spantext="heavyweights for the development of this project"
                     />
                 </ToolFooterDetails>
             </ToolsFooter>

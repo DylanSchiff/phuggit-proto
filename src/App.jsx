@@ -204,7 +204,7 @@ const GISTS = [
         heading: "Upcoming",
         scrollto: () => window.scrolltocontactsection(),
         gisttext:
-            "Numquam labore dolorem, voluptates excepturi doloremque quas.",
+            "New projects are in the oven, and the laboratory needs some love. During the next cycle, those are first.",
         imageUrl: future,
     },
     {
@@ -212,7 +212,7 @@ const GISTS = [
         heading: "Latest",
         scrollto: () => window.scrolltoappbodysection(),
         gisttext:
-            "Officia tempore ratione vel consectetur tempora blanditiis placeat.",
+            "We're in the midst of a heavy development phase! As the expansion of the showcase takes place, more and more layers are being added in order to provide the best user experience.",
         imageUrl: present,
     },
     {
@@ -220,7 +220,7 @@ const GISTS = [
         heading: "Recent",
         scrollto: () => window.scrolltoadditionalprojectssection(),
         gisttext:
-            "Numquam labore dolorem, voluptates excepturi doloremque quas.",
+            "A draft frame has been created during recent updates, and many projects have been prepared to ship.",
         imageUrl: past,
     },
 ];
@@ -285,7 +285,8 @@ const App = () => {
                         lineheightsix="25px"
                         fontweightsix="600"
                         textalignsix="center"
-                        spantext="Officia tempore ratione vel consectetur tempora blanditiis placeat."
+                        // spantext="Officia tempore ratione vel consectetur tempora blanditiis placeat."
+                        spantext="Experiment with new tools from the all new 99E creative suite."
                     />
                     <Cards cards={CARDS} />
                     {/* <AdditionalProjects
