@@ -14,6 +14,7 @@ import ContactBox from "./components/contact-box/contact-box.component";
 import past from "./components/images/past.svg";
 import present from "./components/images/present.svg";
 import future from "./components/images/future.svg";
+import Laboratory from "./components/lab/laboratory.component";
 // import Lab from "./components/lab/lab.component";
 
 const PageContainer = styled.div`
@@ -297,16 +298,17 @@ const App = () => {
                             onClick={() => toggleAdditionalProjectsVisible()}
                         >
                             {additionalProjectsVisible
-                                ? "Close Projects"
-                                : "All Projects"}
+                                ? "Less Projects"
+                                : "See Projects"}
                         </LabButton>
                         <LabButton onClick={() => toggleLaboratoryVisible()}>
                             {laboratoryVisible
-                                ? "...Coming soon"
+                                ? "Close Lab"
                                 : "Laboratory"}
                         </LabButton>
                     </LabButtons>
                     {/* <Lab laboratoryVisible={laboratoryVisible} /> */}
+                    <Laboratory laboratoryVisible={laboratoryVisible}/>
                     <Toolkit tools={TOOLS} />
                     <GistsContainer>
                         <PageSpan
