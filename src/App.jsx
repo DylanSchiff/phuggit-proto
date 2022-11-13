@@ -212,7 +212,7 @@ const GISTS = [
         heading: "Latest",
         scrollto: () => window.scrolltoappbodysection(),
         gisttext:
-            "We're in the midst of a heavy development phase! As the expansion of the showcase takes place, more optimization layers are being added in order to provide a better user experience.",
+            "We're in the midst of a heavy development phase! As the expansion of the showcase unfolds, more optimization layers are being added in order to provide a better user experience.",
         imageUrl: present,
     },
     {
