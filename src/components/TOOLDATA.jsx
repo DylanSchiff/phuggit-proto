@@ -1,3 +1,5 @@
+import reepo from './images/repo.svg'
+
 const TOOLS = [
     {
         id: "react",
@@ -72,7 +74,7 @@ const TOOLS = [
         heading: "svgrepo",
         isBordered: false,
         imageUrl:
-            "https://cdn.icon-icons.com/icons2/2699/PNG/512/svgrepo_logo_icon_170689.png",
+            reepo,
     },
     {
         id: "icon8",
