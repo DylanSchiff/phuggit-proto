@@ -11,7 +11,7 @@ const LaboratoryContainer = styled.div`
     padding: 10px 20px;
     min-height: 80vh;
     background-color: var(--fade-004);
-    margin: 20px 0 40px 0;
+    margin: 10px 0 40px 0;
     box-shadow: inset 0 1px 3px var(--fade-001), inset 0 2px 5px var(--fade-001),
         inset 0 3px 8px var(--fade-002);
 `;
