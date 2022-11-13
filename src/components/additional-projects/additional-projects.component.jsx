@@ -11,6 +11,8 @@ const AdditionalProjectsContainer = styled.div`
     min-height: 30vh;
     border-radius: 25px;
     display: ${({ display }) => display};
+    grid-template-columns: repeat(4, 1fr);
+    /* flex-flow: ; */
     align-items: center;
     justify-content: center;
 `;
@@ -29,21 +31,23 @@ const AddProjectContainer = styled.div`
     border: 1px solid var(--fade-001);
 `;
 const AddProjectImageContainer = styled.div`
-    max-height: 150px;
+    /* max-height: 150px;
     max-width: 150px;
     min-height: 150px;
     min-width: 150px;
     border-radius: 12.5px;
-    overflow: hidden;
+    overflow: hidden; 
+    background-color: var(--white-002);
+    box-shadow: inset 0 1px 3px var(--fade-001), inset 0 2px 5px var(--fade-001),
+        inset 0 3px 8px var(--fade-002);
+    border: 1px solid var(--fade-001);
+    */
     display: flex;
     align-items: center;
     justify-content: center;
     transition: 111ms linear;
     margin-bottom: 20px;
-    background-color: var(--white-002);
-    box-shadow: inset 0 1px 3px var(--fade-001), inset 0 2px 5px var(--fade-001),
-        inset 0 3px 8px var(--fade-002);
-    border: 1px solid var(--fade-001);
+
     @media only screen and (max-width: 600px) {
         max-height: 100px;
         max-width: 100px;
@@ -73,7 +77,7 @@ const PROJECTS = [
 const AdditionalProjects = ({ additionalProjectsVisible }) => {
     return (
         <AdditionalProjectsContainer
-            display={additionalProjectsVisible ? "flex" : "none"}
+            display={additionalProjectsVisible ? "grid" : "none"}
         >
             {PROJECTS.map((project) => {
                 const { id, heading, imageUrl } = project;

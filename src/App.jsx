@@ -5,7 +5,7 @@ import PageSpan from "./components/page-span.component";
 import CARDS from "./components/CARDS";
 import Splash from "./components/splash/splash.component";
 import Cards from "./components/cards/cards.component";
-// import AdditionalProjects from "./components/additional-projects/additional-projects.component";
+import AdditionalProjects from "./components/additional-projects/additional-projects.component";
 import ANotification from "./components/app-notification/app-notification";
 import Navibar from "./components/navibar/navibar.component";
 import Toolkit from "./components/toolkit/toolkit.component";
@@ -14,7 +14,7 @@ import ContactBox from "./components/contact-box/contact-box.component";
 import past from "./components/images/past.svg";
 import present from "./components/images/present.svg";
 import future from "./components/images/future.svg";
-// import Lab from "./components/lab/lab.component";
+import Lab from "./components/lab/lab.component";
 
 const PageContainer = styled.div`
     min-height: 100vh;
@@ -289,9 +289,9 @@ const App = () => {
                         spantext="Experiment with new tools from the 99E creative suite."
                     />
                     <Cards cards={CARDS} />
-                    {/* <AdditionalProjects
+                    <AdditionalProjects
                         additionalProjectsVisible={additionalProjectsVisible}
-                    /> */}
+                    />
                     <LabButtons ref={additionalprojectssection}>
                         <LabButton
                             onClick={() => toggleAdditionalProjectsVisible()}
@@ -306,7 +306,7 @@ const App = () => {
                                 : "Laboratory"}
                         </LabButton>
                     </LabButtons>
-                    {/* <Lab laboratoryVisible={laboratoryVisible} /> */}
+                    <Lab laboratoryVisible={laboratoryVisible} />
                     <Toolkit tools={TOOLS} />
                     <GistsContainer>
                         <PageSpan
