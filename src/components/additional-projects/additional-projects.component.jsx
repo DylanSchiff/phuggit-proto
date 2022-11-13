@@ -13,7 +13,7 @@ const AdditionalProjectsContainer = styled.div`
     display: ${({ display }) => display};
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
-    margin: 20px 0;
+    margin-top: 50px;
     align-items: center;
     justify-items: center;
     @media only screen and (max-width: 1000px) {
@@ -24,10 +24,10 @@ const AdditionalProjectsContainer = styled.div`
     }
 `;
 const AddProjectContainer = styled.div`
-    background-color: var(--white-002);
+    /* background-color: var(--white-002);
     box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
         0 3px 8px var(--fade-002);
-    border-radius: 17.5px;
+    border-radius: 17.5px; */
     /* margin: 40px 20px 20px 0; */
     padding: 10px;
     display: flex;
@@ -35,9 +35,14 @@ const AddProjectContainer = styled.div`
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: 1px solid var(--fade-001);
+    /* border: 1px solid var(--fade-001); */
     flex: 1;
     width: 100%;
+    border: 1px solid var(--fade-002);
+    background-color: var(--white-001);
+    border-radius: 25px;
+    box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+        0 3px 8px var(--fade-002);
 `;
 const AddProjectImageContainer = styled.div`
     display: flex;

@@ -23,7 +23,7 @@ const Card = styled.div`
     border: 1px solid var(--fade-002);
     flex: 1;
     width: 100%;
-    /* background-color: var(--white-003); */
+    background-color: var(--white-001);
     background: linear-gradient(
         0deg,
         var(--white-001) 0%,
