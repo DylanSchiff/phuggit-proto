@@ -28,7 +28,7 @@ const ANotification = () => {
                 <PageSpan
                     color="var(--accent-004)"
                     fontsize="12.5px"
-                    spantext="Take a moment to... recognize the libraries and tools that make this website possible. Details about the entire kit below."
+                    spantext="Take a moment to... appreciate the tools and libraries that make this website possible. Details about the entire kit below."
                     // spantext="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam labore dolorem, voluptates excepturi doloremque quas?"
                     fontsizesix="10px"
                 />

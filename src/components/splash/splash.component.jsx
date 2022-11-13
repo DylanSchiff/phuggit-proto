@@ -177,7 +177,7 @@ const Splash = () => {
                         fontweighttwo="600"
                         textaligntwo="center"
                         // spantext="Commodi sapiente cupiditate vero, officia tempore."
-                        spantext="Media collective and web showcase, all in one space."
+                        spantext="Media collective and web showcase in one space."
 
                     />
                 </SplashHeadingContainer>
@@ -196,7 +196,7 @@ const Splash = () => {
                         lineheightsix="20px"
                         textalignone="center"
                         paddingtwo="0"
-                        spantext="Anything related to time management or media creation can get complicated. This all-in-one portfolio application makes it simple for you."
+                        spantext="If we're talking time management or media creation, things can get complicated. This all-in-one portfolio application is here to help simplify."
                         // spantext="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi sapiente cupiditate vero, officia tempore ratione vel consectetur tempora blanditiis placeat."
                     />
                 </SplashSummaryContainer>

@@ -174,7 +174,7 @@ const Toolkit = ({ tools }) => {
                 fontweightsix="600"
                 textalignsix="center"
                 // spantext="Officia tempore ratione vel blanditiis placeat."
-                spantext="Made possible using the following web tools"
+                spantext="It just wouldn't be the same without you."
                 // spantext=""
 
             />

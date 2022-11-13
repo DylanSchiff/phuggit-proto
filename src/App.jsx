@@ -286,7 +286,7 @@ const App = () => {
                         fontweightsix="600"
                         textalignsix="center"
                         // spantext="Officia tempore ratione vel consectetur tempora blanditiis placeat."
-                        spantext="Experiment with new tools from the all new 99E creative suite."
+                        spantext="Experiment with new tools from the 99E creative suite."
                     />
                     <Cards cards={CARDS} />
                     {/* <AdditionalProjects
