@@ -177,7 +177,7 @@ const Splash = () => {
                         fontweighttwo="600"
                         textaligntwo="center"
                         // spantext="Commodi sapiente cupiditate vero, officia tempore."
-                        spantext="Media collective and web showcase in one space."
+                        spantext="Web showcase and media collective in one space."
 
                     />
                 </SplashHeadingContainer>

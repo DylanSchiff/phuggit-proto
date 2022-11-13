@@ -29,7 +29,6 @@ const LabDisplay = styled.div`
     border-radius: 20px;
 `;
 const Lab = ({ laboratoryVisible }) => {
-    console.log(laboratoryVisible);
     return (
         <LabContainer display={laboratoryVisible ? "flex" : "none"}>
             <NugNotes />
