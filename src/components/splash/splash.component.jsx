@@ -197,7 +197,6 @@ const Splash = () => {
                         textalignone="center"
                         paddingtwo="0"
                         spantext="If we're talking time management or media generation, things can get complicated. This all-in-one portfolio application is here to help simplify."
-                        // spantext="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi sapiente cupiditate vero, officia tempore ratione vel consectetur tempora blanditiis placeat."
                     />
                 </SplashSummaryContainer>
                 <SplashButtonsContainer>

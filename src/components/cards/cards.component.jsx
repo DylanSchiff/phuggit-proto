@@ -31,20 +31,13 @@ const Card = styled.div`
     );
     border-radius: 25px;
     padding: 20px;
+    transition: 111ms linear;
+    box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+        0 3px 8px var(--fade-002);
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: flex-start;
-    transition: 111ms linear;
-    box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
-        0 3px 8px var(--fade-002);
-
-    /* &:hover {
-        background-color: var(--white-001);
-    } */
-    /* &:hover > :first-child {
-        background-color: var(--accent-002);
-    } */
     @media only screen and (max-width: 1000px) {
         border-radius: 0px;
         border: none;
@@ -72,7 +65,6 @@ const CardImageContainer = styled.div`
     justify-content: center;
     margin: 40px 0;
     transition: 111ms linear;
-    /* background-color: var(--accent-004); */
     background-color: var(--accent-001);
     box-shadow: inset 0 1px 3px var(--fade-001), inset 0 2px 5px var(--fade-001),
         inset 0 3px 8px var(--fade-002);
@@ -197,7 +189,11 @@ const Cards = ({ cards }) => {
                         </CardHeadingContainer>
                         <CardTagsButtonFlipper>
                             <CardButtonContainer>
-                                <CardButton onClick={()=>window.scrolltolabsection()}>{buttontext}</CardButton>
+                                <CardButton
+                                    onClick={() => window.scrolltolabsection()}
+                                >
+                                    {buttontext}
+                                </CardButton>
                             </CardButtonContainer>
                             <CardTagsContainer>
                                 {tags.map((tag) => {

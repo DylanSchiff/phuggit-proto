@@ -2,7 +2,7 @@ import styled from "styled-components";
 import PageSpan from "../page-span.component";
 const AppNotificationBanner = styled.div`
     width: 100%;
-    background-color: var(--accent-002);
+    /* background-color: var(--accent-002); */
     display: flex;
     justify-content: center;
     align-items: center;

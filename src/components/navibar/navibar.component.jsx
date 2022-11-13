@@ -7,7 +7,9 @@ const AppNavbar = styled.div`
     top: 0;
     min-height: 50px;
     max-height: 50px;
-    background-color: var(--main-002);
+    background-color: var(--accent-004);
+    box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+        0 3px 8px var(--fade-002);
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;

@@ -173,9 +173,7 @@ const Toolkit = ({ tools }) => {
                 lineheightsix="25px"
                 fontweightsix="600"
                 textalignsix="center"
-                // spantext="Officia tempore ratione vel blanditiis placeat."
-                spantext="It just wouldn't be the same without you."
-                // spantext=""
+                spantext="It just wouldn't be the same without you"
 
             />
             <ToolsContainer display={toolsVisible ? "grid" : "none"}>
