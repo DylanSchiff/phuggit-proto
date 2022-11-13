@@ -15,6 +15,12 @@ const AdditionalProjectsContainer = styled.div`
     /* flex-flow: ; */
     align-items: center;
     justify-content: center;
+    @media only screen and (max-width: 1000px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media only screen and (max-width: 600px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
 `;
 const AddProjectContainer = styled.div`
     background-color: var(--white-002);
@@ -52,19 +58,19 @@ const AddProjectImageContainer = styled.div`
         max-height: 100px;
         max-width: 100px;
         min-height: 100px;
-        min-width: 100px;
+        /* min-width: 100px; */
     }
 `;
 const AddProjectImage = styled.img`
     max-height: 125px;
     max-width: 125px;
     min-height: 125px;
-    min-width: 125px;
+    /* min-width: 125px; */
     @media only screen and (max-width: 600px) {
         max-height: 80px;
         max-width: 80px;
         min-height: 80px;
-        min-width: 80px;
+        /* min-width: 80px; */
     }
 `;
 const PROJECTS = [
