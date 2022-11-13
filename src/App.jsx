@@ -14,7 +14,7 @@ import ContactBox from "./components/contact-box/contact-box.component";
 import past from "./components/images/past.svg";
 import present from "./components/images/present.svg";
 import future from "./components/images/future.svg";
-import Lab from "./components/lab/lab.component";
+// import Lab from "./components/lab/lab.component";
 
 const PageContainer = styled.div`
     min-height: 100vh;
@@ -302,11 +302,11 @@ const App = () => {
                         </LabButton>
                         <LabButton onClick={() => toggleLaboratoryVisible()}>
                             {laboratoryVisible
-                                ? "Close Laboratory"
+                                ? "...Coming soon"
                                 : "Laboratory"}
                         </LabButton>
                     </LabButtons>
-                    <Lab laboratoryVisible={laboratoryVisible} />
+                    {/* <Lab laboratoryVisible={laboratoryVisible} /> */}
                     <Toolkit tools={TOOLS} />
                     <GistsContainer>
                         <PageSpan
