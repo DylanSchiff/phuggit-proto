@@ -75,7 +75,7 @@ const Navibar = () => {
         <AppNavbar>
             <NavLogoContainer onClick={() => window.scrolltoheadsection()}>
                 <NavLogoImageContainer>
-                    <NavLogoImage src="https://www.svgrepo.com/show/233196/smile.svg" />
+                    <NavLogoImage src="https://www.svgrepo.com/show/386933/bad-one.svg" />
                 </NavLogoImageContainer>
                 <NavLogoHeadingContainer>
                     <PageSpan
