@@ -2,36 +2,36 @@ import { useRef, useState } from "react";
 import styled from "styled-components";
 import PageSpan from "../page-span.component";
 const ToolkitContainer = styled.div`
-    border: 1px solid var(--fade-002);
     flex: 1;
     width: 100%;
+    margin-bottom: 50px;
+    padding-top: 50px;
     border-radius: 25px;
+    overflow: hidden;
+    transition: 111ms linear;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: flex-start;
-    box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
-        0 3px 8px var(--fade-002);
-    transition: 111ms linear;
-    margin-bottom: 50px;
-    padding-top: 50px;
-    overflow: hidden;
+    /* border: 1px solid var(--fade-002);
     background-color: var(--white-001);
+    box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+        0 3px 8px var(--fade-002); */
 `;
 
 const ToolsButton = styled.div`
-    cursor: pointer;
     margin-top: 20px;
+    padding: 10px 15px;
     outline: none;
     border: none;
     border-radius: 10px;
     transition: 111ms linear;
+    cursor: pointer;
     user-select: none;
-    padding: 10px 15px;
-    background-color: var(--accent-001);
     font-size: 15px;
     font-weight: 500;
-    border: 1px solid var(--fade-001);
+    /* background-color: var(--accent-001);
+    border: 1px solid var(--fade-001); */
     @media only screen and (max-width: 1000px) {
         font-size: 20px;
     }
@@ -39,9 +39,9 @@ const ToolsButton = styled.div`
         font-size: 15px;
     }
     &:hover {
-        box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+        /* box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
             0 3px 8px var(--fade-002);
-        color: var(--white-002);
+        color: var(--white-002); */
     }
 `;
 
@@ -72,9 +72,6 @@ const ToolContainer = styled.div`
     justify-content: center;
 `;
 const ToolImageContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
     max-height: 50px;
     max-width: 50px;
     min-height: 50px;
@@ -83,6 +80,9 @@ const ToolImageContainer = styled.div`
     border-radius: ${({ borderradius }) => borderradius};
     overflow: ${({ overflow }) => overflow};
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     @media only screen and (max-width: 600px) {
         max-height: 50px;
         max-width: 50px;
@@ -95,12 +95,12 @@ const ToolImageContainer = styled.div`
     }
 `;
 const ToolImage = styled.img`
-    transition: 111ms linear;
     max-height: 51px;
     max-width: 51px;
     min-height: 51px;
     min-width: 51px;
     object-fit: cover;
+    transition: 111ms linear;
     @media only screen and (max-width: 600px) {
         max-height: 51px;
         max-width: 51px;
@@ -109,7 +109,6 @@ const ToolImage = styled.img`
     }
 `;
 const ToolsFooter = styled.div`
-    background-color: var(--fade-001);
     flex: 1;
     width: 100%;
     margin-top: 50px;
@@ -117,12 +116,13 @@ const ToolsFooter = styled.div`
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-around;
+    /* background-color: var(--fade-001);
     background: linear-gradient(
         90deg,
         var(--fade-001) 0%,
         var(--fade-002) 100%
     );
-    border-top: 1px solid var(--fade-001);
+    border-top: 1px solid var(--fade-001); */
     @media only screen and (max-width: 600px) {
         flex-flow: column nowrap;
     }
@@ -139,16 +139,16 @@ const ToolFooterTools = styled.div`
 const ToolFooterDetails = styled.div`
     padding: 20px 0;
     display: flex;
+    flex-flow: column nowrap;
     align-items: flex-start;
     justify-content: center;
-    flex-flow: column nowrap;
 `;
 const FooterDetailsHeadings = styled.div`
     margin: 0 20px;
     display: flex;
+    flex-flow: row wrap;
     align-items: flex-start;
     justify-content: center;
-    flex-flow: row wrap;
 `;
 const Toolkit = ({ tools }) => {
     const [toolsVisible, setToolsVisible] = useState(false);

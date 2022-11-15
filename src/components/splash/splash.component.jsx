@@ -3,17 +3,17 @@ import PageSpan from "../page-span.component";
 import splashimage from "../images/light.svg";
 
 const AppSplash = styled.section`
+    flex: 1;
     max-width: 1500px;
     min-height: 100vh;
-    flex: 1;
+    padding: 50px 60px;
+    margin: 0 50px;
+    border-radius: 35px;
+    transition: 111ms linear;
     display: flex;
     flex-flow: row nowrap;
-    padding: 50px 60px;
     align-items: center;
-    border-radius: 35px;
-    margin: 0 50px;
-    transition: 111ms linear;
-    background-color: var(--white-002);
+    /* background-color: var(--white-002);
     border: 1px solid var(--fade-002);
     box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
         0 3px 8px var(--fade-002);
@@ -21,7 +21,7 @@ const AppSplash = styled.section`
         0deg,
         var(--white-001) 0%,
         var(--white-002) 100%
-    );
+    ); */
     @media only screen and (max-width: 1000px) {
         flex-flow: column nowrap;
         align-items: center;
@@ -36,9 +36,9 @@ const SplashDetails = styled.div`
     flex: 3;
     width: 100%;
     height: fit-content;
+    transition: 111ms linear;
     display: flex;
     flex-flow: column nowrap;
-    transition: 111ms linear;
     @media only screen and (max-width: 600px) {
         flex: 1;
     }
@@ -69,11 +69,11 @@ const SplashSummaryContainer = styled.div`
 `;
 
 const SplashButtonsContainer = styled.div`
+    margin-top: 10px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 10px;
     @media only screen and (max-width: 600px) {
         justify-content: center;
     }
@@ -84,20 +84,20 @@ const SplashButtonsContainer = styled.div`
 `;
 
 const SplashButton = styled.div`
-    cursor: pointer;
     outline: none;
     border: none;
     border-radius: 10px;
     transition: 111ms linear;
+    cursor: pointer;
     user-select: none;
 `;
 
 const FirstSplashButton = styled(SplashButton)`
     padding: 15px 20px;
-    background-color: var(--accent-001);
+    /* background-color: var(--accent-001); */
     font-size: 25px;
     font-weight: 500;
-    border: 1px solid var(--fade-001);
+    /* border: 1px solid var(--fade-001); */
     @media only screen and (max-width: 1000px) {
         font-size: 20px;
     }
@@ -105,8 +105,8 @@ const FirstSplashButton = styled(SplashButton)`
         font-size: 15px;
     }
     &:hover {
-        box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
-            0 3px 8px var(--fade-002);
+        /* box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
+            0 3px 8px var(--fade-002); */
     }
 `;
 const SecondSplashButton = styled(SplashButton)`
@@ -119,7 +119,7 @@ const SecondSplashButton = styled(SplashButton)`
         margin-top: 20px;
     }
     &:hover {
-        color: var(--accent-003);
+        /* color: var(--accent-003); */
     }
 `;
 
@@ -129,11 +129,11 @@ const SecondSplashButton = styled(SplashButton)`
 const SplashImageContainer = styled.div`
     flex: 4;
     width: 100%;
+    padding-top: 30px;
     height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 30px;
     @media only screen and (max-width: 1000px) {
         padding-top: 10px;
         width: 80%;
@@ -143,10 +143,10 @@ const SplashImageContainer = styled.div`
     }
 `;
 const SplashImage = styled.img`
-    user-select: none;
     height: 100%;
     width: 100%;
     object-fit: cover;
+    user-select: none;
     @media only screen and (max-width: 1000px) {
         margin-top: 50px;
     }
@@ -158,7 +158,7 @@ const Splash = () => {
             <SplashDetails>
                 <SplashHeadingContainer>
                     <PageSpan
-                        color="var(--main-003)"
+                        // color="var(--main-003)"
                         maxheight="fit-content"
                         fontsize="45px"
                         lineheight="45px"
@@ -176,9 +176,8 @@ const Splash = () => {
                         lineheighttwo="30px"
                         fontweighttwo="600"
                         textaligntwo="center"
-                        // spantext="Commodi sapiente cupiditate vero, officia tempore."
-                        spantext="Media collective and web showcase in one space."
-
+                        spantext="Commodi sapiente cupiditate vero, officia tempore."
+                        // spantext="Media collective and web showcase in one space."
                     />
                 </SplashHeadingContainer>
                 <SplashSummaryContainer>
@@ -196,7 +195,8 @@ const Splash = () => {
                         lineheightsix="20px"
                         textalignone="center"
                         paddingtwo="0"
-                        spantext="If we're talking time management or media generation, things can get complicated. This all-in-one portfolio application is here to help simplify."
+                        spantext="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia debitis a, recusandae quidem placeat ab. Quam architecto qui esse et!"
+                        // spantext="If we're talking time management or media generation, things can get complicated. This all-in-one portfolio application is here to help simplify."
                     />
                 </SplashSummaryContainer>
                 <SplashButtonsContainer>

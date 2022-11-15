@@ -1,19 +1,19 @@
 import styled from "styled-components";
 import PageSpan from "../page-span.component";
-import star from "../images/star.svg";
+// import star from "../images/star.svg";
 const AppNavbar = styled.div`
-    width: 100vw;
     position: sticky;
     top: 0;
+    padding: 0 20px;
+    width: 100vw;
     min-height: 50px;
     max-height: 50px;
-    background-color: var(--main-002);
+    /* background-color: var(--main-002);
     box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
-        0 3px 8px var(--fade-002);
+        0 3px 8px var(--fade-002); */
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    padding: 0 20px;
     @media only screen and (max-width: 100px) {
         padding: 0;
     }
@@ -49,23 +49,22 @@ const NavLogoHeadingContainer = styled.div`
     }
 `;
 const NavButton = styled.div`
-    cursor: pointer;
+    padding: 0 10px;
+    margin: 5px;
     outline: none;
-    border: none;
+    border: 1px solid transparent;
     border-radius: 10px;
     transition: 111ms linear;
+    user-select: none;
+    cursor: pointer;
+    /* color: var(--accent-001); */
+    font-size: 15px;
+    font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 10px;
-    color: var(--accent-001);
-    font-size: 15px;
-    font-weight: 500;
-    border: 1px solid transparent;
-    margin: 5px;
-    user-select: none;
     &:hover {
-        border: 1px solid var(--accent-001);
+        /* border: 1px solid var(--accent-001); */
     }
     @media only screen and (max-width: 200px) {
         display: none;
@@ -73,14 +72,14 @@ const NavButton = styled.div`
 `;
 const Navibar = () => {
     return (
-        <AppNavbar backgroundimage={star}>
+        <AppNavbar>
             <NavLogoContainer onClick={() => window.scrolltoheadsection()}>
                 <NavLogoImageContainer>
                     <NavLogoImage src="https://www.svgrepo.com/show/233196/smile.svg" />
                 </NavLogoImageContainer>
                 <NavLogoHeadingContainer>
                     <PageSpan
-                        color="var(--white-001)"
+                        // color="var(--white-001)"
                         fontsize="25px"
                         fontweight="500"
                         lineheight="30px"

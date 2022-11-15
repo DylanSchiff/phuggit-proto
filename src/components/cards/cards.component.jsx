@@ -14,26 +14,26 @@ const AllCards = styled.div`
         grid-row-gap: 0px;
         border-radius: 25px;
         overflow: hidden;
-        border: 1px solid var(--fade-002);
+        /* border: 1px solid var(--fade-002);
         box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
-            0 3px 8px var(--fade-002);
+            0 3px 8px var(--fade-002); */
     }
 `;
 const Card = styled.div`
-    border: 1px solid var(--fade-002);
     flex: 1;
     width: 100%;
+    padding: 20px;
+    border-radius: 25px;
+    transition: 111ms linear;
+    /* border: 1px solid var(--fade-002);
     background-color: var(--white-001);
     background: linear-gradient(
         0deg,
         var(--white-001) 0%,
         var(--white-002) 100%
     );
-    border-radius: 25px;
-    padding: 20px;
-    transition: 111ms linear;
     box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
-        0 3px 8px var(--fade-002);
+        0 3px 8px var(--fade-002); */
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -43,13 +43,13 @@ const Card = styled.div`
         border: none;
         box-shadow: none;
         &:first-of-type {
-            border-bottom: 1px solid var(--fade-002);
+            /* border-bottom: 1px solid var(--fade-002); */
         }
         &:last-of-type {
-            border-top: 1px solid var(--fade-002);
+            /* border-top: 1px solid var(--fade-002); */
         }
         &:hover {
-            background-color: var(--white-004);
+            /* background-color: var(--white-004); */
         }
     }
 `;
@@ -58,17 +58,16 @@ const CardImageContainer = styled.div`
     max-width: 150px;
     min-height: 150px;
     min-width: 150px;
+    margin: 40px 0;
     border-radius: 20px;
     overflow: hidden;
+    transition: 111ms linear;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 40px 0;
-    transition: 111ms linear;
-    background-color: var(--accent-001);
+    /* background-color: var(--accent-001);
     box-shadow: inset 0 1px 3px var(--fade-001), inset 0 2px 5px var(--fade-001),
-        inset 0 3px 8px var(--fade-002);
-
+        inset 0 3px 8px var(--fade-002); */
     @media only screen and (max-width: 600px) {
         max-height: 125px;
         max-width: 125px;
@@ -107,29 +106,29 @@ const CardTagsButtonFlipper = styled.div`
 `;
 const CardButtonContainer = styled.div``;
 const CardButton = styled.div`
+    padding: 10px 20px;
     cursor: pointer;
     border-radius: 10px;
     transition: 111ms linear;
     user-select: none;
-    color: var(--white-001);
     font-size: 20px;
     font-weight: 600;
     text-transform: uppercase;
-    border: 1px solid var(--fade-001);
-    background-color: var(--accent-004);
-    padding: 10px 20px;
-    color: var(--white-002);
+    /* color: var(--white-001); */
+    /* border: 1px solid var(--fade-001);
+    background-color: var(--accent-004); */
+    /* color: var(--white-002); */
     &:hover {
-        background-color: var(--accent-002);
+        /* background-color: var(--accent-002);
         box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
-            0 3px 8px var(--fade-002);
+            0 3px 8px var(--fade-002); */
     }
     @media only screen and (max-width: 1000px) {
-        border: 1px solid var(--fade-002);
-        background-color: var(--white-001);
-        padding: 10px 20px;
-        color: var(--accent-004);
         margin-bottom: 20px;
+        padding: 10px 20px;
+        /* border: 1px solid var(--fade-002);
+        background-color: var(--white-001); */
+        /* color: var(--accent-004); */
     }
 `;
 const CardTagsContainer = styled.div`
