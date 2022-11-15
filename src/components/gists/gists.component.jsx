@@ -9,7 +9,8 @@ const GISTS = [
         heading: "Upcoming",
         scrollto: () => window.scrolltocontactsection(),
         gisttext:
-            "New projects are in the oven, and the laboratory needs some love. During the next cycle, those are first.",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
+        // "New projects are in the oven, and the laboratory needs some love. During the next cycle, those are first.",
         imageUrl: future,
     },
     {
@@ -17,7 +18,8 @@ const GISTS = [
         heading: "Latest",
         scrollto: () => window.scrolltoappbodysection(),
         gisttext:
-            "We're in the midst of a heavy development phase! As the showcase expansion unfolds, more optimization layers are being added in order to provide a better user experience.",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
+        // "We're in the midst of a heavy development phase! As the showcase expansion unfolds, more optimization layers are being added in order to provide a better user experience.",
         imageUrl: present,
     },
     {
@@ -25,7 +27,8 @@ const GISTS = [
         heading: "Recent",
         scrollto: () => window.scrolltoadditionalprojectssection(),
         gisttext:
-            "A draft frame has been created during recent updates, and many projects have been prepared to ship.",
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
+        // "A draft frame has been created during recent updates, and many projects have been prepared to ship.",
         imageUrl: past,
     },
 ];
