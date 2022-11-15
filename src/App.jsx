@@ -197,7 +197,7 @@ const App = () => {
                     <Laboratory laboratoryVisible={laboratoryVisible} />
                     <Toolkit tools={TOOLS} />
                     <Gists />
-                    <ContactBox />
+                    {/* <ContactBox /> */}
                 </AppBodySection>
                 <BackToTopButton onClick={() => window.scrolltoheadsection()}>
                     TOP
