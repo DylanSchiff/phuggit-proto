@@ -7,7 +7,7 @@ const ColorCardContainer = styled.div.attrs((props) => ({
         border: "1px solid " + props.bordercolor,
     },
 }))`
-    height: 300px;
+    /* height: 300px; */
     width: 300px;
     transition: 111ms linear;
     display: flex;
@@ -47,24 +47,31 @@ const ColorDetails = styled.div`
     align-items: center;
     justify-content: center;
 `;
-const DetailsDuo = styled.div``;
+const DetailsDuo = styled.div`
+    padding: 10px;
+`;
 const DetailsLabel = styled.span.attrs((props) => ({
     style: {
         color: props.color,
     },
 }))`
     margin-right: 5px;
+    user-select: none;
 `;
 const DetailsInfo = styled.span.attrs((props) => ({
     style: {
         color: props.color,
     },
-}))``;
+}))`
+    user-select: none;
+`;
 
 const ColorCard = () => {
     const [currentColor, setCurrentColor] = useState("#555555");
-    const [isThemeBright, setIsThemeBright] = useState(false);
+    const [isThemeBright, setIsThemeBright] = useState(true);
     const toggleThemeBrightness = () => setIsThemeBright(!isThemeBright);
+    const [hasEffects, setHasEffects] = useState(true);
+    const toggleEffects = () => setHasEffects(!hasEffects);
     const dismantleColor = () => {
         return currentColor
             .replace(
@@ -124,16 +131,19 @@ const ColorCard = () => {
             backgroundcolor={isThemeBright ? "#eee" : "#111"}
             bordercolor={isThemeBright ? "#eee" : "#eee"}
         >
-            <ClapOn>
-                <ClapOnLabel
-                    onClick={() => toggleThemeBrightness()}
-                    color={isThemeBright ? "#111" : "#eee"}
-                >
-                    {isThemeBright ? "See in dark" : "See in light"}
+            <ClapOn onClick={() => toggleThemeBrightness()}>
+                <ClapOnLabel color={isThemeBright ? "#111" : "#eee"}>
+                    {isThemeBright ? "Shade" : "Glow"}
+                </ClapOnLabel>
+            </ClapOn>
+            <ClapOn onClick={() => toggleEffects()}>
+                <ClapOnLabel color={isThemeBright ? "#111" : "#eee"}>
+                    {hasEffects ? "No Effects" : "Effects"}
                 </ClapOnLabel>
             </ClapOn>
             <ColorCubeDisplay>
                 <ColorCube
+                    hasEffects={hasEffects}
                     isThemeBright={isThemeBright}
                     currentColor={currentColor}
                     setCurrentColor={setCurrentColor}

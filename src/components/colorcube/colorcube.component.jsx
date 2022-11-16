@@ -10,6 +10,7 @@ const ColorCubeCard = styled.div`
 const CubeHaus = styled.div.attrs((props) => ({
     style: {
         transform: props.rotation,
+        boxShadow: `0 0 3px ${props.colorful}, 0 0 5px ${props.colorful}, 0 0 8px ${props.colorful}, 0 0 11px ${props.colorful}, 0 0 15px ${props.colorful}`,
     },
 }))`
     width: 60px;
@@ -17,6 +18,7 @@ const CubeHaus = styled.div.attrs((props) => ({
     top: 50%;
     left: 50%;
     transform-style: preserve-3d;
+    transition: 111ms linear;
 `;
 const CubeSide = styled.div`
     position: absolute;
@@ -76,6 +78,7 @@ const CubeFront = styled(CubeSide).attrs((props) => ({
 const ColorCube = ({
     rotation,
     isThemeBright,
+    hasEffects,
     currentColor,
     generateRandomColor,
     lightcolor,
@@ -85,6 +88,13 @@ const ColorCube = ({
     return (
         <ColorCubeCard onClick={() => generateRandomColor()}>
             <CubeHaus
+                colorful={
+                    hasEffects
+                        ? isThemeBright
+                            ? "#1115"
+                            : lightcolor
+                        : "transparent"
+                }
                 rotation={
                     rotation
                         ? rotation
