@@ -1,21 +1,21 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////// 404
 
-import styled from "styled-components";
-const AppContainer = styled.div`
-    min-height: 100vh;
-    min-width: 100vw;
-    max-width: 100vw;
-    background-color: #111;
-    color:#fff9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
+// import styled from "styled-components";
+// const AppContainer = styled.div`
+//     min-height: 100vh;
+//     min-width: 100vw;
+//     max-width: 100vw;
+//     background-color: #111;
+//     color:#fff9;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// `;
 
-const App = () => {
-    return <AppContainer>404</AppContainer>;
-};
-export default App;
+// const App = () => {
+//     return <AppContainer>404</AppContainer>;
+// };
+// export default App;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////// Main
 
@@ -208,3 +208,27 @@ export default App;
 //     );
 // };
 // export default App;
+
+///////////////////////////////////////////////////////////////////////////////////////////////////// Cube
+
+import styled from "styled-components";
+import ColorCube from "./components/colorcube/colorcube.component";
+const AppContainer = styled.div`
+    min-height: 100vh;
+    min-width: 100vw;
+    max-width: 100vw;
+    background-color: #111;
+    color: #fff9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const App = () => {
+    return (
+        <AppContainer>
+            <ColorCube />
+        </AppContainer>
+    );
+};
+export default App;
