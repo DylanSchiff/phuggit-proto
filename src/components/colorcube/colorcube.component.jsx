@@ -107,7 +107,7 @@ const ColorCube = ({
                 />
                 <CubeBack colorful={currentColor ? currentColor : "#fefefe"} />
                 <CubeRight
-                    colorful={hasEffects ? "transparent" : currentColor}
+                    colorful={hasEffects ? "transparent" : darkcolor}
                 />
                 <CubeLeft
                     colorful={currentColor ? currentColor : "transparent"}

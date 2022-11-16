@@ -78,7 +78,7 @@ const ColorCard = () => {
     const [currentColor, setCurrentColor] = useState("#555555");
     const [isThemeBright, setIsThemeBright] = useState(true);
     const toggleThemeBrightness = () => setIsThemeBright(!isThemeBright);
-    const [hasEffects, setHasEffects] = useState(true);
+    const [hasEffects, setHasEffects] = useState(false);
     const toggleEffects = () => setHasEffects(!hasEffects);
     const dismantleColor = () => {
         return currentColor
