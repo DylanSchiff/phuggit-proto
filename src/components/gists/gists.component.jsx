@@ -44,6 +44,7 @@ const GistsContainer = styled.div`
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
+    border: 1px solid var(--fade-002);
     /* background-color: var(--white-002);
     border: 1px solid var(--fade-002);
     box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),

@@ -32,11 +32,8 @@ const AddProjectContainer = styled.div`
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    /* border: 1px solid var(--fade-002);
-    background-color: var(--white-001);
     border-radius: 25px;
-    box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
-        0 3px 8px var(--fade-002); */
+    border: 1px solid var(--fade-002);
 `;
 const AddProjectImageContainer = styled.div`
     max-height: 150px;

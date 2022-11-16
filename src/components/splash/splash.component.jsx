@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import PageSpan from "../page-span.component";
-import splashimage from "../images/light.svg";
 
 const AppSplash = styled.section`
     flex: 1;
@@ -13,15 +12,7 @@ const AppSplash = styled.section`
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    /* background-color: var(--white-002);
     border: 1px solid var(--fade-002);
-    box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
-        0 3px 8px var(--fade-002);
-    background: linear-gradient(
-        0deg,
-        var(--white-001) 0%,
-        var(--white-002) 100%
-    ); */
     @media only screen and (max-width: 1000px) {
         flex-flow: column nowrap;
         align-items: center;
@@ -94,10 +85,9 @@ const SplashButton = styled.div`
 
 const FirstSplashButton = styled(SplashButton)`
     padding: 15px 20px;
-    /* background-color: var(--accent-001); */
     font-size: 25px;
     font-weight: 500;
-    /* border: 1px solid var(--fade-001); */
+    border: 1px solid var(--fade-002);
     @media only screen and (max-width: 1000px) {
         font-size: 20px;
     }
@@ -152,13 +142,12 @@ const SplashImage = styled.img`
     }
 `;
 
-const Splash = () => {
+const Splash = ({ splashData }) => {
     return (
         <AppSplash>
             <SplashDetails>
                 <SplashHeadingContainer>
                     <PageSpan
-                        // color="var(--main-003)"
                         maxheight="fit-content"
                         fontsize="45px"
                         lineheight="45px"
@@ -176,8 +165,7 @@ const Splash = () => {
                         lineheighttwo="30px"
                         fontweighttwo="600"
                         textaligntwo="center"
-                        spantext="Commodi sapiente cupiditate vero, officia tempore."
-                        // spantext="Media collective and web showcase in one space."
+                        spantext={splashData.splashHeadingText}
                     />
                 </SplashHeadingContainer>
                 <SplashSummaryContainer>
@@ -195,25 +183,24 @@ const Splash = () => {
                         lineheightsix="20px"
                         textalignone="center"
                         paddingtwo="0"
-                        spantext="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia debitis a, recusandae quidem placeat ab. Quam architecto qui esse et!"
-                        // spantext="If we're talking time management or media generation, things can get complicated. This all-in-one portfolio application is here to help simplify."
+                        spantext={splashData.splashSubheadingText}
                     />
                 </SplashSummaryContainer>
                 <SplashButtonsContainer>
                     <FirstSplashButton
                         onClick={() => window.scrolltoappbodysection()}
                     >
-                        explore
+                        {splashData.splashFirstButtonText}
                     </FirstSplashButton>
                     <SecondSplashButton
                         onClick={() => window.scrolltotoolkitsection()}
                     >
-                        learn more
+                        {splashData.splashSecondButtonText}
                     </SecondSplashButton>
                 </SplashButtonsContainer>
             </SplashDetails>
             <SplashImageContainer>
-                <SplashImage src={splashimage} />
+                <SplashImage src={splashData.splashImageUrl} />
             </SplashImageContainer>
         </AppSplash>
     );

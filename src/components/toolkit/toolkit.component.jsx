@@ -13,10 +13,7 @@ const ToolkitContainer = styled.div`
     flex-flow: column nowrap;
     align-items: center;
     justify-content: flex-start;
-    /* border: 1px solid var(--fade-002);
-    background-color: var(--white-001);
-    box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
-        0 3px 8px var(--fade-002); */
+    border: 1px solid var(--fade-002);
 `;
 
 const ToolsButton = styled.div`
@@ -30,8 +27,7 @@ const ToolsButton = styled.div`
     user-select: none;
     font-size: 15px;
     font-weight: 500;
-    /* background-color: var(--accent-001);
-    border: 1px solid var(--fade-001); */
+    border: 1px solid var(--fade-002);
     @media only screen and (max-width: 1000px) {
         font-size: 20px;
     }
@@ -116,13 +112,7 @@ const ToolsFooter = styled.div`
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-around;
-    /* background-color: var(--fade-001);
-    background: linear-gradient(
-        90deg,
-        var(--fade-001) 0%,
-        var(--fade-002) 100%
-    );
-    border-top: 1px solid var(--fade-001); */
+    border-top: 1px solid var(--fade-002);
     @media only screen and (max-width: 600px) {
         flex-flow: column nowrap;
     }
@@ -150,7 +140,7 @@ const FooterDetailsHeadings = styled.div`
     align-items: flex-start;
     justify-content: center;
 `;
-const Toolkit = ({ tools }) => {
+const Toolkit = ({ toolData }) => {
     const [toolsVisible, setToolsVisible] = useState(false);
     const toggleToolsVisible = () => setToolsVisible(!toolsVisible);
     const toolkit = useRef(null);
@@ -173,11 +163,10 @@ const Toolkit = ({ tools }) => {
                 lineheightsix="25px"
                 fontweightsix="600"
                 textalignsix="center"
-                spantext="It just wouldn't be the same without you"
-
+                spantext="Connect with me right now"
             />
             <ToolsContainer display={toolsVisible ? "grid" : "none"}>
-                {tools.map((tool, index) => {
+                {toolData.TOOLS.map((tool, index) => {
                     const { id, imageUrl, isBordered } = tool;
                     return index > 2 ? (
                         <ToolContainer key={id}>
@@ -196,7 +185,7 @@ const Toolkit = ({ tools }) => {
             </ToolsButton>
             <ToolsFooter>
                 <ToolFooterTools>
-                    {tools.map((tool, index) => {
+                    {toolData.TOOLS.map((tool, index) => {
                         const { id, imageUrl } = tool;
                         return index < 3 ? (
                             <ToolContainer key={id}>

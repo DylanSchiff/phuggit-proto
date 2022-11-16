@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import PageSpan from "../page-span.component";
-// import star from "../images/star.svg";
+import { DATASHEET } from "../DATASHEET";
 const AppNavbar = styled.div`
     position: sticky;
     top: 0;
@@ -8,9 +8,9 @@ const AppNavbar = styled.div`
     width: 100vw;
     min-height: 50px;
     max-height: 50px;
-    /* background-color: var(--main-002);
-    box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
-        0 3px 8px var(--fade-002); */
+    /* box-shadow: var(--med-shadow); */
+    border-bottom: 1px solid var(--fade-002);
+    background-color: var(--main-col);
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -57,14 +57,14 @@ const NavButton = styled.div`
     transition: 111ms linear;
     user-select: none;
     cursor: pointer;
-    /* color: var(--accent-001); */
+    color: var(--main-text);
     font-size: 15px;
     font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: center;
     &:hover {
-        /* border: 1px solid var(--accent-001); */
+        border: 1px solid var(--fade-004);
     }
     @media only screen and (max-width: 200px) {
         display: none;
@@ -75,18 +75,18 @@ const Navibar = () => {
         <AppNavbar>
             <NavLogoContainer onClick={() => window.scrolltoheadsection()}>
                 <NavLogoImageContainer>
-                    <NavLogoImage src="https://www.svgrepo.com/show/386933/bad-one.svg" />
+                    <NavLogoImage src={DATASHEET.brandImageUrl} />
                 </NavLogoImageContainer>
                 <NavLogoHeadingContainer>
                     <PageSpan
-                        // color="var(--white-001)"
+                        color="var(--main-text)"
                         fontsize="25px"
                         fontweight="500"
                         lineheight="30px"
                         maxheight="30px"
                         cursor="pointer"
                         fontsizesix="20px"
-                        spantext="99E.io"
+                        spantext={DATASHEET.brandName}
                     />
                 </NavLogoHeadingContainer>
             </NavLogoContainer>

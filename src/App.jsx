@@ -1,18 +1,37 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////// 404
+
+import styled from "styled-components";
+const AppContainer = styled.div`
+    min-height: 100vh;
+    min-width: 100vw;
+    max-width: 100vw;
+    background-color: #111;
+    color:#fff9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const App = () => {
+    return <AppContainer>404</AppContainer>;
+};
+export default App;
+
+///////////////////////////////////////////////////////////////////////////////////////////////////// Main
+
 // import styled from "styled-components";
 // import TOOLS from "./components/TOOLDATA";
 // import { useRef, useState } from "react";
 // import PageSpan from "./components/page-span.component";
-// import CARDS from "./components/CARDS";
+// import { DATASHEET } from "./components/DATASHEET";
 // import Splash from "./components/splash/splash.component";
 // import Cards from "./components/cards/cards.component";
 // import AdditionalProjects from "./components/additional-projects/additional-projects.component";
 // import ANotification from "./components/app-notification/app-notification";
-// import Navibar from "./components/navibar/navibar.component";
+// import Navibar from "./components/navigation/navigation.component";
 // import Toolkit from "./components/toolkit/toolkit.component";
-// import ContactBox from "./components/contact-box/contact-box.component";
 // import Laboratory from "./components/lab/laboratory.component";
 // import Gists from "./components/gists/gists.component";
-// // import Lab from "./components/lab/lab.component";
 
 // const PageContainer = styled.div`
 //     min-height: 100vh;
@@ -20,7 +39,6 @@
 //     max-width: 100vw;
 //     overflow: hidden;
 //     overflow-y: auto;
-//     /* background-color: var(--accent-002); */
 //     display: flex;
 //     flex-flow: column nowrap;
 //     justify-content: center;
@@ -61,17 +79,10 @@
 //     display: flex;
 //     align-items: center;
 //     justify-content: center;
-//     /* background-color: var(--main-003);
-//     box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
-//         0 3px 8px var(--fade-002); */
-
 //     &:active {
 //         transform: scale(0.95);
 //     }
 // `;
-
-// // /////////////////////////////////////
-// // /////////////////////////////////////
 
 // const LabButtons = styled.div`
 //     margin: 40px 20px;
@@ -91,15 +102,7 @@
 //     user-select: none;
 //     transition: 111ms linear;
 //     cursor: pointer;
-//     /* border: 1px solid var(--fade-001); */
-//     &:first-of-type {
-//         /* color: var(--main-002);
-//         background-color: var(--white-002); */
-//     }
-//     &:last-of-type {
-//         /* color: var(--white-002);
-//         background-color: var(--main-003); */
-//     }
+//     border: 1px solid var(--fade-002);
 //     @media only screen and (max-width: 1000px) {
 //         font-size: 20px;
 //     }
@@ -159,8 +162,8 @@
 //         <>
 //             <Navibar />
 //             <PageContainer ref={headsection}>
-//                 <ANotification />
-//                 <Splash />
+//                 <ANotification notificationData={DATASHEET.notificationData} />
+//                 <Splash splashData={DATASHEET.splashData} />
 //                 <AppBodySection ref={appbodysection}>
 //                     <PageSpan
 //                         fontsize="35px"
@@ -174,10 +177,9 @@
 //                         lineheightsix="25px"
 //                         fontweightsix="600"
 //                         textalignsix="center"
-//                         spantext="Officia tempore ratione vel tempora blanditiis placeat."
-//                         // spantext="Experiment with new tools from the 99E creative suite."
+//                         spantext={DATASHEET.cardData.cardsHeader}
 //                     />
-//                     <Cards cards={CARDS} />
+//                     <Cards cards={DATASHEET.cardData.CARDS} />
 //                     <AdditionalProjects
 //                         additionalProjectsVisible={additionalProjectsVisible}
 //                     />
@@ -193,9 +195,8 @@
 //                             {laboratoryVisible ? "Close Lab" : "Laboratory"}
 //                         </LabButton>
 //                     </LabButtons>
-//                     {/* <Lab laboratoryVisible={laboratoryVisible} /> */}
 //                     <Laboratory laboratoryVisible={laboratoryVisible} />
-//                     <Toolkit tools={TOOLS} />
+//                     <Toolkit toolData={DATASHEET.toolData} />
 //                     <Gists />
 //                     {/* <ContactBox /> */}
 //                 </AppBodySection>
@@ -207,40 +208,3 @@
 //     );
 // };
 // export default App;
-
-///////////////////////////////////////////////////////////////////////////////////////////////////// 404
-// import styled from "styled-components";
-// const AppContainer = styled.div`
-//     min-height: 100vh;
-//     min-width: 100vw;
-//     max-width: 100vw;
-//     background-color: #111;
-//     color:#fff9;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-// `;
-
-// const App = () => {
-//     return <AppContainer>404</AppContainer>;
-// };
-// export default App;
-///////////////////////////////////////////////////////////////////////////////////////////////////// 
-import styled from "styled-components";
-const AppContainer = styled.div`
-    min-height: 100vh;
-    min-width: 100vw;
-    max-width: 100vw;
-    background-color: #111;
-    color: #fff9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-const App = () => {
-    return <AppContainer>404</AppContainer>;
-};
-export default App;
-
-

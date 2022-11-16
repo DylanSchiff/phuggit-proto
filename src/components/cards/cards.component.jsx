@@ -14,17 +14,17 @@ const AllCards = styled.div`
         grid-row-gap: 0px;
         border-radius: 25px;
         overflow: hidden;
-        /* border: 1px solid var(--fade-002);
-        box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
-            0 3px 8px var(--fade-002); */
+        border: 1px solid var(--fade-002);
     }
 `;
 const Card = styled.div`
     flex: 1;
     width: 100%;
+    height: 100%;
     padding: 20px;
     border-radius: 25px;
     transition: 111ms linear;
+    border: 1px solid var(--fade-002);
     /* border: 1px solid var(--fade-002);
     background-color: var(--white-001);
     background: linear-gradient(
@@ -43,10 +43,10 @@ const Card = styled.div`
         border: none;
         box-shadow: none;
         &:first-of-type {
-            /* border-bottom: 1px solid var(--fade-002); */
+            border-bottom: 1px solid var(--fade-002);
         }
         &:last-of-type {
-            /* border-top: 1px solid var(--fade-002); */
+            border-top: 1px solid var(--fade-002);
         }
         &:hover {
             /* background-color: var(--white-004); */
@@ -89,6 +89,7 @@ const CardImage = styled.img`
     }
 `;
 const CardHeadingContainer = styled.div`
+    flex: 1;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;

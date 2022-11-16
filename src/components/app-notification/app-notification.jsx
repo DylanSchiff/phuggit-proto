@@ -21,7 +21,7 @@ const AppNotificationLink = styled.a`
         text-decoration: underline;
     }
 `;
-const ANotification = () => {
+const ANotification = ({notificationData}) => {
     return (
         <AppNotificationBanner>
             <AppNotification>
@@ -29,7 +29,7 @@ const ANotification = () => {
                     // color="var(--accent-004)"
                     fontsize="12.5px"
                     // spantext="Take a moment to... appreciate the tools and libraries that make this website possible. Details about the entire kit below."
-                    spantext="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam labore dolorem, voluptates excepturi doloremque quas?"
+                    spantext={notificationData.notificationText}
                     fontsizesix="10px"
                 />
                 <AppNotificationLink
@@ -38,7 +38,7 @@ const ANotification = () => {
                     <PageSpan
                         // color="var(--accent-004)"
                         fontsize="12.5px"
-                        spantext="Learn More"
+                        spantext={notificationData.notificationButtonText}
                         fontsizesix="10px"
                     />
                 </AppNotificationLink>
