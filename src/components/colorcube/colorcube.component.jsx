@@ -10,7 +10,7 @@ const ColorCubeCard = styled.div`
 const CubeHaus = styled.div.attrs((props) => ({
     style: {
         transform: props.rotation,
-        boxShadow: `0 0 3px ${props.colorful}, 0 0 5px ${props.colorful}, 0 0 8px ${props.colorful}, 0 0 11px ${props.colorful}, 0 0 15px ${props.colorful}`,
+        boxShadow: props.shadowString,
     },
 }))`
     width: 60px;
@@ -84,17 +84,12 @@ const ColorCube = ({
     lightcolor,
     darkcolor,
     darkercolor,
+    shadowString,
 }) => {
     return (
         <ColorCubeCard onClick={() => generateRandomColor()}>
             <CubeHaus
-                colorful={
-                    hasEffects
-                        ? isThemeBright
-                            ? "#1115"
-                            : lightcolor
-                        : "transparent"
-                }
+                shadowString={hasEffects ? shadowString : "none"}
                 rotation={
                     rotation
                         ? rotation
@@ -106,9 +101,7 @@ const ColorCube = ({
                     colorful={currentColor ? darkercolor : "transparent"}
                 />
                 <CubeBack colorful={currentColor ? currentColor : "#fefefe"} />
-                <CubeRight
-                    colorful={hasEffects ? "transparent" : darkcolor}
-                />
+                <CubeRight colorful={hasEffects ? "transparent" : darkcolor} />
                 <CubeLeft
                     colorful={currentColor ? currentColor : "transparent"}
                 />

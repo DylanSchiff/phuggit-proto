@@ -70,12 +70,10 @@ const DetailsInfo = styled.span.attrs((props) => ({
     style: {
         color: props.color,
     },
-}))`
-    user-select: none;
-`;
+}))``;
 const ShadowSlider = styled.input``;
 const ColorCard = () => {
-    const [currentColor, setCurrentColor] = useState("#555555");
+    const [currentColor, setCurrentColor] = useState("#5c2fe6");
     const [isThemeBright, setIsThemeBright] = useState(true);
     const toggleThemeBrightness = () => setIsThemeBright(!isThemeBright);
     const [hasEffects, setHasEffects] = useState(false);
@@ -135,13 +133,25 @@ const ColorCard = () => {
         evendarkervalues[2]
     );
     const [shadowSliderValue, setShadowSliderValue] = useState("51");
-    // console.log(shadowSliderValue);
-
-    // const shadowLayersAmount = shadowSliderValue[0];
-    // const shadowLayers = ()=>{
-
-    // }
-
+    const shadowLayersAmount = shadowSliderValue[0];
+    const shadowLayers = () => {
+        const shadowLayersArray = [];
+        for (let index = 0; index < shadowLayersAmount; index++) {
+            shadowLayersArray.push(
+                `0 0 ${index * 3}px ${
+                    hasEffects
+                        ? isThemeBright
+                            ? "#1116"
+                            : lightcolor
+                        : "transparent"
+                }`
+            );
+        }
+        return shadowLayersArray;
+    };
+    const shadowLayersArray = shadowLayers();
+    const shadowString =
+        shadowLayersArray.length > 0 ? shadowLayersArray.toString() : "";
     return (
         <ColorCardContainer
             backgroundcolor={isThemeBright ? "#eee" : "#111"}
@@ -157,6 +167,7 @@ const ColorCard = () => {
                     lightcolor={lightcolor}
                     darkcolor={darkcolor}
                     darkercolor={darkercolor}
+                    shadowString={shadowString}
                 />
             </ColorCubeDisplay>
             <ClapOns>
