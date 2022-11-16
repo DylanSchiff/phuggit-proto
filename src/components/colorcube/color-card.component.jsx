@@ -10,7 +10,7 @@ const ColorCardContainer = styled.div.attrs((props) => ({
     width: 300px;
     transition: 111ms linear;
     border-radius: 20px;
-    padding: 20px 0;
+    padding: 20px 10px;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -18,7 +18,7 @@ const ColorCardContainer = styled.div.attrs((props) => ({
 `;
 const ClapOns = styled.div`
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     align-items: center;
     justify-content: space-around;
 `;
@@ -28,6 +28,8 @@ const ClapOn = styled.div`
     text-align: center;
     white-space: nowrap;
     padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
 `;
 const ClapOnLabel = styled.span.attrs((props) => ({
     style: {
@@ -64,13 +66,18 @@ const DetailsLabel = styled.span.attrs((props) => ({
     },
 }))`
     margin-right: 5px;
+    font-weight: 500;
     user-select: none;
+    text-align: center;
 `;
 const DetailsInfo = styled.span.attrs((props) => ({
     style: {
         color: props.color,
     },
-}))``;
+}))`
+    text-align: center;
+    font-weight: 300;
+`;
 const ShadowSlider = styled.input``;
 const ColorCard = () => {
     const [currentColor, setCurrentColor] = useState("#5c2fe6");
@@ -133,29 +140,32 @@ const ColorCard = () => {
         evendarkervalues[2]
     );
     const [shadowSliderValue, setShadowSliderValue] = useState("51");
-    const shadowLayersAmount = shadowSliderValue[0];
+    const shadowLayersAmount =
+        shadowSliderValue > 10 ? shadowSliderValue[0] : "0";
     const shadowLayers = () => {
         const shadowLayersArray = [];
         for (let index = 0; index < shadowLayersAmount; index++) {
+            // if (index % 2 === 0) {
             shadowLayersArray.push(
-                `0 0 ${index * 3}px ${
+                `0 0 ${Math.ceil(index * 3.777)}px ${
                     hasEffects
                         ? isThemeBright
-                            ? "#1116"
+                            ? `#111${9 - index}`
                             : lightcolor
                         : "transparent"
                 }`
             );
+            // }
         }
         return shadowLayersArray;
     };
     const shadowLayersArray = shadowLayers();
     const shadowString =
-        shadowLayersArray.length > 0 ? shadowLayersArray.toString() : "";
+        shadowLayersArray.length > 0 ? shadowLayersArray.toString() : "none";
     return (
         <ColorCardContainer
-            backgroundcolor={isThemeBright ? "#eee" : "#111"}
-            bordercolor={isThemeBright ? "#eee" : "#eee"}
+            backgroundcolor={isThemeBright ? "#eaeaea" : "#222"}
+            bordercolor={isThemeBright ? darkercolor : lightcolor}
         >
             <ColorCubeDisplay>
                 <ColorCube
@@ -171,8 +181,13 @@ const ColorCard = () => {
                 />
             </ColorCubeDisplay>
             <ClapOns>
-                <ClapOn onClick={() => generateRandomColor()}>
-                    <ClapOnLabel color={isThemeBright ? "#111" : "#eee"}>
+                <ClapOn
+                    onClick={() => generateRandomColor()}
+                    currentColor={currentColor}
+                >
+                    <ClapOnLabel
+                        color={isThemeBright ? darkercolor : lightcolor}
+                    >
                         New Color
                     </ClapOnLabel>
                 </ClapOn>
@@ -222,7 +237,6 @@ const ColorCard = () => {
                             >
                                 Darker:
                             </DetailsLabel>
-
                             <DetailsInfo
                                 color={isThemeBright ? "#111" : "#eee"}
                             >
@@ -239,6 +253,18 @@ const ColorCard = () => {
                                 setShadowSliderValue(e.target.value)
                             }
                         />
+                        <DetailsDuo>
+                            <DetailsLabel
+                                color={isThemeBright ? "#111" : "#eee"}
+                            >
+                                {isThemeBright ? "Shadow:" : "Glow:"}
+                            </DetailsLabel>
+                            <DetailsInfo
+                                color={isThemeBright ? "#111" : "#eee"}
+                            >
+                                {shadowString}
+                            </DetailsInfo>
+                        </DetailsDuo>
                     </>
                 )}
             </ColorDetails>
