@@ -73,11 +73,7 @@ const ColorCube = ({ color, rotation }) => {
     const [currentColor, setCurrentColor] = useState(
         color ? color : generateRandomColor()
     );
-
-    console.log(currentColor);
-    /////////////////////////////////////////////////////
     const dismantleColor = () => {
-        //change hex to rbg
         var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(
             currentColor
         );
@@ -90,7 +86,6 @@ const ColorCube = ({ color, rotation }) => {
             : null;
     };
     const colorpack = color ? dismantleColor() : null;
-    console.log(colorpack);
     const lightervalues = Object.values(colorpack).map((rgbvalues) => {
         return rgbvalues + 20 > 255 ? rgbvalues : rgbvalues + 20;
     });
@@ -102,7 +97,6 @@ const ColorCube = ({ color, rotation }) => {
         return hex.length === 1 ? "0" + hex : hex;
     };
     const rebuildColor = (r, g, b) => {
-        //change hex to rbg
         return "#" + valueToHex(r) + valueToHex(g) + valueToHex(b);
     };
     const lightcolor = rebuildColor(
@@ -135,13 +129,6 @@ const ColorCube = ({ color, rotation }) => {
     );
 };
 export default ColorCube;
-
-
-
-
-
-
-
 
 // make a shadow or glow option, whichever is chosen will change background container's color.
 // glow is on dark using the color already provided
