@@ -139,7 +139,7 @@ const ColorCard = () => {
 
     // const shadowLayersAmount = shadowSliderValue[0];
     // const shadowLayers = ()=>{
-        
+
     // }
 
     return (
@@ -213,6 +213,11 @@ const ColorCard = () => {
                 )}
             </ColorDetails>
             <ClapOns>
+                <ClapOn onClick={() => generateRandomColor()}>
+                    <ClapOnLabel color={isThemeBright ? "#111" : "#eee"}>
+                        New Color
+                    </ClapOnLabel>
+                </ClapOn>
                 <ClapOn onClick={() => toggleEffects()}>
                     <ClapOnLabel color={isThemeBright ? "#111" : "#eee"}>
                         {hasEffects ? "Effects ON" : "Effects OFF"}
