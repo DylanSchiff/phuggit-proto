@@ -208,9 +208,39 @@
 // };
 // export default App;
 
+///////////////////////////////////////////////////////////////////////////////////////////////////// 404
+// import styled from "styled-components";
+// const AppContainer = styled.div`
+//     min-height: 100vh;
+//     min-width: 100vw;
+//     max-width: 100vw;
+//     background-color: #111;
+//     color:#fff9;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// `;
+
+// const App = () => {
+//     return <AppContainer>404</AppContainer>;
+// };
+// export default App;
+///////////////////////////////////////////////////////////////////////////////////////////////////// 
 import styled from "styled-components";
-const AppContainer = styled.div``;
+const AppContainer = styled.div`
+    min-height: 100vh;
+    min-width: 100vw;
+    max-width: 100vw;
+    background-color: #111;
+    color: #fff9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
 const App = () => {
-    return <AppContainer>c ya</AppContainer>;
+    return <AppContainer>404</AppContainer>;
 };
 export default App;
+
+
