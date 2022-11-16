@@ -227,7 +227,7 @@ const AppContainer = styled.div`
 const App = () => {
     return (
         <AppContainer>
-            <ColorCube />
+            <ColorCube color="#2a2aa1" />
         </AppContainer>
     );
 };
