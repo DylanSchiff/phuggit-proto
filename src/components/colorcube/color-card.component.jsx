@@ -124,8 +124,11 @@ const ColorCard = () => {
             backgroundcolor={isThemeBright ? "#eee" : "#111"}
             bordercolor={isThemeBright ? "#eee" : "#eee"}
         >
-            <ClapOn onClick={() => toggleThemeBrightness()}>
-                <ClapOnLabel color={isThemeBright ? "#111" : "#eee"}>
+            <ClapOn>
+                <ClapOnLabel
+                    onClick={() => toggleThemeBrightness()}
+                    color={isThemeBright ? "#111" : "#eee"}
+                >
                     {isThemeBright ? "See in dark" : "See in light"}
                 </ClapOnLabel>
             </ClapOn>
