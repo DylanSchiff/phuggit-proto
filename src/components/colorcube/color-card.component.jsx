@@ -173,7 +173,7 @@ const ColorCard = () => {
                 {hasEffects && (
                     <ClapOn onClick={() => toggleThemeBrightness()}>
                         <ClapOnLabel color={isThemeBright ? "#111" : "#eee"}>
-                            {isThemeBright ? "Use Shade" : "Use Glow"}
+                            {isThemeBright ? "Use Glow" : "Use Shade"}
                         </ClapOnLabel>
                     </ClapOn>
                 )}
