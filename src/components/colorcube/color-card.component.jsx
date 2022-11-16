@@ -18,7 +18,7 @@ const ColorCardContainer = styled.div.attrs((props) => ({
 `;
 const ClapOns = styled.div`
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: space-around;
 `;
@@ -26,15 +26,15 @@ const ClapOn = styled.div`
     flex: 1;
     width: 100%;
     text-align: center;
-    padding: 0 20px;
     white-space: nowrap;
+    padding: 10px;
 `;
 const ClapOnLabel = styled.span.attrs((props) => ({
     style: {
         color: props.color,
     },
 }))`
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 500;
     user-select: none;
     transition: 111ms linear;
@@ -159,6 +159,25 @@ const ColorCard = () => {
                     darkercolor={darkercolor}
                 />
             </ColorCubeDisplay>
+            <ClapOns>
+                <ClapOn onClick={() => generateRandomColor()}>
+                    <ClapOnLabel color={isThemeBright ? "#111" : "#eee"}>
+                        New Color
+                    </ClapOnLabel>
+                </ClapOn>
+                <ClapOn onClick={() => toggleEffects()}>
+                    <ClapOnLabel color={isThemeBright ? "#111" : "#eee"}>
+                        {hasEffects ? "Effects ON" : "Effects OFF"}
+                    </ClapOnLabel>
+                </ClapOn>
+                {hasEffects && (
+                    <ClapOn onClick={() => toggleThemeBrightness()}>
+                        <ClapOnLabel color={isThemeBright ? "#111" : "#eee"}>
+                            {isThemeBright ? "Use Shade" : "Use Glow"}
+                        </ClapOnLabel>
+                    </ClapOn>
+                )}
+            </ClapOns>
             <ColorDetails>
                 <DetailsDuo>
                     <DetailsLabel color={isThemeBright ? "#111" : "#eee"}>
@@ -212,25 +231,6 @@ const ColorCard = () => {
                     </>
                 )}
             </ColorDetails>
-            <ClapOns>
-                <ClapOn onClick={() => generateRandomColor()}>
-                    <ClapOnLabel color={isThemeBright ? "#111" : "#eee"}>
-                        New Color
-                    </ClapOnLabel>
-                </ClapOn>
-                <ClapOn onClick={() => toggleEffects()}>
-                    <ClapOnLabel color={isThemeBright ? "#111" : "#eee"}>
-                        {hasEffects ? "Effects ON" : "Effects OFF"}
-                    </ClapOnLabel>
-                </ClapOn>
-                {hasEffects && (
-                    <ClapOn onClick={() => toggleThemeBrightness()}>
-                        <ClapOnLabel color={isThemeBright ? "#111" : "#eee"}>
-                            {isThemeBright ? "Use Shade" : "Use Glow"}
-                        </ClapOnLabel>
-                    </ClapOn>
-                )}
-            </ClapOns>
         </ColorCardContainer>
     );
 };
