@@ -1,6 +1,4 @@
-import { useState } from "react";
 import styled from "styled-components";
-
 const ColorCubeCard = styled.div`
     width: 100px;
     height: 90px;
@@ -24,6 +22,7 @@ const CubeSide = styled.div`
     width: 100%;
     height: 100%;
     transition: 111ms linear;
+    user-select: none;
 `;
 const CubeTop = styled(CubeSide)`
     transform: translateZ(-60px);
@@ -43,7 +42,6 @@ const CubeLeft = styled(CubeSide)`
     transform-origin: bottom;
     background: ${({ colorful }) => colorful};
 `;
-
 const CubeBack = styled(CubeSide)`
     width: 60px;
     transform: translateZ(-60px) rotateY(90deg);
@@ -57,48 +55,25 @@ const CubeFront = styled(CubeSide)`
     background: ${({ colorful }) => colorful};
 `;
 
-const ColorCube = ({ color, rotation }) => {
-    const ran255 = () => {
-        return Math.floor(Math.random() * 255);
-    };
-    const generateRandomColor = () => {
-        const randomColor = { r: ran255(), g: ran255(), b: ran255() };
-        const randomColorHex = rebuildColor(
-            randomColor.r,
-            randomColor.g,
-            randomColor.b
-        );
-        return setCurrentColor(randomColorHex);
-    };
-    const [currentColor, setCurrentColor] = useState(
-        color ? color : generateRandomColor()
-    );
+const ColorCube = ({ currentColor, rotation, rebuildColor }) => {
     const dismantleColor = () => {
-        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(
-            currentColor
-        );
-        return result
-            ? {
-                  r: parseInt(result[1], 16),
-                  g: parseInt(result[2], 16),
-                  b: parseInt(result[3], 16),
-              }
-            : null;
+        return currentColor
+            .replace(
+                /^#?([a-f\d])([a-f\d])([a-f\d])$/i,
+                (_, r, g, b) => `#${r}${r}${g}${g}${b}${b}`
+            )
+            .substring(1)
+            .match(/.{2}/g)
+            .map((x) => parseInt(x, 16));
     };
-    const colorpack = color ? dismantleColor() : null;
+    const colorpack = currentColor ? dismantleColor() : null;
     const lightervalues = Object.values(colorpack).map((rgbvalues) => {
         return rgbvalues + 20 > 255 ? rgbvalues : rgbvalues + 20;
     });
     const darkervalues = Object.values(colorpack).map((rgbvalues) => {
         return rgbvalues - 20 < 0 ? rgbvalues : rgbvalues - 20;
     });
-    const valueToHex = (value) => {
-        var hex = value.toString(16);
-        return hex.length === 1 ? "0" + hex : hex;
-    };
-    const rebuildColor = (r, g, b) => {
-        return "#" + valueToHex(r) + valueToHex(g) + valueToHex(b);
-    };
+
     const lightcolor = rebuildColor(
         lightervalues[0],
         lightervalues[1],
@@ -110,7 +85,7 @@ const ColorCube = ({ color, rotation }) => {
         darkervalues[2]
     );
     return (
-        <ColorCubeCard onClick={() => generateRandomColor()}>
+        <ColorCubeCard>
             <CubeHaus
                 rotation={
                     rotation
@@ -118,18 +93,21 @@ const ColorCube = ({ color, rotation }) => {
                         : "rotateX(250deg) rotateY(0deg) rotateZ(-135deg) translate(60px, 60px)"
                 }
             >
-                <CubeTop colorful={color ? lightcolor : "#fff"} />
-                <CubeFront colorful={color ? "transparent" : "transparent"} />
-                <CubeBack colorful={color ? currentColor : "#fefefe"} />
-                <CubeRight colorful={color ? darkcolor : "#eee"} />
-                <CubeLeft colorful={color ? "transparent" : "transparent"} />
-                <CubeBottom colorful={color ? "transparent" : "transparent"} />
+                <CubeTop colorful={currentColor ? lightcolor : "#fff"} />
+                <CubeFront
+                    colorful={currentColor ? currentColor : "transparent"}
+                />
+                <CubeBack colorful={currentColor ? currentColor : "#fefefe"} />
+                <CubeRight colorful={currentColor ? darkcolor : "#eee"} />
+                <CubeLeft
+                    colorful={currentColor ? currentColor : "transparent"}
+                />
+                <CubeBottom
+                    colorful={currentColor ? currentColor : "transparent"}
+                />
             </CubeHaus>
         </ColorCubeCard>
     );
 };
 export default ColorCube;
 
-// make a shadow or glow option, whichever is chosen will change background container's color.
-// glow is on dark using the color already provided
-// shade is on light

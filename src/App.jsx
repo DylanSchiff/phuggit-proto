@@ -212,7 +212,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////// Cube
 
 import styled from "styled-components";
-import ColorCube from "./components/colorcube/colorcube.component";
+import ColorCard from "./components/colorcube/color-card.component";
 const AppContainer = styled.div`
     min-height: 100vh;
     min-width: 100vw;
@@ -227,7 +227,7 @@ const AppContainer = styled.div`
 const App = () => {
     return (
         <AppContainer>
-            <ColorCube color="#2a2aa1" />
+            <ColorCard />
         </AppContainer>
     );
 };
