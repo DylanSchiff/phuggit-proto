@@ -168,6 +168,14 @@ const ColorCard = () => {
                         {darkcolor}
                     </DetailsInfo>
                 </DetailsDuo>
+                <DetailsDuo>
+                    <DetailsLabel color={isThemeBright ? "#111" : "#eee"}>
+                        Darker:
+                    </DetailsLabel>
+                    <DetailsInfo color={isThemeBright ? "#111" : "#eee"}>
+                        {darkercolor}
+                    </DetailsInfo>
+                </DetailsDuo>
             </ColorDetails>
         </ColorCardContainer>
     );
