@@ -126,7 +126,7 @@ const ColorCard = () => {
         >
             <ClapOn onClick={() => toggleThemeBrightness()}>
                 <ClapOnLabel color={isThemeBright ? "#111" : "#eee"}>
-                    {isThemeBright ? "See on dark" : "See in light"}
+                    {isThemeBright ? "See in dark" : "See in light"}
                 </ClapOnLabel>
             </ClapOn>
             <ColorCubeDisplay>
