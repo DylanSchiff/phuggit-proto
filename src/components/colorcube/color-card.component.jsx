@@ -73,7 +73,7 @@ const DetailsInfo = styled.span.attrs((props) => ({
 }))`
     user-select: none;
 `;
-
+const ShadowSlider = styled.input``;
 const ColorCard = () => {
     const [currentColor, setCurrentColor] = useState("#555555");
     const [isThemeBright, setIsThemeBright] = useState(true);
@@ -107,33 +107,41 @@ const ColorCard = () => {
         var hex = value.toString(16);
         return hex.length === 1 ? "0" + hex : hex;
     };
-    const rebuildColor = (r, g, b) => {
+    const buildHex = (r, g, b) => {
         return "#" + valueToHex(r) + valueToHex(g) + valueToHex(b);
     };
     const generateRandomColor = () => {
         const randomColor = { r: ran255(), g: ran255(), b: ran255() };
-        const randomColorHex = rebuildColor(
+        const randomColorHex = buildHex(
             randomColor.r,
             randomColor.g,
             randomColor.b
         );
         return setCurrentColor(randomColorHex);
     };
-    const lightcolor = rebuildColor(
+    const lightcolor = buildHex(
         lightervalues[0],
         lightervalues[1],
         lightervalues[2]
     );
-    const darkcolor = rebuildColor(
+    const darkcolor = buildHex(
         darkervalues[0],
         darkervalues[1],
         darkervalues[2]
     );
-    const darkercolor = rebuildColor(
+    const darkercolor = buildHex(
         evendarkervalues[0],
         evendarkervalues[1],
         evendarkervalues[2]
     );
+    const [shadowSliderValue, setShadowSliderValue] = useState("51");
+    // console.log(shadowSliderValue);
+
+    // const shadowLayersAmount = shadowSliderValue[0];
+    // const shadowLayers = ()=>{
+        
+    // }
+
     return (
         <ColorCardContainer
             backgroundcolor={isThemeBright ? "#eee" : "#111"}
@@ -177,15 +185,31 @@ const ColorCard = () => {
                     </DetailsInfo>
                 </DetailsDuo>
                 {hasEffects && (
-                    <DetailsDuo>
-                        <DetailsLabel color={isThemeBright ? "#111" : "#eee"}>
-                            Darker:
-                        </DetailsLabel>
+                    <>
+                        <DetailsDuo>
+                            <DetailsLabel
+                                color={isThemeBright ? "#111" : "#eee"}
+                            >
+                                Darker:
+                            </DetailsLabel>
 
-                        <DetailsInfo color={isThemeBright ? "#111" : "#eee"}>
-                            {darkercolor}
-                        </DetailsInfo>
-                    </DetailsDuo>
+                            <DetailsInfo
+                                color={isThemeBright ? "#111" : "#eee"}
+                            >
+                                {darkercolor}
+                            </DetailsInfo>
+                        </DetailsDuo>
+                        <ShadowSlider
+                            type="range"
+                            value={shadowSliderValue}
+                            min="0"
+                            max="99"
+                            step="1"
+                            onInput={(e) =>
+                                setShadowSliderValue(e.target.value)
+                            }
+                        />
+                    </>
                 )}
             </ColorDetails>
             <ClapOns>
