@@ -82,6 +82,32 @@ const DetailsInfo = styled.span.attrs((props) => ({
 const ShadowSlider = styled.input`
     flex: 1;
     width: 80px;
+    -webkit-appearance: none;
+    height: 25px;
+    background: #5555;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    border-radius: 15px;
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #fff5;
+        cursor: pointer;
+    }
+
+    &::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #fff5;
+        cursor: pointer;
+    }
 `;
 const ColorCard = () => {
     const [currentColor, setCurrentColor] = useState("#5c2fe6");
