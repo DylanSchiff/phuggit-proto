@@ -13,7 +13,7 @@ export const DATASHEET = {
     brandImageUrl: dogimage,
     notificationData: {
         notificationText:
-            "Time is ticking... we could be creating something amazing!",
+            "HEXA 0.0.1 is live! - Time is ticking... we could be creating something amazing!",
         notificationButtonText: "Connect with me",
     },
     splashData: {
@@ -257,8 +257,8 @@ export const DATASHEET = {
                 heading: "Upcoming",
                 scrollto: () => window.scrolltocontactsection(),
                 gisttext:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
-                // "New projects are in the oven, and the laboratory needs some love. During the next cycle, those are first.",
+                    // "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
+                    "HEXA 0.0.1 is live! New projects are in the oven, and the laboratory needs some love. During the next cycle, those are first.",
                 imageUrl: future,
             },
             {
@@ -266,8 +266,8 @@ export const DATASHEET = {
                 heading: "Latest",
                 scrollto: () => window.scrolltoappbodysection(),
                 gisttext:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
-                // "We're in the midst of a heavy development phase! As the showcase expansion unfolds, more optimization layers are being added in order to provide a better user experience.",
+                    // "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
+                    "We're in the midst of a heavy development phase! As the showcase expansion unfolds, more optimization layers are being added in order to provide a better user experience.",
                 imageUrl: present,
             },
             {
@@ -275,8 +275,8 @@ export const DATASHEET = {
                 heading: "Recent",
                 scrollto: () => window.scrolltoadditionalprojectssection(),
                 gisttext:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
-                // "A draft frame has been created during recent updates, and many projects have been prepared to ship.",
+                    // "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
+                    "A draft frame has been created during recent updates, and many projects have been prepared to ship.",
                 imageUrl: past,
             },
         ],

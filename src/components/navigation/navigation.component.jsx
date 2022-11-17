@@ -3,12 +3,12 @@ import PageSpan from "../page-span.component";
 import { DATASHEET } from "../DATASHEET";
 const AppNavbar = styled.div`
     position: sticky;
+    z-index: 999;
     top: 0;
     padding: 0 20px;
     width: 100vw;
     min-height: 50px;
     max-height: 50px;
-    /* box-shadow: var(--med-shadow); */
     border-bottom: 1px solid var(--fade-002);
     background-color: var(--main-col);
     display: flex;
