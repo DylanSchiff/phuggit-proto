@@ -1,37 +1,6 @@
 import styled from "styled-components";
 import PageSpan from "../page-span.component";
-import past from "../images/past.svg";
-import present from "../images/present.svg";
-import future from "../images/future.svg";
-const GISTS = [
-    {
-        id: "future-gist",
-        heading: "Upcoming",
-        scrollto: () => window.scrolltocontactsection(),
-        gisttext:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
-        // "New projects are in the oven, and the laboratory needs some love. During the next cycle, those are first.",
-        imageUrl: future,
-    },
-    {
-        id: "present-gist",
-        heading: "Latest",
-        scrollto: () => window.scrolltoappbodysection(),
-        gisttext:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
-        // "We're in the midst of a heavy development phase! As the showcase expansion unfolds, more optimization layers are being added in order to provide a better user experience.",
-        imageUrl: present,
-    },
-    {
-        id: "past-gist",
-        heading: "Recent",
-        scrollto: () => window.scrolltoadditionalprojectssection(),
-        gisttext:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
-        // "A draft frame has been created during recent updates, and many projects have been prepared to ship.",
-        imageUrl: past,
-    },
-];
+import { DATASHEET } from "../DATASHEET";
 const GistsContainer = styled.div`
     flex: 1;
     width: 100%;
@@ -132,7 +101,7 @@ const Gists = () => {
                 spantext="Snapshot"
             />
             <AllGists>
-                {GISTS.map((gist) => {
+                {DATASHEET.gistData.GISTS.map((gist) => {
                     const { id, heading, gisttext, imageUrl, scrollto } = gist;
                     return (
                         <Gist key={id}>

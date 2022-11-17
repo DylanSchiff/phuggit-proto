@@ -11,27 +11,33 @@ const LaboratoryContainer = styled.div`
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
+    border: 1px solid var(--fade-002);
+    background-color: var(--fade-001);
     /* background-color: var(--fade-004);
     box-shadow: inset 0 1px 3px var(--fade-001), inset 0 2px 5px var(--fade-001),
         inset 0 3px 8px var(--fade-002); */
 `;
-const Laboratory = ({ laboratoryVisible }) => {
+const Laboratory = ({ laboratoryVisible, demoProject }) => {
     return (
         <LaboratoryContainer display={laboratoryVisible ? "flex" : "none"}>
-            <PageSpan
-                fontsize="35px"
-                lineheight="35px"
-                fontweight="600"
-                padding="30px 20px"
-                fontsizeone="30px"
-                lineheightone="30px"
-                fontweightone="600"
-                fontsizesix="25px"
-                lineheightsix="25px"
-                fontweightsix="600"
-                textalignsix="center"
-                spantext="...coming soon"
-            />
+            {demoProject ? (
+                demoProject
+            ) : (
+                <PageSpan
+                    fontsize="35px"
+                    lineheight="35px"
+                    fontweight="600"
+                    padding="30px 20px"
+                    fontsizeone="30px"
+                    lineheightone="30px"
+                    fontweightone="600"
+                    fontsizesix="25px"
+                    lineheightsix="25px"
+                    fontweightsix="600"
+                    textalignsix="center"
+                    spantext="...coming soon"
+                />
+            )}
         </LaboratoryContainer>
     );
 };

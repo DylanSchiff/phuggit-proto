@@ -163,7 +163,7 @@ const Toolkit = ({ toolData }) => {
                 lineheightsix="25px"
                 fontweightsix="600"
                 textalignsix="center"
-                spantext="Connect with me right now"
+                spantext="It wouldn't be the same without you"
             />
             <ToolsContainer display={toolsVisible ? "grid" : "none"}>
                 {toolData.TOOLS.map((tool, index) => {

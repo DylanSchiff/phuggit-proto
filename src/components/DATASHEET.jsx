@@ -3,6 +3,10 @@ import northbound from "./images/northbound.svg";
 import websea from "./images/websea.svg";
 import hexa from "./images/hexa.svg";
 import reepo from "./images/repo.svg";
+import past from "./images/past.svg";
+import present from "./images/present.svg";
+import future from "./images/future.svg";
+import ColorCard from "./colorcube/color-card.component";
 
 export const DATASHEET = {
     brandName: "99E",
@@ -93,6 +97,7 @@ export const DATASHEET = {
             {
                 id: "3",
                 heading: "Hexa",
+                project: <ColorCard />,
                 subheading:
                     "Your favorite web style assistant, redesigned and ready to access from your browser.",
                 buttontext: "demo",
@@ -242,6 +247,37 @@ export const DATASHEET = {
                 isBordered: true,
                 imageUrl:
                     "https://static.vaadin.com/directory/user70309/icon/file3460235915593609009_1554052408926logo.png",
+            },
+        ],
+    },
+    gistData: {
+        GISTS: [
+            {
+                id: "future-gist",
+                heading: "Upcoming",
+                scrollto: () => window.scrolltocontactsection(),
+                gisttext:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
+                // "New projects are in the oven, and the laboratory needs some love. During the next cycle, those are first.",
+                imageUrl: future,
+            },
+            {
+                id: "present-gist",
+                heading: "Latest",
+                scrollto: () => window.scrolltoappbodysection(),
+                gisttext:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
+                // "We're in the midst of a heavy development phase! As the showcase expansion unfolds, more optimization layers are being added in order to provide a better user experience.",
+                imageUrl: present,
+            },
+            {
+                id: "past-gist",
+                heading: "Recent",
+                scrollto: () => window.scrolltoadditionalprojectssection(),
+                gisttext:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
+                // "A draft frame has been created during recent updates, and many projects have been prepared to ship.",
+                imageUrl: past,
             },
         ],
     },

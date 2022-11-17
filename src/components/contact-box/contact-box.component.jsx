@@ -12,14 +12,14 @@ const ContactBoxContainer = styled.div`
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    background-color: var(--main-002);
+    /* background-color: var(--main-002);
     background: linear-gradient(
         0deg,
         var(--main-001) 0%,
         var(--main-002) 30%,
         var(--main-002) 80%,
         var(--main-001) 100%
-    );
+    ); */
 `;
 const ContactButton = styled.a`
     margin-top: 30px;
@@ -27,14 +27,14 @@ const ContactButton = styled.a`
     border-radius: 10px;
     transition: 111ms linear;
     user-select: none;
-    color: ${({ color }) => color};
+    color: var(--main-text);
     font-size: 25px;
     font-weight: 500;
     text-transform: uppercase;
     &:hover {
-        color: var(--accent-001);
+        /* color: var(--accent-001);
         box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
-            0 3px 8px var(--fade-002);
+            0 3px 8px var(--fade-002); */
     }
 `;
 const ContactBox = () => {

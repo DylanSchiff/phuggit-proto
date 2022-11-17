@@ -8,7 +8,7 @@ const PopContainer = styled.div`
     position: relative;
     transform-style: preserve-3d;
     perspective: 10px;
-    background-color: #e9f1f605;
+    background-color: #aaf1;
     outline: none;
     border-radius: 10px;
     min-height: 50px;
@@ -30,6 +30,7 @@ const PopContainer = styled.div`
 `;
 
 const PopHolographic = styled.div`
+    z-index: 3;
     position: absolute;
     max-height: 300px;
     max-width: 300px;
@@ -38,9 +39,9 @@ const PopHolographic = styled.div`
     background: linear-gradient(
         145deg,
         transparent 38%,
-        #ffffff33 40%,
-        #add8e633 45%,
-        #ffffff33 50%,
+        #fff 40%,
+        #0051 45%,
+        #0054 50%,
         transparent 52%
     );
     transform: ${({ holographicMovement }) => holographicMovement};
@@ -49,6 +50,7 @@ const PopHolographic = styled.div`
 `;
 
 const PopImageContainer = styled.div`
+    z-index: 2;
     position: static;
     min-height: 40px;
     min-width: 40px;
@@ -58,17 +60,11 @@ const PopImageContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border-radius: 50%; */
-    /* background-color: lightblue; */
     opacity: ${({ opac }) => opac};
     transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
 `;
 
 const PopImage = styled.img`
-    /* min-height: 30px;
-    min-width: 30px;
-    max-height: 30px;
-    max-width: 30px; */
     min-height: 40px;
     min-width: 40px;
     max-height: 40px;
@@ -90,7 +86,7 @@ const movedShadow =
     "0 1px 3px #0002, 0 2px 5px #0002, 0 3px 8px #0002, 0 5px 11px #0002, 0 8px 15px #0002, inset 0 1px 3px #0002, inset 0 2px 5px #0002, inset 0 3px 8px #0002, inset 0 5px 11px #0002, inset 0 8px 15px #0002";
 
 const unmovedOpacity = "0.8";
-const movedOpacity = "1";
+const movedOpacity = ".9";
 
 const Pop = ({ pop, isSelected, isContactPop }) => {
     const { imageUrl } = pop;

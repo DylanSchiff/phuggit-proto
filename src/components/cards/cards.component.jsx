@@ -156,7 +156,11 @@ const CardTagImage = styled.img`
     user-select: none;
 `;
 const CardTagHeadingContainer = styled.div``;
-const Cards = ({ cards }) => {
+const Cards = ({ cards, setChosenDemoId }) => {
+    const cardDemo = (id) => {
+        setChosenDemoId(id);
+        window.scrolltolabsection();
+    };
     return (
         <AllCards>
             {cards.map((card) => {
@@ -189,9 +193,7 @@ const Cards = ({ cards }) => {
                         </CardHeadingContainer>
                         <CardTagsButtonFlipper>
                             <CardButtonContainer>
-                                <CardButton
-                                    onClick={() => window.scrolltolabsection()}
-                                >
+                                <CardButton onClick={() => cardDemo(id)}>
                                     {buttontext}
                                 </CardButton>
                             </CardButtonContainer>

@@ -90,7 +90,6 @@ const ShadowSlider = styled.input`
     -webkit-transition: 0.2s;
     transition: opacity 0.2s;
     border-radius: 15px;
-
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
@@ -100,7 +99,6 @@ const ShadowSlider = styled.input`
         background: #fff5;
         cursor: pointer;
     }
-
     &::-moz-range-thumb {
         width: 25px;
         height: 25px;
