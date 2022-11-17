@@ -5,7 +5,7 @@
     --fade-004: #0004;
 
     --main-accent: #99bafd;
-    --main-accent: linear-gradient(90deg, #111 0%, #111 50%, #222 100%);
+    /* --main-accent: linear-gradient(90deg, #111 0%, #111 50%, #222 100%); */
     --main-color: #fff;
     --main-text: #777;
     --med-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
