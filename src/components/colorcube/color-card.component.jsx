@@ -177,7 +177,6 @@ const ColorCard = () => {
     const shadowLayers = () => {
         const shadowLayersArray = [];
         for (let index = 0; index < shadowLayersAmount; index++) {
-            // if (index % 2 === 0) {
             shadowLayersArray.push(
                 `0 0 ${Math.ceil(index * 3.777)}px ${
                     hasEffects
@@ -189,7 +188,6 @@ const ColorCard = () => {
                         : "transparent"
                 }`
             );
-            // }
         }
         return shadowLayersArray;
     };
@@ -319,7 +317,3 @@ const ColorCard = () => {
     );
 };
 export default ColorCard;
-
-// make a shadow or glow option, whichever is chosen will change background container's color.
-// glow is on dark using the color already provided
-// shade is on light

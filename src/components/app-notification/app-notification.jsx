@@ -33,7 +33,7 @@ const ANotification = ({notificationData}) => {
                     fontsizesix="10px"
                 />
                 <AppNotificationLink
-                    onClick={() => window.scrolltotoolkitsection()}
+                    onClick={() => window.scrolltocontactsection()}
                 >
                     <PageSpan
                         // color="var(--accent-004)"
