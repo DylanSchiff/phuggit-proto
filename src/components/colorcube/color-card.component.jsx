@@ -222,20 +222,18 @@ const ColorCard = () => {
                     </ClapOn>
                 )}
             </ClapOns>
+            {hasEffects && (
+                <ShadowSlider
+                    type="range"
+                    value={shadowSliderValue}
+                    min="0"
+                    max="99"
+                    step="1"
+                    onInput={(e) => setShadowSliderValue(e.target.value)}
+                />
+            )}
             {hasDetails && (
                 <ColorDetails>
-                    {hasEffects && (
-                        <ShadowSlider
-                            type="range"
-                            value={shadowSliderValue}
-                            min="0"
-                            max="99"
-                            step="1"
-                            onInput={(e) =>
-                                setShadowSliderValue(e.target.value)
-                            }
-                        />
-                    )}
                     <DetailsDuo>
                         <DetailsLabel color={isThemeBright ? "#111" : "#eee"}>
                             Light:
