@@ -4,7 +4,7 @@ import ColorCube from "./colorcube.component";
 const ColorCardContainer = styled.div.attrs((props) => ({
     style: {
         backgroundColor: props.backgroundcolor,
-        border: "1px solid " + props.bordercolor,
+        border: "3px solid " + props.bordercolor,
     },
 }))`
     width: 300px;
@@ -239,23 +239,29 @@ const ColorCard = () => {
                         {hasDetails ? "Details ON" : "Details OFF"}
                     </ClapOnLabel>
                 </ClapOn>
-                <ClapOn onClick={() => toggleThemeBrightness()}>
-                    <ClapOnLabel color={isThemeBright ? "#111" : "#eee"}>
-                        {isThemeBright ? "Use Glow" : "Use Shade"}
-                    </ClapOnLabel>
-                </ClapOn>
+
                 {hasEffects && (
-                    <ShadowSlider
-                        type="range"
-                        value={shadowSliderValue}
-                        min="0"
-                        max="99"
-                        step="1"
-                        onInput={(e) => setShadowSliderValue(e.target.value)}
-                    />
+                    <>
+                        <ClapOn onClick={() => toggleThemeBrightness()}>
+                            <ClapOnLabel
+                                color={isThemeBright ? "#111" : "#eee"}
+                            >
+                                {isThemeBright ? "Use Glow" : "Use Shade"}
+                            </ClapOnLabel>
+                        </ClapOn>
+                        <ShadowSlider
+                            type="range"
+                            value={shadowSliderValue}
+                            min="0"
+                            max="99"
+                            step="1"
+                            onInput={(e) =>
+                                setShadowSliderValue(e.target.value)
+                            }
+                        />
+                    </>
                 )}
             </ClapOns>
-
             {hasDetails && (
                 <ColorDetails>
                     <DetailsDuo>
