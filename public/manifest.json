@@ -3,17 +3,17 @@
     "name": "99e",
     "icons": [
         {
-            "src": "dog.svg",
+            "src": "logo.svg",
             "sizes": "64x64 32x32 24x24 16x16",
             "type": "image/svg"
         },
         {
-            "src": "dog.svg",
+            "src": "logo.svg",
             "type": "image/svg",
             "sizes": "192x192"
         },
         {
-            "src": "dog.svg",
+            "src": "logo.svg",
             "type": "image/svg",
             "sizes": "512x512"
         }

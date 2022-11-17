@@ -1,31 +1,11 @@
 :root {
-    /* --main-001: #111;
-    --main-002: #222;
-    --main-003: #333;
-    --main-004: #444;
-
-    --white-001: #fff;
-    --white-002: #fcfcfc;
-    --white-003: #efefef;
-    --white-004: #eaeaea;
-
-    --accent-001: #b4d3fb;
-    --accent-002: #aac8ec;
-    --accent-003: #7f97b3;
-    --accent-004: #57697b;
-    --accent-005: #aaf;
-*/
-
-    /* --glow-001: #c6e8de;
-    --glow-002: #c3fbea;
-    --glow-003: #dffbf2;  */
-
     --fade-001: #0001;
     --fade-002: #0002;
     --fade-003: #0003;
     --fade-004: #0004;
 
-    --main-col: #fff;
+    --main-accent: #99bafd;
+    --main-color: #fff;
     --main-text: #777;
     --med-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
         0 3px 8px var(--fade-002);

@@ -13,6 +13,8 @@ const AppSplash = styled.section`
     flex-flow: row nowrap;
     align-items: center;
     border: 1px solid var(--fade-002);
+    box-shadow: var(--med-shadow);
+    background-color: var(--main-color);
     @media only screen and (max-width: 1000px) {
         flex-flow: column nowrap;
         align-items: center;
@@ -133,12 +135,14 @@ const SplashImageContainer = styled.div`
     }
 `;
 const SplashImage = styled.img`
-    height: 100%;
-    width: 100%;
+    height: 80%;
+    width: 80%;
     object-fit: cover;
     user-select: none;
     @media only screen and (max-width: 1000px) {
         margin-top: 50px;
+        height: 100%;
+        width: 100%;
     }
 `;
 

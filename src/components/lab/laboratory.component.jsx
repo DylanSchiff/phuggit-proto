@@ -12,10 +12,8 @@ const LaboratoryContainer = styled.div`
     align-items: center;
     justify-content: center;
     border: 1px solid var(--fade-002);
-    background-color: var(--fade-001);
-    /* background-color: var(--fade-004);
-    box-shadow: inset 0 1px 3px var(--fade-001), inset 0 2px 5px var(--fade-001),
-        inset 0 3px 8px var(--fade-002); */
+    background-color: var(--main-color);
+    box-shadow: var(--med-shadow);
 `;
 const Laboratory = ({ laboratoryVisible, demoProject }) => {
     return (

@@ -21,6 +21,7 @@ const PopContainer = styled.div`
     justify-content: center;
     align-items: center;
     border: 0.5px solid #ffffff55;
+    background-color: var(--main-color);
     cursor: pointer;
     transition: 500ms cubic-bezier(0.79, 0.51, 0.43, 0.92);
     transform: scale(0.99) ${({ popMovement }) => popMovement};

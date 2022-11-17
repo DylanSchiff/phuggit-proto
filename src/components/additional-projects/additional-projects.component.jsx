@@ -28,12 +28,14 @@ const AddProjectContainer = styled.div`
     width: 100%;
     padding: 10px;
     cursor: pointer;
+    border-radius: 25px;
+    border: 1px solid var(--fade-002);
+    box-shadow: var(--med-shadow);
+    background-color: var(--main-color);
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    border-radius: 25px;
-    border: 1px solid var(--fade-002);
 `;
 const AddProjectImageContainer = styled.div`
     max-height: 150px;

@@ -9,11 +9,13 @@ const ToolkitContainer = styled.div`
     border-radius: 25px;
     overflow: hidden;
     transition: 111ms linear;
+    border: 1px solid var(--fade-002);
+    box-shadow: var(--med-shadow);
+    background-color: var(--main-color);
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: flex-start;
-    border: 1px solid var(--fade-002);
 `;
 
 const ToolsButton = styled.div`

@@ -15,6 +15,7 @@ const AllCards = styled.div`
         border-radius: 25px;
         overflow: hidden;
         border: 1px solid var(--fade-002);
+        box-shadow: var(--med-shadow);
     }
 `;
 const Card = styled.div`
@@ -25,15 +26,8 @@ const Card = styled.div`
     border-radius: 25px;
     transition: 111ms linear;
     border: 1px solid var(--fade-002);
-    /* border: 1px solid var(--fade-002);
-    background-color: var(--white-001);
-    background: linear-gradient(
-        0deg,
-        var(--white-001) 0%,
-        var(--white-002) 100%
-    );
-    box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
-        0 3px 8px var(--fade-002); */
+    box-shadow: var(--med-shadow);
+    background-color: var(--main-color);
     display: flex;
     flex-flow: column nowrap;
     align-items: center;

@@ -27,7 +27,7 @@ import Splash from "./components/splash/splash.component";
 import Cards from "./components/cards/cards.component";
 import AdditionalProjects from "./components/additional-projects/additional-projects.component";
 import ANotification from "./components/app-notification/app-notification";
-import Navibar from "./components/navigation/navigation.component";
+import Navibar from "./components/app-navigation/app-navigation.component";
 import Toolkit from "./components/toolkit/toolkit.component";
 import Laboratory from "./components/lab/laboratory.component";
 import Gists from "./components/gists/gists.component";
@@ -42,6 +42,7 @@ const PageContainer = styled.div`
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+    background-color: var(--main-accent);
     @media only screen and (min-width: 1000px) {
         align-items: center;
     }
@@ -73,6 +74,8 @@ const BackToTopButton = styled.div`
     border-radius: 7.5px;
     font-size: 10px;
     color: var(--white-001);
+    background-color: var(--main-color);
+    box-shadow: var(--med-shadow);
     font-weight: 600;
     user-select: none;
     transition: 111ms linear;
@@ -103,6 +106,8 @@ const LabButton = styled.div`
     transition: 111ms linear;
     cursor: pointer;
     border: 1px solid var(--fade-002);
+    box-shadow: var(--med-shadow);
+    background-color: var(--main-color);
     @media only screen and (max-width: 1000px) {
         font-size: 20px;
     }
@@ -171,6 +176,7 @@ const App = () => {
                 <Splash splashData={DATASHEET.splashData} />
                 <AppBodySection ref={appbodysection}>
                     <PageSpan
+                        // color="var(--main-color)"
                         fontsize="35px"
                         lineheight="35px"
                         fontweight="600"

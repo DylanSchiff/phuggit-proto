@@ -1,16 +1,16 @@
-import dogimage from "./images/dog.svg";
-import northbound from "./images/northbound.svg";
-import websea from "./images/websea.svg";
-import hexa from "./images/hexa.svg";
 import reepo from "./images/repo.svg";
-import past from "./images/past.svg";
-import present from "./images/present.svg";
-import future from "./images/future.svg";
+import logo from "./images/logo.svg";
+import northbound from "./images/walkingoutside.svg";
+import websea from "./images/developing.svg";
+import hexa from "./images/palette.svg";
+import past from "./images/cabin.svg";
+import present from "./images/projections.svg";
+import future from "./images/outerspace.svg";
 import ColorCard from "./colorcube/color-card.component";
 
 export const DATASHEET = {
     brandName: "99E",
-    brandImageUrl: dogimage,
+    brandImageUrl: logo,
     notificationData: {
         notificationText:
             "HEXA 0.0.1 is live! - Time is ticking... we could be creating something amazing!",
@@ -21,7 +21,7 @@ export const DATASHEET = {
         splashSubheadingText: "Content generation should be simple.",
         splashFirstButtonText: "explore",
         splashSecondButtonText: "learn more",
-        splashImageUrl: dogimage,
+        splashImageUrl: logo,
     },
     cardData: {
         cardsHeader: "Experiment with recent lab projects",

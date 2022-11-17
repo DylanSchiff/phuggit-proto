@@ -7,6 +7,7 @@ const AppNotificationBanner = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 `;
 const AppNotification = styled.span`
     /* color: var(--accent-004); */
