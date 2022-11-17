@@ -31,7 +31,7 @@ const CubeSide = styled.div`
 `;
 const CubeTop = styled(CubeSide).attrs((props) => ({
     style: {
-        backgroundColor: props.colorful,
+        background: props.colorful,
     },
 }))`
     transform: translateZ(-60px);
@@ -42,7 +42,7 @@ const CubeBottom = styled(CubeSide)`
 `;
 const CubeRight = styled(CubeSide).attrs((props) => ({
     style: {
-        backgroundColor: props.colorful,
+        background: props.colorful,
     },
 }))`
     transform: rotateX(90deg);
@@ -50,7 +50,7 @@ const CubeRight = styled(CubeSide).attrs((props) => ({
 `;
 const CubeLeft = styled(CubeSide).attrs((props) => ({
     style: {
-        backgroundColor: props.colorful,
+        background: props.colorful,
     },
 }))`
     transform: rotateX(90deg) translateZ(60px);
@@ -58,7 +58,7 @@ const CubeLeft = styled(CubeSide).attrs((props) => ({
 `;
 const CubeBack = styled(CubeSide).attrs((props) => ({
     style: {
-        backgroundColor: props.colorful,
+        background: props.colorful,
     },
 }))`
     width: 60px;
@@ -67,17 +67,27 @@ const CubeBack = styled(CubeSide).attrs((props) => ({
 `;
 const CubeFront = styled(CubeSide).attrs((props) => ({
     style: {
-        backgroundColor: props.colorful,
+        background: props.colorful,
     },
 }))`
     width: 60px;
     transform: translateZ(-60px) rotateY(90deg) translateZ(-60px);
     transform-origin: right;
 `;
-
+const CubeText = styled.div.attrs((props) => ({
+    style: {
+        transform: props.transform,
+    },
+}))`
+    rotate: 90deg;
+    font-weight: 600;
+    font-size: 10px;
+    user-select: none;
+    color: #0005;
+`;
 const ColorCube = ({
     rotation,
-    isThemeBright,
+    // isThemeBright,
     hasEffects,
     currentColor,
     generateRandomColor,
@@ -85,6 +95,7 @@ const ColorCube = ({
     darkcolor,
     darkercolor,
     shadowString,
+    hasLabels,
 }) => {
     return (
         <ColorCubeCard onClick={() => generateRandomColor()}>
@@ -96,20 +107,40 @@ const ColorCube = ({
                         : "rotateX(250deg) rotateY(0deg) rotateZ(-135deg) translate(60px, 60px)"
                 }
             >
-                <CubeTop colorful={currentColor ? lightcolor : "#fff"} />
-                <CubeFront
-                    colorful={currentColor ? darkercolor : "transparent"}
-                />
-                <CubeBack colorful={currentColor ? currentColor : "#fefefe"} />
-                <CubeRight colorful={hasEffects ? "transparent" : darkcolor} />
-                <CubeLeft
-                    colorful={currentColor ? currentColor : "transparent"}
-                />
-                <CubeBottom
-                    colorful={currentColor ? darkcolor : "transparent"}
-                />
+                <CubeTop colorful={lightcolor}>
+                    <CubeText transform="rotate(180deg) translateX(-15px)">
+                        {hasLabels ? lightcolor : null}
+                    </CubeText>
+                </CubeTop>
+                <CubeFront colorful={darkercolor}>
+                    <CubeText transform="translateX(30px)">
+                        {hasLabels ? darkercolor : null}
+                    </CubeText>
+                </CubeFront>
+                <CubeBack colorful={currentColor}>
+                    <CubeText transform="translateX(30px)">
+                        {hasLabels ? currentColor : null}
+                    </CubeText>
+                </CubeBack>
+                <CubeRight colorful={hasEffects ? "transparent" : darkcolor}>
+                    {!hasEffects && (
+                        <CubeText transform="rotate(90deg) rotateX(180deg) translate(10px,25px)">
+                            {hasLabels ? darkcolor : null}
+                        </CubeText>
+                    )}
+                </CubeRight>
+                <CubeLeft colorful={currentColor} />
+                <CubeBottom colorful={darkcolor}>
+                    <CubeText transform="translate(30px, 5px)">
+                        {hasLabels ? darkcolor : null}
+                    </CubeText>
+                </CubeBottom>
             </CubeHaus>
         </ColorCubeCard>
     );
 };
 export default ColorCube;
+
+// <CubeFront
+// colorful={currentColor ? darkercolor : "transparent"}
+// />
