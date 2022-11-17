@@ -79,7 +79,10 @@ const DetailsInfo = styled.span.attrs((props) => ({
     text-align: center;
     font-weight: 300;
 `;
-const ShadowSlider = styled.input``;
+const ShadowSlider = styled.input`
+    flex: 1;
+    width: 80px;
+`;
 const ColorCard = () => {
     const [currentColor, setCurrentColor] = useState("#5c2fe6");
     const [isThemeBright, setIsThemeBright] = useState(true);
@@ -214,24 +217,23 @@ const ColorCard = () => {
                         {hasDetails ? "Details ON" : "Details OFF"}
                     </ClapOnLabel>
                 </ClapOn>
+                <ClapOn onClick={() => toggleThemeBrightness()}>
+                    <ClapOnLabel color={isThemeBright ? "#111" : "#eee"}>
+                        {isThemeBright ? "Use Glow" : "Use Shade"}
+                    </ClapOnLabel>
+                </ClapOn>
                 {hasEffects && (
-                    <ClapOn onClick={() => toggleThemeBrightness()}>
-                        <ClapOnLabel color={isThemeBright ? "#111" : "#eee"}>
-                            {isThemeBright ? "Use Glow" : "Use Shade"}
-                        </ClapOnLabel>
-                    </ClapOn>
+                    <ShadowSlider
+                        type="range"
+                        value={shadowSliderValue}
+                        min="0"
+                        max="99"
+                        step="1"
+                        onInput={(e) => setShadowSliderValue(e.target.value)}
+                    />
                 )}
             </ClapOns>
-            {hasEffects && (
-                <ShadowSlider
-                    type="range"
-                    value={shadowSliderValue}
-                    min="0"
-                    max="99"
-                    step="1"
-                    onInput={(e) => setShadowSliderValue(e.target.value)}
-                />
-            )}
+
             {hasDetails && (
                 <ColorDetails>
                     <DetailsDuo>
