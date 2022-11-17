@@ -198,7 +198,7 @@ const ColorCard = () => {
         shadowLayersArray.length > 0 ? shadowLayersArray.toString() : "none";
     return (
         <ColorCardContainer
-            backgroundcolor={isThemeBright ? "#eaeaea" : "#222"}
+            backgroundcolor={isThemeBright ? "#fff" : "#222"}
             bordercolor={isThemeBright ? darkercolor : lightcolor}
         >
             <ColorCubeDisplay>
