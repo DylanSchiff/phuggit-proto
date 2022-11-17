@@ -3,6 +3,7 @@ import PageSpan from "../page-span.component";
 const AllCards = styled.div`
     flex: 1;
     width: 100%;
+    max-width: 1500px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 25px;

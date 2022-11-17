@@ -4,6 +4,7 @@ import PageSpan from "../page-span.component";
 const ToolkitContainer = styled.div`
     flex: 1;
     width: 100%;
+    max-width: 1500px;
     margin-bottom: 50px;
     padding-top: 50px;
     border-radius: 25px;
