@@ -3,9 +3,15 @@ import styled from "styled-components";
 import { ColorContext } from "../../ap/context/color.context";
 import PopTray from "../pop/pop-tray.component";
 import { PopContext } from "../pop/pop.context";
-const ContactBoxContainer = styled.div`
+const ContactBoxContainer = styled.div.attrs((props) => ({
+    style: {
+        borderBottom: "3px solid" + props.currentColor,
+    },
+}))`
     overflow: hidden;
     border-radius: 25px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     padding: 50px 0;
     flex: 1;
     width: 100%;
@@ -13,14 +19,8 @@ const ContactBoxContainer = styled.div`
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    /* background-color: var(--main-002);
-    background: linear-gradient(
-        0deg,
-        var(--main-001) 0%,
-        var(--main-002) 30%,
-        var(--main-002) 80%,
-        var(--main-001) 100%
-    ); */
+    background-color: var(--main-004);
+    box-shadow: var(--shade-001);
 `;
 const ContactButton = styled.a.attrs((props) => ({
     style: {
@@ -52,7 +52,7 @@ const ContactBox = () => {
             behavior: "smooth",
         });
     return (
-        <ContactBoxContainer ref={contactsection}>
+        <ContactBoxContainer ref={contactsection} currentColor={currentColor}>
             <PopTray />
             <ContactButton
                 href={currentPop ? currentPop.path : null}

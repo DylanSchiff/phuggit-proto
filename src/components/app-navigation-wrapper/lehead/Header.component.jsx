@@ -8,7 +8,12 @@ import {
     signInWithGooglePopup,
     signOutUser,
 } from "../../../ap/utils/firebase.utils";
-const HeaderContainer = styled.div`
+import { ColorContext } from "../../../ap/context/color.context";
+const HeaderContainer = styled.div.attrs((props) => ({
+    style: {
+        borderTop: "1px solid" + props.currentColor,
+    },
+}))`
     z-index: 999;
     position: sticky;
     top: 0;
@@ -23,6 +28,7 @@ const HeaderContainer = styled.div`
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    transition: 111ms linear;
 `;
 const HeaderBrandingContainer = styled.div`
     padding: 0 20px;
@@ -71,8 +77,9 @@ const NavButton = styled.div`
 `;
 const Header = () => {
     const { currentUser } = useContext(UserContext);
+    const { currentColor } = useContext(ColorContext);
     return (
-        <HeaderContainer>
+        <HeaderContainer currentColor={currentColor}>
             <HeaderBrandingContainer>
                 <HeaderImageContainer
                     onClick={() => window.scrolltoheadsection()}

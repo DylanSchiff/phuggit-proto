@@ -10,6 +10,7 @@ import Toolkit from "../toolkit/toolkit.component";
 import Laboratory from "../lab/laboratory.component";
 import Gists from "../gists/gists.component";
 import { ColorContext } from "../../ap/context/color.context";
+import phuggit from "../../phuggitlogo.png";
 
 const PageContainer = styled.div`
     min-height: 100vh;
@@ -20,6 +21,11 @@ const PageContainer = styled.div`
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+    background-image: url(${({ phuggit }) => phuggit});
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     @media only screen and (min-width: 1000px) {
         align-items: center;
     }
@@ -73,7 +79,11 @@ const LabButtons = styled.div`
     align-items: center;
     justify-content: center;
 `;
-const LabButton = styled.div`
+const LabButton = styled.div.attrs((props) => ({
+    style: {
+        backgroundColor: props.currentColor,
+    },
+}))`
     padding: 15px 20px;
     margin: 10px;
     outline: none;
@@ -141,11 +151,12 @@ const Home = () => {
     });
     const demoProject = demoProjects.filter((obj) => obj)[0];
     return (
-        <PageContainer ref={headsection}>
+        <PageContainer ref={headsection} phuggit={phuggit}>
             <ANotification notificationData={DATASHEET.notificationData} />
             <Splash splashData={DATASHEET.splashData} />
             <AppBodySection ref={appbodysection}>
                 <PageSpan
+                    color={currentColor}
                     fontsize="35px"
                     lineheight="35px"
                     fontweight="600"
@@ -168,13 +179,17 @@ const Home = () => {
                 />
                 <LabButtons ref={additionalprojectssection}>
                     <LabButton
+                        currentColor={currentColor}
                         onClick={() => toggleAdditionalProjectsVisible()}
                     >
                         {additionalProjectsVisible
                             ? "Less Projects"
                             : "See Projects"}
                     </LabButton>
-                    <LabButton onClick={() => toggleLaboratoryVisible()}>
+                    <LabButton
+                        currentColor={currentColor}
+                        onClick={() => toggleLaboratoryVisible()}
+                    >
                         {laboratoryVisible ? "Close Lab" : "Laboratory"}
                     </LabButton>
                 </LabButtons>

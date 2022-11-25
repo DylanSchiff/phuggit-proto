@@ -14,7 +14,7 @@ import {
 import Span from "../reusable/Span.component";
 const NoteInputsContainer = styled.div.attrs((props) => ({
     style: {
-        borderTop: "5px solid" + props.currentColor,
+        borderTop: "1px solid" + props.currentColor,
     },
 }))`
     background-color: var(--main-001);
