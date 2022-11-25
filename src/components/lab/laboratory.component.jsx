@@ -37,8 +37,22 @@ const Laboratory = ({ laboratoryVisible, demoProject, setChosenDemoId }) => {
             {currentUser && demoProject && (
                 <DemoContainer>
                     <CloseDemoButton onClick={() => setChosenDemoId(null)}>
-                        x {demoProject}
+                        <PageSpan
+                            fontsize="35px"
+                            lineheight="35px"
+                            fontweight="600"
+                            padding="30px 20px"
+                            fontsizeone="30px"
+                            lineheightone="30px"
+                            fontweightone="600"
+                            fontsizesix="25px"
+                            lineheightsix="25px"
+                            fontweightsix="600"
+                            textalignsix="center"
+                            spantext="x"
+                        />
                     </CloseDemoButton>
+                    {demoProject}
                 </DemoContainer>
             )}
             {currentUser ? (
