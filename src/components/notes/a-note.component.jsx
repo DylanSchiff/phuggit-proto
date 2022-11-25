@@ -50,7 +50,7 @@ const ListItemTitle = styled.div.attrs((props) => ({
 `;
 const ListItemSubitles = styled.div`
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     align-items: flex-end;
     @media only screen and (max-width: 600px) {
         text-align: center;

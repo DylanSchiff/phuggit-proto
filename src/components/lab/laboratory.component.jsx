@@ -28,7 +28,38 @@ const DemoContainer = styled.div``;
 const CloseDemoButton = styled.div``;
 const Laboratory = ({ laboratoryVisible, demoProject, setChosenDemoId }) => {
     const { currentColor } = useContext(ColorContext);
-    const { currentUser } = useContext(UserContext);
+    const { currentUser, userMap } = useContext(UserContext);
+
+    // if there's a user in context, sort them out to correct page
+    const userRouter = () => {
+        const { admins, supports, leads, peers } = userMap;
+        const allUsers = admins ? admins.concat(supports, leads, peers) : [];
+        // if user is in system by email, check tier
+        const userInSystemTier = allUsers
+            .map((user) => {
+                return currentUser.email.toLowerCase() ===
+                    user.email.toLowerCase()
+                    ? user.tier
+                    : false;
+            })
+            .filter((userTiers) => userTiers)
+            .join(", ");
+        // based on tier, return proper page action
+        if (parseFloat(userInSystemTier) < 3) {
+            // if it's an admin, do this stuff
+            return true;
+        } else if (parseFloat(userInSystemTier) > 2) {
+            // if it's a peer on the list, do this stuff
+            return true;
+        } else {
+            // if you're not on the list, do this stuff
+            return false;
+        }
+    };
+    // directs initial traffic using above
+    // if null, go back to auth panel, else use the userrouter to determine
+    const userCanPost = currentUser === null ? false : userRouter();
+
     return (
         <LaboratoryContainer
             currentColor={currentColor}
@@ -56,7 +87,7 @@ const Laboratory = ({ laboratoryVisible, demoProject, setChosenDemoId }) => {
                 </DemoContainer>
             )}
             {currentUser ? (
-                <NotesHaus />
+                <NotesHaus userCanPost={userCanPost} />
             ) : (
                 <PageSpan
                     fontsize="35px"

@@ -82,7 +82,7 @@ const Header = () => {
             </HeaderBrandingContainer>
             <NavControls>
                 <NavButton onClick={() => window.scrolltocontactsection()}>
-                    CONNECT
+                    Contact
                 </NavButton>
                 <NavButton
                     onClick={

@@ -10,7 +10,6 @@ const ToolkitContainer = styled.div.attrs((props) => ({
     box-shadow: var(--shade-001);
     background-color: var(--main-002);
     transition: 111ms linear;
-
     flex: 1;
     width: 100%;
     max-width: 1500px;

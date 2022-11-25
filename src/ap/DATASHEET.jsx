@@ -258,7 +258,7 @@ export const DATASHEET = {
                 scrollto: () => window.scrolltocontactsection(),
                 gisttext:
                     // "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
-                    "HEXA 0.0.1 is live! New projects are in the oven, and the laboratory needs some love. During the next cycle, those are first.",
+                    "The laboratory needs some love, HEXA 0.0.1 is live, and more projects are cookin' in the oven. Stay tuned for more!",
                 imageUrl: future,
             },
             {
@@ -267,7 +267,7 @@ export const DATASHEET = {
                 scrollto: () => window.scrolltoappbodysection(),
                 gisttext:
                     // "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
-                    "We're in the midst of a heavy development phase! As the showcase expansion unfolds, more optimization layers are being added in order to provide a better user experience.",
+                    "Heavy development phase! As the showcase expansion unfolds, more optimization layers are being added in order to provide a better user experience.",
                 imageUrl: present,
             },
             {
@@ -276,7 +276,7 @@ export const DATASHEET = {
                 scrollto: () => window.scrolltoadditionalprojectssection(),
                 gisttext:
                     // "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto labore doloremque, voluptatem consectetur ipsum cupiditate fugit pariatur, sequi, reiciendis impedit ipsa nostrum quas similique quia vel eum asperiores molestiae quam.",
-                    "A draft frame has been created during recent updates, and many projects have been prepared to ship.",
+                    "Theme overhaul has begun! A draft frame has been created during recent updates, and many projects have been prepared to ship.",
                 imageUrl: past,
             },
         ],

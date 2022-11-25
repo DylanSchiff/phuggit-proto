@@ -13,8 +13,8 @@ const NotesHaus = styled.div`
     align-items: center;
     justify-content: center;
 `;
-const Notes = () => {
-    const { currentUser, isAuthed } = useContext(UserContext);
+const Notes = ({ userCanPost }) => {
+    const { currentUser } = useContext(UserContext);
     const { notesMap } = useContext(NotesContext);
     const allNotes =
         notesMap &&
@@ -25,7 +25,7 @@ const Notes = () => {
         currentUser && (
             <NotesHaus>
                 <NotesDisplay allNotes={allNotes} />
-                {isAuthed && <NoteInputs />}
+                {userCanPost && <NoteInputs />}
             </NotesHaus>
         )
     );
