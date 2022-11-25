@@ -1,5 +1,6 @@
 import { useContext, useRef } from "react";
 import styled from "styled-components";
+import { ColorContext } from "../../ap/context/color.context";
 import PopTray from "../pop/pop-tray.component";
 import { PopContext } from "../pop/pop.context";
 const ContactBoxContainer = styled.div`
@@ -21,13 +22,17 @@ const ContactBoxContainer = styled.div`
         var(--main-001) 100%
     ); */
 `;
-const ContactButton = styled.a`
+const ContactButton = styled.a.attrs((props) => ({
+    style: {
+        color: props.currentColor,
+    },
+}))`
+    transition: 111ms;
     margin-top: 30px;
     cursor: pointer;
     border-radius: 10px;
     transition: 111ms linear;
     user-select: none;
-    color: var(--main-text);
     font-size: 25px;
     font-weight: 500;
     text-transform: uppercase;
@@ -39,6 +44,7 @@ const ContactButton = styled.a`
 `;
 const ContactBox = () => {
     const { currentPop } = useContext(PopContext);
+    const { currentColor } = useContext(ColorContext);
     const contactsection = useRef(null);
     window.scrolltocontactsection = () =>
         window.scrollTo({
@@ -50,7 +56,7 @@ const ContactBox = () => {
             <PopTray />
             <ContactButton
                 href={currentPop ? currentPop.path : null}
-                color={currentPop ? "var(--white-001)" : "var(--accent-002)"}
+                currentColor={!currentPop ? currentColor : "var(--thir-001)"}
                 target="_blank"
                 rel="noreferrer"
             >

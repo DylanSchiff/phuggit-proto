@@ -13,7 +13,7 @@ export const DATASHEET = {
     brandImageUrl: logo,
     notificationData: {
         notificationText:
-            "HEXA 0.0.1 is live! - Time is ticking... we could be creating something amazing!",
+            "Time is ticking... we could be creating something amazing!",
         notificationButtonText: "Connect with me",
     },
     splashData: {

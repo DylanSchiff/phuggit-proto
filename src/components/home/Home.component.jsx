@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import PageSpan from "../page-span.component";
 import { DATASHEET } from "../../ap/DATASHEET";
 import Splash from "../splash/splash.component";
@@ -9,7 +9,7 @@ import ANotification from "../app-notification/app-notification";
 import Toolkit from "../toolkit/toolkit.component";
 import Laboratory from "../lab/laboratory.component";
 import Gists from "../gists/gists.component";
-// import ContactBox from "../contact-box/contact-box.component";
+import { ColorContext } from "../../ap/context/color.context";
 
 const PageContainer = styled.div`
     min-height: 100vh;
@@ -39,7 +39,12 @@ const AppBodySection = styled.div`
     }
 `;
 
-const BackToTopButton = styled.div`
+const BackToTopButton = styled.div.attrs((props) => ({
+    style: {
+        color: props.currentColor,
+    },
+}))`
+    transition: 111ms;
     z-index: 900;
     position: fixed;
     bottom: 10px;
@@ -89,6 +94,7 @@ const LabButton = styled.div`
     }
 `;
 const Home = () => {
+    const { currentColor } = useContext(ColorContext);
     const headsection = useRef(null);
     window.scrolltoheadsection = () =>
         window.scrollTo({
@@ -175,12 +181,15 @@ const Home = () => {
                 <Laboratory
                     laboratoryVisible={laboratoryVisible}
                     demoProject={demoProject}
+                    setChosenDemoId={setChosenDemoId}
                 />
                 <Toolkit toolData={DATASHEET.toolData} />
                 <Gists />
-                {/* <ContactBox /> */}
             </AppBodySection>
-            <BackToTopButton onClick={() => window.scrolltoheadsection()}>
+            <BackToTopButton
+                onClick={() => window.scrolltoheadsection()}
+                currentColor={currentColor}
+            >
                 TOP
             </BackToTopButton>
         </PageContainer>

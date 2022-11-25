@@ -38,7 +38,7 @@ const NoteDisplay = ({ allNotes }) => {
 
     return (
         <NoteDisplayContent>
-            <Span fontsize="25px" fontweight="700" spanContent="Notes" />
+            <Span fontsize="25px" fontweight="700" spanContent="Lab Notes" />
             {notes}
         </NoteDisplayContent>
     );

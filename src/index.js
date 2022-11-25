@@ -9,22 +9,25 @@ import { ColorProvider } from './ap/context/color.context';
 import { CategoriesProvider } from './ap/context/categories.context';
 import { CartProvider } from './ap/context/cart.context';
 import { NotesProvider } from './ap/context/notes.context';
+import { UserProvider } from './ap/context/user.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <PopProvider>
-        <ColorProvider>
-          <CategoriesProvider>
-            <CartProvider>
-              <NotesProvider>
-                <App />
-              </NotesProvider>
-            </CartProvider>
-          </CategoriesProvider>
-        </ColorProvider>
-      </PopProvider>
+      <UserProvider>
+        <PopProvider>
+          <ColorProvider>
+            <CategoriesProvider>
+              <CartProvider>
+                <NotesProvider>
+                  <App />
+                </NotesProvider>
+              </CartProvider>
+            </CategoriesProvider>
+          </ColorProvider>
+        </PopProvider>
+      </UserProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

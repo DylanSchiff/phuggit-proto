@@ -1,7 +1,13 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { UserContext } from "../../../ap/context/user.context";
 import theP from "../../../phuggitp.png";
 import ThemeSwapper from "./Theme-swapper.component";
+import {
+    signInWithGooglePopup,
+    signOutUser,
+} from "../../../ap/utils/firebase.utils";
 const HeaderContainer = styled.div`
     z-index: 999;
     position: sticky;
@@ -55,6 +61,7 @@ const NavButton = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
     &:hover {
         border: 1px solid var(--thir-004);
     }
@@ -63,6 +70,7 @@ const NavButton = styled.div`
     }
 `;
 const Header = () => {
+    const { currentUser } = useContext(UserContext);
     return (
         <HeaderContainer>
             <HeaderBrandingContainer>
@@ -75,6 +83,15 @@ const Header = () => {
             <NavControls>
                 <NavButton onClick={() => window.scrolltocontactsection()}>
                     CONNECT
+                </NavButton>
+                <NavButton
+                    onClick={
+                        !currentUser
+                            ? () => signInWithGooglePopup()
+                            : () => signOutUser()
+                    }
+                >
+                    {currentUser ? "Sign Out" : "Sign In"}
                 </NavButton>
                 <ThemeSwapper />
             </NavControls>
