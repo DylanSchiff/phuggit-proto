@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import { ColorContext } from "../../ap/context/color.context";
 import PageSpan from "../page-span.component";
 const AllCards = styled.div`
     flex: 1;
@@ -15,8 +17,8 @@ const AllCards = styled.div`
         grid-row-gap: 0px;
         border-radius: 25px;
         overflow: hidden;
-        border: 1px solid var(--fade-002);
-        box-shadow: var(--med-shadow);
+        border: 1px solid ${({ currentColor }) => currentColor};
+        box-shadow: var(--shade-001);
     }
 `;
 const Card = styled.div`
@@ -26,9 +28,9 @@ const Card = styled.div`
     padding: 20px;
     border-radius: 25px;
     transition: 111ms linear;
-    border: 1px solid var(--fade-002);
-    box-shadow: var(--med-shadow);
-    background-color: var(--main-color);
+    box-shadow: var(--shade-001);
+    background-color: var(--main-002);
+    border: 1px solid ${({ currentColor }) => currentColor};
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -38,10 +40,10 @@ const Card = styled.div`
         border: none;
         box-shadow: none;
         &:first-of-type {
-            border-bottom: 1px solid var(--fade-002);
+            border-bottom: 1px solid ${({ currentColor }) => currentColor};
         }
         &:last-of-type {
-            border-top: 1px solid var(--fade-002);
+            border-top: 1px solid ${({ currentColor }) => currentColor};
         }
         &:hover {
             /* background-color: var(--white-004); */
@@ -60,9 +62,6 @@ const CardImageContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background-color: var(--accent-001);
-    box-shadow: inset 0 1px 3px var(--fade-001), inset 0 2px 5px var(--fade-001),
-        inset 0 3px 8px var(--fade-002); */
     @media only screen and (max-width: 600px) {
         max-height: 125px;
         max-width: 125px;
@@ -110,21 +109,12 @@ const CardButton = styled.div`
     font-size: 20px;
     font-weight: 600;
     text-transform: uppercase;
-    /* color: var(--white-001); */
-    /* border: 1px solid var(--fade-001);
-    background-color: var(--accent-004); */
-    /* color: var(--white-002); */
+    color:${({ currentColor }) => currentColor};
     &:hover {
-        /* background-color: var(--accent-002);
-        box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
-            0 3px 8px var(--fade-002); */
     }
     @media only screen and (max-width: 1000px) {
         margin-bottom: 20px;
         padding: 10px 20px;
-        /* border: 1px solid var(--fade-002);
-        background-color: var(--white-001); */
-        /* color: var(--accent-004); */
     }
 `;
 const CardTagsContainer = styled.div`
@@ -152,17 +142,18 @@ const CardTagImage = styled.img`
 `;
 const CardTagHeadingContainer = styled.div``;
 const Cards = ({ cards, setChosenDemoId }) => {
+    const { currentColor } = useContext(ColorContext);
     const cardDemo = (id) => {
         setChosenDemoId(id);
         window.scrolltolabsection();
     };
     return (
-        <AllCards>
+        <AllCards currentColor={currentColor}>
             {cards.map((card) => {
                 const { id, heading, subheading, buttontext, imageUrl, tags } =
                     card;
                 return (
-                    <Card key={id}>
+                    <Card key={id} currentColor={currentColor}>
                         <CardImageContainer>
                             <CardImage src={imageUrl} />
                         </CardImageContainer>
@@ -188,7 +179,10 @@ const Cards = ({ cards, setChosenDemoId }) => {
                         </CardHeadingContainer>
                         <CardTagsButtonFlipper>
                             <CardButtonContainer>
-                                <CardButton onClick={() => cardDemo(id)}>
+                                <CardButton
+                                    onClick={() => cardDemo(id)}
+                                    currentColor={currentColor}
+                                >
                                     {buttontext}
                                 </CardButton>
                             </CardButtonContainer>

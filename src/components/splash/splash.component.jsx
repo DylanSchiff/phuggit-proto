@@ -1,20 +1,27 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import { ColorContext } from "../../ap/context/color.context";
 import PageSpan from "../page-span.component";
 
-const AppSplash = styled.section`
+const AppSplash = styled.section.attrs((props) => ({
+    style: {
+        border: "1px solid" + props.currentColor,
+    },
+}))`
+    box-shadow: var(--shade-001);
+    background-color: var(--main-002);
+    transition: 111ms linear;
+
     flex: 1;
     max-width: 1500px;
     min-height: 100vh;
     padding: 50px 60px;
     margin: 0 50px;
     border-radius: 35px;
-    transition: 111ms linear;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    border: 1px solid var(--fade-002);
-    box-shadow: var(--med-shadow);
-    background-color: var(--main-color);
+
     @media only screen and (max-width: 1000px) {
         flex-flow: column nowrap;
         align-items: center;
@@ -85,11 +92,14 @@ const SplashButton = styled.div`
     user-select: none;
 `;
 
-const FirstSplashButton = styled(SplashButton)`
+const FirstSplashButton = styled(SplashButton).attrs((props) => ({
+    style: {
+        border: "1px solid" + props.currentColor,
+    },
+}))`
     padding: 15px 20px;
     font-size: 25px;
     font-weight: 500;
-    border: 1px solid var(--fade-002);
     @media only screen and (max-width: 1000px) {
         font-size: 20px;
     }
@@ -101,7 +111,12 @@ const FirstSplashButton = styled(SplashButton)`
             0 3px 8px var(--fade-002); */
     }
 `;
-const SecondSplashButton = styled(SplashButton)`
+const SecondSplashButton = styled(SplashButton).attrs((props) => ({
+    style: {
+        color: props.currentColor,
+    },
+}))`
+    transition: 111ms;
     margin-left: 20px;
     @media only screen and (max-width: 600px) {
         font-size: 15px;
@@ -147,8 +162,9 @@ const SplashImage = styled.img`
 `;
 
 const Splash = ({ splashData }) => {
+    const { currentColor } = useContext(ColorContext);
     return (
-        <AppSplash>
+        <AppSplash currentColor={currentColor}>
             <SplashDetails>
                 <SplashHeadingContainer>
                     <PageSpan
@@ -192,11 +208,13 @@ const Splash = ({ splashData }) => {
                 </SplashSummaryContainer>
                 <SplashButtonsContainer>
                     <FirstSplashButton
+                        currentColor={currentColor}
                         onClick={() => window.scrolltoappbodysection()}
                     >
                         {splashData.splashFirstButtonText}
                     </FirstSplashButton>
                     <SecondSplashButton
+                        currentColor={currentColor}
                         onClick={() => window.scrolltotoolkitsection()}
                     >
                         {splashData.splashSecondButtonText}

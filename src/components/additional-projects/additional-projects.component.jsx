@@ -4,6 +4,8 @@ import hiring from "../images/hiring.svg";
 import lockedp from "../images/lockedp.svg";
 import twofactor from "../images/twofactor.svg";
 import lighthouse from "../images/lighthouse.svg";
+import { useContext } from "react";
+import { ColorContext } from "../../ap/context/color.context";
 
 const AdditionalProjectsContainer = styled.div`
     flex: 1;
@@ -23,15 +25,19 @@ const AdditionalProjectsContainer = styled.div`
         grid-template-columns: repeat(1, 1fr);
     }
 `;
-const AddProjectContainer = styled.div`
+const AddProjectContainer = styled.div.attrs((props) => ({
+    style: {
+        border: "1px solid" + props.currentColor,
+    },
+}))`
+    box-shadow: var(--shade-001);
+    background-color: var(--main-002);
+    transition: 111ms linear;
     flex: 1;
     width: 100%;
     padding: 10px;
     cursor: pointer;
     border-radius: 25px;
-    border: 1px solid var(--fade-002);
-    box-shadow: var(--med-shadow);
-    background-color: var(--main-color);
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -66,6 +72,7 @@ const PROJECTS = [
 ];
 
 const AdditionalProjects = ({ additionalProjectsVisible }) => {
+    const { currentColor } = useContext(ColorContext);
     return (
         <AdditionalProjectsContainer
             display={additionalProjectsVisible ? "grid" : "none"}
@@ -74,6 +81,7 @@ const AdditionalProjects = ({ additionalProjectsVisible }) => {
                 const { id, heading, imageUrl } = project;
                 return (
                     <AddProjectContainer
+                        currentColor={currentColor}
                         key={id}
                         onClick={() => window.scrolltolabsection()}
                     >

@@ -1,7 +1,16 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import styled from "styled-components";
+import { ColorContext } from "../../ap/context/color.context";
 import PageSpan from "../page-span.component";
-const ToolkitContainer = styled.div`
+const ToolkitContainer = styled.div.attrs((props) => ({
+    style: {
+        border: "1px solid" + props.currentColor,
+    },
+}))`
+    box-shadow: var(--shade-001);
+    background-color: var(--main-002);
+    transition: 111ms linear;
+
     flex: 1;
     width: 100%;
     max-width: 1500px;
@@ -9,17 +18,17 @@ const ToolkitContainer = styled.div`
     padding-top: 50px;
     border-radius: 25px;
     overflow: hidden;
-    transition: 111ms linear;
-    border: 1px solid var(--fade-002);
-    box-shadow: var(--med-shadow);
-    background-color: var(--main-color);
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: flex-start;
 `;
 
-const ToolsButton = styled.div`
+const ToolsButton = styled.div.attrs((props) => ({
+    style: {
+        color: props.currentColor,
+    },
+}))`
     margin-top: 20px;
     padding: 10px 15px;
     outline: none;
@@ -30,7 +39,6 @@ const ToolsButton = styled.div`
     user-select: none;
     font-size: 15px;
     font-weight: 500;
-    border: 1px solid var(--fade-002);
     @media only screen and (max-width: 1000px) {
         font-size: 20px;
     }
@@ -38,9 +46,6 @@ const ToolsButton = styled.div`
         font-size: 15px;
     }
     &:hover {
-        /* box-shadow: 0 1px 3px var(--fade-001), 0 2px 5px var(--fade-001),
-            0 3px 8px var(--fade-002);
-        color: var(--white-002); */
     }
 `;
 
@@ -115,7 +120,6 @@ const ToolsFooter = styled.div`
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-around;
-    border-top: 1px solid var(--fade-002);
     @media only screen and (max-width: 600px) {
         flex-flow: column nowrap;
     }
@@ -144,6 +148,7 @@ const FooterDetailsHeadings = styled.div`
     justify-content: center;
 `;
 const Toolkit = ({ toolData }) => {
+    const { currentColor } = useContext(ColorContext);
     const [toolsVisible, setToolsVisible] = useState(false);
     const toggleToolsVisible = () => setToolsVisible(!toolsVisible);
     const toolkit = useRef(null);
@@ -153,7 +158,7 @@ const Toolkit = ({ toolData }) => {
             behavior: "smooth",
         });
     return (
-        <ToolkitContainer ref={toolkit}>
+        <ToolkitContainer ref={toolkit} currentColor={currentColor}>
             <PageSpan
                 fontsize="35px"
                 lineheight="35px"
@@ -183,7 +188,10 @@ const Toolkit = ({ toolData }) => {
                     ) : null;
                 })}
             </ToolsContainer>
-            <ToolsButton onClick={() => toggleToolsVisible()}>
+            <ToolsButton
+                onClick={() => toggleToolsVisible()}
+                currentColor={currentColor}
+            >
                 {toolsVisible ? "See Less" : "See All"}
             </ToolsButton>
             <ToolsFooter>

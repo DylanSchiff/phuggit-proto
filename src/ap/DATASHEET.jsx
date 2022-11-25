@@ -1,12 +1,12 @@
-import reepo from "./images/repo.svg";
-import logo from "./images/logo.svg";
-import northbound from "./images/walkingoutside.svg";
-import websea from "./images/developing.svg";
-import hexa from "./images/palette.svg";
-import past from "./images/cabin.svg";
-import present from "./images/projections.svg";
-import future from "./images/outerspace.svg";
-import ColorCard from "./colorcube/color-card.component";
+import reepo from "../components/images/repo.svg";
+import logo from "../components/images/logo.svg";
+import northbound from "../components/images/walkingoutside.svg";
+import websea from "../components/images/developing.svg";
+import hexa from "../components/images/palette.svg";
+import past from "../components/images/cabin.svg";
+import present from "../components/images/projections.svg";
+import future from "../components/images/outerspace.svg";
+import ColorCard from "../components/colorcube/color-card.component";
 
 export const DATASHEET = {
     brandName: "99E",

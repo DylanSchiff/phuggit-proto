@@ -1,16 +1,23 @@
 import styled from "styled-components";
 import PageSpan from "../page-span.component";
-import { DATASHEET } from "../DATASHEET";
-const GistsContainer = styled.div`
+import { DATASHEET } from "../../ap/DATASHEET";
+import { useContext } from "react";
+import { ColorContext } from "../../ap/context/color.context";
+const GistsContainer = styled.div.attrs((props) => ({
+    style: {
+        border: "1px solid" + props.currentColor,
+    },
+}))`
+    box-shadow: var(--shade-001);
+    background-color: var(--main-002);
+    transition: 111ms linear;
+
     flex: 1;
     width: 100%;
     max-width: 1500px;
     margin: 0 50px 50px 50px;
     padding: 20px 60px;
     border-radius: 35px;
-    border: 1px solid var(--fade-002);
-    box-shadow: var(--med-shadow);
-    background-color: var(--main-color);
     transition: 111ms linear;
     display: flex;
     flex-flow: column nowrap;
@@ -64,21 +71,24 @@ const GistImage = styled.img`
         min-width: 100px;
     }
 `;
-const GistButton = styled.div`
+const GistButton = styled.div.attrs((props) => ({
+    style: {
+        color: props.currentColor,
+    },
+}))`
     border-radius: 10px;
     outline: none;
     border: none;
     transition: 111ms linear;
     cursor: pointer;
     user-select: none;
-    /* color: var(--accent-003); */
     &:hover {
-        /* color: var(--accent-002); */
     }
 `;
 const Gists = () => {
+    const { currentColor } = useContext(ColorContext);
     return (
-        <GistsContainer>
+        <GistsContainer currentColor={currentColor}>
             <PageSpan
                 fontsize="35px"
                 lineheight="35px"
@@ -117,7 +127,10 @@ const Gists = () => {
                                 fontsizestwo="10px"
                                 spantext={gisttext}
                             />
-                            <GistButton onClick={scrollto}>
+                            <GistButton
+                                onClick={scrollto}
+                                currentColor={currentColor}
+                            >
                                 learn more
                             </GistButton>
                         </Gist>
