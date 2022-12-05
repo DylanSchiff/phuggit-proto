@@ -5,7 +5,8 @@ import { UserContext } from "../../../ap/context/user.context";
 import theP from "../../../phuggitp.png";
 import ThemeSwapper from "./Theme-swapper.component";
 import {
-    signInWithGooglePopup,
+    // signInWithGooglePopup,
+    signInWithGoogleRedirect,
     signOutUser,
 } from "../../../ap/utils/firebase.utils";
 import { ColorContext } from "../../../ap/context/color.context";
@@ -94,7 +95,7 @@ const Header = () => {
                 <NavButton
                     onClick={
                         !currentUser
-                            ? () => signInWithGooglePopup()
+                            ? () => signInWithGoogleRedirect()
                             : () => signOutUser()
                     }
                 >

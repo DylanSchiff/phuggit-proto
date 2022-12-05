@@ -3,6 +3,7 @@ import {
     GoogleAuthProvider,
     getAuth,
     signInWithPopup,
+    signInWithRedirect,
     signOut,
     onAuthStateChanged,
 } from "firebase/auth";
@@ -35,7 +36,8 @@ googleProvider.setCustomParameters({
 export const auth = getAuth();
 export const signInWithGooglePopup = () =>
     signInWithPopup(auth, googleProvider);
-
+export const signInWithGoogleRedirect = () =>
+    signInWithRedirect(auth, googleProvider);
 // creates user if there isn't one
 export const createUserDocumentFromAuth = async (
     userAuth,
