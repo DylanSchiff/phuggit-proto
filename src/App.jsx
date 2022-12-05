@@ -1,17 +1,15 @@
-
 import { Route, Routes } from "react-router-dom";
-import NavigationWrap from "./components/app-navigation-wrapper/Navigation-wrap.component"
+import NewTwo from "./components/a-new-two/new-two.component";
+import NavigationWrap from "./components/app-navigation-wrapper/Navigation-wrap.component";
 import Home from "./components/home/Home.component";
-import NotesHaus from "./components/notes/NoteHaus.component";
 const App = () => {
     return (
-        // <Routes>
-        //     <Route path="/" element={<NavigationWrap />}>
-        //         <Route path="/" index element={<Home />}></Route>
-        //         <Route path="zz" element={<NotesHaus />}></Route>
-        //     </Route>
-        // </Routes>
-        "404"
+        <Routes>
+            <Route path="/" element={<NavigationWrap />}>
+                <Route path="old-home" index element={<Home />}></Route>
+                <Route path="n2" element={<NewTwo />}></Route>
+            </Route>
+        </Routes>
     );
 };
 export default App;

@@ -9,7 +9,6 @@ const ListItem = styled.div`
     background-color: var(--main-001);
     box-shadow: var(--shade-001);
     overflow: hidden;
-    cursor: pointer;
     transition: 111ms linear;
     display: flex;
     flex-flow: column nowrap;
@@ -19,7 +18,7 @@ const ListItem = styled.div`
         scale: 1.15;
         transform: translateY(-10px);
     }
-    &:hover > :first-child {
+    &:hover > :nth-child(2) {
         background-color: var(--thir-002);
         border-bottom: 5px solid var(--seco-001);
     }
@@ -29,6 +28,17 @@ const ListItem = styled.div`
     &:active {
         scale: 1.1;
     }
+`;
+const CloseListItemContainer = styled.div`
+    margin: 0 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+`;
+const CloseListItemSpan = styled.span`
+    font-size: 15px;
+    font-weight: 300;
+    cursor: pointer;
 `;
 const ListItemTitle = styled.div.attrs((props) => ({
     style: {
@@ -99,8 +109,16 @@ const Note = ({ note }) => {
             );
         });
     // const emptySpan = "...";
+    const closeListItemHandler = (id) => {
+        console.log(id);
+    };
     return (
         <ListItem key={id}>
+            <CloseListItemContainer>
+                <CloseListItemSpan onClick={() => closeListItemHandler(id)}>
+                    delete
+                </CloseListItemSpan>
+            </CloseListItemContainer>
             <ListItemTitle currentColor={currentColor}>
                 <Span fontsize="15px" fontweight="700" spanContent={title} />
                 <Span
