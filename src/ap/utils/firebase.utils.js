@@ -90,7 +90,7 @@ export const addCollectionAndDocuments = async (
     console.log("done");
 };
 
-// Retrieve queried category map, can get projects, users, etc..
+// Retrieve queried category map, can get projects, users, etc.. in this instance, accounts
 export const getUsersAndDocuments = async () => {
     const collectionRef = collection(db, "userpool");
     const q = query(collectionRef);
