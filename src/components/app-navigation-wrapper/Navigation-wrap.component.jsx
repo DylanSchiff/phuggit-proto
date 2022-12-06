@@ -11,7 +11,7 @@ const NavigationWrap = () => {
         <NavigationWrapContainer>
             <Header />
             <Outlet />
-            <Footer />
+            {/* <Footer /> */}
         </NavigationWrapContainer>
     );
 };
