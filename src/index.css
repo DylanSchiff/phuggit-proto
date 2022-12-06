@@ -48,12 +48,13 @@ body {
 ::placeholder {
     color: var(--main-003);
 }
-/* @media only screen and (max-width: 1000px) { */
 ::-webkit-scrollbar {
     max-width: 0;
 }
-/* } */
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
+}
+a{
+    text-decoration: none;
 }

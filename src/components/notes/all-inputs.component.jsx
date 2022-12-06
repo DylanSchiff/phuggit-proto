@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { createNote } from "../../ap/utils/firebase.utils";
+// import { createNote } from "../../ap/utils/firebase.utils";
 import styled from "styled-components";
 import { ColorContext } from "../../ap/context/color.context";
 import {
@@ -83,21 +83,22 @@ const NoteInputs = () => {
         tags: null,
     });
     const writeNoteToDB = () => {
-        const randomID = Math.round(Math.random() * 100000);
-        const { creator, title, subtitle, topic, imageURL, text, tags } = note;
-        const noteObj = {
-            id: creator ? `${creator.replace(" ", "-")}-${randomID}` : null,
-            creator: creator ? creator : null,
-            title: title ? title : null,
-            subtitle: subtitle ? subtitle : null,
-            topic: topic ? topic : null,
-            imageURL: imageURL ? imageURL : null,
-            text: text ? text : null,
-            tags: tags ? tags : null,
-        };
-        return creator && text
-            ? createNote(noteObj)
-            : alert("CREATOR and TEXT needed");
+        // const randomID = Math.round(Math.random() * 100000);
+        // const { creator, title, subtitle, topic, imageURL, text, tags } = note;
+        // const noteObj = {
+        //     id: creator ? `${creator.replace(" ", "-")}-${randomID}` : null,
+        //     creator: creator ? creator : null,
+        //     title: title ? title : null,
+        //     subtitle: subtitle ? subtitle : null,
+        //     topic: topic ? topic : null,
+        //     imageURL: imageURL ? imageURL : null,
+        //     text: text ? text : null,
+        //     tags: tags ? tags : null,
+        // };
+        // return creator && text
+        //     ? // createNote(noteObj)
+        //       ""
+        //     : alert("CREATOR and TEXT needed");
     };
     return (
         <>

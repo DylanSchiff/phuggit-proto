@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { ColorContext } from "../../../ap/context/color.context";
+import { ColorContext } from "../../ap/context/color.context";
 import styled from "styled-components";
-import ColorCube from "./colorcube/colorcube.component";
+import ColorCube from "../colorcube/colorcube.component";
 const ColorCubeDisplay = styled.div`
     width: 100%;
     display: flex;

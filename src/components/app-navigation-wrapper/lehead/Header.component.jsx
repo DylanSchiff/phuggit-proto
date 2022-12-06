@@ -1,15 +1,11 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { UserContext } from "../../../ap/context/user.context";
 import theP from "../../../phuggitp.png";
-import ThemeSwapper from "./Theme-swapper.component";
-import {
-    signInWithGooglePopup,
-    // signInWithGoogleRedirect,
-    signOutUser,
-} from "../../../ap/utils/firebase.utils";
 import { ColorContext } from "../../../ap/context/color.context";
+import AccountButton from "../../account/account-main-button.component";
+import AccountPanel from "../../account/account-panel.component";
 const HeaderContainer = styled.div.attrs((props) => ({
     style: {
         borderTop: "1px solid" + props.currentColor,
@@ -31,14 +27,14 @@ const HeaderContainer = styled.div.attrs((props) => ({
     align-items: center;
     transition: 111ms linear;
 `;
-const HeaderBrandingContainer = styled.div`
+const HeaderBrandingContainer = styled(Link)`
     padding: 0 20px;
     height: 50px;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
 `;
-const HeaderImageContainer = styled(Link)`
+const HeaderImageContainer = styled.div`
     height: 50px;
     cursor: pointer;
 `;
@@ -46,7 +42,6 @@ const HeaderImage = styled.img`
     object-fit: cover;
     height: 50px;
 `;
-
 const NavControls = styled.div`
     display: flex;
     flex-flow: row nowrap;
@@ -77,33 +72,33 @@ const NavButton = styled.div`
     }
 `;
 const Header = () => {
-    const { currentUser } = useContext(UserContext);
     const { currentColor } = useContext(ColorContext);
+    const { currentUser } = useContext(UserContext);
     return (
-        <HeaderContainer currentColor={currentColor}>
-            <HeaderBrandingContainer>
-                <HeaderImageContainer
-                    onClick={() => window.scrolltoheadsection()}
-                >
-                    <HeaderImage src={theP} />
-                </HeaderImageContainer>
-            </HeaderBrandingContainer>
+        <>
+            <HeaderContainer currentColor={currentColor}>
+                <HeaderBrandingContainer to="/">
+                    <HeaderImageContainer>
+                        <HeaderImage src={theP} />
+                    </HeaderImageContainer>
+                </HeaderBrandingContainer>
+                {/* 
             <NavControls>
                 <NavButton onClick={() => window.scrolltocontactsection()}>
                     Contact
                 </NavButton>
-                <NavButton
-                    onClick={
-                        !currentUser
-                            ? () => signInWithGooglePopup()
-                            : () => signOutUser()
-                    }
-                >
-                    {currentUser ? "Sign Out" : "Sign In"}
-                </NavButton>
-                <ThemeSwapper />
+                <Link to="/account">
+                    <NavButton onClick={() => window.scrolltocontactsection()}>
+                        Account
+                    </NavButton>
+                </Link>
+            
             </NavControls>
-        </HeaderContainer>
+            */}
+                <AccountButton />
+            </HeaderContainer>
+            <AccountPanel />
+        </>
     );
 };
 export default Header;
