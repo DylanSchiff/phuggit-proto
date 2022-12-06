@@ -1,30 +1,20 @@
-
 import { createContext, useState, useEffect } from "react";
-// import USERS from "./userdata/USER.data";
-
 import {
-    // addCollectionAndDocuments,
     onAuthStateChangedListener,
     createUserDocumentFromAuth,
-    getUsersAndDocuments,
+    getUserDocuments,
 } from "../utils/firebase.utils";
 
 export const UserContext = createContext({
-    setCurrentUser: () => null,
     currentUser: null,
-    setIsAuthed: () => null,
-    isAuthed: false,
-    userMap: [],
+    setCurrentUser: () => null,
+    currentUserDocs: null,
+    setCurrentUserDocs: () => null,
 });
 
 export const UserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
-    const [isAuthed, setIsAuthed] = useState(false);
-    const [userMap, setUserMap] = useState({});
-
-    // useEffect(() => {
-    //     addCollectionAndDocuments("userpool", USERS);
-    // }, []);
+    const [currentUserDocs, setCurrentUserDocs] = useState(null);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChangedListener((user) => {
@@ -32,26 +22,25 @@ export const UserProvider = ({ children }) => {
                 createUserDocumentFromAuth(user);
             }
             setCurrentUser(user);
-            console.log(user)
         });
-
         return unsubscribe;
     }, []);
 
     useEffect(() => {
-        const getUserMap = async () => {
-            const userMap = await getUsersAndDocuments();
-            setUserMap(userMap);
-        };
-        getUserMap();
+        const userDocs = onAuthStateChangedListener((user) => {
+            if (user) {
+                const userData = getUserDocuments(user);
+                setCurrentUserDocs(userData);
+            }
+        });
+        return userDocs;
     }, []);
 
     const value = {
         currentUser,
         setCurrentUser,
-        isAuthed,
-        setIsAuthed,
-        userMap,
+        currentUserDocs,
+        setCurrentUserDocs,
     };
 
     return (

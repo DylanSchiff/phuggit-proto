@@ -10,12 +10,14 @@ import { CategoriesProvider } from './ap/context/categories.context';
 import { CartProvider } from './ap/context/cart.context';
 import { NotesProvider } from './ap/context/notes.context';
 import { UserProvider } from './ap/context/user.context';
+import { AccountProvider } from './ap/context/account.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <UserProvider>
+      {/* <UserProvider> */}
+      <AccountProvider>
         <PopProvider>
           <ColorProvider>
             <CategoriesProvider>
@@ -27,7 +29,8 @@ root.render(
             </CategoriesProvider>
           </ColorProvider>
         </PopProvider>
-      </UserProvider>
+      </AccountProvider>
+      {/* </UserProvider> */}
     </BrowserRouter>
   </React.StrictMode>
 );

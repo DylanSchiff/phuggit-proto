@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { getNotes } from "../utils/firebase.utils";
+// import { getNotes } from "../utils/firebase.utils";
 
 export const NotesContext = createContext({
     setNotesMap: () => null,
@@ -11,8 +11,8 @@ export const NotesProvider = ({ children }) => {
 
     useEffect(() => {
         const getNotesMap = async () => {
-            const notesMap = await getNotes();
-            setNotesMap(notesMap);
+            // const notesMap = await getNotes();
+            // setNotesMap(notesMap);
         };
         getNotesMap();
     }, []);
