@@ -7,7 +7,7 @@ const TopbarNameplateContainer = styled.div`
 const TopbarNameplate = ({ currentAuth, currentData }) => {
     return (
         <TopbarNameplateContainer>
-            {currentAuth && currentData.handle ? `@${currentData.handle}` : ""}
+            {currentData.handle && `@${currentData.handle}`}
         </TopbarNameplateContainer>
     );
 };

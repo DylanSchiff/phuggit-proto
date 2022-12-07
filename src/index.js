@@ -14,9 +14,9 @@ root.render(
     <BrowserRouter>
       <AccountProvider>
         <RouteProvider>
-          {/* <AccountPanelProvider> */}
+          <AccountPanelProvider>
           <App />
-          {/* </AccountPanelProvider> */}
+          </AccountPanelProvider>
         </RouteProvider>
       </AccountProvider>
     </BrowserRouter>

@@ -1,9 +1,7 @@
-import { useContext } from "react";
-import { AccountContext } from "../../../AAA/context/AAA-context/account.context";
 import styled from "styled-components";
 import TopBarButton from "./topbar-button.component";
 import TopbarNameplate from "./topbar-nameplate.component";
-import { AccountPanelContext } from "../../../AAA/context/AAA-context/account-panel.context";
+
 const TopbarContainer = styled.div.attrs((props) => ({
     style: {
         borderTop: "1px solid" + props.currentColor,
@@ -36,9 +34,7 @@ const TopBarAccountGroup = styled.div`
     padding: 0 10px;
 `;
 
-const Topbar = () => {
-    const { currentAuth, currentData } = useContext(AccountContext);
-    const { setIsPanelOpen, isPanelOpen } = useContext(AccountPanelContext);
+const Topbar = ({ currentAuth, currentData, isPanelOpen, setIsPanelOpen }) => {
     return (
         <TopbarContainer>
             <TopBarAccountGroup>
