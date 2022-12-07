@@ -35,6 +35,7 @@ export const FreshAccountProvider = ({ children }) => {
                 const gatherUserDocs = async () => {
                     const userData = await getUserDocuments(userAuth);
                     setCurrentDocs(userData);
+                    
                 };
                 gatherUserDocs();
             }

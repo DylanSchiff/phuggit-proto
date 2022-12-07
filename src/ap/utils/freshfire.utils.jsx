@@ -82,6 +82,7 @@ export const createAccountfromGoogleAuth = async (
                 color: "#5c2fe6",
                 ...additionalInformation,
             });
+            window.location.reload();
         } catch (error) {
             console.log("error creating the user", error.message);
         }
@@ -95,7 +96,6 @@ export const getUserDocuments = async (userAuth) => {
     if (userSnapshot && userSnapshot.exists()) {
         try {
             const docRef = doc(db, "users", userAuth.uid);
-            // something about right here is making it return an awaited value, (promise)
             const userSnapshot = await getDoc(docRef);
             return userSnapshot.data();
         } catch (error) {

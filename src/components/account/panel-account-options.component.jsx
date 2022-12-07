@@ -7,7 +7,10 @@ const AccountOptionsContainer = styled.div``;
 const AccountOptions = ({ currentAuth, currentDocs, currentColor }) => {
     return (
         <AccountOptionsContainer>
-            <AccountDisplay currentDocs={currentDocs} />
+            <AccountDisplay
+                currentAuth={currentAuth}
+                currentDocs={currentDocs}
+            />
             <AccountEditor
                 currentAuth={currentAuth}
                 currentDocs={currentDocs}
