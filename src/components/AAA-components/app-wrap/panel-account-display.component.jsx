@@ -1,9 +1,13 @@
 import { useContext } from "react";
 import { AccountContext } from "../../../AAA/context/AAA-context/account.context";
 import styled from "styled-components";
-import ColorCube from "./theme-cube.component";
+import ThemeSwapper from "./theme-swapper.component";
 const PanelAccountDisplayContainer = styled.div`
     padding-bottom: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
 `;
 const PanelAccountDisplayIntro = styled.div``;
 const PanelAccountDisplay = () => {
@@ -12,6 +16,7 @@ const PanelAccountDisplay = () => {
     return (
         currentData && (
             <PanelAccountDisplayContainer>
+                <ThemeSwapper />
                 <PanelAccountDisplayIntro>
                     <p>{displayName}</p>
                     <span>@{handle}</span>

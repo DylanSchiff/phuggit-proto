@@ -36,6 +36,7 @@ const PanelAccountEditorInput = styled.input`
     overflow: hidden;
     border-radius: 5px;
 `;
+
 const PanelAccountEditor = ({ isEditorOpen }) => {
     const { currentAuth } = useContext(AccountContext);
     const { currentColor } = useContext(ColorContext);
@@ -74,7 +75,7 @@ const PanelAccountEditor = ({ isEditorOpen }) => {
                 />
             </PanelAccountEditorInputContainer>
             <PanelAccountEditorInputContainer>
-                <ThemeSwapper />
+                <ThemeSwapper isSmall isClickable />
                 <PanelButton
                     buttonText="Save"
                     buttonHandler={() =>

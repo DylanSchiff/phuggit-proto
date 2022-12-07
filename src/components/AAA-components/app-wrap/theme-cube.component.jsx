@@ -100,7 +100,9 @@ const ColorCube = ({
     hasLabels,
 }) => {
     return (
-        <ColorCubeCard onClick={() => generateRandomColor()}>
+        <ColorCubeCard
+            onClick={() => (generateRandomColor ? generateRandomColor() : null)}
+        >
             <CubeHaus
                 shadowString={hasEffects ? shadowString : "none"}
                 rotation={

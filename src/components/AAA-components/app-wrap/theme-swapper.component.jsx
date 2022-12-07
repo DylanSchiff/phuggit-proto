@@ -7,14 +7,14 @@ const ColorCubeDisplay = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: scale(0.5);
+    transform: ${({ cubeSize }) => cubeSize};
     min-height: 100px;
     min-width: 100px;
     max-height: 100px;
     max-width: 100px;
     overflow: hidden;
 `;
-const ThemeSwapper = () => {
+const ThemeSwapper = ({ isSmall, isClickable }) => {
     const { currentColor, setCurrentColor } = useContext(ColorContext);
     const defaultColor = currentColor ? currentColor : "transparent";
     const dismantleColor = () => {
@@ -72,12 +72,12 @@ const ThemeSwapper = () => {
         evendarkervalues[2]
     );
     return (
-        <ColorCubeDisplay>
+        <ColorCubeDisplay cubeSize={isSmall ? "scale(0.5)" : ""}>
             <ColorCube
                 hasEffects={true}
                 currentColor={defaultColor}
-                setCurrentColor={setCurrentColor}
-                generateRandomColor={generateRandomColor}
+                setCurrentColor={isClickable ? setCurrentColor : null}
+                generateRandomColor={isClickable ? generateRandomColor : null}
                 lightcolor={lightcolor}
                 darkcolor={darkcolor}
                 darkercolor={darkercolor}
