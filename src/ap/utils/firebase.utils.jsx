@@ -274,7 +274,7 @@ export const updateUsername = async (userAuth, desiredValue) => {
     const batch = writeBatch(db);
     batch.set(userDocRef, {
         ...userDocs,
-        displayName: desiredValue,
+        userName: desiredValue,
     });
     await batch.commit();
 };
@@ -288,7 +288,7 @@ export const updateUserColor = async (userAuth, desiredValue) => {
     const batch = writeBatch(db);
     batch.set(userDocRef, {
         ...userDocs,
-        favoriteColor: desiredValue,
+        color: desiredValue,
     });
     await batch.commit();
 };
