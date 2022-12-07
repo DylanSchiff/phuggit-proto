@@ -37,8 +37,8 @@ const TopBarButton = ({
                     : signInWithGooglePopup()
             }
         >
-            {currentAuth && !currentData === undefined
-                ? `@${currentData.handle}`
+            {currentAuth
+                ? `@${currentData.handle ? currentData.handle : ""}`
                 : "Sign In"}
         </TopBarButtonContainer>
     );
