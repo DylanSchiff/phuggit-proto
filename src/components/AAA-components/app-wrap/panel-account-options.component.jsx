@@ -6,10 +6,17 @@ import { useContext } from "react";
 import PanelAccountDisplay from "./panel-account-display.component";
 import PanelAccountEditor from "./panel-account-editor.component";
 import { useState } from "react";
-const PanelAccountOptionsContainer = styled.div``;
+const PanelAccountOptionsContainer = styled.div`
+    flex: 1;
+    width: 100%;
+`;
 const PanelAccountButtons = styled.div`
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    align-items: center;
+    justify-items: center;
 `;
 const PanelAccountOptions = ({ currentAuth, currentDocs }) => {
     const [isEditorOpen, setIsEditorOpen] = useState(false);

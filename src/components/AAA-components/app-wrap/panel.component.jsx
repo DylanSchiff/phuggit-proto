@@ -7,6 +7,7 @@ const AccountPanelContainer = styled.div.attrs((props) => ({
     },
 }))`
     position: absolute;
+    min-width: 275px;
     z-index: 999;
     top: 70px;
     right: 25px;
