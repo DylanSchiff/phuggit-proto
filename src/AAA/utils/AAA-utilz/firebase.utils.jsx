@@ -1,0 +1,61 @@
+import { initializeApp } from "firebase/app";
+import {
+    GoogleAuthProvider,
+    getAuth,
+    signInWithPopup,
+    signOut,
+    onAuthStateChanged,
+} from "firebase/auth";
+
+import {
+    getFirestore,
+    // collection,
+    // writeBatch,
+    // doc,
+    // query,
+    // getDoc,
+    // setDoc,
+    // getDocs,
+    // ref,
+} from "firebase/firestore";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCYC9b_t-_PspbHuDgfha093t-VqKHfvpw",
+    authDomain: "phuggit-app.firebaseapp.com",
+    projectId: "phuggit-app",
+    storageBucket: "phuggit-app.appspot.com",
+    messagingSenderId: "89034240436",
+    appId: "1:89034240436:web:2ea40a6d00bab1ffd082e1",
+};
+
+const firebaseApp = initializeApp(firebaseConfig);
+
+export const db = getFirestore();
+
+const googleProvider = new GoogleAuthProvider();
+
+googleProvider.setCustomParameters({
+    prompt: "select_account",
+});
+
+export const auth = getAuth();
+
+export const signInWithGooglePopup = () =>
+    signInWithPopup(auth, googleProvider);
+
+export const onAuthStateChangedListener = (callback) =>
+    onAuthStateChanged(auth, callback);
+
+export const signOutUser = async () => await signOut(auth);
+
+// ////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////////////////////////////////

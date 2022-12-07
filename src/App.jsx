@@ -1,12 +1,10 @@
-// import { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
-// import { FreshAccountContext } from "./ap/context/fresh-account.context";
-// import NavigationWrap from "./components/app-navigation-wrapper/Navigation-wrap.component";
+import AppWrap from "./components/AAA-components/app-wrap/app-wrap.component";
+// generate routes from context
 const App = () => {
-    // const { currentRoutes } = useContext(FreshAccountContext);
     return (
         <Routes>
-            <Route path="/*" element={"<NavigationWrap />"}>
+            <Route path="/*" element={<AppWrap />}>
                 {/* {currentRoutes &&
                     currentRoutes.map((routePath) => {
                         return (
