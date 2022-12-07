@@ -9,13 +9,13 @@ import {
 
 import {
     getFirestore,
-    // collection,
+    collection,
     writeBatch,
     doc,
-    // query,
+    query,
     getDoc,
     setDoc,
-    // getDocs,
+    getDocs,
     // ref,
 } from "firebase/firestore";
 
@@ -78,7 +78,7 @@ export const createAccountfromGoogleAuth = async (
                 email,
                 createdAt,
                 photoURL,
-                username: displayName,
+                userName: displayName.toLowerCase(),
                 color: "#5c2fe6",
                 ...additionalInformation,
             });
@@ -104,18 +104,60 @@ export const getUserDocuments = async (userAuth) => {
     }
 };
 
-// updates username
-export const updateUsername = async (userAuth, desiredValue) => {
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+
+export const getAccountsMap = async () => {
+    const collectionRef = collection(db, "users");
+    const q = query(collectionRef);
+    const querySnapshot = await getDocs(q);
+    const AccountMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+        const { displayName } = docSnapshot.data();
+        acc[displayName.toLowerCase()] = docSnapshot.data();
+        return acc;
+    }, {});
+    return AccountMap;
+};
+
+export const updateUserName = async (userAuth, desiredValue) => {
     if (!userAuth) return;
-    const userDocRef = doc(db, "users", userAuth.uid);
-    const userSnapshot = await getDoc(userDocRef);
-    const userDocs = userSnapshot.data();
-    const batch = writeBatch(db);
-    batch.set(userDocRef, {
-        ...userDocs,
-        userName: desiredValue,
+
+    const map = await getAccountsMap();
+    const userNameMap = Object.values(map).map((account) => {
+        const { userName } = account;
+        return userName;
     });
-    await batch.commit();
+    const nameTaken = userNameMap
+        .map((name) => {
+            return name === desiredValue ? true : false;
+        })
+        .filter((o) => o)[0];
+
+    if (!nameTaken === true) {
+        const userDocRef = doc(db, "users", userAuth.uid);
+        const userSnapshot = await getDoc(userDocRef);
+        const userDocs = userSnapshot.data();
+        const batch = writeBatch(db);
+        batch.set(userDocRef, {
+            ...userDocs,
+            userName: nameTaken
+                ? userDocs.userName
+                : desiredValue.toLowerCase(),
+        });
+        await batch.commit();
+        alert("Name Changed");
+    } else {
+        alert("Name taken");
+    }
 };
 
 // updates user color
@@ -130,4 +172,5 @@ export const updateUserColor = async (userAuth, desiredValue) => {
         color: desiredValue,
     });
     await batch.commit();
+    alert("Color Changed");
 };

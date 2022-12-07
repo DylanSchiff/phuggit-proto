@@ -3,7 +3,7 @@ import ThemeSwapper from "./Theme-swapper.component";
 import AccountRButton from "./account-reusable-button.component";
 import { ColorContext } from "../../ap/context/color.context";
 import {
-    updateUsername,
+    updateUserName,
     updateUserColor,
 } from "../../ap/utils/freshfire.utils";
 import styled from "styled-components";
@@ -48,7 +48,7 @@ const AccountEditor = () => {
                 <AccountRButton
                     buttonText="Update Name"
                     eventHandler={() =>
-                        updateUsername(currentAuth, desiredDisplayName)
+                        updateUserName(currentAuth, desiredDisplayName)
                     }
                 />
             </AccountOptionsInputContainer>

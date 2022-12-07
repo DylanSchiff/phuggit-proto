@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { NotesContext } from "../../ap/context/notes.context";
 import NoteInputs from "./all-inputs.component";
 import NotesDisplay from "./display.component";
-import { UserContext } from "../../ap/context/user.context";
 
 const NotesHaus = styled.div`
     flex: 1;
@@ -14,7 +13,7 @@ const NotesHaus = styled.div`
     justify-content: center;
 `;
 const Notes = ({ userCanPost }) => {
-    const { currentUser } = useContext(UserContext);
+    // const { currentUser } = useContext(UserContext);
     const { notesMap } = useContext(NotesContext);
     const allNotes =
         notesMap &&
@@ -22,12 +21,13 @@ const Notes = ({ userCanPost }) => {
             return note;
         });
     return (
-        currentUser && (
-            <NotesHaus>
-                <NotesDisplay allNotes={allNotes} />
-                {userCanPost && <NoteInputs />}
-            </NotesHaus>
-        )
+        // currentUser && (
+        //     <NotesHaus>
+        //         <NotesDisplay allNotes={allNotes} />
+        //         {userCanPost && <NoteInputs />}
+        //     </NotesHaus>
+        // )
+        ''
     );
 };
 export default Notes;

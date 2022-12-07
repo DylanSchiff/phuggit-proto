@@ -5,7 +5,7 @@ const App = () => {
     return (
         <Routes>
             <Route path="/" element={<NavigationWrap />}>
-                <Route path="old-home" index element={<Home />} />
+                {/* <Route path="old-home" index element={<Home />} /> */}
             </Route>
         </Routes>
     );
