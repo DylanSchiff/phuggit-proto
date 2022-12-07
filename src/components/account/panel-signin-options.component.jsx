@@ -6,34 +6,19 @@ import { signInWithGooglePopup } from "../../ap/utils/firebase.utils";
 import AccountRButton from "./account-reusable-button.component";
 const SignInOptionsContainer = styled.div``;
 
-const SignInOptionsInputContainer = styled.div`
-    display: flex;
-    flex-flow: column nowrap;
-`;
-// const SignInOptionsInput = styled.input`
-//     margin-bottom: 10px;
-// `;
+
+
 
 const SignInOptions = () => {
-    // const { currentAccount } = useContext(AccountContext);
-    // const [uName, setUName] = useState("");
-    // const [uPass, setUPass] = useState("");
-    // const updateUserInfo = (e, isPass) => {
-    //     return isPass ? setUPass(e.target.value) : setUName(e.target.value);
-    // };
+
     return (
         <SignInOptionsContainer>
-            <SignInOptionsInputContainer>
-                {/* <SignInOptionsInput onInput={(e) => updateUserInfo(e)} />
-                <SignInOptionsInput
-                    type="password"
-                    onInput={(e) => updateUserInfo(e, true)}
-                /> */}
+            {/* <SignInOptionsInputContainer> */}
                 <AccountRButton
                     buttonText="Connect Account"
                     eventHandler={() => signInWithGooglePopup()}
                 ></AccountRButton>
-            </SignInOptionsInputContainer>
+            {/* </SignInOptionsInputContainer> */}
         </SignInOptionsContainer>
     );
 };
