@@ -1,6 +1,4 @@
-import { useContext } from "react";
 import styled from "styled-components";
-import { FreshAccountContext } from "../../ap/context/fresh-account.context";
 import AccountOptions from "./panel-account-options.component";
 import SignInOptions from "./panel-signin-options.component";
 const AccountPanelContainer = styled.div.attrs((props) => ({
@@ -16,11 +14,23 @@ const AccountPanelContainer = styled.div.attrs((props) => ({
     background-color: var(--main-001);
     box-shadow: var(--shade-001);
 `;
-const AccountPanel = () => {
-    const { currentAuth, isAccountPanelOpen } = useContext(FreshAccountContext);
+const AccountPanel = ({
+    currentAuth,
+    currentDocs,
+    currentColor,
+    isAccountPanelOpen,
+}) => {
     return (
         <AccountPanelContainer display={isAccountPanelOpen ? "flex" : "none"}>
-            {currentAuth ? <AccountOptions /> : <SignInOptions />}
+            {currentAuth ? (
+                <AccountOptions
+                    currentAuth={currentAuth}
+                    currentDocs={currentDocs}
+                    currentColor={currentColor}
+                />
+            ) : (
+                <SignInOptions currentDocs={currentDocs} />
+            )}
         </AccountPanelContainer>
     );
 };

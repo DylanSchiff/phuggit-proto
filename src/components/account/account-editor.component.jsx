@@ -1,13 +1,11 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import ThemeSwapper from "./Theme-swapper.component";
 import AccountRButton from "./account-reusable-button.component";
-import { ColorContext } from "../../ap/context/color.context";
 import {
     updateUserName,
     updateUserColor,
 } from "../../ap/utils/freshfire.utils";
 import styled from "styled-components";
-import { FreshAccountContext } from "../../ap/context/fresh-account.context";
 const AccountEditorContainer = styled.div``;
 const AccountOptionsInputContainer = styled.div`
     flex: 1;
@@ -18,7 +16,6 @@ const AccountOptionsInputContainer = styled.div`
     justify-content: center;
 `;
 const AccountOptionsInput = styled.input`
-    /* background-color: var(--main-003); */
     border: none;
     outline: none;
     text-align: center;
@@ -26,27 +23,21 @@ const AccountOptionsInput = styled.input`
     overflow: hidden;
     border-radius: 5px;
 `;
-const AccountEditor = () => {
-    const { currentAuth, currentDocs } = useContext(FreshAccountContext);
-    const { userName, displayName } = currentDocs;
-    const { currentColor } = useContext(ColorContext);
+const AccountEditor = ({ currentAuth, currentDocs, currentColor }) => {
+    // const { userName, displayName } = currentDocs;
     const [desiredDisplayName, setDesiredDisplayName] = useState("");
     const setName = (e) => {
         setDesiredDisplayName(e.target.value);
     };
-
     return (
         <AccountEditorContainer>
             <AccountOptionsInputContainer>
                 <AccountOptionsInput
-                    placeholder={
-                        userName &&
-                        `current : ${userName ? userName : displayName}`
-                    }
+                    placeholder="Change Name"
                     onInput={(e) => setName(e)}
                 />
                 <AccountRButton
-                    buttonText="Update Name"
+                    buttonText="Save"
                     eventHandler={() =>
                         updateUserName(currentAuth, desiredDisplayName)
                     }
@@ -55,7 +46,7 @@ const AccountEditor = () => {
             <AccountOptionsInputContainer>
                 <ThemeSwapper />
                 <AccountRButton
-                    buttonText="Save Color"
+                    buttonText="Save Theme"
                     eventHandler={() =>
                         updateUserColor(currentAuth, currentColor)
                     }

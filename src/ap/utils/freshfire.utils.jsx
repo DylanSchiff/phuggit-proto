@@ -130,7 +130,6 @@ export const getAccountsMap = async () => {
 
 export const updateUserName = async (userAuth, desiredValue) => {
     if (!userAuth) return;
-
     const map = await getAccountsMap();
     const userNameMap = Object.values(map).map((account) => {
         const { userName } = account;
@@ -138,7 +137,7 @@ export const updateUserName = async (userAuth, desiredValue) => {
     });
     const nameTaken = userNameMap
         .map((name) => {
-            return name === desiredValue ? true : false;
+            return name === desiredValue.toLowerCase() ? true : false;
         })
         .filter((o) => o)[0];
 
@@ -154,9 +153,10 @@ export const updateUserName = async (userAuth, desiredValue) => {
                 : desiredValue.toLowerCase(),
         });
         await batch.commit();
-        alert("Name Changed");
+        alert("Name changed successfully.");
+        window.location.reload();
     } else {
-        alert("Name taken");
+        alert("That name is taken, please try another.");
     }
 };
 
@@ -172,5 +172,5 @@ export const updateUserColor = async (userAuth, desiredValue) => {
         color: desiredValue,
     });
     await batch.commit();
-    alert("Color Changed");
+    alert("Theme Color Saved");
 };

@@ -5,6 +5,7 @@ import theP from "../../../phuggitp.png";
 import { ColorContext } from "../../../ap/context/color.context";
 import AccountButton from "../../account/account-main-button.component";
 import AccountPanel from "../../account/account-panel.component";
+import { FreshAccountContext } from "../../../ap/context/fresh-account.context";
 const HeaderContainer = styled.div.attrs((props) => ({
     style: {
         borderTop: "1px solid" + props.currentColor,
@@ -43,6 +44,8 @@ const HeaderImage = styled.img`
 `;
 const Header = () => {
     const { currentColor } = useContext(ColorContext);
+    const { currentAuth, currentDocs, isAccountPanelOpen } =
+        useContext(FreshAccountContext);
     return (
         <>
             <HeaderContainer
@@ -55,7 +58,12 @@ const Header = () => {
                 </HeaderBrandingContainer>
                 <AccountButton />
             </HeaderContainer>
-            <AccountPanel />
+            <AccountPanel
+                currentAuth={currentAuth}
+                currentDocs={currentDocs}
+                currentColor={currentColor}
+                isAccountPanelOpen={isAccountPanelOpen}
+            />
         </>
     );
 };
