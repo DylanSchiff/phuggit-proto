@@ -6,6 +6,8 @@ const ColorCubeCard = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: scale(0.7);
+    overflow: hidden;
 `;
 const CubeHaus = styled.div.attrs((props) => ({
     style: {

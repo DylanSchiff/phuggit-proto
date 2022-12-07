@@ -10,13 +10,21 @@ import styled from "styled-components";
 import { FreshAccountContext } from "../../ap/context/fresh-account.context";
 const AccountEditorContainer = styled.div``;
 const AccountOptionsInputContainer = styled.div`
+    flex: 1;
+    max-height: 50px;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 `;
 const AccountOptionsInput = styled.input`
-    margin-bottom: 10px;
+    /* background-color: var(--main-003); */
+    border: none;
+    outline: none;
+    text-align: center;
+    padding: 5px 0;
+    overflow: hidden;
+    border-radius: 5px;
 `;
 const AccountEditor = () => {
     const { currentAuth, currentDocs } = useContext(FreshAccountContext);
@@ -29,14 +37,16 @@ const AccountEditor = () => {
 
     return (
         <AccountEditorContainer>
-            {`Hello ${userName ? userName : displayName}`}
             <AccountOptionsInputContainer>
                 <AccountOptionsInput
-                    placeholder="Update Name"
+                    placeholder={
+                        userName &&
+                        `current : ${userName ? userName : displayName}`
+                    }
                     onInput={(e) => setName(e)}
                 />
                 <AccountRButton
-                    buttonText="Save Name"
+                    buttonText="Update Name"
                     eventHandler={() =>
                         updateUsername(currentAuth, desiredDisplayName)
                     }

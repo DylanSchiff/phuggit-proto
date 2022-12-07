@@ -38,6 +38,7 @@ const AccountRButtonContainer = styled.div.attrs((props) => ({
     cursor: pointer;
     padding: 0 10px;
     height: 40px;
+    max-height: 40px;
     margin: 0 5px;
     border: 1px solid transparent;
     border-radius: 10px;

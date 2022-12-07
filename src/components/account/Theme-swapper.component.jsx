@@ -16,7 +16,7 @@ const ColorCubeDisplay = styled.div`
 `;
 const ThemeSwapper = () => {
     const { currentColor, setCurrentColor } = useContext(ColorContext);
-    const defaultColor = currentColor ? currentColor : "#5c2fe6";
+    const defaultColor = currentColor ? currentColor : "transparent";
     const dismantleColor = () => {
         return defaultColor
             .replace(

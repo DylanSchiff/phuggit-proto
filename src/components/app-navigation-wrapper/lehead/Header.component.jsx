@@ -1,17 +1,10 @@
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { UserContext } from "../../../ap/context/user.context";
 import theP from "../../../phuggitp.png";
 import { ColorContext } from "../../../ap/context/color.context";
 import AccountButton from "../../account/account-main-button.component";
 import AccountPanel from "../../account/account-panel.component";
-
-import {
-    signInWithGooglePopup,
-    signOutUser,
-} from "../../../ap/utils/freshfire.utils";
-import { FreshAccountContext } from "../../../ap/context/fresh-account.context";
 const HeaderContainer = styled.div.attrs((props) => ({
     style: {
         borderTop: "1px solid" + props.currentColor,
@@ -48,41 +41,12 @@ const HeaderImage = styled.img`
     object-fit: cover;
     height: 50px;
 `;
-const NavControls = styled.div`
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    height: 50px;
-`;
-const NavButton = styled.div`
-    padding: 0 10px;
-    height: 40px;
-    margin: 0 5px;
-    border: 1px solid transparent;
-    border-radius: 10px;
-    transition: 111ms linear;
-    user-select: none;
-    cursor: pointer;
-    color: var(--thir-002);
-    font-size: 15px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    &:hover {
-        border: 1px solid var(--thir-004);
-    }
-    @media only screen and (max-width: 200px) {
-        display: none;
-    }
-`;
 const Header = () => {
-    const { currentDocs } = useContext(FreshAccountContext);
+    const { currentColor } = useContext(ColorContext);
     return (
         <>
             <HeaderContainer
-                currentColor={currentDocs ? currentDocs.color : "#fff"}
+                currentColor={currentColor ? currentColor : "transparent"}
             >
                 <HeaderBrandingContainer to="/">
                     <HeaderImageContainer>
