@@ -82,7 +82,8 @@ export const createAccountfromGoogleAuth = async (
                 color: null,
                 ...additionalInformation,
             });
-            console.log(`User (${displayName} created.)`);
+            alert(`Account for ${displayName} created.`);
+            window.location.reload();
         } catch (error) {
             console.log("error creating the user", error.message);
         }

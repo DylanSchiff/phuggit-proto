@@ -22,6 +22,7 @@ const TopbarContainer = styled.div.attrs((props) => ({
     justify-content: space-between;
     align-items: center;
     transition: 111ms linear;
+    padding: 0 25px;
 `;
 
 const TopBarAccountGroup = styled.div`
@@ -31,12 +32,18 @@ const TopBarAccountGroup = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 10px;
 `;
 
-const Topbar = ({ currentAuth, currentData, isPanelOpen, setIsPanelOpen }) => {
+const Topbar = ({
+    currentAuth,
+    currentData,
+    isPanelOpen,
+    setIsPanelOpen,
+    signInWithGooglePopup,
+}) => {
     return (
         <TopbarContainer>
+            Logo
             <TopBarAccountGroup>
                 {currentAuth && (
                     <TopbarNameplate
@@ -48,6 +55,7 @@ const Topbar = ({ currentAuth, currentData, isPanelOpen, setIsPanelOpen }) => {
                     currentAuth={currentAuth}
                     setIsPanelOpen={setIsPanelOpen}
                     isPanelOpen={isPanelOpen}
+                    signInWithGooglePopup={signInWithGooglePopup}
                 />
             </TopBarAccountGroup>
         </TopbarContainer>

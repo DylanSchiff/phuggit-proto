@@ -1,11 +1,5 @@
-import { useContext } from "react";
-import { useState } from "react";
 import styled from "styled-components";
-// import { AccountPanelContext } from "../../../AAA/context/AAA-context/account-panel.context";
-import {
-    signInWithGooglePopup,
-    signOutUser,
-} from "../../../AAA/utils/AAA-utilz/firebase.utils";
+// import { signInWithGooglePopup } from "../../../AAA/utils/AAA-utilz/firebase.utils";
 const TopBarButtonContainer = styled.div`
     padding: 0 10px;
     width: fit-content;
@@ -27,7 +21,12 @@ const TopBarButtonContainer = styled.div`
         border: 1px solid var(--thir-004);
     }
 `;
-const TopBarButton = ({ currentAuth, isPanelOpen, setIsPanelOpen }) => {
+const TopBarButton = ({
+    currentAuth,
+    isPanelOpen,
+    setIsPanelOpen,
+    signInWithGooglePopup,
+}) => {
     const toggleAccountPanelVisibility = () => setIsPanelOpen(!isPanelOpen);
     return (
         <TopBarButtonContainer
