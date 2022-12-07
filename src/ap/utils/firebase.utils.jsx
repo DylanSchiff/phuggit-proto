@@ -9,13 +9,13 @@ import {
 
 import {
     getFirestore,
-    // collection,
+    collection,
     writeBatch,
     doc,
-    // query,
+    query,
     getDoc,
     setDoc,
-    // getDocs,
+    getDocs,
     // ref,
 } from "firebase/firestore";
 
@@ -101,11 +101,23 @@ export const createUserDocumentFromAuth = async (
 //     return displayName;
 // };
 
-export const getUserDocs = async (user) => {
-    if (!user) return;
-    const docRef = doc(db, "users", user.uid);
-    const userSnapshot = await getDoc(docRef);
-    return userSnapshot.data();
+// export const getUserDocs = async (user) => {
+//     if (!user) return;
+//     const docRef = doc(db, "users", user.uid);
+//     const userSnapshot = await getDoc(docRef);
+//     return userSnapshot.data();
+// };
+
+export const getAccountsMap = async () => {
+    const collectionRef = collection(db, "users");
+    const q = query(collectionRef);
+    const querySnapshot = await getDocs(q);
+    const AccountMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+        const { displayName } = docSnapshot.data();
+        acc[displayName.toLowerCase()] = docSnapshot.data();
+        return acc;
+    }, {});
+    return AccountMap;
 };
 
 export const updateUserDocument = async (user, additionalInformation) => {

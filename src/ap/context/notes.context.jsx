@@ -4,7 +4,7 @@ import { createContext, useState, useEffect } from "react";
 export const NotesContext = createContext({
     setNotesMap: () => null,
     notesMap: [],
-});
+}); 
 
 export const NotesProvider = ({ children }) => {
     const [notesMap, setNotesMap] = useState(null);

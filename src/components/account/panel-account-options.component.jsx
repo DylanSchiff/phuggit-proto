@@ -1,35 +1,36 @@
-import { useContext, useState } from "react";
+// import { useContext, useState } from "react";
 import styled from "styled-components";
 import {
     signOutUser,
-    updateUsername,
-    updateUserColor,
+    // updateUsername,
+    // updateUserColor,
 } from "../../ap/utils/firebase.utils";
-import { AccountContext } from "../../ap/context/account.context";
+// import { AccountContext } from "../../ap/context/account.context";
 import AccountRButton from "./account-reusable-button.component";
-import ThemeSwapper from "../account-box/Theme-swapper.component";
-import { ColorContext } from "../../ap/context/color.context";
+// import ThemeSwapper from "./Theme-swapper.component";
+// import { ColorContext } from "../../ap/context/color.context";
+import AccountEditor from "./account-editor.component";
 
 const AccountOptionsContainer = styled.div``;
-const AccountOptionsInputContainer = styled.div`
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-`;
-const AccountOptionsInput = styled.input`
-    margin-bottom: 10px;
-`;
+// const AccountOptionsInputContainer = styled.div`
+//     display: flex;
+//     flex-flow: row nowrap;
+//     align-items: center;
+// `;
+// const AccountOptionsInput = styled.input`
+//     margin-bottom: 10px;
+// `;
 const AccountOptions = () => {
-    const { currentAccount } = useContext(AccountContext);
-    const { currentColor } = useContext(ColorContext);
-    const [desiredDisplayName, setDesiredDisplayName] = useState("");
-    const setName = (e) => {
-        setDesiredDisplayName(e.target.value);
-    };
+    // const { currentAccount } = useContext(AccountContext);
+    // const { currentColor } = useContext(ColorContext);
+    // const [desiredDisplayName, setDesiredDisplayName] = useState("");
+    // const setName = (e) => {
+    //     setDesiredDisplayName(e.target.value);
+    // };
 
     return (
         <AccountOptionsContainer>
-            <AccountOptionsInputContainer>
+            {/* <AccountOptionsInputContainer>
                 <AccountOptionsInput
                     placeholder="Update Name"
                     onInput={(e) => setName(e)}
@@ -49,7 +50,9 @@ const AccountOptions = () => {
                         updateUserColor(currentAccount, currentColor)
                     }
                 />
-            </AccountOptionsInputContainer>
+            </AccountOptionsInputContainer> */}
+
+            <AccountEditor />
             <AccountRButton
                 buttonText="Sign Out"
                 eventHandler={() => signOutUser()}

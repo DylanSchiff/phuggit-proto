@@ -7,6 +7,12 @@ const ColorCubeDisplay = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: scale(0.5);
+    min-height: 100px;
+    min-width: 100px;
+    max-height: 100px;
+    max-width: 100px;
+    overflow: hidden;
 `;
 const ThemeSwapper = () => {
     const { currentColor, setCurrentColor } = useContext(ColorContext);
