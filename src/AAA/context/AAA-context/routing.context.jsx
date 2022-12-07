@@ -1,31 +1,29 @@
 import { createContext, useState, useEffect } from "react";
-// import {
-//     generateRoutes,
-// } from "../../utils/freshfire.utils";
+import { generateRoutes } from "../../utils/AAA-utilz/firebase.utils";
 
-export const AccountContext = createContext({
+export const RoutingContext = createContext({
     currentRoutes: null,
     setCurrentRoutes: () => {},
 });
 
-export const AccountProvider = ({ children }) => {
+export const RouteProvider = ({ children }) => {
     const [currentRoutes, setCurrentRoutes] = useState([]);
 
-    // useEffect(() => {
-    //     const generateUserRoutes = async () => {
-    //         const routes = await generateRoutes();
-    //         setCurrentRoutes(routes);
-    //     };
-    //     generateUserRoutes();
-    // }, []);
+    useEffect(() => {
+        const generateUserRoutes = async () => {
+            const routes = await generateRoutes();
+            setCurrentRoutes(routes);
+        };
+        generateUserRoutes();
+    }, []);
 
     const value = {
         currentRoutes,
         setCurrentRoutes,
     };
     return (
-        <AccountContext.Provider value={value}>
+        <RoutingContext.Provider value={value}>
             {children}
-        </AccountContext.Provider>
+        </RoutingContext.Provider>
     );
 };

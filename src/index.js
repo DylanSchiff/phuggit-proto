@@ -5,13 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { AccountProvider } from './AAA/context/AAA-context/account.context';
+import { RouteProvider } from './AAA/context/AAA-context/routing.context';
+import { AccountPanelProvider } from './AAA/context/AAA-context/account-panel.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AccountProvider>
-        <App />
+        <RouteProvider>
+          {/* <AccountPanelProvider> */}
+          <App />
+          {/* </AccountPanelProvider> */}
+        </RouteProvider>
       </AccountProvider>
     </BrowserRouter>
   </React.StrictMode>
