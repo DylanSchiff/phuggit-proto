@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { createContext, useState } from "react";
 import { AccountContext } from "./account.context";
 export const ColorContext = createContext({
-    currentColor: null,
+    currentColor: "#fff",
     setCurrentColor: () => {},
 });
 

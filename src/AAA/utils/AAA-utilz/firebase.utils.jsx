@@ -83,7 +83,7 @@ export const createAccountfromGoogleAuth = async (
                 routePath:
                     displayName.toLowerCase().trim().split(" ").join("") +
                     uid.substring(3, 6).toLowerCase(),
-                color: null,
+                color: "#fff",
                 ...additionalInformation,
             });
             alert(`Account for ${displayName} created.`);

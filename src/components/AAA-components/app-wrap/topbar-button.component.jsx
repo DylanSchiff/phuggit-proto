@@ -23,6 +23,7 @@ const TopBarButtonContainer = styled.div`
 `;
 const TopBarButton = ({
     currentAuth,
+    currentData,
     isPanelOpen,
     setIsPanelOpen,
     signInWithGooglePopup,
@@ -36,7 +37,9 @@ const TopBarButton = ({
                     : signInWithGooglePopup()
             }
         >
-            {currentAuth ? "Account" : "Sign In"}
+            {currentAuth && !currentData === undefined
+                ? `@${currentData.handle}`
+                : "Sign In"}
         </TopBarButtonContainer>
     );
 };
