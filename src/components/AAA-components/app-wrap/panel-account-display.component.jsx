@@ -3,13 +3,18 @@ import { AccountContext } from "../../../AAA/context/AAA-context/account.context
 import styled from "styled-components";
 import ThemeSwapper from "./theme-swapper.component";
 const PanelAccountDisplayContainer = styled.div`
+    flex: 1;
+    width: 100%;
     padding-bottom: 10px;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: space-between;
 `;
 const PanelAccountDisplayIntro = styled.div``;
+const PanelAccountDisplaySpan = styled.div`
+    font-size: ${({ fontsize }) => fontsize};
+    font-weight: ${({ fontweight }) => fontweight};
+`;
 const PanelAccountDisplay = () => {
     const { currentData } = useContext(AccountContext);
     const { displayName, handle } = currentData;
@@ -18,8 +23,12 @@ const PanelAccountDisplay = () => {
             <PanelAccountDisplayContainer>
                 <ThemeSwapper />
                 <PanelAccountDisplayIntro>
-                    <p>{displayName}</p>
-                    <span>@{handle}</span>
+                    <PanelAccountDisplaySpan fontsize="20px" fontweight="600">
+                        {displayName}
+                    </PanelAccountDisplaySpan>
+                    <PanelAccountDisplaySpan fontsize="15px">
+                        {`@${handle}`}
+                    </PanelAccountDisplaySpan>
                 </PanelAccountDisplayIntro>
             </PanelAccountDisplayContainer>
         )
