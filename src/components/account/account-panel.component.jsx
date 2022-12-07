@@ -13,7 +13,8 @@ const AccountPanelContainer = styled.div.attrs((props) => ({
     top: 70px;
     right: 20px;
     padding: 20px;
-    background-color: lightcoral;
+    background-color: var(--main-001);
+    box-shadow: var(--shade-001);
 `;
 const AccountPanel = () => {
     const { currentAccount, isAccountPanelOpen } = useContext(AccountContext);
