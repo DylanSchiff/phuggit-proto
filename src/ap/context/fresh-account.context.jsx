@@ -47,16 +47,11 @@ export const FreshAccountProvider = ({ children }) => {
     }, []);
 
     useEffect(() => {
-        const generateCurrentRoutes = onAuthStateChangedListener((userAuth) => {
-            if (userAuth) {
-                const generateUserRoutes = async () => {
-                    const routes = await generateRoutes();
-                    setCurrentRoutes(routes);
-                };
-                generateUserRoutes();
-            }
-        });
-        return generateCurrentRoutes;
+        const generateUserRoutes = async () => {
+            const routes = await generateRoutes();
+            setCurrentRoutes(routes);
+        };
+        generateUserRoutes();
     }, []);
 
     const value = {
