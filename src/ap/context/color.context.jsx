@@ -9,10 +9,10 @@ export const ColorContext = createContext({
 export const ColorProvider = ({ children }) => {
     const { currentAccountData } = useContext(AccountContext);
     const { color } = currentAccountData;
-    const [currentColor, setCurrentColor] = useState("#fff");
+    const [currentColor, setCurrentColor] = useState("#5c2fe6");
     useEffect(() => {
         const getAccountColor = async () => {
-            setCurrentColor(color);
+            color && setCurrentColor(color);
         };
         getAccountColor();
     }, [color]);
