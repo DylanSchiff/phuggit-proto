@@ -9,14 +9,14 @@ import {
 
 import {
     getFirestore,
-    collection,
+    // collection,
     writeBatch,
     doc,
-    query,
+    // query,
     getDoc,
     setDoc,
-    getDocs,
-    ref,
+    // getDocs,
+    // ref,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -82,14 +82,30 @@ export const createUserDocumentFromAuth = async (
     return userDocRef;
 };
 
-export const getUserDocuments = async (user) => {
+// export const getUserDocuments = async (user) => {
+//     if (!user) return;
+//     const docRef = doc(db, "users", user.uid);
+//     const userSnapshot = await getDoc(docRef);
+//     if (userSnapshot.exists()) {
+//         console.log(userSnapshot.data());
+//         return userSnapshot.data();
+//     }
+// };
+
+// export const getUserDisplayName = async (user) => {
+//     if (!user) return;
+//     const docRef = doc(db, "users", user.uid);
+//     const userSnapshot = await getDoc(docRef);
+//     const userInfo = userSnapshot.data();
+//     const displayName = userInfo.displayName;
+//     return displayName;
+// };
+
+export const getUserDocs = async (user) => {
     if (!user) return;
     const docRef = doc(db, "users", user.uid);
     const userSnapshot = await getDoc(docRef);
-    if (userSnapshot.exists()) {
-        console.log(userSnapshot.data());
-        return userSnapshot.data();
-    }
+    return userSnapshot.data();
 };
 
 export const updateUserDocument = async (user, additionalInformation) => {
@@ -263,8 +279,8 @@ export const updateUsername = async (userAuth, desiredValue) => {
     await batch.commit();
 };
 
-// updates Email
-export const updateEmail = async (userAuth, desiredValue) => {
+// updates user color
+export const updateUserColor = async (userAuth, desiredValue) => {
     if (!userAuth) return;
     const userDocRef = doc(db, "users", userAuth.uid);
     const userSnapshot = await getDoc(userDocRef);
@@ -272,10 +288,24 @@ export const updateEmail = async (userAuth, desiredValue) => {
     const batch = writeBatch(db);
     batch.set(userDocRef, {
         ...userDocs,
-        updatedEmail: desiredValue,
+        favoriteColor: desiredValue,
     });
     await batch.commit();
 };
+
+// updates Email
+// export const updateEmail = async (userAuth, desiredValue) => {
+//     if (!userAuth) return;
+//     const userDocRef = doc(db, "users", userAuth.uid);
+//     const userSnapshot = await getDoc(userDocRef);
+//     const userDocs = userSnapshot.data();
+//     const batch = writeBatch(db);
+//     batch.set(userDocRef, {
+//         ...userDocs,
+//         updatedEmail: desiredValue,
+//     });
+//     await batch.commit();
+// };
 
 // update account attempt.. key funky
 // export const updateAccount = async (userAuth, desiredKey, desiredValue) => {
