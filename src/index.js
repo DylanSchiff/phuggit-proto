@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { AccountProvider } from './AAA/context/AAA-context/account.context';
 import { RouteProvider } from './AAA/context/AAA-context/routing.context';
 import { AccountPanelProvider } from './AAA/context/AAA-context/account-panel.context';
+import { ColorProvider } from './AAA/context/AAA-context/color.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +16,9 @@ root.render(
       <AccountProvider>
         <RouteProvider>
           <AccountPanelProvider>
-          <App />
+            <ColorProvider>
+              <App />
+            </ColorProvider>
           </AccountPanelProvider>
         </RouteProvider>
       </AccountProvider>

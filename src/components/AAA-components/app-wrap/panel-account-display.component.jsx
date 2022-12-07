@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AccountContext } from "../../../AAA/context/AAA-context/account.context";
 import styled from "styled-components";
+import ColorCube from "./theme-cube.component";
 const PanelAccountDisplayContainer = styled.div`
     padding-bottom: 10px;
 `;

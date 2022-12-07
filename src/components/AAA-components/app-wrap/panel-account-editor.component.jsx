@@ -4,9 +4,12 @@ import PanelButton from "./panel-button.component";
 import {
     updateHandle,
     updateUserName,
+    updateUserColor,
 } from "../../../AAA/utils/AAA-utilz/firebase.utils";
 import { AccountContext } from "../../../AAA/context/AAA-context/account.context";
 import { useContext } from "react";
+import ThemeSwapper from "./theme-swapper.component";
+import { ColorContext } from "../../../AAA/context/AAA-context/color.context";
 const PanelAccountEditorContainer = styled.div.attrs((props) => ({
     style: {
         display: props.display,
@@ -35,6 +38,7 @@ const PanelAccountEditorInput = styled.input`
 `;
 const PanelAccountEditor = ({ isEditorOpen }) => {
     const { currentAuth } = useContext(AccountContext);
+    const { currentColor } = useContext(ColorContext);
     const [desiredName, setDesiredName] = useState("");
     const [desiredHandle, setDesiredHandle] = useState("");
     const setName = (e) => {
@@ -66,6 +70,15 @@ const PanelAccountEditor = ({ isEditorOpen }) => {
                     buttonText="Save"
                     buttonHandler={() =>
                         updateHandle(currentAuth, desiredHandle)
+                    }
+                />
+            </PanelAccountEditorInputContainer>
+            <PanelAccountEditorInputContainer>
+                <ThemeSwapper />
+                <PanelButton
+                    buttonText="Save"
+                    buttonHandler={() =>
+                        updateUserColor(currentAuth, currentColor)
                     }
                 />
             </PanelAccountEditorInputContainer>

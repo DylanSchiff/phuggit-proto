@@ -184,20 +184,20 @@ export const updateHandle = async (userAuth, desiredHandle) => {
     }
 };
 
-// // updates user color
-// export const updateUserColor = async (userAuth, desiredValue) => {
-//     if (!userAuth) return;
-//     const userDocRef = doc(db, "users", userAuth.uid);
-//     const userSnapshot = await getDoc(userDocRef);
-//     const userDocs = userSnapshot.data();
-//     const batch = writeBatch(db);
-//     batch.set(userDocRef, {
-//         ...userDocs,
-//         color: desiredValue,
-//     });
-//     await batch.commit();
-//     alert("Theme Color Saved");
-// };
+// updates user color
+export const updateUserColor = async (userAuth, desiredValue) => {
+    if (!userAuth) return;
+    const userDocRef = doc(db, "users", userAuth.uid);
+    const userSnapshot = await getDoc(userDocRef);
+    const userDocs = userSnapshot.data();
+    const batch = writeBatch(db);
+    batch.set(userDocRef, {
+        ...userDocs,
+        color: desiredValue,
+    });
+    await batch.commit();
+    alert("Theme Color Saved");
+};
 
 // ////////////////////////////////////////////////////////////////////
 // ////////////////////////////////////////////////////////////////////
