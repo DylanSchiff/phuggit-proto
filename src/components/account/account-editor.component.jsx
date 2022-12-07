@@ -11,7 +11,7 @@ const AccountOptionsInputContainer = styled.div`
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid #fff;
+    /* border: 1px solid #fff; */
 `;
 const AccountOptionsInput = styled.input`
     margin-bottom: 10px;
