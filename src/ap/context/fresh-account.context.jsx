@@ -34,7 +34,7 @@ export const FreshAccountProvider = ({ children }) => {
     }, []);
 
     useEffect(() => {
-        const getCurrentDocs = onAuthStateChangedListener((userAuth) => {
+        const getCurrentUsersDocs = onAuthStateChangedListener((userAuth) => {
             if (userAuth) {
                 const gatherUserDocs = async () => {
                     const userData = await getUserDocuments(userAuth);
@@ -43,7 +43,7 @@ export const FreshAccountProvider = ({ children }) => {
                 gatherUserDocs();
             }
         });
-        return getCurrentDocs;
+        return getCurrentUsersDocs;
     }, []);
 
     useEffect(() => {
