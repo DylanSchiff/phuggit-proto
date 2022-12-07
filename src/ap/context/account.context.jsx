@@ -31,15 +31,18 @@ export const AccountProvider = ({ children }) => {
 
     useEffect(() => {
         const accData = onAuthStateChangedListener((user) => {
-            const getAccountMap = async () => {
-                const aMap = await getAccountsMap();
-                const accountsData = Object.values(aMap).map((account) => {
-                    return user.uid === account.uid ? account : null;
-                });
-                setCurrentAccountData(accountsData.filter((a) => a)[0]);
-            };
-            getAccountMap();
+            if (user) {
+                const getAccountMap = async () => {
+                    const aMap = await getAccountsMap();
+                    const accountsData = Object.values(aMap).map((account) => {
+                        return user.uid === account.uid ? account : null;
+                    });
+                    setCurrentAccountData(accountsData.filter((a) => a)[0]);
+                };
+                getAccountMap();
+            }
         });
+
         return accData;
     }, []);
 
