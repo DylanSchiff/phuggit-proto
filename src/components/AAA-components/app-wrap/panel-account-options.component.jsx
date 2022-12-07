@@ -35,7 +35,10 @@ const PanelAccountOptions = ({ currentAuth, currentDocs }) => {
                     buttonHandler={signOutAndClosePanel}
                 />
             </PanelAccountButtons>
-            <PanelAccountEditor isEditorOpen={isEditorOpen} />
+            <PanelAccountEditor
+                currentAuth={currentAuth}
+                isEditorOpen={isEditorOpen}
+            />
         </PanelAccountOptionsContainer>
     );
 };
