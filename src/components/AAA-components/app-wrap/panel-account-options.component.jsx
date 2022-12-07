@@ -4,7 +4,7 @@ import { AccountPanelContext } from "../../../AAA/context/AAA-context/account-pa
 
 import PanelAccountDisplay from "./panel-account-display.component";
 import PanelAccountEditor from "./panel-account-editor.component";
-import PanelControls from "./panel-controls.component";
+import PanelControls from "./panel-account-controls.component";
 const PanelAccountOptionsContainer = styled.div`
     flex: 1;
     width: 100%;

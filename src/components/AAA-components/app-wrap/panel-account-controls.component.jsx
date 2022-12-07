@@ -4,7 +4,7 @@ import { signOutUser } from "../../../AAA/utils/AAA-utilz/firebase.utils";
 import { AccountPanelContext } from "../../../AAA/context/AAA-context/account-panel.context";
 import { useContext } from "react";
 import { AccountContext } from "../../../AAA/context/AAA-context/account.context";
-const PanelControlsContainer = styled.div`
+const PanelAccountControlsContainer = styled.div`
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -12,7 +12,7 @@ const PanelControlsContainer = styled.div`
     align-items: center;
     justify-items: center;
 `;
-const PanelControls = () => {
+const PanelAccountControls = () => {
     const { setIsPanelOpen, setIsEditorOpen, isEditorOpen } =
         useContext(AccountPanelContext);
     const { currentData } = useContext(AccountContext);
@@ -22,17 +22,18 @@ const PanelControls = () => {
         signOutUser();
     };
     return (
-        <PanelControlsContainer>
+        <PanelAccountControlsContainer>
+            <PanelButton buttonText="Home" isLink routePath="/" />
+            <PanelButton buttonText="Explore" isLink routePath="/explore" />
             {currentData && (
                 <PanelButton
                     buttonText="Profile"
                     isLink
-                    routePath={currentData.routePath}
+                    routePath={`/${currentData.routePath}`}
                 />
             )}
-            <PanelButton
-                buttonText="Projects"
-            />
+            <PanelButton buttonText="Contact" isLink routePath="/contact" />
+            <PanelButton buttonText="Guides" isLink routePath="/guides" />
             <PanelButton
                 buttonText="Settings"
                 buttonHandler={toggleIsEditorOpen}
@@ -41,7 +42,7 @@ const PanelControls = () => {
                 buttonText="Sign Out"
                 buttonHandler={signOutAndClosePanel}
             />
-        </PanelControlsContainer>
+        </PanelAccountControlsContainer>
     );
 };
-export default PanelControls;
+export default PanelAccountControls;

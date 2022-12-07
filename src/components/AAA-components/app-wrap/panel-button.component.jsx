@@ -35,7 +35,7 @@ const PanelButton = ({ buttonText, buttonHandler, isLink, routePath }) => {
             onClick={() => (buttonHandler ? buttonHandler() : null)}
         >
             {isLink ? (
-                <ButtonLink to={`/${routePath}`}>{buttonText}</ButtonLink>
+                <ButtonLink to={`${routePath}`}>{buttonText}</ButtonLink>
             ) : (
                 buttonText
             )}
