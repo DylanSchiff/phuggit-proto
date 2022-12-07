@@ -1,6 +1,6 @@
 import styled from "styled-components";
 const AccountDisplayContainer = styled.div``;
-const AccountDisplay = ({ currentAuth, currentDocs }) => {
+const AccountDisplay = ({ currentDocs }) => {
     const { userName } = currentDocs;
     const welcomeMessage = userName
         ? `Hello, ${userName.charAt(0).toUpperCase() + userName.slice(1)}`

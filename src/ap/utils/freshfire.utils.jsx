@@ -79,6 +79,7 @@ export const createAccountfromGoogleAuth = async (
                 createdAt,
                 photoURL,
                 userName: displayName.toLowerCase(),
+                routePath: displayName.toLowerCase().trim().split(" ").join(""),
                 color: "#5c2fe6",
                 ...additionalInformation,
             });
@@ -128,6 +129,20 @@ export const getAccountsMap = async () => {
     return AccountMap;
 };
 
+export const generateRoutes = async () => {
+    const map = await getAccountsMap();
+    const trimmedUserNames = Object.values(map)
+        .map((account) => {
+            const { userName } = account;
+            const trimmedUsername = userName
+                ? userName.trim().split(" ").join("")
+                : null;
+            return trimmedUsername;
+        })
+        .filter((a) => a);
+    return trimmedUserNames;
+};
+
 export const updateUserName = async (userAuth, desiredValue) => {
     if (!userAuth) return;
     const map = await getAccountsMap();
@@ -151,6 +166,9 @@ export const updateUserName = async (userAuth, desiredValue) => {
             userName: nameTaken
                 ? userDocs.userName
                 : desiredValue.toLowerCase(),
+            routePath: nameTaken
+                ? userDocs.displayName.toLowerCase().trim().split(" ").join("")
+                : desiredValue.toLowerCase().trim().split(" ").join(""),
         });
         await batch.commit();
         alert("Name changed successfully.");

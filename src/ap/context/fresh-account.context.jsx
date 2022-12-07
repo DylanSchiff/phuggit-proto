@@ -3,6 +3,7 @@ import {
     onAuthStateChangedListener,
     createAccountfromGoogleAuth,
     getUserDocuments,
+    generateRoutes,
 } from "../utils/freshfire.utils";
 
 export const FreshAccountContext = createContext({
@@ -10,6 +11,8 @@ export const FreshAccountContext = createContext({
     setCurrentAuth: () => {},
     currentDocs: null,
     setCurrentDocs: () => {},
+    currentRoutes: null,
+    setCurrentRoutes: () => {},
     isAccountPanelOpen: null,
     setIsAccountPanelOpen: () => {},
 });
@@ -17,6 +20,7 @@ export const FreshAccountContext = createContext({
 export const FreshAccountProvider = ({ children }) => {
     const [currentAuth, setCurrentAuth] = useState(null);
     const [currentDocs, setCurrentDocs] = useState({});
+    const [currentRoutes, setCurrentRoutes] = useState([]);
     const [isAccountPanelOpen, setIsAccountPanelOpen] = useState(false);
 
     useEffect(() => {
@@ -35,7 +39,6 @@ export const FreshAccountProvider = ({ children }) => {
                 const gatherUserDocs = async () => {
                     const userData = await getUserDocuments(userAuth);
                     setCurrentDocs(userData);
-                    
                 };
                 gatherUserDocs();
             }
@@ -43,11 +46,26 @@ export const FreshAccountProvider = ({ children }) => {
         return getCurrentDocs;
     }, []);
 
+    useEffect(() => {
+        const generateCurrentRoutes = onAuthStateChangedListener((userAuth) => {
+            if (userAuth) {
+                const generateUserRoutes = async () => {
+                    const routes = await generateRoutes();
+                    setCurrentRoutes(routes);
+                };
+                generateUserRoutes();
+            }
+        });
+        return generateCurrentRoutes;
+    }, []);
+
     const value = {
         currentAuth,
         currentDocs,
         isAccountPanelOpen,
         setIsAccountPanelOpen,
+        currentRoutes,
+        setCurrentRoutes,
     };
     return (
         <FreshAccountContext.Provider value={value}>
