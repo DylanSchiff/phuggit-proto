@@ -6,6 +6,12 @@ import theP from "../../../phuggitp.png";
 import { ColorContext } from "../../../ap/context/color.context";
 import AccountButton from "../../account/account-main-button.component";
 import AccountPanel from "../../account/account-panel.component";
+
+import {
+    signInWithGooglePopup,
+    signOutUser,
+} from "../../../ap/utils/freshfire.utils";
+import { FreshAccountContext } from "../../../ap/context/fresh-account.context";
 const HeaderContainer = styled.div.attrs((props) => ({
     style: {
         borderTop: "1px solid" + props.currentColor,
@@ -72,29 +78,17 @@ const NavButton = styled.div`
     }
 `;
 const Header = () => {
-    const { currentColor } = useContext(ColorContext);
-    const { currentUser } = useContext(UserContext);
+    const { currentDocs } = useContext(FreshAccountContext);
     return (
         <>
-            <HeaderContainer currentColor={currentColor}>
+            <HeaderContainer
+                currentColor={currentDocs ? currentDocs.color : "#fff"}
+            >
                 <HeaderBrandingContainer to="/">
                     <HeaderImageContainer>
                         <HeaderImage src={theP} />
                     </HeaderImageContainer>
                 </HeaderBrandingContainer>
-                {/* 
-            <NavControls>
-                <NavButton onClick={() => window.scrolltocontactsection()}>
-                    Contact
-                </NavButton>
-                <Link to="/account">
-                    <NavButton onClick={() => window.scrolltocontactsection()}>
-                        Account
-                    </NavButton>
-                </Link>
-            
-            </NavControls>
-            */}
                 <AccountButton />
             </HeaderContainer>
             <AccountPanel />

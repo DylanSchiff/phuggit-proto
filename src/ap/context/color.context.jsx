@@ -8,14 +8,18 @@ export const ColorContext = createContext({
 
 export const ColorProvider = ({ children }) => {
     const { currentAccountData } = useContext(AccountContext);
-    const { color } = currentAccountData;
+
     const [currentColor, setCurrentColor] = useState("#5c2fe6");
+
     useEffect(() => {
         const getAccountColor = async () => {
-            color && setCurrentColor(color);
+            if (currentAccountData) {
+                const { color } = currentAccountData;
+                setCurrentColor(color);
+            }
         };
         getAccountColor();
-    }, [color]);
+    }, [currentAccountData]);
 
     const value = { currentColor, setCurrentColor };
     return (

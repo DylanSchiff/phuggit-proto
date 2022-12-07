@@ -2,9 +2,12 @@ import { useContext, useState } from "react";
 import ThemeSwapper from "./Theme-swapper.component";
 import AccountRButton from "./account-reusable-button.component";
 import { ColorContext } from "../../ap/context/color.context";
-import { AccountContext } from "../../ap/context/account.context";
-import { updateUsername, updateUserColor } from "../../ap/utils/firebase.utils";
+import {
+    updateUsername,
+    updateUserColor,
+} from "../../ap/utils/freshfire.utils";
 import styled from "styled-components";
+import { FreshAccountContext } from "../../ap/context/fresh-account.context";
 const AccountEditorContainer = styled.div``;
 const AccountOptionsInputContainer = styled.div`
     display: flex;
@@ -16,8 +19,8 @@ const AccountOptionsInput = styled.input`
     margin-bottom: 10px;
 `;
 const AccountEditor = () => {
-    const { currentAccount, currentAccountData } = useContext(AccountContext);
-    const { userName, displayName } = currentAccountData;
+    const { currentAuth, currentDocs } = useContext(FreshAccountContext);
+    const { userName, displayName } = currentDocs;
     const { currentColor } = useContext(ColorContext);
     const [desiredDisplayName, setDesiredDisplayName] = useState("");
     const setName = (e) => {
@@ -35,7 +38,7 @@ const AccountEditor = () => {
                 <AccountRButton
                     buttonText="Save Name"
                     eventHandler={() =>
-                        updateUsername(currentAccount, desiredDisplayName)
+                        updateUsername(currentAuth, desiredDisplayName)
                     }
                 />
             </AccountOptionsInputContainer>
@@ -44,7 +47,7 @@ const AccountEditor = () => {
                 <AccountRButton
                     buttonText="Save Color"
                     eventHandler={() =>
-                        updateUserColor(currentAccount, currentColor)
+                        updateUserColor(currentAuth, currentColor)
                     }
                 />
             </AccountOptionsInputContainer>

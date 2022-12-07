@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { AccountContext } from "../../ap/context/account.context";
+import { FreshAccountContext } from "../../ap/context/fresh-account.context";
 const AccountButtonContainer = styled.div`
     padding: 0 10px;
     height: 40px;
@@ -25,15 +25,15 @@ const AccountButtonContainer = styled.div`
     }
 `;
 const AccountButton = () => {
-    const { currentAccount, isAccountPanelOpen, setIsAccountPanelOpen } =
-        useContext(AccountContext);
+    const { currentAuth, isAccountPanelOpen, setIsAccountPanelOpen } =
+        useContext(FreshAccountContext);
 
     const toggleAccountPanelVisibility = () =>
         setIsAccountPanelOpen(!isAccountPanelOpen);
 
     return (
         <AccountButtonContainer onClick={() => toggleAccountPanelVisibility()}>
-            {currentAccount ? "Account" : "Sign In"}
+            {currentAuth ? "Account" : "Sign In"}
         </AccountButtonContainer>
     );
 };
