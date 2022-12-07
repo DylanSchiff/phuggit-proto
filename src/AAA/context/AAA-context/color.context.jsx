@@ -9,7 +9,6 @@ export const ColorContext = createContext({
 export const ColorProvider = ({ children }) => {
     const { currentData } = useContext(AccountContext);
     const [currentColor, setCurrentColor] = useState("#fff");
-
     useEffect(() => {
         const getAccountColor = async () => {
             if (currentData) {

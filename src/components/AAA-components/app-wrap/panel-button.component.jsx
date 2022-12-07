@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 const PanelButtonContainer = styled.div`
     padding: 0 10px;
-    width: fit-content;
+    flex: 1;
+    width: 100%;
     height: 40px;
     border: 1px solid transparent;
     border-radius: 10px;
@@ -19,10 +21,24 @@ const PanelButtonContainer = styled.div`
         border: 1px solid var(--thir-004);
     }
 `;
-const PanelButton = ({ buttonText, buttonHandler }) => {
+const ButtonLink = styled(Link)`
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+`;
+const PanelButton = ({ buttonText, buttonHandler, isLink, routePath }) => {
     return (
-        <PanelButtonContainer onClick={() => buttonHandler()}>
-            {buttonText}
+        <PanelButtonContainer
+            onClick={() => (buttonHandler ? buttonHandler() : null)}
+        >
+            {isLink ? (
+                <ButtonLink to={`/${routePath}`}>{buttonText}</ButtonLink>
+            ) : (
+                buttonText
+            )}
         </PanelButtonContainer>
     );
 };
