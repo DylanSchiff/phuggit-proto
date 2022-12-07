@@ -3,7 +3,6 @@ const PanelButtonContainer = styled.div`
     padding: 0 10px;
     width: fit-content;
     height: 40px;
-    margin: 0 5px;
     border: 1px solid transparent;
     border-radius: 10px;
     transition: 111ms linear;

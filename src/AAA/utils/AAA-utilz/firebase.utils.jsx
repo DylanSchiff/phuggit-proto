@@ -133,6 +133,22 @@ export const getAccountsMap = async () => {
 // ////////////////////////////////////////////////////////////////////
 // //////////////////////////////////////////////////////////////////// Updating Accounts
 
+// updates user color
+export const updateUserName = async (userAuth, desiredName) => {
+    if (!userAuth) return;
+    const userDocRef = doc(db, "users", userAuth.uid);
+    const userSnapshot = await getDoc(userDocRef);
+    const userDocs = userSnapshot.data();
+    const batch = writeBatch(db);
+    batch.set(userDocRef, {
+        ...userDocs,
+        displayName: desiredName,
+    });
+    await batch.commit();
+    alert("Name Saved");
+    window.location.reload();
+};
+
 export const updateHandle = async (userAuth, desiredHandle) => {
     if (!userAuth) return;
     const map = await getAccountsMap();
@@ -167,6 +183,21 @@ export const updateHandle = async (userAuth, desiredHandle) => {
         alert("That handle is taken, please try another.");
     }
 };
+
+// // updates user color
+// export const updateUserColor = async (userAuth, desiredValue) => {
+//     if (!userAuth) return;
+//     const userDocRef = doc(db, "users", userAuth.uid);
+//     const userSnapshot = await getDoc(userDocRef);
+//     const userDocs = userSnapshot.data();
+//     const batch = writeBatch(db);
+//     batch.set(userDocRef, {
+//         ...userDocs,
+//         color: desiredValue,
+//     });
+//     await batch.commit();
+//     alert("Theme Color Saved");
+// };
 
 // ////////////////////////////////////////////////////////////////////
 // ////////////////////////////////////////////////////////////////////

@@ -1,7 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
 import PanelButton from "./panel-button.component";
-import { updateHandle } from "../../../AAA/utils/AAA-utilz/firebase.utils";
+import {
+    updateHandle,
+    updateUserName,
+} from "../../../AAA/utils/AAA-utilz/firebase.utils";
 import { AccountContext } from "../../../AAA/context/AAA-context/account.context";
 import { useContext } from "react";
 const PanelAccountEditorContainer = styled.div.attrs((props) => ({
@@ -10,6 +13,9 @@ const PanelAccountEditorContainer = styled.div.attrs((props) => ({
     },
 }))`
     flex-flow: column nowrap;
+    background-color: var(--main-003);
+    padding: 10px;
+    margin: 10px 0;
 `;
 const PanelAccountEditorInputContainer = styled.div`
     flex: 1;
@@ -29,16 +35,32 @@ const PanelAccountEditorInput = styled.input`
 `;
 const PanelAccountEditor = ({ isEditorOpen }) => {
     const { currentAuth } = useContext(AccountContext);
+    const [desiredName, setDesiredName] = useState("");
     const [desiredHandle, setDesiredHandle] = useState("");
     const setName = (e) => {
+        setDesiredName(e.target.value);
+    };
+    const setHandle = (e) => {
         setDesiredHandle(e.target.value);
     };
     return (
         <PanelAccountEditorContainer display={isEditorOpen ? "flex" : "none"}>
             <PanelAccountEditorInputContainer>
                 <PanelAccountEditorInput
-                    placeholder="Change Handle"
+                    placeholder="Change Name"
                     onInput={(e) => setName(e)}
+                />
+                <PanelButton
+                    buttonText="Save"
+                    buttonHandler={() =>
+                        updateUserName(currentAuth, desiredName)
+                    }
+                />
+            </PanelAccountEditorInputContainer>
+            <PanelAccountEditorInputContainer>
+                <PanelAccountEditorInput
+                    placeholder="Change Handle"
+                    onInput={(e) => setHandle(e)}
                 />
                 <PanelButton
                     buttonText="Save"
