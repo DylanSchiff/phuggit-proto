@@ -38,7 +38,9 @@ const TopBarButton = ({
             }
         >
             {currentAuth
-                ? `@${currentData.handle ? currentData.handle : ""}`
+                ? currentData.handle
+                    ? `@${currentData.handle}`
+                    : ""
                 : "Sign In"}
         </TopBarButtonContainer>
     );
