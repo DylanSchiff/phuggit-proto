@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { ColorContext } from "../../ap/context/color.context";
-import PageSpan from "../page-span.component";
+import PageSpan from "../../page-span.component";
 
 const AppSplash = styled.section.attrs((props) => ({
     style: {

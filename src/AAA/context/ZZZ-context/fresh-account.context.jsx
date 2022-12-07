@@ -4,7 +4,7 @@ import {
     createAccountfromGoogleAuth,
     getUserDocuments,
     generateRoutes,
-} from "../utils/freshfire.utils";
+} from "../../utils/freshfire.utils";
 
 export const FreshAccountContext = createContext({
     currentAuth: null,

@@ -3,7 +3,7 @@ import {
     createUserDocumentFromAuth,
     onAuthStateChangedListener,
     getAccountsMap,
-} from "../utils/firebase.utils";
+} from "../../utils/firebase.utils";
 
 export const AccountContext = createContext({
     currentAccount: null,
