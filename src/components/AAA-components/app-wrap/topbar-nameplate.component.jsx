@@ -4,11 +4,7 @@ const TopbarNameplateContainer = styled.div`
     align-items: center;
     justify-content: center;
 `;
-const TopbarNameplate = ({ currentAuth, currentData }) => {
-    return (
-        <TopbarNameplateContainer>
-            {currentData.handle && `@${currentData.handle}`}
-        </TopbarNameplateContainer>
-    );
+const TopbarNameplate = () => {
+    return <TopbarNameplateContainer>Logo</TopbarNameplateContainer>;
 };
 export default TopbarNameplate;

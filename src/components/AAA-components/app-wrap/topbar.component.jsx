@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import TopBarButton from "./topbar-button.component";
-// import TopbarNameplate from "./topbar-nameplate.component";
+import TopbarNameplate from "./topbar-nameplate.component";
 const TopbarContainer = styled.div.attrs((props) => ({
     style: {
         borderTop: "1px solid" + props.currentColor,
@@ -42,22 +42,14 @@ const Topbar = ({
 }) => {
     return (
         <TopbarContainer>
-            Logo
-            <TopBarAccountGroup>
-                {/*{currentAuth && (
-                    <TopbarNameplate
-                        currentAuth={currentAuth}
-                        currentData={currentData}
-                    />
-                )}*/}
-                <TopBarButton
-                    currentAuth={currentAuth}
-                    currentData={currentData}
-                    setIsPanelOpen={setIsPanelOpen}
-                    isPanelOpen={isPanelOpen}
-                    signInWithGooglePopup={signInWithGooglePopup}
-                />
-            </TopBarAccountGroup>
+            <TopbarNameplate />
+            <TopBarButton
+                currentAuth={currentAuth}
+                currentData={currentData}
+                setIsPanelOpen={setIsPanelOpen}
+                isPanelOpen={isPanelOpen}
+                signInWithGooglePopup={signInWithGooglePopup}
+            />
         </TopbarContainer>
     );
 };
