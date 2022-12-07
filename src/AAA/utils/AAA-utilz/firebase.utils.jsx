@@ -77,8 +77,12 @@ export const createAccountfromGoogleAuth = async (
                 displayName,
                 email,
                 createdAt,
-                handle: displayName.toLowerCase().trim().split(" ").join(""),
-                routePath: displayName.toLowerCase().trim().split(" ").join(""),
+                handle:
+                    displayName.toLowerCase().trim().split(" ").join("") +
+                    uid.substring(3, 6).toLowerCase(),
+                routePath:
+                    displayName.toLowerCase().trim().split(" ").join("") +
+                    uid.substring(3, 6).toLowerCase(),
                 color: null,
                 ...additionalInformation,
             });
