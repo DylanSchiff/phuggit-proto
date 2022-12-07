@@ -172,7 +172,7 @@ export const updateUserName = async (userAuth, desiredValue) => {
         });
         await batch.commit();
         alert("Name changed successfully.");
-        window.location.reload();
+        // window.location.reload();
     } else {
         alert("That name is taken, please try another.");
     }
