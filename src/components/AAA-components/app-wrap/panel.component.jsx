@@ -12,10 +12,12 @@ const AccountPanelContainer = styled.div.attrs((props) => ({
     z-index: 999;
     top: 70px;
     right: 25px;
-    padding: 25px;
+    padding: 10px 25px 25px 25px;
     background-color: var(--main-001);
+    border: 1px solid var(--main-002);
     box-shadow: var(--shade-001);
     overflow: hidden;
+    border-radius: 10px;
     @media only screen and (max-width: 600px) {
         top: 60px;
         right: 10px;

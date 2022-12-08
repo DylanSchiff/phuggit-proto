@@ -108,12 +108,16 @@ const PanelAccountDisplay = () => {
                             </PanelAccountDisplaySpan>
                             {badges && (
                                 <PanelAccountDisplayBadges>
-                                    {badges.map((badge) => {
-                                        return (
-                                            <PanelBadge key={badge}>
-                                                {badge}
-                                            </PanelBadge>
-                                        );
+                                    {badges.map((badge, index) => {
+                                        if (index < 4) {
+                                            return (
+                                                <PanelBadge key={badge}>
+                                                    {badge}
+                                                </PanelBadge>
+                                            );
+                                        } else {
+                                            return null;
+                                        }
                                     })}
                                 </PanelAccountDisplayBadges>
                             )}
