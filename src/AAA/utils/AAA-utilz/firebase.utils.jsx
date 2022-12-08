@@ -84,6 +84,9 @@ export const createAccountfromGoogleAuth = async (
                     displayName.toLowerCase().trim().split(" ").join("") +
                     uid.substring(3, 6).toLowerCase(),
                 color: "#fff",
+                badges: [],
+                followers: [],
+                following: [],
                 ...additionalInformation,
             });
             alert(`Account for ${displayName} created.`);

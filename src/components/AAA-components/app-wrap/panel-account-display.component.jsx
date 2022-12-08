@@ -5,7 +5,8 @@ import ThemeSwapper from "./theme-swapper.component";
 const PanelAccountDisplayContainer = styled.div`
     flex: 1;
     width: 100%;
-    padding-bottom: 10px;
+    padding: 10px;
+    padding-left: 0;
     margin-bottom: 10px;
     border-radius: 5px;
     background-color: var(--main-003);
@@ -14,14 +15,36 @@ const PanelAccountDisplayContainer = styled.div`
     flex-flow: row nowrap;
     align-items: center;
 `;
-const PanelAccountDisplayIntro = styled.div``;
+const PanelAccountDisplayIntro = styled.div`
+    flex: 1;
+    width: 100%;
+`;
+
 const PanelAccountDisplaySpan = styled.div`
     font-size: ${({ fontsize }) => fontsize};
     font-weight: ${({ fontweight }) => fontweight};
 `;
+
+const PanelAccountDisplayBadges = styled.div`
+    padding-top: 10px;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+`;
+const PanelBadge = styled.div`
+    margin: 2.5px;
+    padding: 2.5px 5px;
+    background-color: var(--thir-004);
+    min-height: 25px;
+    min-width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
 const PanelAccountDisplay = () => {
     const { currentData } = useContext(AccountContext);
-    const { displayName, handle } = currentData;
+    const { displayName, handle, badges } = currentData;
     return (
         currentData && (
             <PanelAccountDisplayContainer>
@@ -33,6 +56,13 @@ const PanelAccountDisplay = () => {
                     <PanelAccountDisplaySpan fontsize="15px">
                         {`@${handle}`}
                     </PanelAccountDisplaySpan>
+                    {badges && (
+                        <PanelAccountDisplayBadges>
+                            {badges.map((badge) => {
+                                return <PanelBadge>{badge}</PanelBadge>;
+                            })}
+                        </PanelAccountDisplayBadges>
+                    )}
                 </PanelAccountDisplayIntro>
             </PanelAccountDisplayContainer>
         )
