@@ -26,6 +26,7 @@ const PanelAccountDisplaySettings = styled.div`
     font-size: 12.5px;
     cursor: pointer;
     user-select: none;
+    margin-bottom: 7.5px;
 `;
 const PanelAccountDisplayDisplay = styled.div`
     flex: 1;
@@ -73,6 +74,7 @@ const PanelAccountDisplayFollowContainer = styled.div`
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-evenly;
+    margin-bottom: 10px;
 `;
 
 const PanelAccountDisplay = () => {
@@ -82,48 +84,50 @@ const PanelAccountDisplay = () => {
     const { displayName, handle, badges, followers, following } = currentData;
     return (
         currentData && (
-            <PanelAccountDisplayContainer>
+            <>
                 <PanelAccountDisplaySettings
                     onClick={() => toggleIsEditorOpen()}
                 >
-                    settings
+                    <PanelAccountDisplaySpan>edit</PanelAccountDisplaySpan>
                 </PanelAccountDisplaySettings>
-                <PanelAccountDisplayDisplay>
-                    <ThemeSwapper />
-                    <PanelAccountDisplayIntro>
-                        <PanelAccountDisplaySpan
-                            fontsize="20px"
-                            fontweight="600"
-                        >
-                            {currentData && displayName}
-                        </PanelAccountDisplaySpan>
-                        <PanelAccountDisplaySpan fontsize="15px">
-                            {`@${handle}`}
-                        </PanelAccountDisplaySpan>
-                        {badges && (
-                            <PanelAccountDisplayBadges>
-                                {badges.map((badge) => {
-                                    return (
-                                        <PanelBadge key={badge}>
-                                            {badge}
-                                        </PanelBadge>
-                                    );
-                                })}
-                            </PanelAccountDisplayBadges>
-                        )}
-                    </PanelAccountDisplayIntro>
-                </PanelAccountDisplayDisplay>
-                {currentData && (
-                    <PanelAccountDisplayFollowContainer>
-                        <PanelAccountDisplaySpan fontsize="12.5px">{`${
-                            following && following.length
-                        } Following`}</PanelAccountDisplaySpan>
-                        <PanelAccountDisplaySpan fontsize="12.5px">{`${
-                            followers && followers.length
-                        } Followers`}</PanelAccountDisplaySpan>
-                    </PanelAccountDisplayFollowContainer>
-                )}
-            </PanelAccountDisplayContainer>
+                <PanelAccountDisplayContainer>
+                    <PanelAccountDisplayDisplay>
+                        <ThemeSwapper />
+                        <PanelAccountDisplayIntro>
+                            <PanelAccountDisplaySpan
+                                fontsize="20px"
+                                fontweight="600"
+                            >
+                                {currentData && displayName}
+                            </PanelAccountDisplaySpan>
+                            <PanelAccountDisplaySpan fontsize="15px">
+                                {`@${handle}`}
+                            </PanelAccountDisplaySpan>
+                            {badges && (
+                                <PanelAccountDisplayBadges>
+                                    {badges.map((badge) => {
+                                        return (
+                                            <PanelBadge key={badge}>
+                                                {badge}
+                                            </PanelBadge>
+                                        );
+                                    })}
+                                </PanelAccountDisplayBadges>
+                            )}
+                        </PanelAccountDisplayIntro>
+                    </PanelAccountDisplayDisplay>
+                    {currentData && (
+                        <PanelAccountDisplayFollowContainer>
+                            <PanelAccountDisplaySpan fontsize="12.5px">{`${
+                                following && following.length
+                            } Following`}</PanelAccountDisplaySpan>
+                            <PanelAccountDisplaySpan fontsize="12.5px">{`${
+                                followers && followers.length
+                            } Followers`}</PanelAccountDisplaySpan>
+                        </PanelAccountDisplayFollowContainer>
+                    )}
+                </PanelAccountDisplayContainer>
+            </>
         )
     );
 };
