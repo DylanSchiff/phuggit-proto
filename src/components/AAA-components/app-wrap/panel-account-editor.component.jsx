@@ -32,6 +32,9 @@ const PanelAccountEditorInputContainer = styled.div`
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
+    &:nth-of-type(2) {
+        z-index: 999;
+    }
 `;
 const PanelAccountEditorInput = styled.input`
     width: 100%;
