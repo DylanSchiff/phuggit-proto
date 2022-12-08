@@ -27,7 +27,7 @@ const PanelAccountDisplaySettings = styled.div`
     font-size: 12.5px;
     cursor: pointer;
     user-select: none;
-    margin-bottom: 7.5px;
+    margin-bottom: 10px;
     padding-right: 2.5px;
 `;
 const PanelAccountDisplayDisplay = styled.div`
@@ -45,6 +45,7 @@ const PanelAccountDisplaySpan = styled.div`
     font-size: ${({ fontsize }) => fontsize};
     font-weight: ${({ fontweight }) => fontweight};
     user-select: none;
+    margin: ${({ margin }) => margin};
 `;
 const PanelAccountDisplayBadges = styled.div`
     padding-top: 10px;
@@ -77,8 +78,17 @@ const PanelAccountDisplayFollowContainer = styled.div`
     margin-bottom: 10px;
 `;
 const PanelAccountDisplay = () => {
-    const { isEditorOpen, setIsEditorOpen } = useContext(AccountPanelContext);
+    const {
+        isEditorOpen,
+        setIsEditorOpen,
+        isBadgesOpen,
+        setIsBadgesOpen,
+        isFollowingOpen,
+        setIsFollowingOpen,
+    } = useContext(AccountPanelContext);
     const toggleIsEditorOpen = () => setIsEditorOpen(!isEditorOpen);
+    const toggleIsBadgesOpen = () => setIsBadgesOpen(!isBadgesOpen);
+    const toggleIsFollowingOpen = () => setIsFollowingOpen(!isFollowingOpen);
     const { currentData } = useContext(AccountContext);
     const { displayName, handle, badges, followers, following } = currentData;
     return (
@@ -86,7 +96,20 @@ const PanelAccountDisplay = () => {
             <>
                 <PanelAccountDisplaySettings>
                     <PanelAccountDisplaySpan
+                        onClick={() => toggleIsFollowingOpen()}
+                        margin="0 0 0 10px"
+                    >
+                        people
+                    </PanelAccountDisplaySpan>
+                    <PanelAccountDisplaySpan
+                        onClick={() => toggleIsBadgesOpen()}
+                        margin="0 0 0 10px"
+                    >
+                        badges
+                    </PanelAccountDisplaySpan>
+                    <PanelAccountDisplaySpan
                         onClick={() => toggleIsEditorOpen()}
+                        margin="0 0 0 10px"
                     >
                         edit
                     </PanelAccountDisplaySpan>
