@@ -12,6 +12,7 @@ const AppWrapContainer = styled.div`
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-end;
+    justify-content: flex-start;
 `;
 const AppWrap = () => {
     const { currentAuth, currentData } = useContext(AccountContext);
@@ -25,7 +26,6 @@ const AppWrap = () => {
                 setIsPanelOpen={setIsPanelOpen}
                 signInWithGooglePopup={signInWithGooglePopup}
             />
-
             <Outlet />
             <Botbar />
         </AppWrapContainer>

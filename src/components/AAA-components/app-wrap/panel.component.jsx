@@ -7,10 +7,11 @@ const AccountPanelContainer = styled.div.attrs((props) => ({
     },
 }))`
     position: sticky;
-    min-width: 300px;
-    max-width: 300px;
     z-index: 990;
     top: 70px;
+    right: 0px;
+    min-width: 300px;
+    max-width: 300px;
     margin-right: 25px;
     padding: 10px 15px 15px 15px;
     background-color: var(--main-002);
