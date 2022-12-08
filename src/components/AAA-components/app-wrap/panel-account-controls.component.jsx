@@ -13,10 +13,8 @@ const PanelAccountControlsContainer = styled.div`
     justify-items: center;
 `;
 const PanelAccountControls = () => {
-    const { setIsPanelOpen, setIsEditorOpen, isEditorOpen } =
-        useContext(AccountPanelContext);
+    const { setIsPanelOpen } = useContext(AccountPanelContext);
     const { currentData } = useContext(AccountContext);
-    const toggleIsEditorOpen = () => setIsEditorOpen(!isEditorOpen);
     const signOutAndClosePanel = () => {
         setIsPanelOpen(false);
         signOutUser();
@@ -33,10 +31,6 @@ const PanelAccountControls = () => {
                 />
             )}
             <PanelButton buttonText="Guides" isLink routePath="/guides" />
-            <PanelButton
-                buttonText="Settings"
-                buttonHandler={toggleIsEditorOpen}
-            />
             <PanelButton buttonText="Contact" isLink routePath="/contact" />
             <PanelButton
                 buttonText="Sign Out"

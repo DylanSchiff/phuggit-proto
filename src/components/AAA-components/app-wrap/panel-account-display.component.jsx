@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { AccountPanelContext } from "../../../AAA/context/AAA-context/account-panel.context";
 import { AccountContext } from "../../../AAA/context/AAA-context/account.context";
 import styled from "styled-components";
 import ThemeSwapper from "./theme-swapper.component";
@@ -15,8 +16,18 @@ const PanelAccountDisplayContainer = styled.div`
     flex-flow: column nowrap;
     align-items: center;
 `;
-
-const PanelAccountDisplayTop = styled.div`
+const PanelAccountDisplaySettings = styled.div`
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 12.5px;
+    cursor: pointer;
+    user-select: none;
+`;
+const PanelAccountDisplayDisplay = styled.div`
     flex: 1;
     width: 100%;
     display: flex;
@@ -65,12 +76,19 @@ const PanelAccountDisplayFollowContainer = styled.div`
 `;
 
 const PanelAccountDisplay = () => {
+    const { isEditorOpen, setIsEditorOpen } = useContext(AccountPanelContext);
+    const toggleIsEditorOpen = () => setIsEditorOpen(!isEditorOpen);
     const { currentData } = useContext(AccountContext);
     const { displayName, handle, badges, followers, following } = currentData;
     return (
         currentData && (
             <PanelAccountDisplayContainer>
-                <PanelAccountDisplayTop>
+                <PanelAccountDisplaySettings
+                    onClick={() => toggleIsEditorOpen()}
+                >
+                    settings
+                </PanelAccountDisplaySettings>
+                <PanelAccountDisplayDisplay>
                     <ThemeSwapper />
                     <PanelAccountDisplayIntro>
                         <PanelAccountDisplaySpan
@@ -94,7 +112,7 @@ const PanelAccountDisplay = () => {
                             </PanelAccountDisplayBadges>
                         )}
                     </PanelAccountDisplayIntro>
-                </PanelAccountDisplayTop>
+                </PanelAccountDisplayDisplay>
                 {currentData && (
                     <PanelAccountDisplayFollowContainer>
                         <PanelAccountDisplaySpan fontsize="12.5px">{`${
