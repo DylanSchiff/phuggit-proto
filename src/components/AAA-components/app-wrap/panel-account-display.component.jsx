@@ -160,12 +160,12 @@ const PanelAccountDisplay = () => {
                     </PanelAccountDisplayDisplay>
                     {currentData && (
                         <PanelAccountDisplayFollowContainer>
-                            <PanelAccountDisplaySpan fontsize="12.5px">{`peeping ${
+                            <PanelAccountDisplaySpan fontsize="12.5px">{`following ${
                                 following && following.length
                             }`}</PanelAccountDisplaySpan>
                             <PanelAccountDisplaySpan fontsize="12.5px">{`${
                                 followers && followers.length
-                            } peeping`}</PanelAccountDisplaySpan>
+                            } followers`}</PanelAccountDisplaySpan>
                         </PanelAccountDisplayFollowContainer>
                     )}
                 </PanelAccountDisplayContainer>

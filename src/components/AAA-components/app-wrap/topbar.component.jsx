@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import { ColorContext } from "../../../AAA/context/AAA-context/color.context";
 import TopBarButton from "./topbar-button.component";
 import TopbarNameplate from "./topbar-nameplate.component";
 const TopbarContainer = styled.div.attrs((props) => ({
@@ -30,8 +32,9 @@ const Topbar = ({
     setIsPanelOpen,
     signInWithGooglePopup,
 }) => {
+    const { currentColor } = useContext(ColorContext);
     return (
-        <TopbarContainer>
+        <TopbarContainer currentColor={currentColor}>
             <TopbarNameplate />
             <TopBarButton
                 currentAuth={currentAuth}
