@@ -31,7 +31,8 @@ const CubeClickSpan = styled.span.attrs((props) => ({
     }
 `;
 const ThemeSwapper = ({ isSmall, isClickable }) => {
-    const { currentColor, setCurrentColor } = useContext(ColorContext);
+    const { currentColor, setCurrentColor, currentEffects, hasEffects } =
+        useContext(ColorContext);
     const defaultColor = currentColor ? currentColor : "transparent";
     const dismantleColor = () => {
         return defaultColor
@@ -70,7 +71,7 @@ const ThemeSwapper = ({ isSmall, isClickable }) => {
             randomColor.g,
             randomColor.b
         );
-        return setCurrentColor(randomColorHex);
+        return currentColor && setCurrentColor(randomColorHex);
     };
     const lightcolor = buildHex(
         lightervalues[0],
@@ -88,28 +89,34 @@ const ThemeSwapper = ({ isSmall, isClickable }) => {
         evendarkervalues[2]
     );
     return (
-        <ColorCubeDisplay
-        // cubeSize={isSmall ? "scale(0.5)" : ""}
-        >
-            {isSmall && (
-                <CubeClickSpan color={currentColor} onClick={() => generateRandomColor()}>
-                    Recolor
-                </CubeClickSpan>
-            )}
-            {!isSmall && (
-                <ColorCube
-                    hasEffects={true}
-                    currentColor={defaultColor}
-                    setCurrentColor={isClickable ? setCurrentColor : null}
-                    generateRandomColor={
-                        isClickable ? generateRandomColor : null
-                    }
-                    lightcolor={lightcolor}
-                    darkcolor={darkcolor}
-                    darkercolor={darkercolor}
-                />
-            )}
-        </ColorCubeDisplay>
+        currentColor && (
+            <ColorCubeDisplay
+            // cubeSize={isSmall ? "scale(0.5)" : ""}
+            >
+                {isSmall && (
+                    <CubeClickSpan
+                        color={currentColor}
+                        onClick={() => generateRandomColor()}
+                    >
+                        Recolor
+                    </CubeClickSpan>
+                )}
+                {!isSmall && (
+                    <ColorCube
+                        shadowString={currentEffects}
+                        hasEffects={hasEffects}
+                        currentColor={defaultColor}
+                        setCurrentColor={isClickable ? setCurrentColor : null}
+                        generateRandomColor={
+                            isClickable ? generateRandomColor : null
+                        }
+                        lightcolor={lightcolor}
+                        darkcolor={darkcolor}
+                        darkercolor={darkercolor}
+                    />
+                )}
+            </ColorCubeDisplay>
+        )
     );
 };
 export default ThemeSwapper;

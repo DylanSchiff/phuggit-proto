@@ -3,6 +3,8 @@ import { AccountPanelContext } from "../../../AAA/context/AAA-context/account-pa
 import { AccountContext } from "../../../AAA/context/AAA-context/account.context";
 import styled from "styled-components";
 import ThemeSwapper from "./theme-swapper.component";
+import ColorCube from "./theme-cube.component";
+import { ColorContext } from "../../../AAA/context/AAA-context/color.context";
 
 const PanelAccountDisplayWrapper = styled.div`
     flex: 1;
@@ -120,6 +122,14 @@ const PanelAccountDisplay = () => {
     // const toggleIsFollowingOpen = () => setIsFollowingOpen(!isFollowingOpen);
     const { currentData } = useContext(AccountContext);
     const { displayName, handle, badges, followers, following } = currentData;
+    const {
+        hasEffects,
+        currentColor,
+        currentEffects,
+        lightcolor,
+        darkcolor,
+        darkercolor,
+    } = useContext(ColorContext);
     return (
         currentData && (
             <PanelAccountDisplayWrapper>
@@ -145,7 +155,15 @@ const PanelAccountDisplay = () => {
                 </PanelAccountDisplaySettings>
                 <PanelAccountDisplayContainer>
                     <PanelAccountDisplayDisplay>
-                        <ThemeSwapper />
+                        {/* <ThemeSwapper /> */}
+                        <ColorCube
+                            hasEffects={hasEffects}
+                            currentColor={currentColor}
+                            lightcolor={lightcolor}
+                            darkcolor={darkcolor}
+                            darkercolor={darkercolor}
+                            shadowString={currentEffects}
+                        />
                         <PanelAccountDisplayIntro>
                             <PanelAccountDisplaySpan
                                 fontsize="20px"

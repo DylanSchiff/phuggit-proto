@@ -7,7 +7,7 @@ const ColorCubeCard = styled.div`
     align-items: center;
     justify-content: center;
     transform: scale(0.7);
-    overflow: hidden;
+    /* overflow: hidden; */
 `;
 const CubeHaus = styled.div.attrs((props) => ({
     style: {

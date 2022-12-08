@@ -200,7 +200,13 @@ export const updateHandle = async (userAuth, desiredHandle) => {
 };
 
 // updates user color
-export const updateUserColor = async (userAuth, desiredValue) => {
+export const updateUserColor = async (
+    userAuth,
+    desiredColor,
+    desiredEffects,
+    hasEffects,
+    shadowSliderValue
+) => {
     if (!userAuth) return;
     const userDocRef = doc(db, "users", userAuth.uid);
     const userSnapshot = await getDoc(userDocRef);
@@ -208,7 +214,10 @@ export const updateUserColor = async (userAuth, desiredValue) => {
     const batch = writeBatch(db);
     batch.set(userDocRef, {
         ...userDocs,
-        color: desiredValue,
+        color: desiredColor,
+        colorEffects: desiredEffects,
+        hasEffects: hasEffects,
+        shadowSliderValue: shadowSliderValue,
     });
     await batch.commit();
     alert("Theme Color Saved");

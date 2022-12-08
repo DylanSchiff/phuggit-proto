@@ -1,14 +1,15 @@
 import { useState } from "react";
 import styled from "styled-components";
 import PanelButton from "./panel-button.component";
+import ColorCard from "./theme-color-card.component";
 import {
     updateHandle,
     updateUserName,
     updateUserColor,
+    updateUserEffects,
 } from "../../../AAA/utils/AAA-utilz/firebase.utils";
 import { AccountContext } from "../../../AAA/context/AAA-context/account.context";
 import { useContext } from "react";
-import ThemeSwapper from "./theme-swapper.component";
 import { ColorContext } from "../../../AAA/context/AAA-context/color.context";
 const PanelAccountEditorContainer = styled.div.attrs((props) => ({
     style: {
@@ -27,7 +28,7 @@ const PanelAccountEditorContainer = styled.div.attrs((props) => ({
 const PanelAccountEditorInputContainer = styled.div`
     flex: 1;
     width: 100%;
-    max-height: 50px;
+    /* max-height: 50px; */
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -50,10 +51,12 @@ const PanelAccountEditorInput = styled.input`
 `;
 
 const ThemeContainer = styled.div`
+    flex: 1;
+    width: 100%;
     min-width: 150px;
     padding: 5px 0;
     margin: 0 5px;
-    max-height: 40px;
+    /* max-height: 40px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,7 +73,8 @@ const PanelAccountSpan = styled.span`
 
 const PanelAccountEditor = ({ isEditorOpen }) => {
     const { currentAuth } = useContext(AccountContext);
-    const { currentColor } = useContext(ColorContext);
+    const { currentColor, currentEffects, hasEffects, shadowSliderValue } =
+        useContext(ColorContext);
     const [desiredName, setDesiredName] = useState("");
     const [desiredHandle, setDesiredHandle] = useState("");
     const setName = (e) => {
@@ -110,12 +114,18 @@ const PanelAccountEditor = ({ isEditorOpen }) => {
             </PanelAccountEditorInputContainer>
             <PanelAccountEditorInputContainer>
                 <ThemeContainer>
-                    <ThemeSwapper isSmall isClickable />
+                    <ColorCard />
                 </ThemeContainer>
                 <PanelButton
                     buttonText="Save"
                     buttonHandler={() =>
-                        updateUserColor(currentAuth, currentColor)
+                        updateUserColor(
+                            currentAuth,
+                            currentColor,
+                            currentEffects,
+                            hasEffects,
+                            shadowSliderValue
+                        )
                     }
                 />
             </PanelAccountEditorInputContainer>
@@ -123,3 +133,5 @@ const PanelAccountEditor = ({ isEditorOpen }) => {
     );
 };
 export default PanelAccountEditor;
+
+// <ThemeSwapper isSmall isClickable />
