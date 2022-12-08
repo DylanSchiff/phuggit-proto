@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AccountPanelContext } from "../../../AAA/context/AAA-context/account-panel.context";
 import { AccountContext } from "../../../AAA/context/AAA-context/account.context";
 import styled from "styled-components";
@@ -85,21 +85,21 @@ const PanelAccountDisplay = () => {
     const {
         isEditorOpen,
         setIsEditorOpen,
-        isBadgesOpen,
-        setIsBadgesOpen,
-        isFollowingOpen,
-        setIsFollowingOpen,
+        // isBadgesOpen,
+        // setIsBadgesOpen,
+        // isFollowingOpen,
+        // setIsFollowingOpen,
     } = useContext(AccountPanelContext);
     const toggleIsEditorOpen = () => setIsEditorOpen(!isEditorOpen);
-    const toggleIsBadgesOpen = () => setIsBadgesOpen(!isBadgesOpen);
-    const toggleIsFollowingOpen = () => setIsFollowingOpen(!isFollowingOpen);
+    // const toggleIsBadgesOpen = () => setIsBadgesOpen(!isBadgesOpen);
+    // const toggleIsFollowingOpen = () => setIsFollowingOpen(!isFollowingOpen);
     const { currentData } = useContext(AccountContext);
     const { displayName, handle, badges, followers, following } = currentData;
     return (
         currentData && (
             <>
                 <PanelAccountDisplaySettings>
-                    <PanelAccountDisplaySpan
+                    {/* <PanelAccountDisplaySpan
                         onClick={() => toggleIsFollowingOpen()}
                         margin="0 0 0 10px"
                     >
@@ -110,7 +110,7 @@ const PanelAccountDisplay = () => {
                         margin="0 0 0 10px"
                     >
                         badges
-                    </PanelAccountDisplaySpan>
+                    </PanelAccountDisplaySpan> */}
                     <PanelAccountDisplaySpan
                         onClick={() => toggleIsEditorOpen()}
                         margin="0 0 0 10px"

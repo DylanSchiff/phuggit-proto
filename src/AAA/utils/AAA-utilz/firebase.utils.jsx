@@ -230,7 +230,11 @@ export const generateRoutes = async () => {
     const accountMap = await getAccountsMap();
     const routePaths = Object.values(accountMap)
         .map((account) => {
-            return account.routePath;
+            // return {
+            //     uid: account.uid,
+            //     routePath: account.routePath,
+            // };
+            return account;
         })
         .filter((o) => o);
     return routePaths;
