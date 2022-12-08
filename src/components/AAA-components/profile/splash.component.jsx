@@ -162,7 +162,6 @@ const SplashImage = styled.img`
 `;
 
 const Splash = ({ account }) => {
-    console.log(account);
     return (
         account && (
             <AppSplash currentColor={account.color}>
