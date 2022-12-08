@@ -146,7 +146,7 @@ export const updateUserName = async (userAuth, desiredName) => {
     });
     await batch.commit();
     alert("Name Saved");
-    window.location.reload();
+    // window.location.reload();
 };
 
 export const updateHandle = async (userAuth, desiredHandle) => {
@@ -178,7 +178,7 @@ export const updateHandle = async (userAuth, desiredHandle) => {
         });
         await batch.commit();
         alert("Handle changed successfully.");
-        window.location.reload();
+        // window.location.reload();
     } else {
         alert("That handle is taken, please try another.");
     }

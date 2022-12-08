@@ -24,15 +24,6 @@ const TopbarContainer = styled.div.attrs((props) => ({
     padding: 0 25px;
 `;
 
-const TopBarAccountGroup = styled.div`
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-`;
-
 const Topbar = ({
     currentAuth,
     currentData,
