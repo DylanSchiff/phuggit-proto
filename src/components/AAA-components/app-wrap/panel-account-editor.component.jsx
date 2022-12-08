@@ -46,6 +46,7 @@ const PanelAccountEditorInput = styled.input`
     margin: 0 5px;
     overflow: hidden;
     border-radius: 5px;
+    user-select: none;
 `;
 
 const PanelAccountEditor = ({ isEditorOpen }) => {

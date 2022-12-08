@@ -2,7 +2,7 @@ import styled from "styled-components";
 const ColorCubeCard = styled.div`
     width: 100px;
     height: 90px;
-    cursor: pointer;
+    /* cursor: pointer; */
     display: flex;
     align-items: center;
     justify-content: center;

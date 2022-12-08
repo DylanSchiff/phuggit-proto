@@ -30,7 +30,6 @@ const PanelAccountDisplaySettings = styled.div`
     margin-bottom: 7.5px;
     padding-right: 2.5px;
 `;
-
 const PanelAccountDisplayDisplay = styled.div`
     flex: 1;
     width: 100%;
@@ -38,18 +37,15 @@ const PanelAccountDisplayDisplay = styled.div`
     flex-flow: row nowrap;
     align-items: center;
 `;
-
 const PanelAccountDisplayIntro = styled.div`
     flex: 1;
     width: 100%;
 `;
-
 const PanelAccountDisplaySpan = styled.div`
     font-size: ${({ fontsize }) => fontsize};
     font-weight: ${({ fontweight }) => fontweight};
     user-select: none;
 `;
-
 const PanelAccountDisplayBadges = styled.div`
     padding-top: 10px;
     flex: 1;
@@ -71,7 +67,6 @@ const PanelBadge = styled.div`
     justify-content: center;
     user-select: none;
 `;
-
 const PanelAccountDisplayFollowContainer = styled.div`
     flex: 1;
     width: 100%;
@@ -81,7 +76,6 @@ const PanelAccountDisplayFollowContainer = styled.div`
     justify-content: space-evenly;
     margin-bottom: 10px;
 `;
-
 const PanelAccountDisplay = () => {
     const { isEditorOpen, setIsEditorOpen } = useContext(AccountPanelContext);
     const toggleIsEditorOpen = () => setIsEditorOpen(!isEditorOpen);

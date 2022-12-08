@@ -9,6 +9,7 @@ const TopbarNameplateContainer = styled(Link)`
 const TopbarNameplageImage = styled.img`
     height: 50px;
     object-fit: cover;
+    user-select: none;
 `;
 const TopbarNameplate = () => {
     return (
