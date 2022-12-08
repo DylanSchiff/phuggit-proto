@@ -138,53 +138,61 @@ export const getAccountsMap = async () => {
 
 // updates user color
 export const updateUserName = async (userAuth, desiredName) => {
-    if (!userAuth) return;
-    const userDocRef = doc(db, "users", userAuth.uid);
-    const userSnapshot = await getDoc(userDocRef);
-    const userDocs = userSnapshot.data();
-    const batch = writeBatch(db);
-    batch.set(userDocRef, {
-        ...userDocs,
-        displayName: desiredName,
-    });
-    await batch.commit();
-    alert("Name Saved");
-    // window.location.reload();
+    if (desiredName.length > 0) {
+        if (!userAuth) return;
+        const userDocRef = doc(db, "users", userAuth.uid);
+        const userSnapshot = await getDoc(userDocRef);
+        const userDocs = userSnapshot.data();
+        const batch = writeBatch(db);
+        batch.set(userDocRef, {
+            ...userDocs,
+            displayName: desiredName,
+        });
+        await batch.commit();
+        alert("Name Saved");
+        // window.location.reload();
+    } else {
+        alert("Input is empty");
+    }
 };
 
 export const updateHandle = async (userAuth, desiredHandle) => {
-    if (!userAuth) return;
-    const map = await getAccountsMap();
-    const handleMap = Object.values(map).map((account) => {
-        const { handle } = account;
-        return handle;
-    });
-    const isHandleTaken = handleMap
-        .map((handle) => {
-            return handle === desiredHandle.toLowerCase() ? true : false;
-        })
-        .filter((o) => o)[0];
-
-    if (!isHandleTaken === true) {
-        const userRef = doc(db, "users", userAuth.uid);
-        const userSnapshot = await getDoc(userRef);
-        const userData = userSnapshot.data();
-        const batch = writeBatch(db);
-        batch.set(userRef, {
-            ...userData,
-            handle: isHandleTaken
-                ? userData.handle
-                : desiredHandle.toLowerCase(),
-            routePath: isHandleTaken
-                ? userData.handle.toLowerCase().trim().split(" ").join("")
-                : desiredHandle.toLowerCase().trim().split(" ").join(""),
+    if (desiredHandle.length > 0) {
+        if (!userAuth) return;
+        const map = await getAccountsMap();
+        const handleMap = Object.values(map).map((account) => {
+            const { handle } = account;
+            return handle;
         });
-        await batch.commit();
-        alert("Handle changed successfully.");
+        const isHandleTaken = handleMap
+            .map((handle) => {
+                return handle === desiredHandle.toLowerCase() ? true : false;
+            })
+            .filter((o) => o)[0];
 
-        // window.location.reload();
+        if (!isHandleTaken === true) {
+            const userRef = doc(db, "users", userAuth.uid);
+            const userSnapshot = await getDoc(userRef);
+            const userData = userSnapshot.data();
+            const batch = writeBatch(db);
+            batch.set(userRef, {
+                ...userData,
+                handle: isHandleTaken
+                    ? userData.handle
+                    : desiredHandle.toLowerCase(),
+                routePath: isHandleTaken
+                    ? userData.handle.toLowerCase().trim().split(" ").join("")
+                    : desiredHandle.toLowerCase().trim().split(" ").join(""),
+            });
+            await batch.commit();
+            alert("Handle changed successfully.");
+
+            // window.location.reload();
+        } else {
+            alert("That handle is taken, please try another.");
+        }
     } else {
-        alert("That handle is taken, please try another.");
+        alert("Input is empty");
     }
 };
 
