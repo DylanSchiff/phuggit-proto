@@ -171,7 +171,7 @@ const Profile = ({ account }) => {
                     lineheightsix="25px"
                     fontweightsix="600"
                     textalignsix="center"
-                    spantext={`Welcome to ${account.displayName}'s page`}
+                    spantext={`Explore ${account.displayName}'s projects`}
                 />
                 {/* <Cards
                     cards={DATASHEET.cardData.CARDS}

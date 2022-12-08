@@ -1,8 +1,6 @@
-import { useContext } from "react";
 import styled from "styled-components";
-import { AccountContext } from "../../../AAA/context/AAA-context/account.context";
-import { ColorContext } from "../../../AAA/context/AAA-context/color.context";
 import PageSpan from "./page-span.component";
+import profileMain from './profile-main.svg'
 
 const AppSplash = styled.section.attrs((props) => ({
     style: {
@@ -67,7 +65,6 @@ const SplashSummaryContainer = styled.div`
         align-items: center;
     }
 `;
-
 const SplashButtonsContainer = styled.div`
     margin-top: 10px;
     display: flex;
@@ -82,7 +79,6 @@ const SplashButtonsContainer = styled.div`
         flex-flow: column nowrap;
     }
 `;
-
 const SplashButton = styled.div`
     outline: none;
     border: none;
@@ -91,7 +87,6 @@ const SplashButton = styled.div`
     cursor: pointer;
     user-select: none;
 `;
-
 const FirstSplashButton = styled(SplashButton).attrs((props) => ({
     style: {
         border: "1px solid" + props.currentColor,
@@ -185,7 +180,7 @@ const Splash = ({ account }) => {
                             lineheighttwo="30px"
                             fontweighttwo="600"
                             textaligntwo="center"
-                            spantext={"account.splashHeadingText"}
+                            spantext={`Welcome to ${account.displayName}'s page`}
                         />
                     </SplashHeadingContainer>
                     <SplashSummaryContainer>
@@ -211,18 +206,18 @@ const Splash = ({ account }) => {
                             currentColor={account.color}
                             onClick={() => window.scrolltoappbodysection()}
                         >
-                            Learn More
+                            Projects
                         </FirstSplashButton>
                         <SecondSplashButton
                             currentColor={account.color}
                             onClick={() => window.scrolltotoolkitsection()}
                         >
-                            {"account.splashSecondButtonText"}
+                           Learn More
                         </SecondSplashButton>
                     </SplashButtonsContainer>
                 </SplashDetails>
                 <SplashImageContainer>
-                    <SplashImage src={"account.splashImageUrl"} />
+                    <SplashImage src={profileMain} />
                 </SplashImageContainer>
             </AppSplash>
         )

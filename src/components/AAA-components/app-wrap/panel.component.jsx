@@ -6,12 +6,12 @@ const AccountPanelContainer = styled.div.attrs((props) => ({
         display: props.display,
     },
 }))`
-    position: absolute;
+    position: sticky;
     min-width: 300px;
     max-width: 300px;
-    z-index: 999;
+    z-index: 990;
     top: 70px;
-    right: 25px;
+    margin-right: 25px;
     padding: 10px 15px 15px 15px;
     background-color: var(--main-002);
     border: 1px solid var(--main-001);
@@ -20,7 +20,7 @@ const AccountPanelContainer = styled.div.attrs((props) => ({
     border-radius: 10px;
     @media only screen and (max-width: 600px) {
         top: 60px;
-        right: 10px;
+        margin-right: 10px;
     }
 `;
 const AccountPanel = ({

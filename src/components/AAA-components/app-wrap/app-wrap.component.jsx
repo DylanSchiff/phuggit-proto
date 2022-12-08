@@ -6,8 +6,13 @@ import { AccountContext } from "../../../AAA/context/AAA-context/account.context
 import { AccountPanelContext } from "../../../AAA/context/AAA-context/account-panel.context";
 import Topbar from "./topbar.component";
 import Botbar from "./botbar.component";
-import AccountPanel from "./panel.component";
-const AppWrapContainer = styled.div``;
+const AppWrapContainer = styled.div`
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+`;
 const AppWrap = () => {
     const { currentAuth, currentData } = useContext(AccountContext);
     const { setIsPanelOpen, isPanelOpen } = useContext(AccountPanelContext);
@@ -20,10 +25,7 @@ const AppWrap = () => {
                 setIsPanelOpen={setIsPanelOpen}
                 signInWithGooglePopup={signInWithGooglePopup}
             />
-            <AccountPanel
-                isPanelOpen={isPanelOpen}
-                setIsPanelOpen={setIsPanelOpen}
-            />
+
             <Outlet />
             <Botbar />
         </AppWrapContainer>

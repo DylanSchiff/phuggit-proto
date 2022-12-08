@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ColorContext } from "../../../AAA/context/AAA-context/color.context";
 import TopBarButton from "./topbar-button.component";
 import TopbarNameplate from "./topbar-nameplate.component";
+import AccountPanel from "./panel.component";
 const TopbarContainer = styled.div.attrs((props) => ({
     style: {
         borderTop: "1px solid" + props.currentColor,
@@ -34,16 +35,22 @@ const Topbar = ({
 }) => {
     const { currentColor } = useContext(ColorContext);
     return (
-        <TopbarContainer currentColor={currentColor}>
-            <TopbarNameplate />
-            <TopBarButton
-                currentAuth={currentAuth}
-                currentData={currentData}
-                setIsPanelOpen={setIsPanelOpen}
+        <>
+            <TopbarContainer currentColor={currentColor}>
+                <TopbarNameplate />
+                <TopBarButton
+                    currentAuth={currentAuth}
+                    currentData={currentData}
+                    setIsPanelOpen={setIsPanelOpen}
+                    isPanelOpen={isPanelOpen}
+                    signInWithGooglePopup={signInWithGooglePopup}
+                />
+            </TopbarContainer>
+            <AccountPanel
                 isPanelOpen={isPanelOpen}
-                signInWithGooglePopup={signInWithGooglePopup}
+                setIsPanelOpen={setIsPanelOpen}
             />
-        </TopbarContainer>
+        </>
     );
 };
 export default Topbar;
