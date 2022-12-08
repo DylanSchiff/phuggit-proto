@@ -3,6 +3,13 @@ import { AccountPanelContext } from "../../../AAA/context/AAA-context/account-pa
 import { AccountContext } from "../../../AAA/context/AAA-context/account.context";
 import styled from "styled-components";
 import ThemeSwapper from "./theme-swapper.component";
+
+const PanelAccountDisplayWrapper = styled.div`
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+`;
 const PanelAccountDisplayContainer = styled.div`
     flex: 1;
     width: 100%;
@@ -18,7 +25,7 @@ const PanelAccountDisplayContainer = styled.div`
     overflow: hidden;
 `;
 const PanelAccountDisplaySettings = styled.div`
-    flex: 1;
+    /* flex: 1; */
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
@@ -36,15 +43,24 @@ const PanelAccountDisplayDisplay = styled.div`
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+    @media only screen and (max-width: 400px) {
+        flex-flow: column nowrap;
+    }
 `;
 const PanelAccountDisplayIntro = styled.div`
     flex: 1;
     width: 100%;
+    @media only screen and (max-width: 400px) {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+    }
 `;
 const PanelAccountDisplaySpan = styled.div`
     font-size: ${({ fontsize }) => fontsize};
     font-weight: ${({ fontweight }) => fontweight};
     user-select: none;
+    white-space: nowrap;
     margin: ${({ margin }) => margin};
 `;
 const PanelAccountDisplayBadges = styled.div`
@@ -54,6 +70,9 @@ const PanelAccountDisplayBadges = styled.div`
     display: flex;
     flex-flow: row wrap;
     align-items: center;
+    @media only screen and (max-width: 400px) {
+        justify-content: center;
+    }
 `;
 const PanelBadge = styled.div`
     border-radius: 4px;
@@ -80,6 +99,9 @@ const PanelAccountDisplayFollowContainer = styled.div`
     align-items: center;
     justify-content: space-evenly;
     margin-bottom: 10px;
+    @media only screen and (max-width: 400px) {
+        flex-flow: column nowrap;
+    }
 `;
 const PanelAccountDisplay = () => {
     const {
@@ -97,7 +119,7 @@ const PanelAccountDisplay = () => {
     const { displayName, handle, badges, followers, following } = currentData;
     return (
         currentData && (
-            <>
+            <PanelAccountDisplayWrapper>
                 <PanelAccountDisplaySettings>
                     {/* <PanelAccountDisplaySpan
                         onClick={() => toggleIsFollowingOpen()}
@@ -169,7 +191,7 @@ const PanelAccountDisplay = () => {
                         </PanelAccountDisplayFollowContainer>
                     )}
                 </PanelAccountDisplayContainer>
-            </>
+            </PanelAccountDisplayWrapper>
         )
     );
 };
