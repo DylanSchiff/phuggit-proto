@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AccountPanelContext } from "../../../AAA/context/AAA-context/account-panel.context";
 import { AccountContext } from "../../../AAA/context/AAA-context/account.context";
 import styled from "styled-components";
@@ -53,20 +53,24 @@ const PanelAccountDisplayBadges = styled.div`
     width: 100%;
     display: flex;
     flex-flow: row wrap;
+    align-items: center;
 `;
 const PanelBadge = styled.div`
-    border-radius: 5px;
+    border-radius: 4px;
     margin: 2.5px;
     padding: 2.5px 5px;
     background-color: var(--thir-004);
     color: var(--main-004);
     font-weight: 300;
-    min-height: 25px;
-    min-width: 25px;
+    min-height: 20px;
+    min-width: 20px;
+    max-height: 20px;
+    max-width: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     user-select: none;
+    overflow: hidden;
 `;
 const PanelAccountDisplayFollowContainer = styled.div`
     flex: 1;
@@ -132,7 +136,7 @@ const PanelAccountDisplay = () => {
                                     {badges.map((badge, index) => {
                                         if (index < 4) {
                                             return (
-                                                <PanelBadge key={badge}>
+                                                <PanelBadge key={badge + index}>
                                                     {badge}
                                                 </PanelBadge>
                                             );
@@ -140,6 +144,14 @@ const PanelAccountDisplay = () => {
                                             return null;
                                         }
                                     })}
+
+                                    <PanelAccountDisplaySpan
+                                        fontsize="15px"
+                                        fontweight="500"
+                                        margin="2.5px"
+                                    >
+                                        {`+${badges.length - 4}`}
+                                    </PanelAccountDisplaySpan>
                                 </PanelAccountDisplayBadges>
                             )}
                         </PanelAccountDisplayIntro>
@@ -151,7 +163,7 @@ const PanelAccountDisplay = () => {
                             } Inspiring`}</PanelAccountDisplaySpan>
                             <PanelAccountDisplaySpan fontsize="12.5px">{`${
                                 followers && followers.length
-                            } Motivating`}</PanelAccountDisplaySpan>
+                            } Motivators`}</PanelAccountDisplaySpan>
                         </PanelAccountDisplayFollowContainer>
                     )}
                 </PanelAccountDisplayContainer>
