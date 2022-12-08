@@ -98,11 +98,12 @@ const PanelAccountDisplayFollowContainer = styled.div`
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-start;
-    margin-bottom: 10px;
     padding-left: 20px;
-    /* @media only screen and (max-width: 400px) {
-        flex-flow: column nowrap;
-    } */
+    margin-bottom: 10px;
+    @media only screen and (max-width: 400px) {
+        justify-content: center;
+        padding-left: 0;
+    }
 `;
 const PanelAccountDisplay = () => {
     const {
@@ -183,10 +184,16 @@ const PanelAccountDisplay = () => {
                     </PanelAccountDisplayDisplay>
                     {currentData && (
                         <PanelAccountDisplayFollowContainer>
-                            <PanelAccountDisplaySpan margin="0 10px" fontsize="12.5px">{`following ${
+                            <PanelAccountDisplaySpan
+                                margin="0 10px"
+                                fontsize="12.5px"
+                            >{`following ${
                                 following && following.length
                             }`}</PanelAccountDisplaySpan>
-                            <PanelAccountDisplaySpan margin="0 10px" fontsize="12.5px">{`${
+                            <PanelAccountDisplaySpan
+                                margin="0 10px"
+                                fontsize="12.5px"
+                            >{`${
                                 followers && followers.length
                             } followers`}</PanelAccountDisplaySpan>
                         </PanelAccountDisplayFollowContainer>
