@@ -25,7 +25,7 @@ const PanelAccountEditorContainer = styled.div.attrs((props) => ({
 const PanelAccountEditorInputContainer = styled.div`
     flex: 1;
     width: 100%;
-    max-height: fit-content;
+    max-height: 50px;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -89,14 +89,14 @@ const PanelAccountEditor = ({ isEditorOpen }) => {
                     }
                 />
             </PanelAccountEditorInputContainer>
-            <PanelAccountEditorInputContainer>
+            {/* <PanelAccountEditorInputContainer>
                 <PanelButton
                     buttonText="Delete Account"
-                    buttonHandler={() =>
-                        updateUserColor(currentAuth, currentColor)
-                    }
+                    // buttonHandler={() =>
+                    //     updateUserColor(currentAuth, currentColor)
+                    // }
                 />
-            </PanelAccountEditorInputContainer>
+                </PanelAccountEditorInputContainer>*/}
         </PanelAccountEditorContainer>
     );
 };
