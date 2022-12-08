@@ -170,7 +170,10 @@ export const updateHandle = async (userAuth, desiredHandle) => {
             })
             .filter((o) => o)[0];
 
-        if (!isHandleTaken === true) {
+        const isHandleBlank =
+            desiredHandle === "" || desiredHandle === " " ? true : false;
+
+        if (!isHandleTaken === true && !isHandleBlank === true) {
             const userRef = doc(db, "users", userAuth.uid);
             const userSnapshot = await getDoc(userRef);
             const userData = userSnapshot.data();
