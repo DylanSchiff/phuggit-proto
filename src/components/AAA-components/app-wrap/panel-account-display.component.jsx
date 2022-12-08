@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AccountPanelContext } from "../../../AAA/context/AAA-context/account-panel.context";
 import { AccountContext } from "../../../AAA/context/AAA-context/account.context";
 import styled from "styled-components";
-import ThemeSwapper from "./theme-swapper.component";
+// import ThemeSwapper from "./theme-swapper.component";
 import ColorCube from "./theme-cube.component";
 import { ColorContext } from "../../../AAA/context/AAA-context/color.context";
 
@@ -15,6 +15,7 @@ const PanelAccountDisplayWrapper = styled.div`
 const PanelAccountDisplayContainer = styled.div`
     flex: 1;
     width: 100%;
+    min-height: 150px;
     padding: 10px;
     padding-left: 0;
     margin-bottom: 10px;
