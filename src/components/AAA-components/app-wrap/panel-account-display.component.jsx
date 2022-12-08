@@ -38,6 +38,7 @@ const PanelBadge = styled.div`
     padding: 2.5px 5px;
     background-color: var(--thir-004);
     color: var(--main-004);
+    font-weight: 300;
     /* box-shadow: var(--shade-002); */
     min-height: 25px;
     min-width: 25px;
