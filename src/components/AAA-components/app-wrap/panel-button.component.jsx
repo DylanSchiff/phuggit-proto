@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 const PanelButtonContainer = styled.div`
     padding: 0 10px;
-    flex: 1;
     width: 100%;
     height: 40px;
     border: 1px solid transparent;
@@ -22,8 +21,9 @@ const PanelButtonContainer = styled.div`
     }
 `;
 const ButtonLink = styled(Link)`
-    height: 100%;
+    flex: 1;
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -3,6 +3,7 @@ import { ColorContext } from "../../../AAA/context/AAA-context/color.context";
 import styled from "styled-components";
 import ColorCube from "./theme-cube.component";
 const ColorCubeDisplay = styled.div`
+    flex: 1;
     width: 100%;
     display: flex;
     align-items: center;
@@ -13,6 +14,21 @@ const ColorCubeDisplay = styled.div`
     max-height: 100px;
     max-width: 100px;
     overflow: hidden;
+`;
+const CubeClickSpan = styled.span.attrs((props) => ({
+    style: {
+        color: props.color,
+    },
+}))`
+    flex: 1;
+    width: 100%;
+    margin: 0 15px;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+        color: var(--thir-003);
+    }
 `;
 const ThemeSwapper = ({ isSmall, isClickable }) => {
     const { currentColor, setCurrentColor } = useContext(ColorContext);
@@ -72,16 +88,27 @@ const ThemeSwapper = ({ isSmall, isClickable }) => {
         evendarkervalues[2]
     );
     return (
-        <ColorCubeDisplay cubeSize={isSmall ? "scale(0.5)" : ""}>
-            <ColorCube
-                hasEffects={true}
-                currentColor={defaultColor}
-                setCurrentColor={isClickable ? setCurrentColor : null}
-                generateRandomColor={isClickable ? generateRandomColor : null}
-                lightcolor={lightcolor}
-                darkcolor={darkcolor}
-                darkercolor={darkercolor}
-            />
+        <ColorCubeDisplay
+        // cubeSize={isSmall ? "scale(0.5)" : ""}
+        >
+            {isSmall && (
+                <CubeClickSpan color={currentColor} onClick={() => generateRandomColor()}>
+                    Recolor
+                </CubeClickSpan>
+            )}
+            {!isSmall && (
+                <ColorCube
+                    hasEffects={true}
+                    currentColor={defaultColor}
+                    setCurrentColor={isClickable ? setCurrentColor : null}
+                    generateRandomColor={
+                        isClickable ? generateRandomColor : null
+                    }
+                    lightcolor={lightcolor}
+                    darkcolor={darkcolor}
+                    darkercolor={darkercolor}
+                />
+            )}
         </ColorCubeDisplay>
     );
 };

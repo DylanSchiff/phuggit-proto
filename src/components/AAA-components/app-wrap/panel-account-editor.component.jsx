@@ -16,23 +16,29 @@ const PanelAccountEditorContainer = styled.div.attrs((props) => ({
     },
 }))`
     flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
     background-color: var(--main-003);
     padding: 10px;
     margin: 10px 0;
 `;
 const PanelAccountEditorInputContainer = styled.div`
     flex: 1;
-    max-height: 50px;
+    width: 100%;
+    max-height: fit-content;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 `;
 const PanelAccountEditorInput = styled.input`
+    width: 100%;
+    min-width: 150px;
     border: none;
     outline: none;
     text-align: center;
     padding: 5px 0;
+    margin: 0 5px;
     overflow: hidden;
     border-radius: 5px;
 `;
@@ -78,6 +84,14 @@ const PanelAccountEditor = ({ isEditorOpen }) => {
                 <ThemeSwapper isSmall isClickable />
                 <PanelButton
                     buttonText="Save"
+                    buttonHandler={() =>
+                        updateUserColor(currentAuth, currentColor)
+                    }
+                />
+            </PanelAccountEditorInputContainer>
+            <PanelAccountEditorInputContainer>
+                <PanelButton
+                    buttonText="Delete Account"
                     buttonHandler={() =>
                         updateUserColor(currentAuth, currentColor)
                     }
