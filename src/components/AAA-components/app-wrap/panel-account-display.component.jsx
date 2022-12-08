@@ -47,6 +47,7 @@ const PanelAccountDisplayIntro = styled.div`
 const PanelAccountDisplaySpan = styled.div`
     font-size: ${({ fontsize }) => fontsize};
     font-weight: ${({ fontweight }) => fontweight};
+    user-select: none;
 `;
 
 const PanelAccountDisplayBadges = styled.div`
@@ -68,6 +69,7 @@ const PanelBadge = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    user-select: none;
 `;
 
 const PanelAccountDisplayFollowContainer = styled.div`
