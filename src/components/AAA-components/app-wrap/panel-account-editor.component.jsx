@@ -49,6 +49,16 @@ const PanelAccountEditorInput = styled.input`
     user-select: none;
 `;
 
+const ThemeContainer = styled.div`
+    min-width: 150px;
+    padding: 5px 0;
+    margin: 0 5px;
+    max-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
 const PanelAccountEditor = ({ isEditorOpen }) => {
     const { currentAuth } = useContext(AccountContext);
     const { currentColor } = useContext(ColorContext);
@@ -89,7 +99,9 @@ const PanelAccountEditor = ({ isEditorOpen }) => {
                 />
             </PanelAccountEditorInputContainer>
             <PanelAccountEditorInputContainer>
-                <ThemeSwapper isSmall isClickable />
+                <ThemeContainer>
+                    <ThemeSwapper isSmall isClickable />
+                </ThemeContainer>
                 <PanelButton
                     buttonText="Save"
                     buttonHandler={() =>
