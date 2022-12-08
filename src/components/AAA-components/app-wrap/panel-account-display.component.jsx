@@ -6,6 +6,10 @@ const PanelAccountDisplayContainer = styled.div`
     flex: 1;
     width: 100%;
     padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: var(--main-003);
+    box-shadow: var(--shade-002);
     display: flex;
     flex-flow: row nowrap;
     align-items: center;

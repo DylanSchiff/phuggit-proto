@@ -17,11 +17,11 @@ const PanelAccountOptions = ({ currentAuth, currentDocs }) => {
                 currentAuth={currentAuth}
                 currentDocs={currentDocs}
             />
-            <PanelControls />
             <PanelAccountEditor
                 currentAuth={currentAuth}
                 isEditorOpen={isEditorOpen}
             />
+            <PanelControls />
         </PanelAccountOptionsContainer>
     );
 };

@@ -18,7 +18,9 @@ const PanelAccountEditorContainer = styled.div.attrs((props) => ({
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
+    border-radius: 5px;
     background-color: var(--main-003);
+    box-shadow: var(--shade-002);
     padding: 10px;
     margin: 10px 0;
 `;

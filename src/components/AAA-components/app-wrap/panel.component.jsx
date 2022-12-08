@@ -7,13 +7,15 @@ const AccountPanelContainer = styled.div.attrs((props) => ({
     },
 }))`
     position: absolute;
-    min-width: 275px;
+    min-width: 300px;
+    max-width: 300px;
     z-index: 999;
     top: 70px;
     right: 25px;
     padding: 25px;
     background-color: var(--main-001);
     box-shadow: var(--shade-001);
+    overflow: hidden;
 `;
 const AccountPanel = ({
     currentAuth,
