@@ -104,7 +104,7 @@ const LabButton = styled.div.attrs((props) => ({
     }
 `;
 const Profile = ({ account }) => {
-    const { currentColor } = useContext(ColorContext);
+    // const { currentColor } = useContext(ColorContext);
     const headsection = useRef(null);
     window.scrolltoheadsection = () =>
         window.scrollTo({
@@ -156,10 +156,10 @@ const Profile = ({ account }) => {
             // phuggit={phuggit}
         >
             <ANotification notificationData={"DATASHEET.notificationData"} />
-            <Splash splashData={account} />
+            <Splash account={account} />
             <AppBodySection ref={appbodysection}>
                 <PageSpan
-                    color={currentColor}
+                    color={account.color}
                     fontsize="35px"
                     lineheight="35px"
                     fontweight="600"
@@ -182,7 +182,7 @@ const Profile = ({ account }) => {
                 /> */}
                 <LabButtons ref={additionalprojectssection}>
                     <LabButton
-                        currentColor={currentColor}
+                        currentColor={account.color}
                         onClick={() => toggleAdditionalProjectsVisible()}
                     >
                         {additionalProjectsVisible
@@ -190,7 +190,7 @@ const Profile = ({ account }) => {
                             : "See Projects"}
                     </LabButton>
                     <LabButton
-                        currentColor={currentColor}
+                        currentColor={account.color}
                         onClick={() => toggleLaboratoryVisible()}
                     >
                         {laboratoryVisible ? "Close Lab" : "Laboratory"}
@@ -206,7 +206,7 @@ const Profile = ({ account }) => {
             </AppBodySection>
             <BackToTopButton
                 onClick={() => window.scrolltoheadsection()}
-                currentColor={currentColor}
+                currentColor={account.color}
             >
                 TOP
             </BackToTopButton>

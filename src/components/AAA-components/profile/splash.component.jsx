@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
+import { AccountContext } from "../../../AAA/context/AAA-context/account.context";
 import { ColorContext } from "../../../AAA/context/AAA-context/color.context";
 import PageSpan from "./page-span.component";
 
@@ -161,69 +162,71 @@ const SplashImage = styled.img`
 `;
 
 const Splash = ({ account }) => {
-    const { currentColor } = useContext(ColorContext);
+    console.log(account);
     return (
-        <AppSplash currentColor={currentColor}>
-            <SplashDetails>
-                <SplashHeadingContainer>
-                    <PageSpan
-                        maxheight="fit-content"
-                        fontsize="45px"
-                        lineheight="45px"
-                        fontweight="600"
-                        maxwidthone="275px"
-                        fontsizeone="30px"
-                        lineheightone="30px"
-                        fontweightone="600"
-                        maxwidthsix="275px"
-                        fontsizesix="35px"
-                        lineheightsix="35px"
-                        fontweightsix="600"
-                        textalignsix="center"
-                        fontsizetwo="30px"
-                        lineheighttwo="30px"
-                        fontweighttwo="600"
-                        textaligntwo="center"
-                        spantext={"account.splashHeadingText"}
-                    />
-                </SplashHeadingContainer>
-                <SplashSummaryContainer>
-                    <PageSpan
-                        fontsize="25px"
-                        lineheight="25px"
-                        fontweight="400"
-                        fontsizeone="22px"
-                        lineheightone="22px"
-                        fontweightone="400"
-                        maxwidthone="80%"
-                        maxwidthsix="100%"
-                        paddingsix="0"
-                        fontsizesix="20px"
-                        lineheightsix="20px"
-                        textalignone="center"
-                        paddingtwo="0"
-                        spantext={"account.splashSubheadingText"}
-                    />
-                </SplashSummaryContainer>
-                <SplashButtonsContainer>
-                    <FirstSplashButton
-                        currentColor={currentColor}
-                        onClick={() => window.scrolltoappbodysection()}
-                    >
-                        Learn More
-                    </FirstSplashButton>
-                    <SecondSplashButton
-                        currentColor={currentColor}
-                        onClick={() => window.scrolltotoolkitsection()}
-                    >
-                        {"account.splashSecondButtonText"}
-                    </SecondSplashButton>
-                </SplashButtonsContainer>
-            </SplashDetails>
-            <SplashImageContainer>
-                <SplashImage src={"account.splashImageUrl"} />
-            </SplashImageContainer>
-        </AppSplash>
+        account && (
+            <AppSplash currentColor={account.color}>
+                <SplashDetails>
+                    <SplashHeadingContainer>
+                        <PageSpan
+                            maxheight="fit-content"
+                            fontsize="45px"
+                            lineheight="45px"
+                            fontweight="600"
+                            maxwidthone="275px"
+                            fontsizeone="30px"
+                            lineheightone="30px"
+                            fontweightone="600"
+                            maxwidthsix="275px"
+                            fontsizesix="35px"
+                            lineheightsix="35px"
+                            fontweightsix="600"
+                            textalignsix="center"
+                            fontsizetwo="30px"
+                            lineheighttwo="30px"
+                            fontweighttwo="600"
+                            textaligntwo="center"
+                            spantext={"account.splashHeadingText"}
+                        />
+                    </SplashHeadingContainer>
+                    <SplashSummaryContainer>
+                        <PageSpan
+                            fontsize="25px"
+                            lineheight="25px"
+                            fontweight="400"
+                            fontsizeone="22px"
+                            lineheightone="22px"
+                            fontweightone="400"
+                            maxwidthone="80%"
+                            maxwidthsix="100%"
+                            paddingsix="0"
+                            fontsizesix="20px"
+                            lineheightsix="20px"
+                            textalignone="center"
+                            paddingtwo="0"
+                            spantext={"account.splashSubheadingText"}
+                        />
+                    </SplashSummaryContainer>
+                    <SplashButtonsContainer>
+                        <FirstSplashButton
+                            currentColor={account.color}
+                            onClick={() => window.scrolltoappbodysection()}
+                        >
+                            Learn More
+                        </FirstSplashButton>
+                        <SecondSplashButton
+                            currentColor={account.color}
+                            onClick={() => window.scrolltotoolkitsection()}
+                        >
+                            {"account.splashSecondButtonText"}
+                        </SecondSplashButton>
+                    </SplashButtonsContainer>
+                </SplashDetails>
+                <SplashImageContainer>
+                    <SplashImage src={"account.splashImageUrl"} />
+                </SplashImageContainer>
+            </AppSplash>
+        )
     );
 };
 export default Splash;
