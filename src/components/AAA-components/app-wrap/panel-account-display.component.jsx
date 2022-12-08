@@ -12,9 +12,18 @@ const PanelAccountDisplayContainer = styled.div`
     background-color: var(--main-003);
     box-shadow: var(--shade-002);
     display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+`;
+
+const PanelAccountDisplayTop = styled.div`
+    flex: 1;
+    width: 100%;
+    display: flex;
     flex-flow: row nowrap;
     align-items: center;
 `;
+
 const PanelAccountDisplayIntro = styled.div`
     flex: 1;
     width: 100%;
@@ -39,35 +48,63 @@ const PanelBadge = styled.div`
     background-color: var(--thir-004);
     color: var(--main-004);
     font-weight: 300;
-    /* box-shadow: var(--shade-002); */
     min-height: 25px;
     min-width: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
 `;
+
+const PanelAccountDisplayFollowContainer = styled.div`
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+`;
+
 const PanelAccountDisplay = () => {
     const { currentData } = useContext(AccountContext);
-    const { displayName, handle, badges } = currentData;
+    const { displayName, handle, badges, followers, following } = currentData;
     return (
         currentData && (
             <PanelAccountDisplayContainer>
-                <ThemeSwapper />
-                <PanelAccountDisplayIntro>
-                    <PanelAccountDisplaySpan fontsize="20px" fontweight="600">
-                        {displayName}
-                    </PanelAccountDisplaySpan>
-                    <PanelAccountDisplaySpan fontsize="15px">
-                        {`@${handle}`}
-                    </PanelAccountDisplaySpan>
-                    {badges && (
-                        <PanelAccountDisplayBadges>
-                            {badges.map((badge) => {
-                                return <PanelBadge>{badge}</PanelBadge>;
-                            })}
-                        </PanelAccountDisplayBadges>
-                    )}
-                </PanelAccountDisplayIntro>
+                <PanelAccountDisplayTop>
+                    <ThemeSwapper />
+                    <PanelAccountDisplayIntro>
+                        <PanelAccountDisplaySpan
+                            fontsize="20px"
+                            fontweight="600"
+                        >
+                            {currentData && displayName}
+                        </PanelAccountDisplaySpan>
+                        <PanelAccountDisplaySpan fontsize="15px">
+                            {`@${handle}`}
+                        </PanelAccountDisplaySpan>
+                        {badges && (
+                            <PanelAccountDisplayBadges>
+                                {badges.map((badge) => {
+                                    return (
+                                        <PanelBadge key={badge}>
+                                            {badge}
+                                        </PanelBadge>
+                                    );
+                                })}
+                            </PanelAccountDisplayBadges>
+                        )}
+                    </PanelAccountDisplayIntro>
+                </PanelAccountDisplayTop>
+                {currentData && (
+                    <PanelAccountDisplayFollowContainer>
+                        <PanelAccountDisplaySpan fontsize="12.5px">{`${
+                            following && following.length
+                        } Following`}</PanelAccountDisplaySpan>
+                        <PanelAccountDisplaySpan fontsize="12.5px">{`${
+                            followers && followers.length
+                        } Followers`}</PanelAccountDisplaySpan>
+                    </PanelAccountDisplayFollowContainer>
+                )}
             </PanelAccountDisplayContainer>
         )
     );

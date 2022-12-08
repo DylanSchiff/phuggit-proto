@@ -32,12 +32,12 @@ const PanelAccountControls = () => {
                     routePath={`/${currentData.routePath}`}
                 />
             )}
-            <PanelButton buttonText="Contact" isLink routePath="/contact" />
             <PanelButton buttonText="Guides" isLink routePath="/guides" />
             <PanelButton
                 buttonText="Settings"
                 buttonHandler={toggleIsEditorOpen}
             />
+            <PanelButton buttonText="Contact" isLink routePath="/contact" />
             <PanelButton
                 buttonText="Sign Out"
                 buttonHandler={signOutAndClosePanel}
