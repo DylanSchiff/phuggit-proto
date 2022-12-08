@@ -99,9 +99,9 @@ const PanelAccountDisplayFollowContainer = styled.div`
     align-items: center;
     justify-content: space-evenly;
     margin-bottom: 10px;
-    @media only screen and (max-width: 400px) {
+    /* @media only screen and (max-width: 400px) {
         flex-flow: column nowrap;
-    }
+    } */
 `;
 const PanelAccountDisplay = () => {
     const {

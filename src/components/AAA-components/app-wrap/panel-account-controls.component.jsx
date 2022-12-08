@@ -7,11 +7,13 @@ import { AccountContext } from "../../../AAA/context/AAA-context/account.context
 const PanelAccountControlsContainer = styled.div`
     flex: 1;
     width: 100%;
+    height: fit-content;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
     align-items: center;
     justify-items: center;
+    padding: 20px;
 `;
 const PanelAccountControls = () => {
     const { setIsPanelOpen } = useContext(AccountPanelContext);

@@ -14,18 +14,27 @@ const PanelAccountOptionsContainer = styled.div`
         flex-flow: column nowrap;
     }
 `;
+const PanelAccountSection = styled.div`
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0 20px;
+`;
 const PanelAccountOptions = ({ currentAuth, currentDocs }) => {
     const { isEditorOpen } = useContext(AccountPanelContext);
     return (
         <PanelAccountOptionsContainer>
-            <PanelAccountDisplay
-                currentAuth={currentAuth}
-                currentDocs={currentDocs}
-            />
-            <PanelAccountEditor
-                currentAuth={currentAuth}
-                isEditorOpen={isEditorOpen}
-            />
+            <PanelAccountSection>
+                <PanelAccountDisplay
+                    currentAuth={currentAuth}
+                    currentDocs={currentDocs}
+                />
+                <PanelAccountEditor
+                    currentAuth={currentAuth}
+                    isEditorOpen={isEditorOpen}
+                />
+            </PanelAccountSection>
             <PanelControls />
         </PanelAccountOptionsContainer>
     );
