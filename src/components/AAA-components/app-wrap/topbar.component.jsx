@@ -20,7 +20,6 @@ const TopbarContainer = styled.div.attrs((props) => ({
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    transition: 111ms linear;
     padding: 0 25px;
 `;
 
