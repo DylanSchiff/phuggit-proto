@@ -15,6 +15,7 @@ const PanelAccountDisplayContainer = styled.div`
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    overflow: hidden;
 `;
 const PanelAccountDisplaySettings = styled.div`
     flex: 1;
