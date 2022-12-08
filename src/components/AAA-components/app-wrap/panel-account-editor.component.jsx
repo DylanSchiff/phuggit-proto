@@ -31,7 +31,7 @@ const PanelAccountEditorInputContainer = styled.div`
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     &:nth-of-type(2) {
         z-index: 999;
     }
@@ -59,6 +59,15 @@ const ThemeContainer = styled.div`
     justify-content: center;
 `;
 
+const PanelAccountSpan = styled.span`
+    font-weight: 500;
+    font-size: 15px;
+    flex: 1;
+    width: 100%;
+    text-align: start;
+    padding: 10px;
+`;
+
 const PanelAccountEditor = ({ isEditorOpen }) => {
     const { currentAuth } = useContext(AccountContext);
     const { currentColor } = useContext(ColorContext);
@@ -72,9 +81,10 @@ const PanelAccountEditor = ({ isEditorOpen }) => {
     };
     return (
         <PanelAccountEditorContainer display={isEditorOpen ? "flex" : "none"}>
+            <PanelAccountSpan>Update Settings</PanelAccountSpan>
             <PanelAccountEditorInputContainer>
                 <PanelAccountEditorInput
-                    placeholder="Change Name"
+                    placeholder="Name"
                     maxLength="20"
                     onInput={(e) => setName(e)}
                 />
@@ -87,7 +97,7 @@ const PanelAccountEditor = ({ isEditorOpen }) => {
             </PanelAccountEditorInputContainer>
             <PanelAccountEditorInputContainer>
                 <PanelAccountEditorInput
-                    placeholder="Change Handle"
+                    placeholder="@Handle"
                     maxLength="20"
                     onInput={(e) => setHandle(e)}
                 />

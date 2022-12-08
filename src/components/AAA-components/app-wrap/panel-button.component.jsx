@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 const PanelButtonContainer = styled.div`
     padding: 0 10px;
-    width: 100%;
+    /* width: 100%; */
+    width: fit-content;
     height: 40px;
     border: 1px solid transparent;
     border-radius: 10px;
