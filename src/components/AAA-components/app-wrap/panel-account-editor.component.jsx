@@ -109,14 +109,6 @@ const PanelAccountEditor = ({ isEditorOpen }) => {
                     }
                 />
             </PanelAccountEditorInputContainer>
-            {/* <PanelAccountEditorInputContainer>
-                <PanelButton
-                    buttonText="Delete Account"
-                    // buttonHandler={() =>
-                    //     updateUserColor(currentAuth, currentColor)
-                    // }
-                />
-                </PanelAccountEditorInputContainer>*/}
         </PanelAccountEditorContainer>
     );
 };
