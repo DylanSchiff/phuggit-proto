@@ -13,8 +13,8 @@ const AccountPanelContainer = styled.div.attrs((props) => ({
     top: 70px;
     right: 25px;
     padding: 10px 25px 25px 25px;
-    background-color: var(--main-001);
-    border: 1px solid var(--main-002);
+    background-color: var(--main-002);
+    border: 1px solid var(--main-001);
     box-shadow: var(--shade-001);
     overflow: hidden;
     border-radius: 10px;

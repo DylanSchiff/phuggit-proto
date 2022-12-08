@@ -84,10 +84,12 @@ const PanelAccountDisplay = () => {
     return (
         currentData && (
             <>
-                <PanelAccountDisplaySettings
-                    onClick={() => toggleIsEditorOpen()}
-                >
-                    <PanelAccountDisplaySpan>edit</PanelAccountDisplaySpan>
+                <PanelAccountDisplaySettings>
+                    <PanelAccountDisplaySpan
+                        onClick={() => toggleIsEditorOpen()}
+                    >
+                        edit
+                    </PanelAccountDisplaySpan>
                 </PanelAccountDisplaySettings>
                 <PanelAccountDisplayContainer>
                     <PanelAccountDisplayDisplay>
