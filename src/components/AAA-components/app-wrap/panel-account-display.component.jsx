@@ -103,6 +103,7 @@ const PanelAccountDisplayFollowContainer = styled.div`
     @media only screen and (max-width: 400px) {
         justify-content: center;
         padding-left: 0;
+        margin-top: 10px;
     }
 `;
 const PanelAccountDisplay = () => {
