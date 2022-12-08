@@ -27,7 +27,9 @@ const PanelAccountDisplaySettings = styled.div`
     cursor: pointer;
     user-select: none;
     margin-bottom: 7.5px;
+    padding-right: 2.5px;
 `;
+
 const PanelAccountDisplayDisplay = styled.div`
     flex: 1;
     width: 100%;
