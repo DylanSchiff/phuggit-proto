@@ -16,6 +16,10 @@ const AccountPanelContainer = styled.div.attrs((props) => ({
     background-color: var(--main-001);
     box-shadow: var(--shade-001);
     overflow: hidden;
+    @media only screen and (max-width: 600px) {
+        top: 60px;
+        right: 10px;
+    }
 `;
 const AccountPanel = ({
     currentAuth,

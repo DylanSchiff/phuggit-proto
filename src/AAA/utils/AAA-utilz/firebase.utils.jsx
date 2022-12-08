@@ -181,6 +181,7 @@ export const updateHandle = async (userAuth, desiredHandle) => {
         });
         await batch.commit();
         alert("Handle changed successfully.");
+
         // window.location.reload();
     } else {
         alert("That handle is taken, please try another.");

@@ -64,6 +64,7 @@ const PanelAccountEditor = ({ isEditorOpen }) => {
             <PanelAccountEditorInputContainer>
                 <PanelAccountEditorInput
                     placeholder="Change Name"
+                    maxLength="20"
                     onInput={(e) => setName(e)}
                 />
                 <PanelButton
@@ -76,6 +77,7 @@ const PanelAccountEditor = ({ isEditorOpen }) => {
             <PanelAccountEditorInputContainer>
                 <PanelAccountEditorInput
                     placeholder="Change Handle"
+                    maxLength="20"
                     onInput={(e) => setHandle(e)}
                 />
                 <PanelButton
