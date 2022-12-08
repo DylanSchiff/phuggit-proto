@@ -99,7 +99,7 @@ const PanelAccountDisplay = () => {
                         onClick={() => toggleIsFollowingOpen()}
                         margin="0 0 0 10px"
                     >
-                        people
+                        peeps
                     </PanelAccountDisplaySpan>
                     <PanelAccountDisplaySpan
                         onClick={() => toggleIsBadgesOpen()}
@@ -148,10 +148,10 @@ const PanelAccountDisplay = () => {
                         <PanelAccountDisplayFollowContainer>
                             <PanelAccountDisplaySpan fontsize="12.5px">{`${
                                 following && following.length
-                            } Following`}</PanelAccountDisplaySpan>
+                            } Inspiring`}</PanelAccountDisplaySpan>
                             <PanelAccountDisplaySpan fontsize="12.5px">{`${
                                 followers && followers.length
-                            } Followers`}</PanelAccountDisplaySpan>
+                            } Motivating`}</PanelAccountDisplaySpan>
                         </PanelAccountDisplayFollowContainer>
                     )}
                 </PanelAccountDisplayContainer>
