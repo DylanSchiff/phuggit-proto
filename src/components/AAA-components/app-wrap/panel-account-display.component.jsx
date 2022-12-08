@@ -33,9 +33,12 @@ const PanelAccountDisplayBadges = styled.div`
     flex-flow: row wrap;
 `;
 const PanelBadge = styled.div`
+    border-radius: 5px;
     margin: 2.5px;
     padding: 2.5px 5px;
     background-color: var(--thir-004);
+    color: var(--main-004);
+    /* box-shadow: var(--shade-002); */
     min-height: 25px;
     min-width: 25px;
     display: flex;
