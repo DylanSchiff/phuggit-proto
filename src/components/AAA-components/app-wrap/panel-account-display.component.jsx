@@ -145,13 +145,15 @@ const PanelAccountDisplay = () => {
                                         }
                                     })}
 
-                                    <PanelAccountDisplaySpan
-                                        fontsize="15px"
-                                        fontweight="500"
-                                        margin="2.5px"
-                                    >
-                                        {`+${badges.length - 4}`}
-                                    </PanelAccountDisplaySpan>
+                                    {badges.length < 5 ? null : (
+                                        <PanelAccountDisplaySpan
+                                            fontsize="15px"
+                                            fontweight="500"
+                                            margin="2.5px"
+                                        >
+                                            {`+${badges.length - 4}`}
+                                        </PanelAccountDisplaySpan>
+                                    )}
                                 </PanelAccountDisplayBadges>
                             )}
                         </PanelAccountDisplayIntro>
